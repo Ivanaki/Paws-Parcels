@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ef41415cb74fac96670f8dd58793fd, type: 3}
+  m_Name: BaseSettings
+  m_EditorClassIdentifier: Assembly-CSharp::MotorHome.Scripts.Saves.ScriptableObjects.SettingsSo
+  <SettingsState>k__BackingField:
+    MasterVolume: 1
+    CarAim: 1
+    PlayerAim: 1
+    Language: 0

@@ -75,3 +75,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MotorHome.Scripts.Zenject.GlobalProjectInstaller
   _uiRootPrefab: {fileID: 6398208496187933082, guid: d26b6cc9dd00e4b42930cdb985263d4a, type: 3}
+  _baseSettingsSo: {fileID: 11400000, guid: a671ebacf93a1fa46986b90aa7266604, type: 2}
+  _baseCoreSo: {fileID: 11400000, guid: c7a738928b67b3446af1400e010287cd, type: 2}
+  _uiRootView: {fileID: 6398208496187933082, guid: d26b6cc9dd00e4b42930cdb985263d4a, type: 3}
+  _inputActionAsset: {fileID: 0}
+  _languagesSO:
+  - {fileID: 11400000, guid: 5bc8b680f3b2555449add3ffc819ada9, type: 2}
+  - {fileID: 11400000, guid: b6f51b3b69ded964eb3e6df2aa176c44, type: 2}
+  _gameSettingsSo: {fileID: 11400000, guid: 7ed7652bb0289554ba2c8517ca54f4d9, type: 2}
+  _questsSo: {fileID: 11400000, guid: 2b68d030358113e4086c036b1a82c6b6, type: 2}

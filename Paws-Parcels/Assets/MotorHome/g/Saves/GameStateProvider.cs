@@ -152,10 +152,9 @@ namespace MotorHome.Scripts.Saves
             _screenshotSaver.CaptureScreenshot(screenshotName, GetCamera());
         }
 
-        public ScreenShotCallback LoadScreenshot(string screenshotName)
+        public ScreenshotSaver.ScreenShotCallback LoadScreenshot(string screenshotName)
         {
             return _screenshotSaver.LoadTexture(screenshotName);
-            
         }
 
         public Observable<bool> SaveCoreSaverData(BaseCoreSaverData baseCoreSaverData)

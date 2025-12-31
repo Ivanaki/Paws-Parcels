@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1785edf7e3ca49c9b05648d7c3b7071e, type: 3}
+  m_Name: BaseCore
+  m_EditorClassIdentifier: Assembly-CSharp::MotorHome.Scripts.Saves.ScriptableObjects.CoreSo
+  <CoreState>k__BackingField:
+    Progress: -6
+    CarOrPlayerState: 1
+    CarPosition:
+      x: 337.38
+      y: 5.28
+      z: 958.29
+    CarRotation:
+      x: 0
+      y: -0.70710677
+      z: 0
+      w: 0.70710677
+    CarVelocity:
+      x: 0
+      y: 0
+      z: 0
+    CarAngularVelocity:
+      x: 0
+      y: 0
+      z: 0
+    PlayerPosition:
+      x: 336.04
+      y: 4.404
+      z: 964.26
+    PlayerRotation:
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+    PlayerCameraRotationYaw: 0
+    PlayerCameraRotationPitch: 0
+    IsDoorsInCarOpen: 0
+    Items: []
+    Quests: 
+    IsCompassActivate: 0
+    GasValue: 0
+    Money: 0
+    CompassSelected: 0
