@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using Game.Root;
 using UnityEngine;
 using Zenject;
@@ -27,6 +29,11 @@ namespace Paws_Parcels.Scripts
         public void Quit()
         {
             _mainMenuScenesChanger.Exit();
+        }
+
+        private void Start()
+        {
+            print(Path.Combine(new string[]{}));
         }
     }
 }

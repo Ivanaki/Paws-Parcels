@@ -41,7 +41,21 @@ namespace Game.Root
             {
                 return;
             }
-
+            
+            if (nameScene == Scenes.MAINMENU)
+            {
+                _currentBaseEnterParams = new MainMenuEnterParams("", "");
+                _currentLoadingScene = Scenes.MAINMENU;
+                return;
+            }
+            
+            if (nameScene == Scenes.CORE)
+            {
+                _currentBaseEnterParams = new CoreEnterParams("", "", LoadType.Continue, 6);
+                _currentLoadingScene = Scenes.CORE;
+                return;
+            }
+            
             if (nameScene == Scenes.BOOT)
             {
                 nameScene = Scenes.MAINMENU;
@@ -109,7 +123,6 @@ namespace Game.Root
             }
             
             var cur =  _currentBaseEnterParams;
-            
             _currentBaseEnterParams = null;
             
             return cur;
