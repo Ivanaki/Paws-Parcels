@@ -1,4 +1,5 @@
 
+using System;
 using Game.Root;
 
 namespace Game.Params
@@ -7,9 +8,9 @@ namespace Game.Params
     {
         public string DataCore { get; }
         public LoadType LoadType { get; }
-        public int SaveNumber { get; }
+        public Guid SaveNumber { get; }
         
-        public CoreEnterParams(string lastScene, string dataCore, LoadType loadType, int saveNumber) : base(lastScene)
+        public CoreEnterParams(string lastScene, string dataCore, LoadType loadType, Guid saveNumber) : base(lastScene)
         {
             DataCore = dataCore;
             LoadType = loadType;

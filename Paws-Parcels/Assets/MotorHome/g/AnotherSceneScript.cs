@@ -1,4 +1,5 @@
 using System;
+using UI;
 using UnityEngine;
 using Zenject;
 
@@ -7,16 +8,16 @@ namespace MotorHome.Scripts
     public class AnotherSceneScript : MonoBehaviour
     {
         private CoreUI _coreUI;
-        private UIRootView _uiRootView;
+        private UIGameView _uiGameView;
         private Settings _settings;
         private CoreSaver _coreSaver;
         private UIActiveCoreManager _uiActiveCoreManager;
         
         [Inject]
-        private void Construct(UIRootView uiRootView, CoreUI coreUI, Settings settings, CoreSaver coreSaver,
+        private void Construct(UIGameView uiGameView, CoreUI coreUI, Settings settings, CoreSaver coreSaver,
             UIActiveCoreManager uiActiveCoreManager)
         {
-            _uiRootView  = uiRootView;
+            _uiGameView  = uiGameView;
             _coreUI  = coreUI;
             _settings = settings;
             _coreSaver = coreSaver;
@@ -27,7 +28,7 @@ namespace MotorHome.Scripts
         {
             _coreUI.Helper.Inject(_uiActiveCoreManager);
             
-            _uiRootView.AttachSceneUI(_coreUI.gameObject);
+            _uiGameView.AttachSceneUI(_coreUI.gameObject);
             
             _settings.BindOpenSettingsObservable(_coreUI.SettingsPressed, _uiActiveCoreManager);
             

@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using Game.Params;
 using MotorHome.Scripts;
+using Paws_Parcels.Scripts.Saves.States;
 using R3;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -12,22 +14,30 @@ namespace Game.Root
 {
     public class GameEntryPoint : IInitializable
     {
-        private readonly UIRootView _uiRootView;
+        private readonly UIGameView _uiGameView;
         private readonly Coroutines _coroutines;
-        
+        private readonly SettingsStateProvider _settingsStateProvider;
+
         private BaseEnterParams _currentBaseEnterParams = null;
         private string _currentLoadingScene = string.Empty;
 
-        private GameEntryPoint(UIRootView uiRootView, Coroutines coroutines)
+        private GameEntryPoint(UIGameView uiGameView, Coroutines coroutines, SettingsStateProvider settingsStateProvider)
         {
-            _uiRootView = uiRootView;
+            _uiGameView = uiGameView;
             _coroutines = coroutines;
+            _settingsStateProvider = settingsStateProvider;
         }
 
         //initialize перед всеми остальными
         public void Initialize()
         {
-            //Debug.Log("work");
+            var result = _settingsStateProvider.LoadSettingsState();
+            if (!result)
+            {
+                Debug.Log($"Failed to load settings state => creating baseSettingsState");
+                _settingsStateProvider.ResetSettingsState();
+            }
+            
             RunGame();
         }
         
@@ -51,7 +61,7 @@ namespace Game.Root
             
             if (nameScene == Scenes.CORE)
             {
-                _currentBaseEnterParams = new CoreEnterParams("", "", LoadType.Continue, 6);
+                _currentBaseEnterParams = new CoreEnterParams("", "", LoadType.Continue, Guid.Empty);
                 _currentLoadingScene = Scenes.CORE;
                 return;
             }
@@ -87,7 +97,7 @@ namespace Game.Root
         
         private IEnumerator LoadAndStartMainMenu()
         {
-            _uiRootView.ShowLoadingScreen();
+            _uiGameView.ShowLoadingScreen();
             
             yield return LoadScene(Scenes.BOOT);
             yield return LoadScene(Scenes.MAINMENU);
@@ -97,7 +107,7 @@ namespace Game.Root
         
         private IEnumerator LoadAndStartCore()
         {
-            _uiRootView.ShowLoadingScreen();
+            _uiGameView.ShowLoadingScreen();
             
             yield return LoadScene(Scenes.BOOT);
             yield return LoadScene(Scenes.CORE);
@@ -114,12 +124,12 @@ namespace Game.Root
         {
             if (sceneName != _currentLoadingScene)
             {
-                //Debug.Log($"Scene {_currentLoadingScene} is bug");
+                Debug.Log($"Scene {_currentLoadingScene} is bug");
             }
 
             if (_currentBaseEnterParams == null)
             {
-                //Debug.Log($"Scene {_currentLoadingScene} is bug");
+                Debug.Log($"Scene {_currentLoadingScene} is bug");
             }
             
             var cur =  _currentBaseEnterParams;
@@ -133,12 +143,12 @@ namespace Game.Root
         {
             if (sceneName != _currentLoadingScene)
             {
-                //Debug.Log($"Scene {_currentLoadingScene} is bug");
+                Debug.Log($"Scene {_currentLoadingScene} is bug");
             }
 
             _currentLoadingScene = string.Empty;
             
-            _uiRootView.HideLoadingScreen();
+            _uiGameView.HideLoadingScreen();
         }
     }
     

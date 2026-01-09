@@ -72,12 +72,12 @@ namespace MotorHome.Scripts
             
             Texture2D texture2D;
             var callback = _gameStateProvider.LoadScreenshot(number.ToString());
-            texture2D = callback.IsLoaded ? callback.Texture : new Texture2D(1, 1);
+            //texture2D = callback.IsLoaded ? callback.Texture : new Texture2D(1, 1);
             
             var hasKey = _saveData.TryGetValue(number, out CoreSaveData saveData);
             if (hasKey)
             {
-                _coreSaverUI.ShowSelectedSave(saveData, texture2D);
+                //_coreSaverUI.ShowSelectedSave(saveData, texture2D);
             }
             else
             {

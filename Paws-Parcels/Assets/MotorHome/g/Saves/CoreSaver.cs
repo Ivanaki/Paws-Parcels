@@ -101,19 +101,19 @@ namespace MotorHome.Scripts
             
             Texture2D texture2D;
             var callback = _gameStateProvider.LoadScreenshot(number.ToString());
-            if (callback.IsLoaded)
+            /*if (callback.IsLoaded)
             {
                 texture2D =  callback.Texture;
             }
             else
             {
                 texture2D = new Texture2D(1, 1);
-            }
+            }*/
             
             var hasKey = _saveData.TryGetValue(number, out CoreSaveData saveData);
             if (hasKey)
             {
-                _coreUI.CoreSaverUI.ShowSelectedSave(saveData, texture2D);
+                //_coreUI.CoreSaverUI.ShowSelectedSave(saveData, texture2D);
             }
             else
             {

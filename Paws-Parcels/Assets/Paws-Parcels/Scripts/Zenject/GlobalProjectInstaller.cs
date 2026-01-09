@@ -2,8 +2,12 @@ using Game.Root;
 using MotorHome.Scripts.Saves;
 using MotorHome.Scripts.Saves.ScriptableObjects;
 using MotorHome.Scripts.ScriptableObjects;
+using Paws_Parcels.Scripts;
+using Paws_Parcels.Scripts.Saves.States;
 using SaveLaod;
 using Saves;
+using UI;
+using UI.Screens.Settings;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -12,26 +16,24 @@ namespace MotorHome.Scripts.Zenject
 {
     public class GlobalProjectInstaller : MonoInstaller
     {
-        [SerializeField] private UIRootView _uiRootPrefab;
+        [SerializeField] private UIGameView _uiGameViewPrefab;
         
-        [SerializeField] private SettingsSo _baseSettingsSo;
-        [SerializeField] private CoreSo _baseCoreSo;
+        //[SerializeField] private SettingsSo _baseSettingsSo;
+        //[SerializeField] private CoreSo _baseCoreSo;
         
-        [SerializeField] private UIRootView _uiRootView;
+        //[SerializeField] private InputActionAsset _inputActionAsset;
 
-        [SerializeField] private InputActionAsset _inputActionAsset;
-
-        [SerializeField] private LanguageSO[] _languagesSO;
-        [SerializeField] private GameSettingsSO _gameSettingsSo;
-        [SerializeField] private QuestsSO _questsSo;
+        //[SerializeField] private LanguageSO[] _languagesSO;
+        //[SerializeField] private GameSettingsSO _gameSettingsSo;
+        //[SerializeField] private QuestsSO _questsSo;
         
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<GameEntryPoint>().AsSingle().NonLazy();
             Container.BindExecutionOrder<GameEntryPoint>(-1000);
 
-            Container.Bind<UIRootView>().FromComponentInNewPrefab(_uiRootPrefab).AsSingle()
-                .OnInstantiated<UIRootView>((ctx, ui) =>
+            Container.Bind<UIGameView>().FromComponentInNewPrefab(_uiGameViewPrefab).AsSingle()
+                .OnInstantiated<UIGameView>((ctx, ui) =>
                 {
                     ui.ShowLoadingScreen();
                     ui.transform.SetParent(null);
@@ -47,6 +49,11 @@ namespace MotorHome.Scripts.Zenject
             
             Container.Bind<JsonFileSerializer>().AsSingle();
             Container.Bind<ScreenshotSaver>().AsSingle();
+            
+            Container.Bind<LoadService>().AsSingle();
+            //Container.Bind<GameStateProvider>().AsSingle();
+            Container.Bind<SettingsStateProvider>().AsSingle();
+            Container.Bind<SettingsService>().AsSingle();
             
             
             //Old bindings

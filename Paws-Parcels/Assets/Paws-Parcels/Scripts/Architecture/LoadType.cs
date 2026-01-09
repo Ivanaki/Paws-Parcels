@@ -2,7 +2,8 @@ namespace Game.Root
 {
     public enum LoadType
     {
-        Continue,
-        New
+        New = 0,
+        LoadCurrentSave = 1,
+        Continue = 2
     }
 }

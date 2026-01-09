@@ -8,27 +8,27 @@ namespace Paws_Parcels.Scripts
 {
     public class MainTest : MonoBehaviour
     {
-        private MainMenuScenesChanger _mainMenuScenesChanger;
+        private MainMenuSignals _mainMenuSignals;
         
         [Inject]
-        private void Construct(MainMenuScenesChanger  mainMenuScenesChanger)
+        private void Construct(MainMenuSignals  mainMenuSignals)
         {
-            _mainMenuScenesChanger = mainMenuScenesChanger;
+            _mainMenuSignals = mainMenuSignals;
         }
         
         public void Core()
         {
-            _mainMenuScenesChanger.GoToCore();
+            //_mainMenuScenesChanger.GoToCore();
         }
 
         public void Restart()
         {
-            _mainMenuScenesChanger.Restart();
+            //_mainMenuScenesChanger.Restart();
         }
 
         public void Quit()
         {
-            _mainMenuScenesChanger.Exit();
+            //_mainMenuScenesChanger.Exit();
         }
 
         private void Start()

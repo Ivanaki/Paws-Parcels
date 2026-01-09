@@ -16,12 +16,12 @@ namespace Paws_Parcels.Scripts
         
         public void MianMenu()
         {
-            _coreScenesChanger.GoToMenu();
+            //_coreScenesChanger.GoToMenu();
         }
 
         public void Restart()
         {
-            _coreScenesChanger.Restart();
+            //_coreScenesChanger.Restart();
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Saves;
 using UnityEngine;
@@ -15,10 +16,22 @@ namespace Paws_Parcels.Scripts
         
         [Inject]
         private JsonFileSerializer _jsonFileSerializer;
-        
+
+        private void OnEnable()
+        {
+            print("OnEnable");
+        }
+
+        private void Awake()
+        {
+            print("Awake");
+        }
+
         private void Start()
         {
-            var data = new Dictionary<string, object>
+            print("Start");
+            
+            /*var data = new Dictionary<string, object>
             {
                 ["test1"] = 1,
                 ["test2"] = new Data1()
@@ -51,7 +64,7 @@ namespace Paws_Parcels.Scripts
             }
 
 
-            var deleteCallback = _jsonFileSerializer.Delete("data", new[] { "g", "i", "m" });
+            var deleteCallback = _jsonFileSerializer.Delete("data", new[] { "g", "i", "m" });*/
 
             /*try
             {
@@ -63,7 +76,20 @@ namespace Paws_Parcels.Scripts
                 print(e.Message);
             }*/
 
+            /*var utc = DateTime.UtcNow;
+            var moscow = utc.ToLocalTime();
+            var test = moscow.ToLocalTime();
+            print(utc.ToString(""));
+            print(moscow.ToString());
+            print(test.ToString());
+            print(utc.ToString("o"));
+            print(utc.ToString("yyyy-MM-dd HH:mm:ss"));
+            print(utc.ToString(""));
 
+            var time = DateTime.Parse(utc.ToString("o"));
+            print(time);
+            print(time.ToString("yyyy-MM-dd HH:mm:ss"));
+            print(time.ToString(""));*/
         }
     }
 }

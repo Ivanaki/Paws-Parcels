@@ -1,0 +1,61 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+namespace UI.MVVM
+{
+    public class WindowsContainer : MonoBehaviour
+    {
+        [SerializeField] private Transform _screensContainer;
+        [SerializeField] private Transform _popupsContainer;
+        
+        private readonly Dictionary<WindowViewModel, IWindowBinder> _openedPopupBinders = new();
+        private IWindowBinder _openedScreenBinder;
+        
+        public void OpenPopup(WindowViewModel viewModel)
+        {
+            var prefabPath = GetPopupPrefabPath(viewModel);
+            var prefab = Resources.Load<GameObject>(prefabPath);
+            var createdPopup = Instantiate(prefab, _popupsContainer);
+            var binder = createdPopup.GetComponent<IWindowBinder>();
+            
+            binder.Bind(viewModel);
+            _openedPopupBinders.Add(viewModel, binder);
+        }
+
+        public void ClosePopup(WindowViewModel popupViewModel)
+        {
+            var binder = _openedPopupBinders[popupViewModel];
+            
+            binder?.Close();
+            _openedPopupBinders.Remove(popupViewModel);
+        }
+
+        public void OpenScreen(WindowViewModel viewModel)
+        {
+            if (viewModel == null)
+            {
+                return;
+            }
+            
+            _openedScreenBinder?.Close();
+            
+            var prefabPath = GetScreenPrefabPath(viewModel);
+            var prefab = Resources.Load<GameObject>(prefabPath);
+            var createdScreen = Instantiate(prefab, _screensContainer);
+            var binder = createdScreen.GetComponent<IWindowBinder>();
+            
+            binder.Bind(viewModel);
+            _openedScreenBinder = binder;
+        }
+
+        private static string GetScreenPrefabPath(WindowViewModel viewModel)
+        {
+            return $"UI/Screens/{viewModel.Id}";
+        }
+        
+        private static string GetPopupPrefabPath(WindowViewModel viewModel)
+        {
+            return $"UI/Popups/{viewModel.Id}";
+        }
+    }
+}

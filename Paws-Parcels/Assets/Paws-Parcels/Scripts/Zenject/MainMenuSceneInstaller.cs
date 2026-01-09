@@ -1,4 +1,5 @@
 using Game.Root;
+using UI.MainMenu;
 using Zenject;
 
 namespace Paws_Parcels.Scripts.Zenject
@@ -9,9 +10,12 @@ namespace Paws_Parcels.Scripts.Zenject
         
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<MainMenuEntryPoint>().AsSingle().NonLazy();
-            Container.BindExecutionOrder<MainMenuEntryPoint>(-1);
-            Container.Bind<MainMenuScenesChanger>().AsSingle();
+            Container.Bind<MainMenuSignals>().AsSingle();
+            
+            
+            //UIViewModels: (по идее должно быть в отдельном контейнере, но в зенжекте такого нет)
+            Container.Bind<MainMenuUIManager>().AsSingle();
+            Container.Bind<UIMainMenuRootViewModel>().AsSingle();
         }
     }
 }
