@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using ObservableCollections;
 using Paws_Parcels.Scripts;
@@ -45,14 +44,34 @@ namespace UI.Screens.LoadMenu
         private readonly ReactiveProperty<string> _gameVersionText = new(NoneSimbol);
         private readonly ReactiveProperty<Texture2D> _screenshotTexture2D = new(NoneTexture);
         
+        
+        private readonly ReactiveProperty<DateTime> _dateTimeUtc = new();
+        private readonly ReactiveProperty<string> _currentMissionCode = new();
+
+
         private OneSaveViewModel _selectedSaveViewModel = null;
         private Guid _selectedSaveId = Guid.Empty;
         
         public PopupLoadMenuViewModel(LoadService loadService)
         {
             _loadService = loadService;
+            var currentCulture = loadService.CurrentCultureInfo;
+            
+            _disposables.Add(_dateTimeUtc.Skip(1).Subscribe(dateTime =>
+            {
+                _dateTimeText.Value = dateTime.ToLocalTime().ToString("f", currentCulture.CurrentValue);
+            }));
 
-            //CurrentCultureInfo = loadService.CurrentCultureInfo;
+            _disposables.Add(_currentMissionCode.Skip(1).Subscribe(missionCode =>
+            {
+                _currentMissionText.Value = _loadService.GetMissionWithLocalization(missionCode);
+            }));
+
+            _disposables.Add(currentCulture.Skip(1).Subscribe(culture =>
+            {
+                _dateTimeText.Value = _dateTimeUtc.CurrentValue.ToLocalTime().ToString("f", currentCulture.CurrentValue);
+                _currentMissionText.Value = _loadService.GetMissionWithLocalization(_currentMissionCode.CurrentValue);
+            }));
             
             _metasMap = loadService.MetasMap;
             
@@ -137,13 +156,14 @@ namespace UI.Screens.LoadMenu
             }
             else
             {
-                //var culture = new CultureInfo(_loadService.GetCurrenLanguage());
-                var culture = new CultureInfo("en-US");
-                var dateTimeText = gameMeta.SaveDataTimeUtc.ToLocalTime().ToString("f", culture);
+                //var culture = 
+                //var culture = new CultureInfo("en-US");
+                //var dateTimeText = gameMeta.SaveDataTimeUtc.ToLocalTime().ToString("f", culture);
 
-                _currentMissionText.Value = gameMeta.TrackedMissionName;
+                _currentMissionCode.Value = gameMeta.TrackedMissionCode;
+                _dateTimeUtc.Value = gameMeta.SaveDataTimeUtc;
+                
                 _saveNameText.Value = gameMeta.SaveName;
-                _dateTimeText.Value = dateTimeText;
                 _saveVersionText.Value = gameMeta.SaveVersion.ToString();
                 _gameVersionText.Value = gameMeta.GameVersion.ToString();
             }
@@ -170,6 +190,8 @@ namespace UI.Screens.LoadMenu
         {
             if(_oneSaveViewModels.Count > 0)
                 RequestOneSaveClicked(_oneSaveViewModels[^1].Id);
+            else
+                ShowSaveUI(null, null);
         }
 
         public override void Dispose()

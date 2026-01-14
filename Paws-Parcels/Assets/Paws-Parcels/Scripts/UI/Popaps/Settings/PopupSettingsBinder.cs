@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using R3;
 using TMPro;
@@ -26,14 +27,18 @@ namespace UI.Screens.Settings
         [SerializeField] private TMP_Text _saveText;
         
         private CompositeDisposable _disposables;
+        
+        private List<SettingsService.LocaleData> _locales;
 
         protected override void OnBind(PopupSettingsViewModel viewModel)
         {
             _disposables = new CompositeDisposable();
 
+            _locales = viewModel.LanguageVariants;
+            var localeNames = _locales.Select(x => x.Name).ToList();
+            
             _languageDropdown.ClearOptions();
-            var a = viewModel.LanguageVariants;
-            _languageDropdown.AddOptions(a);
+            _languageDropdown.AddOptions(localeNames);
 
             _disposables.Add(_exitButton.OnClickAsObservable().Subscribe(_ => viewModel.RequestCloseChecker()));
             _disposables.Add(
@@ -43,14 +48,17 @@ namespace UI.Screens.Settings
 
             _disposables.Add(viewModel.MasterVolume.Subscribe(v => _masterVolumeSlider.value = v));
             _disposables.Add(viewModel.MasterVolume.Subscribe(v => _masterVolumeInputField.text = v.ToString("F3")));
-            _disposables.Add(viewModel.Language.Subscribe(v => _languageDropdown.value = v));
+            _disposables.Add(viewModel.LanguageCode.Subscribe(v =>
+            {
+                _languageDropdown.value = _locales.IndexOf(_locales.First(x => x.Code == v));
+            }));
             _disposables.Add(viewModel.HasChanges.Subscribe(v => _saveText.color = v
                 ? new Color(_saveText.color.r, _saveText.color.g, _saveText.color.b, (float)_colorStrangeWhenCanSave/255)
                 : new Color(_saveText.color.r, _saveText.color.g, _saveText.color.b, (float)_colorStrangeWhenCouldntSave/255)));
 
             _disposables.Add(_masterVolumeSlider.onValueChanged.AsObservable()
                 .Subscribe(viewModel.RequestSetMasterVolumeBySlider));
-            _disposables.Add(_languageDropdown.onValueChanged.AsObservable().Subscribe(viewModel.RequestSetLanguage));
+            _disposables.Add(_languageDropdown.onValueChanged.AsObservable().Subscribe(index => viewModel.RequestSetLanguage(_locales[index].Code)));
             _disposables.Add(_masterVolumeInputField.onEndEdit.AsObservable().Subscribe(v =>
             {
                 viewModel.RequestSetMasterVolumeByInputField(v);

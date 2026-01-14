@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 404254973689564316}
   - component: {fileID: 3625315170903203892}
   - component: {fileID: 6116750169113456306}
+  - component: {fileID: 318561432931384760}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -212,6 +213,44 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &318561432931384760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139973165930144343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.PropertyVariants.GameObjectLocalizer
+  m_TrackedObjects:
+  - rid: 6630726141623927121
+  references:
+    version: 2
+    RefIds:
+    - rid: 6630726141623927121
+      type: {class: TrackedUGuiGraphic, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 6116750169113456306}
+        m_TrackedProperties:
+          items:
+          - rid: 6630726141623927122
+        m_UpdateType: 0
+    - rid: 6630726141623927122
+      type: {class: LocalizedStringProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          m_TableReference:
+            m_TableCollectionName: GUID:d849a9f62f790224fa67dad0bfc2568f
+          m_TableEntryReference:
+            m_KeyId: 4505578610688
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_PropertyPath: m_text
 --- !u!1 &235727109543156010
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +262,7 @@ GameObject:
   - component: {fileID: 2461293110904283444}
   - component: {fileID: 1385261232052048388}
   - component: {fileID: 3023329461871369067}
+  - component: {fileID: 8316031484051423938}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -349,6 +389,44 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8316031484051423938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235727109543156010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.PropertyVariants.GameObjectLocalizer
+  m_TrackedObjects:
+  - rid: 6630726141623927125
+  references:
+    version: 2
+    RefIds:
+    - rid: 6630726141623927125
+      type: {class: TrackedUGuiGraphic, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 3023329461871369067}
+        m_TrackedProperties:
+          items:
+          - rid: 6630726141623927126
+        m_UpdateType: 0
+    - rid: 6630726141623927126
+      type: {class: LocalizedStringProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          m_TableReference:
+            m_TableCollectionName: GUID:d849a9f62f790224fa67dad0bfc2568f
+          m_TableEntryReference:
+            m_KeyId: 4552630312960
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_PropertyPath: m_text
 --- !u!1 &294978119567284877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,6 +2309,7 @@ GameObject:
   - component: {fileID: 5836733743385370615}
   - component: {fileID: 1309975561050907804}
   - component: {fileID: 6684036758656351884}
+  - component: {fileID: 5205241634434904603}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2357,6 +2436,44 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5205241634434904603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5967802317813623647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.PropertyVariants.GameObjectLocalizer
+  m_TrackedObjects:
+  - rid: 6630726141623927123
+  references:
+    version: 2
+    RefIds:
+    - rid: 6630726141623927123
+      type: {class: TrackedUGuiGraphic, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 6684036758656351884}
+        m_TrackedProperties:
+          items:
+          - rid: 6630726141623927124
+        m_UpdateType: 0
+    - rid: 6630726141623927124
+      type: {class: LocalizedStringProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          m_TableReference:
+            m_TableCollectionName: GUID:d849a9f62f790224fa67dad0bfc2568f
+          m_TableEntryReference:
+            m_KeyId: 4538579394560
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_PropertyPath: m_text
 --- !u!1 &6008618640432591470
 GameObject:
   m_ObjectHideFlags: 0

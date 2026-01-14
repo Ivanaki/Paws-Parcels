@@ -1,14 +1,22 @@
 using R3;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 namespace Paws_Parcels.Scripts
 {
     public class TestMO : MonoBehaviour
     {
-        [SerializeField] private MouseEnterUtil _mouseEnterUtil;
+        //[SerializeField] private MouseEnterUtil _mouseEnterUtil;
         
         private void Start()
         {
+            print(LocalizationSettings.SelectedLocale.CustomFormatterCode);
+            print(LocalizationSettings.SelectedLocale.LocaleName);
+            print(LocalizationSettings.SelectedLocale.name);
+            print(LocalizationSettings.SelectedLocale.Identifier.Code);
+            print(LocalizationSettings.SelectedLocale.Identifier.CultureInfo.Name);
+            //print(LocalizationSettings.SelectedLocale.Identifier.CultureInfo.Name);
+            
             //_mouseEnterUtil.IsMouseEnter.Subscribe(v => print(v));
             //_gameStateProvider.GameProxy.TrackedMissionID.Value = 5;
             //_gameStateProvider.SaveGameState(true);

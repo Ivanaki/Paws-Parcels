@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Paws_Parcels.Scripts.Saves.States.GameState;
-using UnityEditor;
 
 namespace Paws_Parcels.Scripts.Saves
 {
@@ -25,13 +24,13 @@ namespace Paws_Parcels.Scripts.Saves
             //сохранить основное сохранение
         }
 
-        public void Load(GUID guid)
+        public void Load(Guid guid)
         {
             //загрузить нужное сохранение
             //отдать данные всем подписчикам
         }
         
-        public void Delete(GUID guid)
+        public void Delete(Guid guid)
         {
             //удалить сохранение по ключу
         }

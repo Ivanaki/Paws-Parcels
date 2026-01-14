@@ -49,5 +49,10 @@ namespace UI.MainMenu
             var viewModel = new PopupLoadMenuViewModel(_loadService);
             _mainMenuRootViewModel.OpenPopup(viewModel);
         }
+        
+        public bool TryCloseLastPopup()
+        {
+            return _mainMenuRootViewModel.TryCloseLastPopup();
+        }
     }
 }

@@ -16,13 +16,13 @@ namespace UI.Screens.Settings
         
         public ReadOnlyReactiveProperty<bool> HasChanges => _hasChanges;
         public ReadOnlyReactiveProperty<float> MasterVolume => _masterVolume;
-        public ReadOnlyReactiveProperty<int> Language => _language;
-        public List<string> LanguageVariants { get; }
+        public ReadOnlyReactiveProperty<string> LanguageCode => _languageCode;
+        public List<SettingsService.LocaleData> LanguageVariants { get; }
 
 
         private readonly ReactiveProperty<bool> _hasChanges = new(false);
         private readonly ReactiveProperty<float> _masterVolume = new();
-        private readonly ReactiveProperty<int> _language = new();
+        private readonly ReactiveProperty<string> _languageCode = new();
         
         private readonly SettingsService _settingsService;
         
@@ -32,7 +32,8 @@ namespace UI.Screens.Settings
             _settingsService = settingsService;
 
             settingsService.MasterVolume.Subscribe(value => _masterVolume.Value = value);
-            settingsService.Language.Subscribe(value => _language.Value = value);
+            settingsService.LanguageCode.Subscribe(value => _languageCode.Value = value);
+            
             LanguageVariants = settingsService.GetLanguages();
         }
 
@@ -52,10 +53,10 @@ namespace UI.Screens.Settings
             }
         }
 
-        public void RequestSetLanguage(int language)
+        public void RequestSetLanguage(string languageCode)
         {
             _hasChanges.Value = true;
-            _language.Value = language;
+            _languageCode.Value = languageCode;
         }
 
         public void RequestSave()
@@ -65,7 +66,7 @@ namespace UI.Screens.Settings
                 _settingsService.SaveSettings(new SettingsState()
                 {
                     MasterVolume = _masterVolume.Value,
-                    Language = _language.Value
+                    LanguageCode = _languageCode.Value
                 });
                 _hasChanges.Value = false;
             }

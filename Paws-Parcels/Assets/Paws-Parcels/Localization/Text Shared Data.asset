@@ -13,8 +13,92 @@ MonoBehaviour:
   m_Name: Text Shared Data
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Text
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
-  m_Entries: []
+  m_TableCollectionNameGuidString: d849a9f62f790224fa67dad0bfc2568f
+  m_Entries:
+  - m_Id: 3916035629056
+    m_Key: LoadMenu/Canvas (Environment)/LoadMenu/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4097254727680
+    m_Key: LoadMenu/Canvas (Environment)/LoadMenu/Update/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4175608520704
+    m_Key: LoadMenu/Canvas (Environment)/LoadMenu/SaveVersion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4222265958400
+    m_Key: LoadMenu/Canvas (Environment)/LoadMenu/GameVersion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4310296010752
+    m_Key: LoadMenu/Canvas (Environment)/LoadMenu/Load/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4327010312192
+    m_Key: LoadMenu/Canvas (Environment)/LoadMenu/Delete/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4505578610688
+    m_Key: Settings/Canvas (Environment)/Settings/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4538579394560
+    m_Key: Settings/Canvas (Environment)/Settings/Save/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4552630312960
+    m_Key: Settings/Canvas (Environment)/Settings/Reset/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4656351256576
+    m_Key: MainMenu/Canvas (Environment)/MainMenu/Button/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4775154917376
+    m_Key: MainMenu/Canvas (Environment)/MainMenu/Button (1)/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4803353223168
+    m_Key: MainMenu/Canvas (Environment)/MainMenu/Button (2)/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821376147456
+    m_Key: MainMenu/Canvas (Environment)/MainMenu/Button (3)/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49948044288000
+    m_Key: LanguageName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95000942190592
+    m_Key: testMissionName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102024270684160
+    m_Key: Pause/Canvas (Environment)/Pause/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102077383155712
+    m_Key: Pause/Canvas (Environment)/Pause/Buttons/Button (4)/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102230424920064
+    m_Key: Pause/Canvas (Environment)/Pause/Buttons/Button (3)/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102249680969728
+    m_Key: Pause/Canvas (Environment)/Pause/Buttons/Button (2)/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102274653855744
+    m_Key: Pause/Canvas (Environment)/Pause/Buttons/Button (1)/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102295843479552
+    m_Key: Pause/Canvas (Environment)/Pause/Buttons/Button/Text (TMP)
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

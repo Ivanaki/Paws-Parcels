@@ -4,6 +4,7 @@ using System.Linq;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
+using Services;
 using UnityEngine;
 
 namespace Paws_Parcels.Scripts
@@ -17,12 +18,17 @@ namespace Paws_Parcels.Scripts
         
         private readonly Subject<Guid> _loadCoreSceneWithSaveIdSubject = new();
         private readonly GameStateProvider _gameStateProvider;
+        private readonly LocalizationService _localizationService;
 
-        public LoadService(GameStateProvider gameStateProvider)
+        public LoadService(GameStateProvider gameStateProvider, LocalizationService localizationService)
         {
             _gameStateProvider = gameStateProvider;
+            _localizationService = localizationService;
 
             MetasMap = gameStateProvider.MetaMap;
+
+            CurrentCultureInfo = localizationService.CurrentLocale.Select(x => x.Identifier.CultureInfo)
+                .ToReadOnlyReactiveProperty();
         }
 
         public void LoadGame(Guid idSave)
@@ -48,6 +54,11 @@ namespace Paws_Parcels.Scripts
         public Texture2D GetTextureOrDefault(Guid idSave)
         {
             return _gameStateProvider.GetScreenshotOrDefault(idSave);
+        }
+
+        public string GetMissionWithLocalization(string missionCode)
+        {
+            return _localizationService.GetCurrentLanguageStringOrDefault(missionCode);
         }
     }
 }

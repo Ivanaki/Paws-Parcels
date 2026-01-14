@@ -24,13 +24,15 @@ namespace Game.Root
         private GameStateProvider _gameStateProvider;
         private LoadService _loadService;
         private GameInputService _gameInputService;
+        private CursorService _cursorService;
 
         private IDisposable _disposable;
 
         [Inject]
         private void Construct(CoreSignals coreSignals, GameEntryPoint gameEntryPoint,
             UIGameView uiGameView, UICoreRootViewModel uiCoreRootViewModel, CoreUIManager coreUIManager,
-            GameStateProvider gameStateProvider, LoadService loadService, GameInputService  gameInputService)
+            GameStateProvider gameStateProvider, LoadService loadService, GameInputService  gameInputService,
+            CursorService cursorService)
         {
             _coreSignals = coreSignals;
             _gameEntryPoint = gameEntryPoint;
@@ -40,6 +42,7 @@ namespace Game.Root
             _gameStateProvider = gameStateProvider;
             _loadService = loadService;
             _gameInputService = gameInputService;
+            _cursorService = cursorService;
         }
         
         //последовательность методов: Awake -> OnEnable -> IInitializable -> Start
@@ -78,6 +81,7 @@ namespace Game.Root
             _gameInputService.InputSystem.Gameplay.Enable();
             _gameInputService.InputSystem.Car.Disable();
             _gameInputService.InputSystem.Player.Disable();
+            _cursorService.SetCursorStateLocked(true);
             
             //TODO с понедельника:
             //далее переходить к самим механикам на сцене

@@ -169,7 +169,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                 SaveId = newID,
                 SaveName = saveName,
                 SaveDataTimeUtc = dateTime,
-                TrackedMissionName = _missionService.GetMissionName(GameProxy.TrackedMissionID.Value),
+                TrackedMissionCode = _missionService.GetMissionName(GameProxy.TrackedMissionID.Value),
                 IsAutoSave = isAutoSave,
                 GameVersion = GameVersion,
                 SaveVersion = SaveVersion

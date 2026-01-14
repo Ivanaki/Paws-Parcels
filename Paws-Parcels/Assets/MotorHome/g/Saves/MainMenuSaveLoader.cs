@@ -70,8 +70,8 @@ namespace MotorHome.Scripts
            
             _currentSelectedNumber =  number;
             
-            Texture2D texture2D;
-            var callback = _gameStateProvider.LoadScreenshot(number.ToString());
+            //Texture2D texture2D;
+            //var callback = _gameStateProvider.LoadScreenshot(number.ToString());
             //texture2D = callback.IsLoaded ? callback.Texture : new Texture2D(1, 1);
             
             var hasKey = _saveData.TryGetValue(number, out CoreSaveData saveData);

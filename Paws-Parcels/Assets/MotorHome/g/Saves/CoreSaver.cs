@@ -99,8 +99,8 @@ namespace MotorHome.Scripts
         {
             _currentSelectedNumber =  number;
             
-            Texture2D texture2D;
-            var callback = _gameStateProvider.LoadScreenshot(number.ToString());
+            //Texture2D texture2D;
+            //var callback = _gameStateProvider.LoadScreenshot(number.ToString());
             /*if (callback.IsLoaded)
             {
                 texture2D =  callback.Texture;

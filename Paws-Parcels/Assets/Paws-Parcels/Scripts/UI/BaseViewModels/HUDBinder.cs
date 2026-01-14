@@ -12,7 +12,10 @@ namespace UI.HUD
         
         public void Bind(HUDViewModel viewModel)
         {
-            _disposables.Add(viewModel.IsCompassActive.Subscribe(active => _compassGameObject.SetActive(active)));
+            _disposables.Add(viewModel.IsCompassActive.Subscribe(active =>
+            {
+                _compassGameObject.SetActive(active);
+            }));
         }
 
         private void OnDestroy()

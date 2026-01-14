@@ -1,22 +1,39 @@
 using System.Collections.Generic;
+using System.Linq;
 using Paws_Parcels.Scripts.Saves.States;
 using R3;
+using Services;
 
 namespace UI.Screens.Settings
 {
     public class SettingsService
     {
+        public class LocaleData
+        {
+            public string Code;
+            public string Name;
+        }
+        
+        private const string LanguageNameKey = "LanguageName";
+        
         public ReadOnlyReactiveProperty<float> MasterVolume { get; }
-        public ReadOnlyReactiveProperty<int> Language { get; }
+        public ReadOnlyReactiveProperty<string> LanguageCode { get; }
         
         private readonly SettingsStateProvider _settingsStateProvider;
+        private readonly LocalizationService _localizationService;
 
-        public SettingsService(SettingsStateProvider settingsStateProvider)
+        public SettingsService(SettingsStateProvider settingsStateProvider, LocalizationService localizationService)
         {
             _settingsStateProvider = settingsStateProvider;
+            _localizationService = localizationService;
 
             MasterVolume = settingsStateProvider.SettingsProxy.MasterVolume;
-            Language = settingsStateProvider.SettingsProxy.Language;
+            LanguageCode = settingsStateProvider.SettingsProxy.LanguageCode;
+            
+            LanguageCode.Skip(1).Subscribe(code =>
+            {
+                _localizationService.SetLanguage(code);
+            });
         }
 
         public void SaveSettings(SettingsState settingsState)
@@ -30,10 +47,15 @@ namespace UI.Screens.Settings
             _settingsStateProvider.ResetSettingsState();
         }
 
-        public List<string> GetLanguages()
+        public List<LocaleData> GetLanguages()
         {
-            //TODO
-            return new List<string>{"a", "b", "c"};
+            var localesList = _localizationService.GetAvailableLocales();
+            var localeDatas = localesList.Select(locate => new LocaleData()
+            {
+                Code = locate.Identifier.Code,
+                Name = _localizationService.GetLocalizedString(LanguageNameKey, locate)
+            }).ToList();
+            return localeDatas;
         }
     }
 }

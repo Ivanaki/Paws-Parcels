@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Saves.States.BaseSettingsSO
   <BaseSettings>k__BackingField:
     MasterVolume: 0.5
-    Language: 2
+    LanguageCode: ru

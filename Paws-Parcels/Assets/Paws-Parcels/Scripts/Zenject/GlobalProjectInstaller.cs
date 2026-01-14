@@ -64,7 +64,8 @@ namespace MotorHome.Scripts.Zenject
             Container.Bind<MessageToUserService>().AsSingle();
             Container.Bind<GameInputService>().AsSingle();
             Container.Bind<CursorService>().AsSingle();
-            Container.Bind<ClosePopupsWithBackButtonService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LocalizationService>().AsSingle();
+            //Container.Bind<ClosePopupsWithBackButtonService>().AsSingle();
             
             //Old bindings
             

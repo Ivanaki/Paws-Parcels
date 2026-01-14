@@ -17,7 +17,91 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: d849a9f62f790224fa67dad0bfc2568f, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 3916035629056
+    m_Localized: Load game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4097254727680
+    m_Localized: Update
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4175608520704
+    m_Localized: 'Save version:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4222265958400
+    m_Localized: 'Game version:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4310296010752
+    m_Localized: Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4327010312192
+    m_Localized: Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4505578610688
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4538579394560
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4552630312960
+    m_Localized: Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4656351256576
+    m_Localized: Load save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4775154917376
+    m_Localized: New game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4803353223168
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4821376147456
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49948044288000
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95000942190592
+    m_Localized: Mission varvor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102024270684160
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102077383155712
+    m_Localized: Escape to main menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102230424920064
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102249680969728
+    m_Localized: Load save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102274653855744
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102295843479552
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -6,7 +6,7 @@ namespace Paws_Parcels.Scripts.Saves.States
     public class SettingsState
     {
         public float MasterVolume;
-        public int Language;
+        public string LanguageCode;
         
         //public float MusicVolume;
         //public float SoundEffectsVolume;
@@ -20,7 +20,7 @@ namespace Paws_Parcels.Scripts.Saves.States
         public SettingsState(SettingsState settingsStateCopy)
         {
             MasterVolume = settingsStateCopy.MasterVolume;
-            Language = settingsStateCopy.Language;
+            LanguageCode = settingsStateCopy.LanguageCode;
         }
     }
 }

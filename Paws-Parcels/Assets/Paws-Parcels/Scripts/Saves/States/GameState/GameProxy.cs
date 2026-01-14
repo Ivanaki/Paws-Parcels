@@ -13,6 +13,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         
         public GameProxy(GameState gameState)
         {
+            //не забудь изменить change внизу
             _gameState = gameState;
             
             TrackedMissionID = new ReactiveProperty<int>(gameState.TrackedMissionID);
@@ -25,11 +26,13 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public void Change(GameState gameState)
         {
             TrackedMissionID.Value = gameState.TrackedMissionID;
+            IsCompassActive.Value = gameState.IsCompassActive;
         }
         
         public void Change(GameProxy gameProxy)
         {
             TrackedMissionID.Value = gameProxy.TrackedMissionID.Value;
+            IsCompassActive.Value = gameProxy.IsCompassActive.Value;
         }
         
         public int GetNewSavableEntityID()

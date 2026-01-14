@@ -23,13 +23,15 @@ namespace Game.Root
         private LoadService _loadService;
         private MessageToUserService _messageToUserService;
         private GameInputService _gameInputService;
+        private CursorService _cursorService;
         
         private IDisposable _disposable;
 
         [Inject]
         private void Construct(MainMenuSignals mainMenuSignals, GameEntryPoint gameEntryPoint,
             UIGameView uiGameView, UIMainMenuRootViewModel uiMainMenuRootViewModel, MainMenuUIManager mainMenuUIManager,
-            LoadService loadService, MessageToUserService messageToUserService, GameInputService gameInputService)
+            LoadService loadService, MessageToUserService messageToUserService, GameInputService gameInputService,
+            CursorService cursorService)
         {
             _mainMenuSignals = mainMenuSignals;
             _gameEntryPoint = gameEntryPoint;
@@ -39,6 +41,7 @@ namespace Game.Root
             _loadService = loadService;
             _messageToUserService = messageToUserService;
             _gameInputService = gameInputService;
+            _cursorService = cursorService;
         }
 
         public void Start()
@@ -65,6 +68,7 @@ namespace Game.Root
             _gameInputService.InputSystem.Gameplay.Disable();
             _gameInputService.InputSystem.Car.Disable();
             _gameInputService.InputSystem.Player.Disable();
+            _cursorService.SetCursorStateLocked(false);
             
             
             /*var loadType = LoadType.New;

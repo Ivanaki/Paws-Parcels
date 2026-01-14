@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BaseGameSO
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Saves.States.GameState.BaseGameSO
   <GameState>k__BackingField:
-    SaveId: '-'
     NextSavableEntityID: 0
     NextNonSavableEntityID: 0
     TrackedMissionID: 0
+    IsCompassActive: 0
