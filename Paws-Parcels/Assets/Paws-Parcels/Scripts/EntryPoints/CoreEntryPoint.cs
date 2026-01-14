@@ -83,7 +83,8 @@ namespace Game.Root
             _gameInputService.InputSystem.Player.Disable();
             _cursorService.SetCursorStateLocked(true);
             
-            //TODO с понедельника:
+            //TODO с четверга:
+            //сделать ui и систему Quests
             //далее переходить к самим механикам на сцене
             
             
