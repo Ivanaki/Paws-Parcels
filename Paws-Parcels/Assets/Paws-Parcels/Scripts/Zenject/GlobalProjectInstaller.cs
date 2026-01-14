@@ -1,16 +1,16 @@
 using Game.Root;
-using MotorHome.Scripts.Saves;
-using MotorHome.Scripts.Saves.ScriptableObjects;
-using MotorHome.Scripts.ScriptableObjects;
 using Paws_Parcels.Scripts;
+using Paws_Parcels.Scripts.Quests;
 using Paws_Parcels.Scripts.Saves.States;
+using Paws_Parcels.Scripts.Saves.States.GameState;
 using SaveLaod;
 using Saves;
+using Services;
 using UI;
 using UI.Screens.Settings;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Zenject;
+
 
 namespace MotorHome.Scripts.Zenject
 {
@@ -55,6 +55,16 @@ namespace MotorHome.Scripts.Zenject
             Container.Bind<SettingsStateProvider>().AsSingle();
             Container.Bind<SettingsService>().AsSingle();
             
+            Container.Bind<GameStateProvider>().AsSingle();
+            
+            Container.Bind<MissionService>().AsSingle();
+            
+            Container.Bind<EditorDataService>().AsSingle();
+            
+            Container.Bind<MessageToUserService>().AsSingle();
+            Container.Bind<GameInputService>().AsSingle();
+            Container.Bind<CursorService>().AsSingle();
+            Container.Bind<ClosePopupsWithBackButtonService>().AsSingle();
             
             //Old bindings
             

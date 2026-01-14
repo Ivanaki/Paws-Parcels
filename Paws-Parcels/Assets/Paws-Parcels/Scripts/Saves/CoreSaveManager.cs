@@ -1,20 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Paws_Parcels.Scripts.Saves.States.GameState;
 using UnityEditor;
 
 namespace Paws_Parcels.Scripts.Saves
 {
-    [System.Serializable]
-    public class CoreSaveMeta
-    {
-        public string Id; //Guid
-        public string Name;
-        public string DateTime;
-        public string CurrentMission;
-        public int GameVersion;
-        public int SaveVersion;
-    }
-    
     [System.Serializable]
     public class CoreSaveMain
     {
@@ -46,7 +36,7 @@ namespace Paws_Parcels.Scripts.Saves
             //удалить сохранение по ключу
         }
 
-        public CoreSaveMeta[] GetAllSavesMeta()
+        public GameMeta[] GetAllSavesMeta()
         {
             return null;
         }

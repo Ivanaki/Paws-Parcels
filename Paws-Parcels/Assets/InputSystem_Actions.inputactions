@@ -635,11 +635,11 @@
             ]
         },
         {
-            "name": "AllState",
+            "name": "Gameplay",
             "id": "c7ac9fa0-9ef3-4e94-b17c-dc91a72be7ff",
             "actions": [
                 {
-                    "name": "Pause",
+                    "name": "OpenPause",
                     "type": "Button",
                     "id": "50e38880-9691-4032-b730-489679ac548e",
                     "expectedControlType": "",
@@ -657,7 +657,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "QuestsPanel",
+                    "name": "OpenQuests",
                     "type": "Button",
                     "id": "d6cd741d-8029-4ef9-aa84-5ca4dbffbd19",
                     "expectedControlType": "",
@@ -674,7 +674,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Pause",
+                    "action": "OpenPause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -707,7 +707,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "QuestsPanel",
+                    "action": "OpenQuests",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -808,18 +808,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "Back",
                     "type": "Button",
                     "id": "00bcd850-c1a1-421d-affb-02a6f7620971",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "QuestsPanel",
-                    "type": "Button",
-                    "id": "e66961b3-414d-4399-9db5-29c5f4d62515",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1252,18 +1243,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Pause",
+                    "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "d703f0e5-45fd-4e3e-9138-0505696fd222",
+                    "id": "6b42686e-f97b-49b0-9c2f-552d634a57e4",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "QuestsPanel",
+                    "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

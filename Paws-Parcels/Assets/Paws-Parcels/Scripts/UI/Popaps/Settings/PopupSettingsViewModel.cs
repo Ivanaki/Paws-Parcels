@@ -62,7 +62,7 @@ namespace UI.Screens.Settings
         {
             if (_hasChanges.Value)
             {
-                _settingsService.SaveSettings(new GameSettingsState()
+                _settingsService.SaveSettings(new SettingsState()
                 {
                     MasterVolume = _masterVolume.Value,
                     Language = _language.Value

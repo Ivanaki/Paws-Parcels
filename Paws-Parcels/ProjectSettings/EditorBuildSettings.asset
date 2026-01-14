@@ -18,5 +18,7 @@ EditorBuildSettings:
     path: Assets/MotorHome/Scenes/CoreOld.unity
     guid: 1ca404af4ebd8be479e41e292977ce54
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: d45b1c84ea10a264b8f20b6dc80eb599, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: a473a2eb371e83e499dffb1710014a2e, type: 2}
   m_UseUCBPForAssetBundles: 0

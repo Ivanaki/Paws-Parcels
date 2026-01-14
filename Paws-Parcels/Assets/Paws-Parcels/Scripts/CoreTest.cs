@@ -6,12 +6,12 @@ namespace Paws_Parcels.Scripts
 {
     public class CoreTest : MonoBehaviour
     {
-        private CoreScenesChanger _coreScenesChanger;
+        private CoreSignals _coreSignals;
         
         [Inject]
-        private void Construct(CoreScenesChanger  coreScenesChanger)
+        private void Construct(CoreSignals  coreSignals)
         {
-            _coreScenesChanger = coreScenesChanger;
+            _coreSignals = coreSignals;
         }
         
         public void MianMenu()

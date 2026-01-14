@@ -44,7 +44,7 @@ namespace Saves
             {
                 SaveStatic.CreateFolders(folders);
 
-                var path = SaveStatic.BuildPath(key, Extension, folders);
+                var path = SaveStatic.BuildFilePath(key, Extension, folders);
                 var json = JsonConvert.SerializeObject(data, Formatting.Indented);
 
                 using var fileStream = new StreamWriter(path);
@@ -58,7 +58,7 @@ namespace Saves
             }
             catch (Exception e)
             {
-                Debug.LogError($"SaveError: {e}");
+                Debug.LogError($"SaveError: {e.Message}");
                 return new SaveCallback()
                 {
                     IsComplete = false,
@@ -72,12 +72,17 @@ namespace Saves
             return Save(data, key, new[] { folder });
         }
 
+        public SaveCallback Save<T>(T data, string key, string folder1, string folder2)
+        {
+            return Save(data, key, new[] { folder1, folder2 });
+        }
+
 
         public LoadCallback<T> Load<T>(string key, string[] folders = null)
         {
             try
             {
-                var path = SaveStatic.BuildPath(key, Extension, folders);
+                var path = SaveStatic.BuildFilePath(key, Extension, folders);
 
                 if (File.Exists(path))
                 {
@@ -113,7 +118,8 @@ namespace Saves
             }
             catch (Exception e)
             {
-                Debug.LogError($"LoadError: {e}");
+                Debug.LogError($"LoadError: {e.Message}");
+                Debug.Log("test");
                 return new LoadCallback<T>
                 {
                     Value = default,
@@ -128,12 +134,17 @@ namespace Saves
             return Load<T>(key, new[] { folder });
         }
 
+        public LoadCallback<T> Load<T>(string key, string folder1, string folder2 )
+        {
+            return Load<T>(key, new[] { folder1, folder2 });
+        }
+
 
         public DeleteCallback Delete(string key, string[] folders = null)
         {
             try
             {
-                var path = SaveStatic.BuildPath(key, Extension, folders);
+                var path = SaveStatic.BuildFilePath(key, Extension, folders);
                 
                 if (File.Exists(path))
                 {
@@ -154,13 +165,37 @@ namespace Saves
             }
             catch (Exception e)
             {
-                Debug.LogError($"DeleteError: {e}");
+                Debug.LogError($"DeleteError: {e.Message}");
                 return new DeleteCallback()
                 {
                     Callback = FileOperationResult.Error,
                     Exception = e
                 };
             }
+        }
+
+        public bool DeleteFolder(string[] folders)
+        {
+            try
+            {
+                var path = SaveStatic.BuildFoldersPath(folders);
+                if (Directory.Exists(path))
+                {
+                    Directory.Delete(path, true);
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"DeleteError: {e.Message}");
+                return false;
+            }
+        }
+
+        public bool DeleteFolder(string folder1, string folder2)
+        {
+            return DeleteFolder(new[] { folder1, folder2 });
         }
     }
 }

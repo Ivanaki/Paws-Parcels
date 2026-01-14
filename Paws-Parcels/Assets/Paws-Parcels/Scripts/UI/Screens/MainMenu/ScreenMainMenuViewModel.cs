@@ -11,26 +11,23 @@ namespace UI.Screens.MainMenu
     {
         private readonly MainMenuUIManager _mainMenuUIManager;
         private readonly MainMenuSignals _mainMenuSignals;
-        private readonly LoadService _loadService;
 
         public override string Id => "MainMenu";
 
-        public ScreenMainMenuViewModel(MainMenuUIManager mainMenuUIManager,
-            MainMenuSignals mainMenuSignals, LoadService loadService)
+        public ScreenMainMenuViewModel(MainMenuUIManager mainMenuUIManager, MainMenuSignals mainMenuSignals)
         {
             _mainMenuUIManager = mainMenuUIManager;
             _mainMenuSignals = mainMenuSignals;
-            _loadService = loadService;
         }
 
         public void RequestOpenLoadMenu()
         {
-            
+            _mainMenuUIManager.OpenPopupLoadMenu();
         }
         
         public void RequestNewGame()
         {
-            _mainMenuSignals.StartNewGame();
+            _mainMenuSignals.NewGameSignal.OnNext(Unit.Default);
         }
 
         public void RequestOpenSettings()
@@ -40,7 +37,7 @@ namespace UI.Screens.MainMenu
 
         public void RequestQuit()
         {
-            _mainMenuSignals.Quit();
+            _mainMenuSignals.ExitToDesktopSignal.OnNext(Unit.Default);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ObservableCollections;
 using R3;
+using Services;
 
 namespace UI.MVVM
 {
@@ -14,7 +15,7 @@ namespace UI.MVVM
         private readonly ReactiveProperty<WindowViewModel> _openedScreen = new(null);
         private readonly ObservableList<WindowViewModel> _openedPopups = new();
         private readonly Dictionary<WindowViewModel, IDisposable> _popupSubscriptions = new();
-
+        
         public void Dispose()
         {
             CloseAllPopups();
@@ -30,6 +31,7 @@ namespace UI.MVVM
         public void CloseScreen()
         {
             _openedScreen.Value?.Dispose();
+            _openedScreen.Value = null;
         }
 
         public void OpenPopup(WindowViewModel popupViewModel)
@@ -69,6 +71,18 @@ namespace UI.MVVM
             {
                 ClosePopup(openedPopup);
             }
+        }
+        
+        public bool TryCloseLastPopup()
+        {
+            if (_openedPopups.Count > 0)
+            {
+                var lastPopupViewModel = _openedPopups.Last();
+                
+                ClosePopup(lastPopupViewModel);
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SaveLaod
     public class ScreenshotSaver
     {
         private const string Extension = ".png";
-        private const string AddedName = "Screenshot";
+        //private const string AddedName = "Screenshot";
         
         public struct SaveScreenshotCallback
         {
@@ -37,11 +37,11 @@ namespace SaveLaod
             {
                 if (camera == null) throw new Exception("camera is null");
                 
-                key += AddedName;
+                //key += AddedName;
                 
                 var tex = CreateScreenshot(camera);
                 
-                var screenshotPath = SaveStatic.BuildPath(key, Extension, folders);
+                var screenshotPath = SaveStatic.BuildFilePath(key, Extension, folders);
                 SaveStatic.CreateFolders(folders);
 
                 File.WriteAllBytes(screenshotPath, tex.EncodeToPNG());
@@ -54,7 +54,7 @@ namespace SaveLaod
             }
             catch (Exception e)
             {
-                Debug.Log($"LoadTextureError: {e}");
+                Debug.Log($"LoadTextureError: {e.Message}");
                 return new SaveScreenshotCallback()
                 {
                     IsComplete = false,
@@ -63,15 +63,13 @@ namespace SaveLaod
             }
         }
 
-        
-
         public LoadScreenshotCallback LoadTexture(string key, string[] folders = null)
         {
             try
             {
-                key += AddedName;
+                //key += AddedName;
                 
-                var screenshotPath = SaveStatic.BuildPath(key, Extension, folders);
+                var screenshotPath = SaveStatic.BuildFilePath(key, Extension, folders);
                 if (File.Exists(screenshotPath))
                 {
                     byte[] data = File.ReadAllBytes(screenshotPath);
@@ -95,7 +93,7 @@ namespace SaveLaod
             }
             catch (Exception e)
             {
-                Debug.Log($"LoadTextureError: {e}");
+                Debug.Log($"LoadTextureError: {e.Message}");
                 return new LoadScreenshotCallback()
                 {
                     Callback = FileOperationResult.Error,
@@ -109,7 +107,7 @@ namespace SaveLaod
         {
             try
             {
-                var screenshotPath = SaveStatic.BuildPath(key, Extension, folders);
+                var screenshotPath = SaveStatic.BuildFilePath(key, Extension, folders);
                 
                 if (File.Exists(screenshotPath))
                 {
@@ -130,7 +128,7 @@ namespace SaveLaod
             }
             catch (Exception e)
             {
-                Debug.LogError($"DeleteError: {e}");
+                Debug.LogError($"DeleteError: {e.Message}");
                 return new DeleteScreenshotCallback()
                 {
                     Callback = FileOperationResult.Error,

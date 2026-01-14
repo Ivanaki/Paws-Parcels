@@ -29,7 +29,7 @@ namespace UI.MainMenu
         
         public void OpenScreenMainMenu()
         {
-            var viewModel = new ScreenMainMenuViewModel(this, _mainMenuSignals, _loadService);
+            var viewModel = new ScreenMainMenuViewModel(this, _mainMenuSignals);
             _mainMenuRootViewModel.OpenScreen(viewModel);
         }
 
@@ -41,6 +41,12 @@ namespace UI.MainMenu
         public void OpenPopupSettings()
         {
             var viewModel = new PopupSettingsViewModel(_settingsService);
+            _mainMenuRootViewModel.OpenPopup(viewModel);
+        }
+        
+        public void OpenPopupLoadMenu()
+        {
+            var viewModel = new PopupLoadMenuViewModel(_loadService);
             _mainMenuRootViewModel.OpenPopup(viewModel);
         }
     }

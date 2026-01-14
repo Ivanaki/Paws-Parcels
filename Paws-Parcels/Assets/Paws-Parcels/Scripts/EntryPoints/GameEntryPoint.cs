@@ -54,14 +54,15 @@ namespace Game.Root
             
             if (nameScene == Scenes.MAINMENU)
             {
-                _currentBaseEnterParams = new MainMenuEnterParams("", "");
+                _currentBaseEnterParams = new MainMenuEnterParams("", "", 
+                    false, "быстрый старт из GameEntryPoint 57 строчка");
                 _currentLoadingScene = Scenes.MAINMENU;
                 return;
             }
             
             if (nameScene == Scenes.CORE)
             {
-                _currentBaseEnterParams = new CoreEnterParams("", "", LoadType.Continue, Guid.Empty);
+                _currentBaseEnterParams = new CoreEnterParams("", LoadType.Continue, Guid.Empty);
                 _currentLoadingScene = Scenes.CORE;
                 return;
             }
@@ -111,7 +112,7 @@ namespace Game.Root
             
             yield return LoadScene(Scenes.BOOT);
             yield return LoadScene(Scenes.CORE);
-            Debug.Log($"Scene {_currentLoadingScene} is loaded");
+            //Debug.Log($"Scene {_currentLoadingScene} is loaded");
         }
         
         

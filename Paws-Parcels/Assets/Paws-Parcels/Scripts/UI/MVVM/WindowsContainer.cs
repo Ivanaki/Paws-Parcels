@@ -48,6 +48,15 @@ namespace UI.MVVM
             _openedScreenBinder = binder;
         }
 
+        public void CloseScreen()
+        {
+            if (_openedScreenBinder != null)
+            {
+                _openedScreenBinder.Close();
+                _openedScreenBinder = null;
+            }
+        }
+        
         private static string GetScreenPrefabPath(WindowViewModel viewModel)
         {
             return $"UI/Screens/{viewModel.Id}";

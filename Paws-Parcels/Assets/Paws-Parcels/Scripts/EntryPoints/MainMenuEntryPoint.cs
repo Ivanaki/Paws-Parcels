@@ -2,8 +2,8 @@ using System;
 using Game.Params;
 using Paws_Parcels.Scripts;
 using R3;
+using Services;
 using UI;
-using UI.Core;
 using UI.MainMenu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,11 +21,15 @@ namespace Game.Root
         private UIMainMenuRootViewModel _uiMainMenuRootViewModel;
         private MainMenuUIManager _mainMenuUIManager;
         private LoadService _loadService;
+        private MessageToUserService _messageToUserService;
+        private GameInputService _gameInputService;
+        
+        private IDisposable _disposable;
 
         [Inject]
         private void Construct(MainMenuSignals mainMenuSignals, GameEntryPoint gameEntryPoint,
             UIGameView uiGameView, UIMainMenuRootViewModel uiMainMenuRootViewModel, MainMenuUIManager mainMenuUIManager,
-            LoadService loadService)
+            LoadService loadService, MessageToUserService messageToUserService, GameInputService gameInputService)
         {
             _mainMenuSignals = mainMenuSignals;
             _gameEntryPoint = gameEntryPoint;
@@ -33,6 +37,8 @@ namespace Game.Root
             _uiMainMenuRootViewModel = uiMainMenuRootViewModel;
             _mainMenuUIManager = mainMenuUIManager;
             _loadService = loadService;
+            _messageToUserService = messageToUserService;
+            _gameInputService = gameInputService;
         }
 
         public void Start()
@@ -44,13 +50,21 @@ namespace Game.Root
         {
             var baseEnterParams = _gameEntryPoint.GetSceneEnterParams(SceneManager.GetActiveScene().name);
             var mainMenuEnterParams = baseEnterParams == null
-                ? new MainMenuEnterParams("", "")
+                ? new MainMenuEnterParams("none", "",false, "")
                 : baseEnterParams.As<MainMenuEnterParams>();
             
             Debug.Log($"MainMenu ENTRY POINT. Message: {mainMenuEnterParams.MessageToMainMenu}");
-
-
+            
+            
             InitUI();
+
+            _messageToUserService.SendMessage(mainMenuEnterParams.MessageToUser,
+                mainMenuEnterParams.IsWasErrorWhileLoadCoreScene ? Color.red : Color.white);
+
+            _gameInputService.InputSystem.UI.Enable();
+            _gameInputService.InputSystem.Gameplay.Disable();
+            _gameInputService.InputSystem.Car.Disable();
+            _gameInputService.InputSystem.Player.Disable();
             
             
             /*var loadType = LoadType.New;
@@ -62,19 +76,19 @@ namespace Game.Root
             
             var newGameSignalSubject = _mainMenuSignals.NewGameSignal.Select(_ =>
                 new MainMenuExitParams(Scenes.CORE, 
-                    new CoreEnterParams(Scenes.MAINMENU,"from mainMenu", LoadType.New, Guid.Empty)));
+                    new CoreEnterParams(Scenes.MAINMENU, LoadType.New, Guid.Empty)));
             
             var loadGameSignalSubject = _loadService.LoadCoreSceneWithSaveId.Select(saveId =>
                 new MainMenuExitParams(Scenes.CORE, 
-                    new CoreEnterParams(Scenes.MAINMENU,"from mainMenu", LoadType.Continue, saveId)));
+                    new CoreEnterParams(Scenes.MAINMENU, LoadType.LoadCurrentSave, saveId)));
             
-            var restartEnter = new MainMenuEnterParams(Scenes.MAINMENU, "");
+            var restartEnter = new MainMenuEnterParams(Scenes.MAINMENU, "", false, "restart");
             var exitParamsRestart = new MainMenuExitParams(Scenes.MAINMENU, restartEnter);
             var exitRestartSubject = _mainMenuSignals.RestartSignal.Select(_ => exitParamsRestart);
             
             var exitSignal = exitRestartSubject.Merge(newGameSignalSubject).Merge(loadGameSignalSubject);
             
-            exitSignal.Subscribe(mainMenuExitParams =>
+            _disposable = exitSignal.Subscribe(mainMenuExitParams =>
             {
                 _gameEntryPoint.ScenesLoad(mainMenuExitParams.SceneTo, mainMenuExitParams.BaseEnterParams);
             });
@@ -100,6 +114,11 @@ namespace Game.Root
             #else
                 Application.Quit();
             #endif
+        }
+
+        private void OnDestroy()
+        {
+            _disposable?.Dispose();
         }
     }
 }
