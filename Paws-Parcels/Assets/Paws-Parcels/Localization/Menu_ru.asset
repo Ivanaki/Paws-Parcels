@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Text_ru
+  m_Name: Menu_ru
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
   m_LocaleId:
     m_Code: ru
@@ -72,10 +72,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 49948044288000
     m_Localized: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 95000942190592
-    m_Localized: "\u041C\u0438\u0441\u0441\u0438\u044F \u0432\u043E\u0438\u043D\u0430"
     m_Metadata:
       m_Items: []
   - m_Id: 102024270684160

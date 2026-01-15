@@ -6,9 +6,15 @@ using UnityEngine.Localization.Settings;
 
 namespace Services
 {
+    public enum Tables
+    {
+        Menu,
+        Quests
+    }
+    
     public class LocalizationService : IDisposable
     {
-        private const string StringsTableKey = "Text";
+        //private const string StringsTableKey = Tables.Menu.ToBinaryString();
         private const string BaseLocaleCode = "en";
 
         public ReadOnlyReactiveProperty<Locale> CurrentLocale => _currentLocale;
@@ -58,7 +64,7 @@ namespace Services
             return LocalizationSettings.AvailableLocales.GetLocale(code);
         }
         
-        public string GetCurrentLanguageStringOrDefault(string key)
+        public string GetCurrentLanguageStringOrDefault(string key, Tables tableName)
         {
             if (string.IsNullOrEmpty(key))
             {
@@ -67,7 +73,7 @@ namespace Services
 
             try
             {
-                return LocalizationSettings.StringDatabase.GetLocalizedString(StringsTableKey, key, _currentLocale.CurrentValue);
+                return LocalizationSettings.StringDatabase.GetLocalizedString(tableName.ToString(), key, _currentLocale.CurrentValue);
             }
             catch
             {
@@ -75,7 +81,7 @@ namespace Services
             }
         }
 
-        public string GetLocalizedString(string key, Locale locale)
+        public string GetLocalizedString(string key, Locale locale, Tables tableName)
         {
             if (string.IsNullOrEmpty(key))
             {
@@ -84,7 +90,7 @@ namespace Services
             
             try
             {
-                return LocalizationSettings.StringDatabase.GetLocalizedString(StringsTableKey, key, locale);
+                return LocalizationSettings.StringDatabase.GetLocalizedString(tableName.ToString(), key, locale);
             }
             catch
             {

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
-  m_Name: Text
+  m_Name: Quests
   m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.StringTableCollection
-  m_SharedTableData: {fileID: 11400000, guid: d849a9f62f790224fa67dad0bfc2568f, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: 7a3a0b308f134024b83b17f2a06a10cc, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: bc904b2ab92127749ac7da6e2b7f5885, type: 2}
-  - {fileID: 11400000, guid: 2bf70ab97407b7d4aa51c6fcd3f8c1c0, type: 2}
+  - {fileID: 11400000, guid: c68e7ca7a36afee49a2dbefdeab8cd37, type: 2}
+  - {fileID: 11400000, guid: 4d6b7cc87b8704c48b6f32edb15b32af, type: 2}
   m_Extensions: []
   m_Group: String Table
   references:

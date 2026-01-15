@@ -10,11 +10,11 @@ namespace Paws_Parcels.Scripts
         
         private void Start()
         {
-            print(LocalizationSettings.SelectedLocale.CustomFormatterCode);
-            print(LocalizationSettings.SelectedLocale.LocaleName);
-            print(LocalizationSettings.SelectedLocale.name);
-            print(LocalizationSettings.SelectedLocale.Identifier.Code);
-            print(LocalizationSettings.SelectedLocale.Identifier.CultureInfo.Name);
+            //print(LocalizationSettings.SelectedLocale.CustomFormatterCode);
+            //print(LocalizationSettings.SelectedLocale.LocaleName);
+            //print(LocalizationSettings.SelectedLocale.name);
+            //print(LocalizationSettings.SelectedLocale.Identifier.Code);
+            //print(LocalizationSettings.SelectedLocale.Identifier.CultureInfo.Name);
             //print(LocalizationSettings.SelectedLocale.Identifier.CultureInfo.Name);
             
             //_mouseEnterUtil.IsMouseEnter.Subscribe(v => print(v));

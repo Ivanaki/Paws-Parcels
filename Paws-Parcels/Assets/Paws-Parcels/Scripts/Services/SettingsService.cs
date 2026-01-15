@@ -53,7 +53,7 @@ namespace UI.Screens.Settings
             var localeDatas = localesList.Select(locate => new LocaleData()
             {
                 Code = locate.Identifier.Code,
-                Name = _localizationService.GetLocalizedString(LanguageNameKey, locate)
+                Name = _localizationService.GetLocalizedString(LanguageNameKey, locate, Tables.Menu)
             }).ToList();
             return localeDatas;
         }

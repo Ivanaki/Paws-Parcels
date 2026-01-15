@@ -16,7 +16,13 @@ MonoBehaviour:
   m_GUID: d17e47acce065a94eb95637f759e58fb
   m_SerializeEntries:
   - m_GUID: bc904b2ab92127749ac7da6e2b7f5885
-    m_Address: Text_en
+    m_Address: Menu_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c68e7ca7a36afee49a2dbefdeab8cd37
+    m_Address: Quests_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

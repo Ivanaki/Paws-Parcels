@@ -58,7 +58,7 @@ namespace Paws_Parcels.Scripts
 
         public string GetMissionWithLocalization(string missionCode)
         {
-            return _localizationService.GetCurrentLanguageStringOrDefault(missionCode);
+            return _localizationService.GetCurrentLanguageStringOrDefault(missionCode, Tables.Quests);
         }
     }
 }
