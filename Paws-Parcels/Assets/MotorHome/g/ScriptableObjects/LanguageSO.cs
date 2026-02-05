@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MotorHome.Scripts
 {
-    [CreateAssetMenu]
+    //[CreateAssetMenu]
     public class LanguageSO : ScriptableObject
     {
         [field: SerializeField] public LanguageEnum Language { get; private set; }

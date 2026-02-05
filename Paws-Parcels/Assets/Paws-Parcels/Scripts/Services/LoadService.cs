@@ -56,9 +56,14 @@ namespace Paws_Parcels.Scripts
             return _gameStateProvider.GetScreenshotOrDefault(idSave);
         }
 
-        public string GetMissionWithLocalization(string missionCode)
+        public string GetQuestWithLocalization(string questCode)
         {
-            return _localizationService.GetCurrentLanguageStringOrDefault(missionCode, Tables.Quests);
+            return _localizationService.GetCurrentLanguageStringOrDefault(questCode, Tables.Quests);
+        }
+        
+        public string GetLocationWithLocalization(string locCode)
+        {
+            return _localizationService.GetCurrentLanguageStringOrDefault(locCode, Tables.Locations);
         }
     }
 }

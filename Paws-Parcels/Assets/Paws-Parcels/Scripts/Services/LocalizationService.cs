@@ -9,7 +9,8 @@ namespace Services
     public enum Tables
     {
         Menu,
-        Quests
+        Quests,
+        Locations
     }
     
     public class LocalizationService : IDisposable

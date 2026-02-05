@@ -36,7 +36,7 @@ namespace UI.Screens.LoadMenu
             _viewModel = viewModel;
             
             _disposables.Add(_button.OnClickAsObservable().Subscribe(_ => viewModel.RequestClicked()));
-            _disposables.Add(viewModel.DateTimeText.Subscribe(v => _nameText.text = v));
+            _disposables.Add(viewModel.TextToShow.Subscribe(v => _nameText.text = v));
             _disposables.Add(viewModel.IsSelected.Subscribe(v =>
             {
                 if (v) SetImageColor(_selectedColor);

@@ -16,8 +16,9 @@ namespace UI.Screens.LoadMenu
         [SerializeField] private Button _updateButton;
 
         [SerializeField] private TMP_Text _currentMissionText;
+        [SerializeField] private TMP_Text _currentLocationText;
         [SerializeField] private TMP_Text _saveFolderNameText;
-        [SerializeField] private TMP_Text _dateTimeText;
+        //[SerializeField] private TMP_Text _dateTimeText;
         [SerializeField] private TMP_Text _saveVersionText;
         [SerializeField] private TMP_Text _gameVersionText;
 
@@ -67,8 +68,9 @@ namespace UI.Screens.LoadMenu
             _disposables.Add(viewModel.ScreenshotTexture2D.Subscribe(v => _screenshotRawImage.texture = v));
             
             _disposables.Add(viewModel.CurrentMissionText.Subscribe(v => _currentMissionText.text = v));
+            _disposables.Add(viewModel.CurrentLocationText.Subscribe(v => _currentLocationText.text = v));
             _disposables.Add(viewModel.SaveNameText.Subscribe(v => _saveFolderNameText.text = v));
-            _disposables.Add(viewModel.DateTimeText.Subscribe(v => _dateTimeText.text = v));
+            //_disposables.Add(viewModel.DateTimeText.Subscribe(v => _dateTimeText.text = v));
             _disposables.Add(viewModel.SaveVersionText.Subscribe(v => _saveVersionText.text = v));
             _disposables.Add(viewModel.GameVersionText.Subscribe(v => _gameVersionText.text = v));
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Paws_Parcels.Scripts.Saves.States.EditorSettings
 {
-    [CreateAssetMenu(fileName = "EditorSettingsSO", menuName = "Editor settings/New editor settings SO")]
+    [CreateAssetMenu(fileName = "EditorSettingsState", menuName = "Paws_parcels/Editor settings state")]
     public class EditorSettingsSO : ScriptableObject
     {
         

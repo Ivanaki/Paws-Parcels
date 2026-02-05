@@ -7,6 +7,7 @@ using Paws_Parcels.Scripts.Quests;
 using R3;
 using SaveLaod;
 using Saves;
+using Services;
 using UnityEngine;
 
 namespace Paws_Parcels.Scripts.Saves.States.GameState
@@ -37,7 +38,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
 
         private readonly JsonFileSerializer _jsonSerializer;
         private readonly ScreenshotSaver _screensaver;
-        private readonly MissionService _missionService;
+        private readonly QuestsService _questsService;
+        private readonly PlayerLocationService _playerLocationService;
 
         private readonly GameState _gameStateOrigin;
         
@@ -46,12 +48,14 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         private int AutoSaveNewNumber;
         private int HandSaveNewNumber;
 
-        public GameStateProvider(JsonFileSerializer jsonSerializer, ScreenshotSaver screensaver, MissionService missionService)
+        public GameStateProvider(JsonFileSerializer jsonSerializer, ScreenshotSaver screensaver,
+            QuestsService questsService, PlayerLocationService playerLocationService)
         {
             _jsonSerializer = jsonSerializer;
             _screensaver = screensaver;
-            _missionService = missionService;
-            
+            _questsService = questsService;
+            _playerLocationService = playerLocationService;
+
             _gameStateOrigin = new GameState();
             GameProxy = new GameProxy(_gameStateOrigin);
             
@@ -169,7 +173,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                 SaveId = newID,
                 SaveName = saveName,
                 SaveDataTimeUtc = dateTime,
-                TrackedMissionCode = _missionService.GetMissionName(GameProxy.TrackedMissionID.Value),
+                TrackedQuestCode = _questsService.GetQuestCode(GameProxy.TrackedMissionID.Value),
+                CurrentLocationCode = _playerLocationService.GetCurrentLocationCode(),
                 IsAutoSave = isAutoSave,
                 GameVersion = GameVersion,
                 SaveVersion = SaveVersion
@@ -238,7 +243,21 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
 
         public GameStateProviderLoadCallback LoadLastSave()
         {
-            var metas = MetaMap.Values;
+            var metas = MetaMap.Values.ToList();
+            if (metas.Count == 0)
+            {
+                Debug.LogWarning("Last save not found => Loading new game");
+                var result = LoadNewGame();
+                
+                if (result) return new GameStateProviderLoadCallback() { IsSuccess = true };
+                
+                return new GameStateProviderLoadCallback()
+                {
+                    IsSuccess = false,
+                    Exception = new Exception("Error already throw"),
+                    MessageToUser = "Error while loading new game while loading last save"
+                };
+            }
             var eatherMeta = metas.OrderByDescending(x => x.SaveDataTimeUtc).First();
             return LoadGameState(eatherMeta.SaveId);
         }

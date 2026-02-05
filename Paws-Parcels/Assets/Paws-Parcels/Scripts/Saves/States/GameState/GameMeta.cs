@@ -8,7 +8,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public Guid SaveId;
         public string SaveName; //используется в названии папки
         public DateTime SaveDataTimeUtc;
-        public string TrackedMissionCode;
+        public string TrackedQuestCode;
+        public string CurrentLocationCode;
         public bool IsAutoSave;
         public int GameVersion;
         public int SaveVersion;

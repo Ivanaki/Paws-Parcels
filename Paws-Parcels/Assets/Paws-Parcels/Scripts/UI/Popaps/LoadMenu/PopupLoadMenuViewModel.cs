@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using ObservableCollections;
 using Paws_Parcels.Scripts;
@@ -20,13 +21,14 @@ namespace UI.Screens.LoadMenu
         public IObservableCollection<OneSaveViewModel> OneSaveViewModels => _oneSaveViewModels;
 
         public ReadOnlyReactiveProperty<string> CurrentMissionText => _currentMissionText;
+        public ReadOnlyReactiveProperty<string> CurrentLocationText => _currentLocationText;
         public ReadOnlyReactiveProperty<string> SaveNameText => _saveNameText;
         public ReadOnlyReactiveProperty<string> DateTimeText => _dateTimeText;
         public ReadOnlyReactiveProperty<string> SaveVersionText => _saveVersionText;
         public ReadOnlyReactiveProperty<string> GameVersionText => _gameVersionText;
         public ReadOnlyReactiveProperty<Texture2D> ScreenshotTexture2D => _screenshotTexture2D;
-
-        //public ReadOnlyReactiveProperty<CultureInfo> CurrentCultureInfo { get; }
+        
+        public ReadOnlyReactiveProperty<CultureInfo> CurrentCultureInfo { get; }
         
         private readonly LoadService _loadService;
         private readonly IReadOnlyObservableDictionary<Guid, GameMeta> _metasMap;
@@ -34,10 +36,12 @@ namespace UI.Screens.LoadMenu
         //
         private readonly ObservableList<OneSaveViewModel> _oneSaveViewModels = new();
         private readonly Dictionary<Guid, OneSaveViewModel> _savesMap = new();
+        //private readonly Dictionary<OneSaveViewModel, DateTime> _oneSaveViewModelDate = new();
         
         private readonly CompositeDisposable _disposables = new();
         
         private readonly ReactiveProperty<string> _currentMissionText = new(NoneSimbol);
+        private readonly ReactiveProperty<string> _currentLocationText = new(NoneSimbol);
         private readonly ReactiveProperty<string> _saveNameText = new(NoneSimbol);
         private readonly ReactiveProperty<string> _dateTimeText = new(NoneSimbol);
         private readonly ReactiveProperty<string> _saveVersionText = new(NoneSimbol);
@@ -46,7 +50,8 @@ namespace UI.Screens.LoadMenu
         
         
         private readonly ReactiveProperty<DateTime> _dateTimeUtc = new();
-        private readonly ReactiveProperty<string> _currentMissionCode = new();
+        private readonly ReactiveProperty<string> _currentQuestCode = new();
+        private readonly ReactiveProperty<string> _currentLocationCode = new();
 
 
         private OneSaveViewModel _selectedSaveViewModel = null;
@@ -55,22 +60,28 @@ namespace UI.Screens.LoadMenu
         public PopupLoadMenuViewModel(LoadService loadService)
         {
             _loadService = loadService;
-            var currentCulture = loadService.CurrentCultureInfo;
+            CurrentCultureInfo = loadService.CurrentCultureInfo;
             
             _disposables.Add(_dateTimeUtc.Skip(1).Subscribe(dateTime =>
             {
-                _dateTimeText.Value = dateTime.ToLocalTime().ToString("f", currentCulture.CurrentValue);
+                _dateTimeText.Value = dateTime.ToLocalTime().ToString("f", CurrentCultureInfo.CurrentValue);
             }));
 
-            _disposables.Add(_currentMissionCode.Skip(1).Subscribe(missionCode =>
+            _disposables.Add(_currentQuestCode.Skip(1).Subscribe(questCode =>
             {
-                _currentMissionText.Value = _loadService.GetMissionWithLocalization(missionCode);
+                _currentMissionText.Value = _loadService.GetQuestWithLocalization(questCode);
             }));
 
-            _disposables.Add(currentCulture.Skip(1).Subscribe(culture =>
+            _disposables.Add(_currentLocationCode.Skip(1).Subscribe(locCode =>
             {
-                _dateTimeText.Value = _dateTimeUtc.CurrentValue.ToLocalTime().ToString("f", currentCulture.CurrentValue);
-                _currentMissionText.Value = _loadService.GetMissionWithLocalization(_currentMissionCode.CurrentValue);
+                _currentLocationText.Value = _loadService.GetLocationWithLocalization(locCode);
+            }));
+
+            _disposables.Add(CurrentCultureInfo.Skip(1).Subscribe(culture =>
+            {
+                _dateTimeText.Value = _dateTimeUtc.CurrentValue.ToLocalTime().ToString("f", culture);
+                _currentMissionText.Value = _loadService.GetQuestWithLocalization(_currentQuestCode.CurrentValue);
+                _currentLocationText.Value = _loadService.GetLocationWithLocalization(_currentLocationCode.CurrentValue);
             }));
             
             _metasMap = loadService.MetasMap;
@@ -92,7 +103,7 @@ namespace UI.Screens.LoadMenu
                 var inserted = false;
                 for (var i = _oneSaveViewModels.Count-1; i >= 0; i--)
                 {
-                    if (gameMeta.SaveDataTimeUtc >= _oneSaveViewModels[i].DateTime)
+                    if (gameMeta.SaveDataTimeUtc >= _oneSaveViewModels[i].DateTimeUtc)
                     {
                         InsertOneSaveViewModel(gameMeta, i + 1);
                         inserted = true;
@@ -115,18 +126,20 @@ namespace UI.Screens.LoadMenu
 
         private void InsertOneSaveViewModel(GameMeta gameMeta, int index)
         {
-            var viewModel = new OneSaveViewModel(gameMeta.SaveId, gameMeta.SaveDataTimeUtc, this);
+            var viewModel = new OneSaveViewModel(gameMeta, this);
             
             _oneSaveViewModels.Insert(index, viewModel);
             _savesMap[gameMeta.SaveId] = viewModel;
+            //_oneSaveViewModelDate[viewModel] = gameMeta.SaveDataTimeUtc;
         }
         
         private void AddOneSaveViewModel(GameMeta gameMeta)
         {
-            var viewModel = new OneSaveViewModel(gameMeta.SaveId, gameMeta.SaveDataTimeUtc, this);
+            var viewModel = new OneSaveViewModel(gameMeta, this);
             
             _oneSaveViewModels.Add(viewModel);
             _savesMap[gameMeta.SaveId] = viewModel;
+            //_oneSaveViewModelDate[viewModel] = gameMeta.SaveDataTimeUtc;
         }
         
         private void RemoveOneSaveViewModel(GameMeta gameMeta)
@@ -135,6 +148,7 @@ namespace UI.Screens.LoadMenu
             {
                 _oneSaveViewModels.Remove(viewModel);
                 _savesMap.Remove(gameMeta.SaveId);
+                //_oneSaveViewModelDate.Remove(viewModel);
             }
         }
         
@@ -142,6 +156,7 @@ namespace UI.Screens.LoadMenu
         {
             _oneSaveViewModels.Clear();
             _savesMap.Clear();
+            //_oneSaveViewModelDate.Clear();
         }
 
         private void ShowSaveUI(GameMeta gameMeta, Texture2D texture)
@@ -160,7 +175,8 @@ namespace UI.Screens.LoadMenu
                 //var culture = new CultureInfo("en-US");
                 //var dateTimeText = gameMeta.SaveDataTimeUtc.ToLocalTime().ToString("f", culture);
 
-                _currentMissionCode.Value = gameMeta.TrackedMissionCode;
+                _currentQuestCode.Value = gameMeta.TrackedQuestCode;
+                _currentLocationCode.Value = gameMeta.CurrentLocationCode;
                 _dateTimeUtc.Value = gameMeta.SaveDataTimeUtc;
                 
                 _saveNameText.Value = gameMeta.SaveName;
@@ -188,10 +204,7 @@ namespace UI.Screens.LoadMenu
 
         private void SelectLastSaveViewModel()
         {
-            if(_oneSaveViewModels.Count > 0)
-                RequestOneSaveClicked(_oneSaveViewModels[^1].Id);
-            else
-                ShowSaveUI(null, null);
+            RequestOneSaveClicked(_oneSaveViewModels.Count > 0 ? _oneSaveViewModels[^1].Id : Guid.Empty);
         }
 
         public override void Dispose()
@@ -201,6 +214,8 @@ namespace UI.Screens.LoadMenu
         
         //Requests by binders and child viewModels
         #region Requests by binders and child viewModels
+        
+        
         public void RequestLoadGame()
         {
             if (_selectedSaveId != Guid.Empty)
@@ -228,10 +243,19 @@ namespace UI.Screens.LoadMenu
         {
             SelectOneSaveViewModel(saveId);
 
+            if (saveId == Guid.Empty)
+            {
+                ShowSaveUI(null, null);
+                return;
+            }
+            
             var gameMeta = _metasMap.GetValueOrDefault(saveId);
             var texture = _loadService.GetTextureOrDefault(saveId);
             ShowSaveUI(gameMeta, texture);
         }
+        
+        
+        
         #endregion
     }
 }

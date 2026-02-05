@@ -1,12 +1,26 @@
+using System;
+using System.Collections.Generic;
+using NaughtyAttributes;
 using R3;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
 namespace Paws_Parcels.Scripts
 {
+    /*[Serializable]
+    public class Te
+    {
+        [SerializeField] private bool test;
+
+        [SerializeField, AllowNesting, HideIf(nameof(test))] private List<string> list;
+    }*/
+    
     public class TestMO : MonoBehaviour
     {
         //[SerializeField] private MouseEnterUtil _mouseEnterUtil;
+
+        //[SerializeField, AllowNesting] private Te list;
+        
         
         private void Start()
         {

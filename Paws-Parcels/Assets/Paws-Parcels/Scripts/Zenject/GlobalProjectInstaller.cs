@@ -57,13 +57,14 @@ namespace MotorHome.Scripts.Zenject
             
             Container.Bind<GameStateProvider>().AsSingle();
             
-            Container.Bind<MissionService>().AsSingle();
+            Container.Bind<QuestsService>().AsSingle();
             
             Container.Bind<EditorDataService>().AsSingle();
             
             Container.Bind<MessageToUserService>().AsSingle();
             Container.Bind<GameInputService>().AsSingle();
             Container.Bind<CursorService>().AsSingle();
+            Container.Bind<PlayerLocationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<LocalizationService>().AsSingle();
             //Container.Bind<ClosePopupsWithBackButtonService>().AsSingle();
             

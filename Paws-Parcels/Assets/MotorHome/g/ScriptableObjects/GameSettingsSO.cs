@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MotorHome.Scripts
 {
-    [CreateAssetMenu]
+    //[CreateAssetMenu]
     public class GameSettingsSO : ScriptableObject
     {
         [field: SerializeField] public int LettersInSecondDialogSpeed { get; private set; } = 40;

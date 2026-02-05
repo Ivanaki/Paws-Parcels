@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MotorHome.Scripts.Saves.ScriptableObjects
 {
-    [CreateAssetMenu]
+    //[CreateAssetMenu]
     public class CoreSo : ScriptableObject
     {
         [field: SerializeField] public CoreState CoreState { get; private set; }
