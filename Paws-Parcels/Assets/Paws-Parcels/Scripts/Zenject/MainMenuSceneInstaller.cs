@@ -3,7 +3,7 @@ using Services;
 using UI.MainMenu;
 using Zenject;
 
-namespace Paws_Parcels.Scripts.Zenject
+namespace Paws_Parcels.Scripts.Installers
 {
     public class MainMenuSceneInstaller : MonoInstaller
     {        

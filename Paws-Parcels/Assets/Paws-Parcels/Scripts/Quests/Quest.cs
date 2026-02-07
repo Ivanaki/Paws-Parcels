@@ -12,6 +12,12 @@ namespace Paws_Parcels.Scripts.Quests
         [field: SerializeField] public Reward Reward { get; private set; }
         [field: SerializeField] public int Count { get; private set; }
     }
+
+    [Serializable]
+    public class NotSoloMessage
+    {
+        [SerializeField] private List<string> _type;
+    }
     
     /*[Serializable]
     public class BoolObject<T>
@@ -23,37 +29,41 @@ namespace Paws_Parcels.Scripts.Quests
     [Serializable]
     public class Mission
     {
-        [field: SerializeField] public string TextCode { get; private set; }
+        [SerializeField] private string _textCode;
         
-        [field: SerializeField, Header("Destination")] 
-        public bool HasDestination { get; private set; } = true;
-
-        [field: SerializeField, ShowIf(nameof(HasDestination))]
-        public string DestinationCode { get; private set; }
-
-        [field: SerializeField, ShowIf(nameof(HasDestination))]
-        public Vector3 DestinationPosition { get; private set; }
-
-        [SerializeField, Header("MessageParameter"), AllowNesting] 
-        public bool IsIntEvent  = false;
+        [Header("Destination")]
+        [SerializeField] private bool _hasDestination  = true;
+        [SerializeField] private string _destinationCode;
+        [SerializeField] private Vector3 _destinationPosition;
         
-        [field: SerializeField, HideIf("IsIntEvent"), AllowNesting]
-        public string CompleteBusMessageParameter { get; private set; } = "Test_message:Test_parameter";
+        [Header("Message")]
+        [SerializeField] private bool _isSoloMessage  = true;
         
-        [SerializeField, ShowIf("IsIntEvent"), AllowNesting] 
-        private List<string> CompleteBusMessageParametersIntEvent  = new() {"Test_message:Test_parameter"};
-        [field: SerializeField, ShowIf("IsIntEvent"), AllowNesting] 
-        public int MessageParameterAmount { get; private set; }
+        [ShowIf(nameof(_isSoloMessage)), AllowNesting]
+        [SerializeField] private string _message;
+        
+        [HideIf(nameof(_isSoloMessage)), AllowNesting] 
+        [SerializeField] private NotSoloMessage _notSoloMessage;
+
         
     }
     
     [CreateAssetMenu(fileName = "Quest", menuName = "Paws_parcels/Quest")]
     public class Quest : ScriptableObject
     {
-        [field: SerializeField] public string QuestId { get; private set; }
-        [field: SerializeField] public string QuestNameCode { get; private set; }
-        [field: SerializeField, AllowNesting] public List<Mission> Missions { get; private set; }
-        [field: SerializeField] public List<RewardReference> Rewards { get; private set; }
+        public string _id;
+        
+        public bool ActiveOnAwake = true;
+        [HideIf(nameof(ActiveOnAwake))] 
+        public string _activateMessage;
+        
+        [Space]
+        
+        public string _giverNpcId;
+        //Диалоги: берёшь квест, после взятия квеста короткая справка
+        
+        public List<Mission> _missions;
+        public List<RewardReference> _rewards;
     }
     
     

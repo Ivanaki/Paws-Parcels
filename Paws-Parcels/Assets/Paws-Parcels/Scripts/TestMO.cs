@@ -1,29 +1,29 @@
-using System;
-using System.Collections.Generic;
-using NaughtyAttributes;
-using R3;
+using System.Collections;
+using Quests;
+using Services;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
+using Zenject;
 
 namespace Paws_Parcels.Scripts
 {
-    /*[Serializable]
-    public class Te
+    public class TestMO : MonoBehaviour, IMessageHandler
     {
-        [SerializeField] private bool test;
-
-        [SerializeField, AllowNesting, HideIf(nameof(test))] private List<string> list;
-    }*/
-    
-    public class TestMO : MonoBehaviour
-    {
-        //[SerializeField] private MouseEnterUtil _mouseEnterUtil;
-
-        //[SerializeField, AllowNesting] private Te list;
+        [Inject] private MessageSystem _messageSystem;
         
         
-        private void Start()
+        
+        
+        private IEnumerator Start()
         {
+            _messageSystem.AddListener(this, "take", "box");
+            _messageSystem.AddListener(this, "take", null);
+            _messageSystem.AddListener(this, null, null);
+            yield return null;
+            _messageSystem.SendCompositeMessage(this, "take");
+            yield return null;
+            
+            GetComponent<ContentSizeFitter>().SetLayoutVertical();
             //print(LocalizationSettings.SelectedLocale.CustomFormatterCode);
             //print(LocalizationSettings.SelectedLocale.LocaleName);
             //print(LocalizationSettings.SelectedLocale.name);
@@ -40,6 +40,11 @@ namespace Paws_Parcels.Scripts
             //print(callback.Exception.Message);
             //_gameStateProvider.LoadNewGame();
             //print(_gameStateProvider.GameProxy.TrackedMissionID.Value);
+        }
+
+        public void OnMessage(MessageArgs messageArgs)
+        {
+            print("Get message: " + messageArgs.message + ":" + messageArgs.parameter);
         }
     }
 }

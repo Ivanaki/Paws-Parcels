@@ -4,7 +4,7 @@ using UI.Core;
 using UI.HUD;
 using Zenject;
 
-namespace MotorHome.Scripts.Zenject
+namespace MotorHome.Scripts.Installers
 {
     public class CoreSceneInstaller : MonoInstaller
     {

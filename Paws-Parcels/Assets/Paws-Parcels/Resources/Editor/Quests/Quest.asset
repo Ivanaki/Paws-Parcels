@@ -12,25 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f00c5bbf8c444b782a82c671cd1c25b, type: 3}
   m_Name: Quest
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Quests.Quest
-  <QuestId>k__BackingField: 
-  <QuestNameCode>k__BackingField: 
-  <Missions>k__BackingField:
-  - <TextCode>k__BackingField: 
-    <HasDestination>k__BackingField: 0
-    <DestinationCode>k__BackingField: 
-    <DestinationPosition>k__BackingField: {x: 0, y: 0, z: 0}
-    IsIntEvent: 0
-    <CompleteBusMessageParameter>k__BackingField: 
-    CompleteBusMessageParametersIntEvent:
-    - Test_message:Test_parameter
-    <MessageParameterAmount>k__BackingField: 0
-  - <TextCode>k__BackingField: 
-    <HasDestination>k__BackingField: 0
-    <DestinationCode>k__BackingField: 
-    <DestinationPosition>k__BackingField: {x: 0, y: 0, z: 0}
-    IsIntEvent: 0
-    <CompleteBusMessageParameter>k__BackingField: 
-    CompleteBusMessageParametersIntEvent:
-    - Test_message:Test_parameter
-    <MessageParameterAmount>k__BackingField: 0
-  <Rewards>k__BackingField: []
+  _id: First
+  ActiveOnAwake: 1
+  _activateMessage: 
+  _giverNpcId: Bear
+  _missions: []
+  _rewards: []

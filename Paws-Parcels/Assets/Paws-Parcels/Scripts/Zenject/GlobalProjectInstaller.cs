@@ -12,7 +12,7 @@ using UnityEngine;
 using Zenject;
 
 
-namespace MotorHome.Scripts.Zenject
+namespace MotorHome.Scripts.Installers
 {
     public class GlobalProjectInstaller : MonoInstaller
     {
@@ -49,24 +49,19 @@ namespace MotorHome.Scripts.Zenject
             
             Container.Bind<JsonFileSerializer>().AsSingle();
             Container.Bind<ScreenshotSaver>().AsSingle();
-            
             Container.Bind<LoadService>().AsSingle();
-            //Container.Bind<GameStateProvider>().AsSingle();
             Container.Bind<SettingsStateProvider>().AsSingle();
             Container.Bind<SettingsService>().AsSingle();
-            
             Container.Bind<GameStateProvider>().AsSingle();
-            
             Container.Bind<QuestsService>().AsSingle();
-            
             Container.Bind<EditorDataService>().AsSingle();
-            
             Container.Bind<MessageToUserService>().AsSingle();
             Container.Bind<GameInputService>().AsSingle();
             Container.Bind<CursorService>().AsSingle();
             Container.Bind<PlayerLocationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<LocalizationService>().AsSingle();
-            //Container.Bind<ClosePopupsWithBackButtonService>().AsSingle();
+            
+            Container.Bind<MessageSystem>().AsSingle();
             
             //Old bindings
             
