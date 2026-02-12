@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f00c5bbf8c444b782a82c671cd1c25b, type: 3}
+  m_Name: Gasoline
+  m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Quests.Quest
+  Id: Gasoline
+  ActiveOnAwake: 1
+  HasMonologBeforeQuestActivate: 0
+  HasGiver: 0
+  GiverId: 
+  Missions:
+  - Id: f1
+    HasDestination: 1
+    DestinationParent:
+      SpecificDistance: 0
+      DestinationShowDistance: 0
+      IsMany: 0
+      Destination:
+        Id: i1
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: Off
+        OnHighlightMessage: On
+      ManyDestinations:
+        Destinations:
+        - Id: 
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 
+          OnHighlightMessage: 
+        - Id: 
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 
+          OnHighlightMessage: 
+    IsMany: 0
+    Message:
+      Message: f1
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - Id: f2
+    HasDestination: 1
+    DestinationParent:
+      SpecificDistance: 0
+      DestinationShowDistance: 0
+      IsMany: 0
+      Destination:
+        Id: i2
+        NotHighlightOnAwake: 1
+        OffHighlightMessage: Off
+        OnHighlightMessage: On
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: f2
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - Id: f3
+    HasDestination: 1
+    DestinationParent:
+      SpecificDistance: 0
+      DestinationShowDistance: 0
+      IsMany: 0
+      Destination:
+        Id: i3
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: Off
+        OnHighlightMessage: On
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: f3
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  Rewards: []

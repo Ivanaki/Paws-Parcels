@@ -19,6 +19,14 @@ MonoBehaviour:
     m_Key: testMissionName
     m_Metadata:
       m_Items: []
+  - m_Id: 8348784801718272
+    m_Key: First:Awake
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8349853971750912
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -3,6 +3,7 @@ using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Quests;
 using Paws_Parcels.Scripts.Saves.States;
 using Paws_Parcels.Scripts.Saves.States.GameState;
+using Quests;
 using SaveLaod;
 using Saves;
 using Services;
@@ -54,6 +55,9 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<SettingsService>().AsSingle();
             Container.Bind<GameStateProvider>().AsSingle();
             Container.Bind<QuestsService>().AsSingle();
+            Container.Bind<RewardService>().AsSingle();
+            Container.Bind<DestinationService>().AsSingle();
+            Container.Bind<QuestsDatabase>().AsSingle();
             Container.Bind<EditorDataService>().AsSingle();
             Container.Bind<MessageToUserService>().AsSingle();
             Container.Bind<GameInputService>().AsSingle();

@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_GUID: ed07e5c2581cbb446bfa5394b5742dfc
   m_SerializeEntries:
+  - m_GUID: 0f9ed7c1f399e274484a643eff0f3897
+    m_Address: Assets/Paws-Parcels/Localization/DIalogs Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a3a0b308f134024b83b17f2a06a10cc
     m_Address: Assets/Paws-Parcels/Localization/Quests Shared Data.asset
     m_ReadOnly: 1

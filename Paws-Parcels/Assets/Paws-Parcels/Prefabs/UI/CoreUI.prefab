@@ -119,7 +119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4431225375405843017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c704801069c4898b579c3544cb0e629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.HUD.HUDBinder
-  _compassGameObject: {fileID: 0}
+  _compassGameObject: {fileID: 4732588746787610157}
 --- !u!1 &4732588746787610157
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4732588746787610157}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -672,7 +672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6233779864111227518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -982,7 +982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2966282425700811741, guid: 9d975f013b0ed8543b661259cf089d38, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 108.62
       objectReference: {fileID: 0}
     - target: {fileID: 2966282425700811741, guid: 9d975f013b0ed8543b661259cf089d38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1044,7 +1044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6398695783364994273, guid: 9d975f013b0ed8543b661259cf089d38, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 108.62
       objectReference: {fileID: 0}
     - target: {fileID: 6398695783364994273, guid: 9d975f013b0ed8543b661259cf089d38, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1215,7 +1215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2966282425700811741, guid: 9d975f013b0ed8543b661259cf089d38, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 43.08
       objectReference: {fileID: 0}
     - target: {fileID: 2966282425700811741, guid: 9d975f013b0ed8543b661259cf089d38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1267,7 +1267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6398695783364994273, guid: 9d975f013b0ed8543b661259cf089d38, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 43.08
       objectReference: {fileID: 0}
     - target: {fileID: 7417682233325340266, guid: 9d975f013b0ed8543b661259cf089d38, type: 3}
       propertyPath: m_Name

@@ -17,3 +17,10 @@ MonoBehaviour:
     NextNonSavableEntityID: 0
     TrackedMissionID: 0
     IsCompassActive: 0
+    ActiveQuests:
+    - Id: Gasoline
+      CurrentMission: 0
+      IsActiveDestination: 0
+    SelectedQuest: 
+    SucceedQuests: []
+    CurrentActiveDestinations: []

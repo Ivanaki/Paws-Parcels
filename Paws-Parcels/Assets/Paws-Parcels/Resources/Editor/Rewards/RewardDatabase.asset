@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc831dd8272f47c5b9e3f72f79a9d2cc, type: 3}
+  m_Name: RewardDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Quests.RewardDatabase
+  _rewards:
+  - {fileID: 11400000, guid: 9cf0b1408a5d1524597c6e9c8d31b515, type: 2}

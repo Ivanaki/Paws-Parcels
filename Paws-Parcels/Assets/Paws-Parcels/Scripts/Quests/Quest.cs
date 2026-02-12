@@ -6,17 +6,49 @@ using UnityEngine.Events;
 
 namespace Paws_Parcels.Scripts.Quests
 {
-    [Serializable]
-    public class RewardReference 
+    /*public enum MessagesOperation
     {
-        [field: SerializeField] public Reward Reward { get; private set; }
-        [field: SerializeField] public int Count { get; private set; }
+        
+    }*/
+    
+    [Serializable]
+    public class RewardReference
+    {
+        public string Reward;
+        public int Count;
     }
 
     [Serializable]
-    public class NotSoloMessage
+    public class ManyMessages
     {
-        [SerializeField] private List<string> _type;
+        public List<MessageAsset> Messages;
+    }
+    
+    [Serializable]
+    public class ManyDestinations
+    {
+        public List<DestinationAsset> Destinations;
+    }
+
+    [Serializable]
+    public class DestinationAsset
+    {
+        public string Id;
+        public bool NotHighlightOnAwake;
+        public string OffHighlightMessage;
+        public string OnHighlightMessage;
+    }
+    
+    [Serializable]
+    public class MessageAsset
+    {
+        //public Guid Id;
+        public string Message;
+        public bool HasCount;
+        [ShowIf(nameof(HasCount)), AllowNesting]
+        public int MessageCount;
+        [ShowIf(nameof(HasCount)), AllowNesting]
+        public string MinusMessage;
     }
     
     /*[Serializable]
@@ -25,25 +57,43 @@ namespace Paws_Parcels.Scripts.Quests
         [field: SerializeField] public bool Active { get; private set; }
         [field: SerializeField] public T Value { get; private set; }
     }*/
+
+    [Serializable]
+    public class DestinationParent
+    {
+        public bool SpecificDistance;
+        [ShowIf(nameof(SpecificDistance)), AllowNesting]
+        public float DestinationShowDistance = 5f;
+        
+        public bool IsMany;
+        [HideIf(nameof(IsMany)), AllowNesting]
+        public DestinationAsset Destination;
+        [ShowIf(nameof(IsMany)), AllowNesting]
+        public ManyDestinations ManyDestinations;
+    }
     
     [Serializable]
     public class Mission
     {
-        [SerializeField] private string _textCode;
+        public string Id;
+        
+        //public string ShortPhraseCode;
+        //[TextArea(3,5)] public string DescriptionCode;
         
         [Header("Destination")]
-        [SerializeField] private bool _hasDestination  = true;
-        [SerializeField] private string _destinationCode;
-        [SerializeField] private Vector3 _destinationPosition;
+        public bool HasDestination;
+        [ShowIf(nameof(HasDestination)), AllowNesting]
+        public DestinationParent DestinationParent;
         
-        [Header("Message")]
-        [SerializeField] private bool _isSoloMessage  = true;
         
-        [ShowIf(nameof(_isSoloMessage)), AllowNesting]
-        [SerializeField] private string _message;
+        [Header("Message to complete mission")]
+        public bool IsMany;
         
-        [HideIf(nameof(_isSoloMessage)), AllowNesting] 
-        [SerializeField] private NotSoloMessage _notSoloMessage;
+        [HideIf(nameof(IsMany)), AllowNesting]
+        public MessageAsset Message;
+        
+        [ShowIf(nameof(IsMany)), AllowNesting] 
+        public ManyMessages ManyMessages;
 
         
     }
@@ -51,19 +101,33 @@ namespace Paws_Parcels.Scripts.Quests
     [CreateAssetMenu(fileName = "Quest", menuName = "Paws_parcels/Quest")]
     public class Quest : ScriptableObject
     {
-        public string _id;
-        
-        public bool ActiveOnAwake = true;
-        [HideIf(nameof(ActiveOnAwake))] 
-        public string _activateMessage;
+        public string Id;
         
         [Space]
+        public bool ActiveOnAwake = true;
+        /*[HideIf(nameof(ActiveOnAwake))] 
+        public string ActivateMessage;*/
         
-        public string _giverNpcId;
+        
+        [Space]
+        public bool HasMonologBeforeQuestActivate = false; // [QuestName]:AwakeMonolog
+        
+        [Space]
+        public bool HasGiver = false;
+        [ShowIf(nameof(HasGiver))]
+        public string GiverId; // Quest:GiverDialog
+        
         //Диалоги: берёшь квест, после взятия квеста короткая справка
         
-        public List<Mission> _missions;
-        public List<RewardReference> _rewards;
+        [Space]
+        public List<Mission> Missions;
+        
+        [Space]
+        public List<RewardReference> Rewards;
+        
+        
+        /*[Space]
+        [ShowNonSerializedField] private string _localizationWords = "Name; ;;;;";*/
     }
     
     

@@ -38,7 +38,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
 
         private readonly JsonFileSerializer _jsonSerializer;
         private readonly ScreenshotSaver _screensaver;
-        private readonly QuestsService _questsService;
+        //private readonly QuestsService _questsService;
         private readonly PlayerLocationService _playerLocationService;
 
         private readonly GameState _gameStateOrigin;
@@ -49,11 +49,11 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         private int HandSaveNewNumber;
 
         public GameStateProvider(JsonFileSerializer jsonSerializer, ScreenshotSaver screensaver,
-            QuestsService questsService, PlayerLocationService playerLocationService)
+            /*QuestsService questsService, */PlayerLocationService playerLocationService)
         {
             _jsonSerializer = jsonSerializer;
             _screensaver = screensaver;
-            _questsService = questsService;
+            //_questsService = questsService;
             _playerLocationService = playerLocationService;
 
             _gameStateOrigin = new GameState();
@@ -173,7 +173,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                 SaveId = newID,
                 SaveName = saveName,
                 SaveDataTimeUtc = dateTime,
-                TrackedQuestCode = _questsService.GetQuestCode(GameProxy.TrackedMissionID.Value),
+                TrackedQuestCode = /*_questsService.GetQuestCode(GameProxy.TrackedMissionID.Value)*/"dddddddd",
                 CurrentLocationCode = _playerLocationService.GetCurrentLocationCode(),
                 IsAutoSave = isAutoSave,
                 GameVersion = GameVersion,
