@@ -40,6 +40,9 @@ namespace Paws_Parcels.Scripts.Quests
 
         private readonly Dictionary<string, ReactiveMessage> _questId_ReactiveMessage_Dict = new();
         
+        private readonly Dictionary<string, CompositeDisposable> _onOffHighLightDisposablesDict = new();
+        private readonly Dictionary<string, IDisposable> _questSubscriptionsDict = new();
+        
         public QuestsService(RewardService rewardService, MessageSystem messageSystem, GameStateProvider gameStateProvider,
             QuestsDatabase questsDatabase)
         {
@@ -65,6 +68,59 @@ namespace Paws_Parcels.Scripts.Quests
                 _questId_ReactiveMessage_Dict[questId] = rm;
             
                 SubscribeMissionComplete(questDataProxy.CurrentMission.Value);
+                
+                //добавить destinations
+                var disposable1 = questDataProxy.CurrentMission.Subscribe(v =>
+                {
+                    if (_onOffHighLightDisposablesDict.TryGetValue(questDataProxy.Id, out var compositeDisposable))
+                        compositeDisposable?.Dispose();
+
+                    var disposable = new CompositeDisposable();
+                    _onOffHighLightDisposablesDict[questDataProxy.Id] = disposable;
+
+                    var destination = quest.Missions[v].DestinationParent.Destination;
+                    
+                    disposable.Add(messageSystem.AddListener(destination.OffHighlightMessage).Subscribe(args =>
+                    {
+                        //remove
+                        questDataProxy.ActiveDestinations.Remove(destination.Id);
+                    }));
+                    
+                    disposable.Add(messageSystem.AddListener(destination.OnHighlightMessage).Subscribe(args =>
+                    {
+                        //add
+                        if(questDataProxy.ActiveDestinations.Contains(destination.Id) == false)
+                            questDataProxy.ActiveDestinations.Add(destination.Id);
+                    }));
+                    
+                    //TODO ошибка здесь логическая
+
+                    /*
+                    //когда меняется миссия нужно деактивировать все прошлые подсказки (кроме 0 миссии)
+                    if(v > 0)
+                        HideMarkableObject(quest.Missions[v-1].DestinationParent.Destination.Id);
+
+                    //активировать все новый подсказки, кроме тех, которые отметили, что их не нужно в SO
+                    UpdateMarkable(questDataProxy.IsActiveDestination.Value);*/
+                });
+
+                
+                //отдельно, тк не нужно очищать ActiveDestinations при инициализации, но нужно при увеличении миссии
+                var disposable2 = questDataProxy.CurrentMission.Skip(1).Subscribe(v =>
+                {
+                    var destination = quest.Missions[v].DestinationParent.Destination;
+                    
+                    //убрать все destinations прошлой миссии
+                    questDataProxy.ActiveDestinations.Clear();
+
+                    //активировать все новые, кроме тех, которые отметили, что их не нужно в SO
+                    if (destination.NotHighlightOnAwake == false)
+                    {
+                        questDataProxy.ActiveDestinations.Add(destination.Id);
+                    }
+                });
+
+                _questSubscriptionsDict[questDataProxy.Id] = Disposable.Combine(disposable1, disposable2);
 
                 return;
 
@@ -92,8 +148,8 @@ namespace Paws_Parcels.Scripts.Quests
                         {
                             //подписка на следующую миссию
                             questDataProxy.CurrentMission.Value++;
-                            questDataProxy.IsActiveDestination.Value = 
-                                !quest.Missions[questDataProxy.CurrentMission.Value].DestinationParent.Destination.NotHighlightOnAwake;
+                            //questDataProxy.IsActiveDestination.Value = 
+                            //    !quest.Missions[questDataProxy.CurrentMission.Value].DestinationParent.Destination.NotHighlightOnAwake;
                             SubscribeMissionComplete(currentMission + 1);
                         }
                         else
@@ -107,6 +163,18 @@ namespace Paws_Parcels.Scripts.Quests
 
             ActiveQuests.ObserveRemove().Subscribe(e =>
             {
+                if (_onOffHighLightDisposablesDict.TryGetValue(e.Value.Id, out var disposable1))
+                {
+                    disposable1.Dispose();
+                    _onOffHighLightDisposablesDict.Remove(e.Value.Id);
+                }
+                
+                if (_questSubscriptionsDict.TryGetValue(e.Value.Id, out var disposable2))
+                {
+                    disposable2.Dispose();
+                    _questSubscriptionsDict.Remove(e.Value.Id);
+                }
+                
                 if(_questId_ReactiveMessage_Dict.TryGetValue(e.Value.Id, out var reactiveMessage))
                 {
                     reactiveMessage.Dispose();
@@ -148,17 +216,23 @@ namespace Paws_Parcels.Scripts.Quests
         {
             if (_questsDict.ContainsKey(questID) == false)
             {
-                Debug.LogError("No questID here");
+                Debug.LogError("No questID here: " + questID);
                 return;
             }
 
+            if (ActiveQuests.FirstOrDefault(x => x.Id == questID) != null)
+            {
+                Debug.LogError("This quest is already active: " + questID);
+                return;
+            }
+            
             var quest = _questsDict[questID];
             
             var questDataProxy = new QuestDataProxy(new QuestData
             {
                 Id = quest.Id,
                 CurrentMission = 0,
-                IsActiveDestination = !quest.Missions[0].DestinationParent.Destination.NotHighlightOnAwake
+                //IsActiveDestination = !quest.Missions[0].DestinationParent.Destination.NotHighlightOnAwake
             });
             
             ActiveQuests.Add(questDataProxy);

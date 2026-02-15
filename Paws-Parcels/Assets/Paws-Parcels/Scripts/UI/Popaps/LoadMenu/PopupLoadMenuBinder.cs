@@ -103,5 +103,11 @@ namespace UI.Screens.LoadMenu
                 Destroy(child.gameObject);
             }
         }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            _disposables.Dispose();
+        }
     }
 }

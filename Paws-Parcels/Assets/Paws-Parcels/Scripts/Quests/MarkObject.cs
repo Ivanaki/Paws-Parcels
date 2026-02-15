@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Quests
@@ -44,6 +45,16 @@ namespace Quests
                 _showableObject?.SetActive(false);
             if(_showableComponent != null)
                 _showableComponent.enabled = false;
+        }
+
+        public void Select()
+        {
+            GetComponent<Image>().color = Color.yellow;
+        }
+
+        public void Unselect()
+        {
+            GetComponent<Image>().color = Color.white;
         }
     }
 }

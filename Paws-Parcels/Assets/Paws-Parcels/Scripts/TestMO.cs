@@ -56,6 +56,15 @@ namespace Paws_Parcels.Scripts
             {
                 _messageSystem.SendCompositeMessage(this, "Off");
             }
+            
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                _gameStateProvider.GameProxy.SelectedQuest.Value = "Gasoline";
+            }
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                _gameStateProvider.GameProxy.SelectedQuest.Value = "None";
+            }
         }
 
         [ReadOnly] public GameState gameState;
@@ -68,6 +77,8 @@ namespace Paws_Parcels.Scripts
             {
                 print(e.Value);
             });
+            
+            _questsService.ActiveNewQuest("Gasoline");
             //print(LocalizationSettings.SelectedLocale.CustomFormatterCode);
             //print(LocalizationSettings.SelectedLocale.LocaleName);
             //print(LocalizationSettings.SelectedLocale.name);

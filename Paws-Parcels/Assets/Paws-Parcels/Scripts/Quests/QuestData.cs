@@ -8,7 +8,9 @@ namespace Paws_Parcels.Scripts.Quests
     {
         public string Id;
         public int CurrentMission;
-        public bool IsActiveDestination;
+        public List<string> ActiveDestinations = new();
+        
+        //public bool IsActiveDestination;
         //public bool IsManyMessages;
         //public MessageToCompleteProgress Message;
         //public List<MessageToCompleteProgress> ManyMessages;

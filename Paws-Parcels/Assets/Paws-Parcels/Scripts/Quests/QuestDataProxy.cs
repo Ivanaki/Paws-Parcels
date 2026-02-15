@@ -11,8 +11,9 @@ namespace Paws_Parcels.Scripts.Quests
         
         public string Id => Origin.Id;
 
-        public readonly ReactiveProperty<int> CurrentMission;
-        public readonly ReactiveProperty<bool> IsActiveDestination;
+        public ReactiveProperty<int> CurrentMission { get; }
+        public ObservableList<string> ActiveDestinations { get; } = new();
+        //public readonly ReactiveProperty<bool> IsActiveDestination;
 
         /*public bool IsManyMessages
         {
@@ -29,24 +30,24 @@ namespace Paws_Parcels.Scripts.Quests
         {
             Origin = questData;
             CurrentMission = new ReactiveProperty<int>(questData.CurrentMission);
-            IsActiveDestination = new ReactiveProperty<bool>(questData.IsActiveDestination);
+            //IsActiveDestination = new ReactiveProperty<bool>(questData.IsActiveDestination);
             
             CurrentMission.Skip(1).Subscribe(v => questData.CurrentMission = v);
-            IsActiveDestination.Skip(1).Subscribe(v => questData.IsActiveDestination = v);
+            //IsActiveDestination.Skip(1).Subscribe(v => questData.IsActiveDestination = v);
 
             /*Message = new MessageToCompleteProgressProxy(questData.Message);
             ManyMessages = questData.ManyMessages.Select(x => new MessageToCompleteProgressProxy(x)).ToList();*/
             
-            /*questData.CurrentActiveDestinations.ForEach(name => CurrentActiveDestinations.Add(name));
+            questData.ActiveDestinations.ForEach(name => ActiveDestinations.Add(name));
 
-            CurrentActiveDestinations.ObserveAdd()
-                .Subscribe(e => questData.CurrentActiveDestinations.Add(e.Value));
+            ActiveDestinations.ObserveAdd()
+                .Subscribe(e => questData.ActiveDestinations.Add(e.Value));
 
-            CurrentActiveDestinations.ObserveRemove()
-                .Subscribe(e => questData.CurrentActiveDestinations.Remove(e.Value));
+            ActiveDestinations.ObserveRemove()
+                .Subscribe(e => questData.ActiveDestinations.Remove(e.Value));
             
-            CurrentActiveDestinations.ObserveClear().
-                Subscribe(e => questData.CurrentActiveDestinations.Clear());*/
+            ActiveDestinations.ObserveClear().
+                Subscribe(e => questData.ActiveDestinations.Clear());
         }
     }
 }
