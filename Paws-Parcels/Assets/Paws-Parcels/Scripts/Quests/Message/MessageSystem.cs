@@ -86,6 +86,7 @@ namespace Services
         public class Subscription : IDisposable, IMessageHandler
         {
             private readonly string _comboMessage;
+            private readonly List<string> _comboMessages;
             private readonly MessageSystem _messageSystem;
             private Subject<MessageArgs> _subject = new();
 
@@ -93,6 +94,20 @@ namespace Services
             {
                 _comboMessage = comboMessage;
                 _messageSystem = messageSystem;
+                messageSystem.AddListener(this, comboMessage);
+            }
+
+            public Subscription(List<string> comboMessages, MessageSystem messageSystem)
+            {
+                if (comboMessages == null)
+                {
+                    Debug.LogError("list of combo messages is null");
+                    return;
+                }
+                
+                _messageSystem = messageSystem;
+                _comboMessages = comboMessages;
+                comboMessages.ForEach(x => messageSystem.AddListener(this, x));
             }
             
             public IDisposable Subscribe(Action<MessageArgs> observer)
@@ -104,7 +119,10 @@ namespace Services
             public void Dispose()
             {
                 _subject.Dispose();
-                _messageSystem.RemoveListener(this, _comboMessage);
+                if (_comboMessages != null)
+                    _comboMessages.ForEach(x => _messageSystem.RemoveListener(this, x));
+                else
+                    _messageSystem.RemoveListener(this, _comboMessage);
             }
 
             public void OnMessage(MessageArgs messageArgs)
@@ -112,12 +130,31 @@ namespace Services
                 _subject.OnNext(messageArgs);
             }
         }
+
+        /// <summary>
+        /// специальный разделитель: /
+        /// </summary>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        public Subscription AddListenerWithManyMessages(string messages)
+        {
+            var messagesList = PartMessages(messages);
+            return new Subscription(messagesList, this);
+        }
+
+        private List<string> PartMessages(string messages)
+        {
+            if (string.IsNullOrEmpty(messages))
+                return new List<string>();
+
+            return messages
+                .Split(new[] { '/' }, System.StringSplitOptions.RemoveEmptyEntries)
+                .ToList();
+        }
         
         public Subscription AddListener(string comboMessage)
         {
-            var s = new Subscription(comboMessage, this);
-            AddListener(s, comboMessage);
-            return s;
+            return new Subscription(comboMessage, this);
         }
         
         public void AddListener(IMessageHandler listener, string comboMessage)
@@ -193,15 +230,15 @@ namespace Services
         
         public void RemoveListener(IMessageHandler listener, string message, string parameter)
         {
-            if (debug) Debug.Log("MessageSystem.RemoveListener(listener=" + listener + ": " + message + "," + parameter + ")");
-            
             if (string.IsNullOrEmpty(message))
             {
-                if (string.IsNullOrEmpty(parameter))
-                    Debug.LogError("При пустом message parameter не может быть пустым. Этот подписчик отписался от всех вызовов");
+                //if (string.IsNullOrEmpty(parameter))
+                //    Debug.LogError("При пустом message parameter не может быть пустым. Этот подписчик отписался от всех вызовов");
                 //Remove(_allMessages);
                 return;
             }
+            
+            if (debug) Debug.Log("MessageSystem.RemoveListener(listener=" + listener + ": " + message + "," + parameter + ")");
             
             if(_messagesDictionary.TryGetValue(message, out var messageObject))
             {

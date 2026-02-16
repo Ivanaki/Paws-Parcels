@@ -122,13 +122,13 @@ namespace Paws_Parcels.Scripts.Quests
 
                 void Subscribe(DestinationAsset destinationAsset)
                 {
-                    disposable.Add(_messageSystem.AddListener(destinationAsset.OffHighlightMessage).Subscribe(args =>
+                    disposable.Add(_messageSystem.AddListenerWithManyMessages(destinationAsset.OffHighlightMessage).Subscribe(args =>
                     {
                         //remove
                         questDataProxy.ActiveDestinations.Remove(destinationAsset.Id);
                     }));
 
-                    disposable.Add(_messageSystem.AddListener(destinationAsset.OnHighlightMessage).Subscribe(args =>
+                    disposable.Add(_messageSystem.AddListenerWithManyMessages(destinationAsset.OnHighlightMessage).Subscribe(args =>
                     {
                         //add
                         if (questDataProxy.ActiveDestinations.Contains(destinationAsset.Id) == false)
@@ -177,28 +177,42 @@ namespace Paws_Parcels.Scripts.Quests
             void SubscribeMissionComplete(int currentMission)
             {
                 if(_questId_ReactiveMessage_Dict.TryGetValue(questId, out var disposable)) disposable.Dispose();
-                _questId_ReactiveMessage_Dict[questId] = new CompositeDisposable();
+                
+                disposable = new CompositeDisposable();
+                _questId_ReactiveMessage_Dict[questId] = disposable;
                 
                 var mission = quest.Missions[currentMission];
                 
-                _questId_ReactiveMessage_Dict[questId].Add(_messageSystem.AddListener(mission.Message.Message).Subscribe(_ =>
+                disposable.Add(_messageSystem.AddListenerWithManyMessages(mission.Message.Message).Subscribe(_ =>
                 {
-                    _questId_ReactiveMessage_Dict[questId]?.Dispose();
+                    questDataProxy.MessageProgress.Value++;
+                }));
+                disposable.Add(_messageSystem.AddListenerWithManyMessages(mission.Message.MinusMessage).Subscribe(_ =>
+                {
+                    questDataProxy.MessageProgress.Value = Mathf.Max(0, questDataProxy.MessageProgress.Value-1);
+                }));
+                
+                disposable.Add(questDataProxy.MessageProgress.Subscribe(v =>
+                {
+                    if ((v >= 1 && mission.Message.HasCount == false) || (v >= mission.Message.MessageCount && mission.Message.HasCount))
+                    {
+                        disposable.Dispose();
                     
-                    if (questDataProxy.CurrentMission.Value + 1 < missionsLenght)
-                    {
-                        //подписка на следующую миссию
-                        questDataProxy.MessageProgress.Value = 0;
-                        questDataProxy.CurrentMission.Value++;
+                        if (questDataProxy.CurrentMission.Value + 1 < missionsLenght)
+                        {
+                            //подписка на следующую миссию
+                            questDataProxy.MessageProgress.Value = 0;
+                            questDataProxy.CurrentMission.Value++;
                         
-                        //questDataProxy.IsActiveDestination.Value = 
-                        //    !quest.Missions[questDataProxy.CurrentMission.Value].DestinationParent.Destination.NotHighlightOnAwake;
-                        SubscribeMissionComplete(currentMission + 1);
-                    }
-                    else
-                    {
-                        //квест выполнен
-                        CompleteQuest(questId);
+                            //questDataProxy.IsActiveDestination.Value = 
+                            //    !quest.Missions[questDataProxy.CurrentMission.Value].DestinationParent.Destination.NotHighlightOnAwake;
+                            SubscribeMissionComplete(currentMission + 1);
+                        }
+                        else
+                        {
+                            //квест выполнен
+                            CompleteQuest(questId);
+                        }
                     }
                 }));
             }
@@ -288,11 +302,6 @@ namespace Paws_Parcels.Scripts.Quests
             {
                 ActiveQuests.Remove(remove);
                 SucceedQuests.Add(questId);
-                if (_questId_ReactiveMessage_Dict.TryGetValue(questId, out var reactiveMessage))
-                {
-                    reactiveMessage.Dispose();
-                    _questId_ReactiveMessage_Dict.Remove(questId);
-                }
             }
             else
             {

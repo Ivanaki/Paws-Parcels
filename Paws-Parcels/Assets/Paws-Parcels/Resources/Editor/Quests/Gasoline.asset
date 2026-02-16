@@ -45,17 +45,17 @@ MonoBehaviour:
           OnHighlightMessage: On3
     IsMany: 0
     Message:
-      Message: f1
+      Message: f1/1/2/3/4/5
       HasCount: 1
-      MessageCount: 0
-      MinusMessage: 
+      MessageCount: 5
+      MinusMessage: A
     ManyMessages:
       Messages: []
   - Id: f2
     HasDestination: 1
     DestinationParent:
-      SpecificDistance: 0
-      DestinationShowDistance: 0
+      SpecificDistance: 1
+      DestinationShowDistance: -0.27
       IsMany: 0
       Destination:
         Id: i2

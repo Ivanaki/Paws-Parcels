@@ -87,7 +87,7 @@ namespace Paws_Parcels.Scripts.Quests
         
         
         [Header("Message to complete mission")]
-        public bool IsMany;
+        [HideInInspector]public bool IsMany;
         
         [HideIf(nameof(IsMany)), AllowNesting]
         public MessageAsset Message;

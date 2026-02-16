@@ -43,6 +43,7 @@ namespace Paws_Parcels.Scripts
             if (Input.GetKeyDown(KeyCode.A))
             {
                 _messageSystem.SendCompositeMessage(this, "t1");
+                _messageSystem.SendCompositeMessage(this, "A");
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
@@ -70,6 +71,27 @@ namespace Paws_Parcels.Scripts
             {
                 _gameStateProvider.GameProxy.SelectedQuest.Value = "None";
             }
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                _messageSystem.SendCompositeMessage(this, "1");
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                _messageSystem.SendCompositeMessage(this, "2");
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                _messageSystem.SendCompositeMessage(this, "3");
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad4))
+            {
+                _messageSystem.SendCompositeMessage(this, "4");
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad5))
+            {
+                _messageSystem.SendCompositeMessage(this, "5");
+            }
+            
         }
 
         [ReadOnly] public GameState gameState;
