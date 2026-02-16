@@ -53,7 +53,7 @@ namespace Saves
                 return new SaveCallback()
                 {
                     IsComplete = true,
-                    Exception = null
+                    Exception = new()
                 };
             }
             catch (Exception e)
@@ -104,7 +104,7 @@ namespace Saves
                     {
                         Value = data,
                         Callback = FileOperationResult.Success,
-                        Exception = null
+                        Exception = new ()
                     };
                 }
 
@@ -113,13 +113,13 @@ namespace Saves
                 {
                     Value = default,
                     Callback = FileOperationResult.NotFound,
-                    Exception = null
+                    Exception = new()
                 };
             }
             catch (Exception e)
             {
                 Debug.LogError($"LoadError: {e.Message}");
-                Debug.Log("test");
+                //Debug.Log("test");
                 return new LoadCallback<T>
                 {
                     Value = default,

@@ -155,7 +155,9 @@ namespace Game.Root
                 }
                 else
                 {
-                    Debug.LogError(callback.Exception.Message);
+                    //при результате FileNotFound callback.Exception = null
+                    
+                    //Debug.LogError(callback.Exception.Message);
                     errorFlag = true;
                     //errorMessageToUser = $"Ошибка при загрузке сохранения {coreEnterParams.SaveName}";
                     errorMessageToUser = callback.MessageToUser;

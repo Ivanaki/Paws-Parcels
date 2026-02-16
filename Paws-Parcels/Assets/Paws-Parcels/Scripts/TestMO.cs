@@ -21,6 +21,11 @@ namespace Paws_Parcels.Scripts
 
         //public 
 
+        public void Send(string message)
+        {
+            _messageSystem.SendCompositeMessage(this, message);
+        }
+        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Z))

@@ -3,7 +3,7 @@ using R3;
 
 namespace Quests.Message
 {
-    public class ReactiveMessage : IMessageHandler, IDisposable
+    /*public class ReactiveMessage : IMessageHandler, IDisposable
     {
         public Observable<MessageArgs> Observe => _observe;
         
@@ -24,5 +24,5 @@ namespace Quests.Message
             Dispose();
             _observe = new Subject<MessageArgs>();
         }
-    }
+    }*/
 }

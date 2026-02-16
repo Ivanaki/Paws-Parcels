@@ -13,6 +13,7 @@ namespace Paws_Parcels.Scripts.Quests
 
         public ReactiveProperty<int> CurrentMission { get; }
         public ObservableList<string> ActiveDestinations { get; } = new();
+        public ReactiveProperty<int> MessageProgress { get; }
         //public readonly ReactiveProperty<bool> IsActiveDestination;
 
         /*public bool IsManyMessages
@@ -30,9 +31,11 @@ namespace Paws_Parcels.Scripts.Quests
         {
             Origin = questData;
             CurrentMission = new ReactiveProperty<int>(questData.CurrentMission);
+            MessageProgress = new ReactiveProperty<int>(questData.MessageProgress);
             //IsActiveDestination = new ReactiveProperty<bool>(questData.IsActiveDestination);
             
             CurrentMission.Skip(1).Subscribe(v => questData.CurrentMission = v);
+            MessageProgress.Skip(1).Subscribe(v => questData.MessageProgress = v);
             //IsActiveDestination.Skip(1).Subscribe(v => questData.IsActiveDestination = v);
 
             /*Message = new MessageToCompleteProgressProxy(questData.Message);

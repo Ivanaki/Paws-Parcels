@@ -147,7 +147,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                 if (callBack.Callback == FileOperationResult.NotFound)
                 {
                     return new GameStateProviderLoadCallback()
-                        { IsSuccess = false, Exception = callBack.Exception, MessageToUser = "This save not found" };
+                        { IsSuccess = false, Exception = callBack.Exception, MessageToUser = "Сохранение утеряно" };
                 }
                 
                 return new GameStateProviderLoadCallback(){IsSuccess = false, Exception = callBack.Exception, MessageToUser = "Load error"};

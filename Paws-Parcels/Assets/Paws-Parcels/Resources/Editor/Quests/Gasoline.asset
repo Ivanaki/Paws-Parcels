@@ -23,7 +23,7 @@ MonoBehaviour:
     DestinationParent:
       SpecificDistance: 0
       DestinationShowDistance: 0
-      IsMany: 0
+      IsMany: 1
       Destination:
         Id: i1
         NotHighlightOnAwake: 0
@@ -31,18 +31,22 @@ MonoBehaviour:
         OnHighlightMessage: On
       ManyDestinations:
         Destinations:
-        - Id: 
+        - Id: i11
           NotHighlightOnAwake: 0
-          OffHighlightMessage: 
-          OnHighlightMessage: 
-        - Id: 
+          OffHighlightMessage: Off1
+          OnHighlightMessage: On1
+        - Id: i12
           NotHighlightOnAwake: 0
-          OffHighlightMessage: 
-          OnHighlightMessage: 
+          OffHighlightMessage: Off2
+          OnHighlightMessage: On2
+        - Id: i13
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: Off3
+          OnHighlightMessage: On3
     IsMany: 0
     Message:
       Message: f1
-      HasCount: 0
+      HasCount: 1
       MessageCount: 0
       MinusMessage: 
     ManyMessages:

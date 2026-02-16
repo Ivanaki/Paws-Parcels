@@ -12,28 +12,18 @@ using Zenject;
 
 namespace Quests
 {
-    public class DestinationService/* : IInitializable*/
+    public class DestinationService
     {
-        //private readonly MessageSystem _messageSystem;
-        //private const float BaseShowableDistance = 5f;
-        
         //словарь имя-destination
         private readonly Dictionary<string, MarkObject> _allMarksDict = new();
         
-        
         private readonly Dictionary<string, CompositeDisposable> _questSubscriptionsDict = new();
-        //private readonly Dictionary<string, CompositeDisposable> _onOffHighLightDisposablesDict = new();
-        //private readonly HashSet<string> _allCurrentShowableMarksSet = new();
         private readonly Dictionary<string, List<string>> _allCurrentShowableMarksDict = new();
-        //private readonly Dictionary<string, string> _questDict = new();
-        //private readonly Dictionary<string, HashSet<string>> _questSortedMarksDict = new();
-        //private readonly HashSet<string> _selectedMarksSet = new();
 
         private string _lastSelectedQuest = null;
         
-        public DestinationService(GameStateProvider gameStateProvider/*, QuestsDatabase questsDatabase*/)
+        public DestinationService(GameStateProvider gameStateProvider)
         {
-            //var allQuestsDict = questsDatabase.QuestsDict;
             var activeQuests = gameStateProvider.GameProxy.ActiveQuests;
             var selectedQuest = gameStateProvider.GameProxy.SelectedQuest;
 
@@ -50,18 +40,12 @@ namespace Quests
                 var qdp = e.Value;
                 _questSubscriptionsDict[qdp.Id].Dispose();
                 qdp.ActiveDestinations.ForEach(x => HideMarkableObject(qdp.Id, x));
-                /*qdp.IsActiveDestination.Value = false;
-                _questSubscriptionsDict[qdp.Id].Dispose();
-                _onOffHighLightDisposablesDict[qdp.Id].Dispose();*/
             });
             
             activeQuests.ObserveClear().Subscribe(e =>
             {
                 foreach (var value in _questSubscriptionsDict.Values) value.Dispose(); 
                 _questSubscriptionsDict.Clear();
-                
-                /*foreach (var value in _onOffHighLightDisposablesDict.Values) value.Dispose();
-                _onOffHighLightDisposablesDict.Clear();*/
 
                 HideAll();
             });
@@ -73,8 +57,6 @@ namespace Quests
                     var qdpUnselect = activeQuests.FirstOrDefault(x => x.Id == _lastSelectedQuest);
                     if (qdpUnselect != null)
                         qdpUnselect.ActiveDestinations.ForEach(UnSelectMark);
-                    /*foreach (var mark in _selectedMarksSet) UnSelectMark(mark);
-                    _selectedMarksSet.Clear();*/
                 }
                 
                 _lastSelectedQuest = newQuest;
@@ -82,11 +64,7 @@ namespace Quests
                 var qdpSelect = activeQuests.FirstOrDefault(x => x.Id == newQuest);
                 if (qdpSelect != null)
                 {
-                    qdpSelect.ActiveDestinations.ForEach(s =>
-                    {
-                        SelectMark(s);
-                        //_selectedMarksSet.Add(s);
-                    });
+                    qdpSelect.ActiveDestinations.ForEach(SelectMark);
                 }
             });
             
@@ -121,56 +99,6 @@ namespace Quests
                     HideAllQuestMarkables(questId)));
 
                 _questSubscriptionsDict[questId] = disposable;
-                /*var quest = allQuestsDict[qdp.Id];
-
-                var dis2 = qdp.IsActiveDestination.Subscribe(UpdateMarkable);
-
-                //CompositeDisposable disposable = null;
-                var dis1 = qdp.CurrentMission.Subscribe(v =>
-                {
-                    if (_onOffHighLightDisposablesDict.TryGetValue(qdp.Id, out var compositeDisposable))
-                        compositeDisposable?.Dispose();
-
-                    var disposable = new CompositeDisposable();
-                    _onOffHighLightDisposablesDict[qdp.Id] = disposable;
-
-                    var offHighlightMessage = quest.Missions[v].DestinationParent.Destination.OffHighlightMessage;
-                    disposable.Add(messageSystem.AddListener(offHighlightMessage).Subscribe(args =>
-                    {
-                        qdp.IsActiveDestination.Value = false;
-                    }));
-
-                    var onHighlightMessage = quest.Missions[v].DestinationParent.Destination.OnHighlightMessage;
-                    disposable.Add(messageSystem.AddListener(onHighlightMessage).Subscribe(args =>
-                    {
-                        qdp.IsActiveDestination.Value = true;
-                    }));
-
-                    //когда меняется миссия нужно деактивировать все прошлые подсказки (кроме 0 миссии)
-                    if(v > 0)
-                        HideMarkableObject(quest.Missions[v-1].DestinationParent.Destination.Id);
-
-                    //активировать все новый подсказки, кроме тех, которые отметили, что их не нужно в SO
-                    UpdateMarkable(qdp.IsActiveDestination.Value);
-                });
-
-
-
-                _questSubscriptionsDict[qdp.Id] = Disposable.Combine(dis1, dis2);
-
-                return;
-
-                void UpdateMarkable(bool v)
-                {
-                    if (v)
-                    {
-                        ShowMarkableObject(quest.Missions[qdp.CurrentMission.Value].DestinationParent.Destination.Id);
-                    }
-                    else
-                    {
-                        HideMarkableObject(quest.Missions[qdp.CurrentMission.Value].DestinationParent.Destination.Id);
-                    }
-                }*/
             }
         }
         
@@ -180,12 +108,6 @@ namespace Quests
             //добавляем количество квестов, которые подсвечивают один и тот же объект
             if (_allCurrentShowableMarksDict.TryAdd(destinationId, new List<string>(){questId}) == false)
                 _allCurrentShowableMarksDict[destinationId].Add(questId);
-            
-            /*if (_questSortedMarksDict.ContainsKey(questID) == false)
-                _questSortedMarksDict.Add(questID, new HashSet<string>());
-
-            _questSortedMarksDict[questID].Add(destinationId);
-            _allCurrentShowableMarksSet.Add(destinationId);*/
             
             if (_allMarksDict.TryGetValue(destinationId, out var markObject))
             {
@@ -208,15 +130,6 @@ namespace Quests
                     }
                 }
             }
-            
-            /*if(_questSortedMarksDict.ContainsKey(questID))
-                _questSortedMarksDict.Remove()
-            _allCurrentShowableMarksSet.Remove(destinationId);
-                
-            if (_allMarksDict.TryGetValue(id, out var markObject))
-            {
-                markObject.Hide();
-            }*/
         }
 
         private void HideAllQuestMarkables(string questID)

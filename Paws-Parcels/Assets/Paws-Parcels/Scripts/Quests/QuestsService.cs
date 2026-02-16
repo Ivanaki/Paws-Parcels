@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using Quests;
@@ -20,7 +21,7 @@ namespace Paws_Parcels.Scripts.Quests
     //[questId]:[missionId]:Title
     //[questId]:[missionId]:Description
     
-    public class QuestsService : IMessageHandler, IDisposable
+    public class QuestsService : IDisposable
     {
         //public IObservableCollection<QuestData> ActiveQuests => _activeQuests;
         
@@ -38,7 +39,7 @@ namespace Paws_Parcels.Scripts.Quests
         
         private CompositeDisposable _compositeDisposable = new();
 
-        private readonly Dictionary<string, ReactiveMessage> _questId_ReactiveMessage_Dict = new();
+        private readonly Dictionary<string, CompositeDisposable> _questId_ReactiveMessage_Dict = new();
         
         private readonly Dictionary<string, CompositeDisposable> _onOffHighLightDisposablesDict = new();
         private readonly Dictionary<string, IDisposable> _questSubscriptionsDict = new();
@@ -54,162 +55,186 @@ namespace Paws_Parcels.Scripts.Quests
             
             _rewardService = rewardService;
             _messageSystem = messageSystem;
-            //_destinationService = destinationService;
-
-            ActiveQuests.ObserveAdd().Subscribe(e =>
-            {
-                var questDataProxy = e.Value;
-                
-                var questId = questDataProxy.Id;
-                var quest = _questsDict[questId];
-                var missionsLenght = quest.Missions.Count;
-                
-                var rm = new ReactiveMessage();
-                _questId_ReactiveMessage_Dict[questId] = rm;
             
-                SubscribeMissionComplete(questDataProxy.CurrentMission.Value);
-                
-                //добавить destinations
-                var disposable1 = questDataProxy.CurrentMission.Subscribe(v =>
-                {
-                    if (_onOffHighLightDisposablesDict.TryGetValue(questDataProxy.Id, out var compositeDisposable))
-                        compositeDisposable?.Dispose();
+            ActiveQuests.ForEach(NewQuestAdded);
 
-                    var disposable = new CompositeDisposable();
-                    _onOffHighLightDisposablesDict[questDataProxy.Id] = disposable;
+            ActiveQuests.ObserveAdd().Subscribe(e => NewQuestAdded(e.Value));
 
-                    var destination = quest.Missions[v].DestinationParent.Destination;
-                    
-                    disposable.Add(messageSystem.AddListener(destination.OffHighlightMessage).Subscribe(args =>
-                    {
-                        //remove
-                        questDataProxy.ActiveDestinations.Remove(destination.Id);
-                    }));
-                    
-                    disposable.Add(messageSystem.AddListener(destination.OnHighlightMessage).Subscribe(args =>
-                    {
-                        //add
-                        if(questDataProxy.ActiveDestinations.Contains(destination.Id) == false)
-                            questDataProxy.ActiveDestinations.Add(destination.Id);
-                    }));
-                    
-                    //TODO ошибка здесь логическая
-
-                    /*
-                    //когда меняется миссия нужно деактивировать все прошлые подсказки (кроме 0 миссии)
-                    if(v > 0)
-                        HideMarkableObject(quest.Missions[v-1].DestinationParent.Destination.Id);
-
-                    //активировать все новый подсказки, кроме тех, которые отметили, что их не нужно в SO
-                    UpdateMarkable(questDataProxy.IsActiveDestination.Value);*/
-                });
-
-                
-                //отдельно, тк не нужно очищать ActiveDestinations при инициализации, но нужно при увеличении миссии
-                var disposable2 = questDataProxy.CurrentMission.Skip(1).Subscribe(v =>
-                {
-                    var destination = quest.Missions[v].DestinationParent.Destination;
-                    
-                    //убрать все destinations прошлой миссии
-                    questDataProxy.ActiveDestinations.Clear();
-
-                    //активировать все новые, кроме тех, которые отметили, что их не нужно в SO
-                    if (destination.NotHighlightOnAwake == false)
-                    {
-                        questDataProxy.ActiveDestinations.Add(destination.Id);
-                    }
-                });
-
-                _questSubscriptionsDict[questDataProxy.Id] = Disposable.Combine(disposable1, disposable2);
-
-                return;
-
-                void SubscribeMissionComplete(int currentMission)
-                {
-                    var mission = quest.Missions[currentMission];
-                    rm.Clear();
-                
-                    _messageSystem.AddListener(rm, mission.Message.Message);
-                    /*if (mission.HasDestination)
-                    {
-                        _destinationService.ShowMarkableObject(mission.DestinationParent.Destination.DestinationId);
-                    }*/
-                    
-                    
-                    rm.Observe.Subscribe(v =>
-                    {
-                        _messageSystem.RemoveListener(rm, mission.Message.Message);
-                        /*if (mission.HasDestination)
-                        {
-                            _destinationService.HideMarkableObject(mission.DestinationParent.Destination.DestinationId);
-                        }*/
-
-                        if (questDataProxy.CurrentMission.Value + 1 < missionsLenght)
-                        {
-                            //подписка на следующую миссию
-                            questDataProxy.CurrentMission.Value++;
-                            //questDataProxy.IsActiveDestination.Value = 
-                            //    !quest.Missions[questDataProxy.CurrentMission.Value].DestinationParent.Destination.NotHighlightOnAwake;
-                            SubscribeMissionComplete(currentMission + 1);
-                        }
-                        else
-                        {
-                            //квест выполнен
-                            CompleteQuest(questId);
-                        }
-                    });
-                }
-            });
-
-            ActiveQuests.ObserveRemove().Subscribe(e =>
-            {
-                if (_onOffHighLightDisposablesDict.TryGetValue(e.Value.Id, out var disposable1))
-                {
-                    disposable1.Dispose();
-                    _onOffHighLightDisposablesDict.Remove(e.Value.Id);
-                }
-                
-                if (_questSubscriptionsDict.TryGetValue(e.Value.Id, out var disposable2))
-                {
-                    disposable2.Dispose();
-                    _questSubscriptionsDict.Remove(e.Value.Id);
-                }
-                
-                if(_questId_ReactiveMessage_Dict.TryGetValue(e.Value.Id, out var reactiveMessage))
-                {
-                    reactiveMessage.Dispose();
-                    var quest = _questsDict[e.Value.Id];
-                    var mission = quest.Missions[e.Value.CurrentMission.Value];
-                    _messageSystem.RemoveListener(reactiveMessage, mission.Message.Message);
-                    _questId_ReactiveMessage_Dict.Remove(e.Value.Id);
-                }
-            });
+            ActiveQuests.ObserveRemove().Subscribe(e => QuestRemove(e.Value));
             
-            ActiveQuests.ObserveClear().Subscribe(e =>
-            {
-                foreach (var pair in _questId_ReactiveMessage_Dict)
-                {
-                    var questId = pair.Key;
-                    var reactiveMessage = pair.Value;
-
-                    reactiveMessage.Dispose();
-
-                    if (_questsDict.TryGetValue(questId, out var quest))
-                    {
-                        foreach (var valueMission in quest.Missions)
-                        {
-                            _messageSystem.RemoveListener(reactiveMessage, valueMission.Message.Message);
-                        }
-                    }
-                }
-
-                _questId_ReactiveMessage_Dict.Clear();
-            });
+            ActiveQuests.ObserveClear().Subscribe(e => ClearQuests());
             
             foreach (var quest in _questsDict.Values)
             {
-                _messageSystem.AddListener(this, $"ActivateQuest:{quest.Id}");
+                _messageSystem.AddListener($"ActivateQuest:{quest.Id}").Subscribe(_ =>
+                {
+                    ActiveNewQuest(quest.Id);
+                    /*if (_questsDict.TryGetValue(quest.Id, out var quest))
+                    {
+                        
+                    }
+                    else
+                    {
+                        Debug.LogError("Quest not find while try activate this quest: " + messageArgs.message + ":" + messageArgs.parameter);
+                    }*/
+                });
             }
+        }
+
+        private void NewQuestAdded(QuestDataProxy questDataProxy)
+        {
+            //var questDataProxy = e.Value;
+
+            var questId = questDataProxy.Id;
+            var quest = _questsDict[questId];
+            var missionsLenght = quest.Missions.Count;
+
+            //var rm = new ReactiveMessage();
+            //_questId_ReactiveMessage_Dict[questId] = rm;
+
+            SubscribeMissionComplete(questDataProxy.CurrentMission.Value);
+
+            //добавить destinations
+#region Destinations
+
+            var disposable1 = questDataProxy.CurrentMission.Subscribe(v =>
+            {
+                if (_onOffHighLightDisposablesDict.TryGetValue(questDataProxy.Id, out var compositeDisposable))
+                    compositeDisposable?.Dispose();
+
+                var disposable = new CompositeDisposable();
+                _onOffHighLightDisposablesDict[questDataProxy.Id] = disposable;
+
+                var destination = quest.Missions[v].DestinationParent.Destination;
+                var destinations = quest.Missions[v].DestinationParent.ManyDestinations.Destinations;
+
+                if (quest.Missions[v].HasDestination)
+                {
+                    if (quest.Missions[v].DestinationParent.IsMany == false)
+                    {
+                        Subscribe(destination);
+                    }
+                    else
+                    {
+                        destinations.ForEach(Subscribe);
+                    }
+                }
+
+                void Subscribe(DestinationAsset destinationAsset)
+                {
+                    disposable.Add(_messageSystem.AddListener(destinationAsset.OffHighlightMessage).Subscribe(args =>
+                    {
+                        //remove
+                        questDataProxy.ActiveDestinations.Remove(destinationAsset.Id);
+                    }));
+
+                    disposable.Add(_messageSystem.AddListener(destinationAsset.OnHighlightMessage).Subscribe(args =>
+                    {
+                        //add
+                        if (questDataProxy.ActiveDestinations.Contains(destinationAsset.Id) == false)
+                            questDataProxy.ActiveDestinations.Add(destinationAsset.Id);
+                    }));
+                }
+            });
+
+
+            //отдельно, тк не нужно очищать ActiveDestinations при инициализации, но нужно при увеличении миссии
+            var disposable2 = questDataProxy.CurrentMission.Skip(1).Subscribe(v =>
+            {
+                var destination = quest.Missions[v].DestinationParent.Destination;
+                var destinations = quest.Missions[v].DestinationParent.ManyDestinations.Destinations;
+
+                //убрать все destinations прошлой миссии
+                questDataProxy.ActiveDestinations.Clear();
+
+                //активировать все новые, кроме тех, которые отметили, что их не нужно в SO
+                if (quest.Missions[v].HasDestination)
+                {
+                    if (quest.Missions[v].DestinationParent.IsMany == false)
+                    {
+                        Active(destination);
+                    }
+                    else
+                    {
+                        destinations.ForEach(Active);
+                    }
+                }
+
+                void Active(DestinationAsset destinationAsset)
+                {
+                    if (destinationAsset.NotHighlightOnAwake == false)
+                    {
+                        questDataProxy.ActiveDestinations.Add(destinationAsset.Id);
+                    }
+                }
+            });
+            
+            _questSubscriptionsDict[questDataProxy.Id] = Disposable.Combine(disposable1, disposable2);
+
+#endregion
+            return;
+            
+            void SubscribeMissionComplete(int currentMission)
+            {
+                if(_questId_ReactiveMessage_Dict.TryGetValue(questId, out var disposable)) disposable.Dispose();
+                _questId_ReactiveMessage_Dict[questId] = new CompositeDisposable();
+                
+                var mission = quest.Missions[currentMission];
+                
+                _questId_ReactiveMessage_Dict[questId].Add(_messageSystem.AddListener(mission.Message.Message).Subscribe(_ =>
+                {
+                    _questId_ReactiveMessage_Dict[questId]?.Dispose();
+                    
+                    if (questDataProxy.CurrentMission.Value + 1 < missionsLenght)
+                    {
+                        //подписка на следующую миссию
+                        questDataProxy.MessageProgress.Value = 0;
+                        questDataProxy.CurrentMission.Value++;
+                        
+                        //questDataProxy.IsActiveDestination.Value = 
+                        //    !quest.Missions[questDataProxy.CurrentMission.Value].DestinationParent.Destination.NotHighlightOnAwake;
+                        SubscribeMissionComplete(currentMission + 1);
+                    }
+                    else
+                    {
+                        //квест выполнен
+                        CompleteQuest(questId);
+                    }
+                }));
+            }
+        }
+
+        private void QuestRemove(QuestDataProxy qdp)
+        {
+            if (_onOffHighLightDisposablesDict.TryGetValue(qdp.Id, out var disposable1))
+            {
+                disposable1.Dispose();
+                _onOffHighLightDisposablesDict.Remove(qdp.Id);
+            }
+                
+            if (_questSubscriptionsDict.TryGetValue(qdp.Id, out var disposable2))
+            {
+                disposable2.Dispose();
+                _questSubscriptionsDict.Remove(qdp.Id);
+            }
+                
+            if(_questId_ReactiveMessage_Dict.TryGetValue(qdp.Id, out var reactiveMessage))
+            {
+                reactiveMessage.Dispose();
+                _questId_ReactiveMessage_Dict.Remove(qdp.Id);
+            }
+        }
+
+        private void ClearQuests()
+        {
+            foreach (var dis in _onOffHighLightDisposablesDict.Values) dis.Dispose();
+            _onOffHighLightDisposablesDict.Clear();
+            
+            foreach (var dis in _questSubscriptionsDict.Values) dis.Dispose();
+            _questSubscriptionsDict.Clear();
+            
+            foreach (var dis in _questId_ReactiveMessage_Dict.Values) dis.Dispose();
+            _questId_ReactiveMessage_Dict.Clear();
         }
 
         public void ActiveNewQuest(string questID)
@@ -227,16 +252,31 @@ namespace Paws_Parcels.Scripts.Quests
             }
             
             var quest = _questsDict[questID];
+
+            var destinations = new List<string>();
+            var mission = quest.Missions[0];
+            if (mission.HasDestination)
+                if (mission.DestinationParent.IsMany == false)
+                    AddDestination(mission.DestinationParent.Destination);
+                else
+                    mission.DestinationParent.ManyDestinations.Destinations.ForEach(AddDestination);
             
             var questDataProxy = new QuestDataProxy(new QuestData
             {
                 Id = quest.Id,
                 CurrentMission = 0,
-                //IsActiveDestination = !quest.Missions[0].DestinationParent.Destination.NotHighlightOnAwake
+                ActiveDestinations = destinations,
+                MessageProgress = 0
             });
             
             ActiveQuests.Add(questDataProxy);
-            
+
+
+            void AddDestination(DestinationAsset destinationAsset)
+            {
+                if(destinationAsset.NotHighlightOnAwake == false)
+                    destinations.Add(destinationAsset.Id);
+            }
             //подписаться на сообщение о его завершении и тд пройтись по всем связям квестов с игрой
         }
 
@@ -263,21 +303,6 @@ namespace Paws_Parcels.Scripts.Quests
         public string GetQuestCode(int questId)
         {
             return "testMissionName";
-        }
-
-        public void OnMessage(MessageArgs messageArgs)
-        {
-            if (messageArgs.message == "ActivateQuest")
-            {
-                if (_questsDict.TryGetValue(messageArgs.parameter, out var quest))
-                {
-                    ActiveNewQuest(quest.Id);
-                }
-                else
-                {
-                    Debug.LogError("Quest not find while try activate this quest: " + messageArgs.message + ":" + messageArgs.parameter);
-                }
-            }
         }
 
         public void Dispose()
