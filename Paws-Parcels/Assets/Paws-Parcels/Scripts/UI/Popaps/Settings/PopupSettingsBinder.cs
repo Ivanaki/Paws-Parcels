@@ -20,6 +20,9 @@ namespace UI.Screens.Settings
 
         [SerializeField] private Slider _masterVolumeSlider;
         [SerializeField] private TMP_InputField _masterVolumeInputField;
+        
+        [SerializeField] private Slider _sensivitySlider;
+        [SerializeField] private TMP_InputField _sensivityInputField;
 
         [SerializeField] private TMP_Dropdown _languageDropdown;
 
@@ -40,30 +43,46 @@ namespace UI.Screens.Settings
             _languageDropdown.ClearOptions();
             _languageDropdown.AddOptions(localeNames);
 
+            //buttons
             _disposables.Add(_exitButton.OnClickAsObservable().Subscribe(_ => viewModel.RequestCloseChecker()));
             _disposables.Add(
                 _exitButtonBackground.OnClickAsObservable().Subscribe(_ => viewModel.RequestCloseChecker()));
             _disposables.Add(_saveButton.OnClickAsObservable().Subscribe(_ => viewModel.RequestSave()));
             _disposables.Add(_resetButton.OnClickAsObservable().Subscribe(_ => viewModel.RequestReset()));
 
+            //master volume
             _disposables.Add(viewModel.MasterVolume.Subscribe(v => _masterVolumeSlider.value = v));
             _disposables.Add(viewModel.MasterVolume.Subscribe(v => _masterVolumeInputField.text = v.ToString("F3")));
-            _disposables.Add(viewModel.LanguageCode.Subscribe(v =>
-            {
-                _languageDropdown.value = _locales.IndexOf(_locales.First(x => x.Code == v));
-            }));
-            _disposables.Add(viewModel.HasChanges.Subscribe(v => _saveText.color = v
-                ? new Color(_saveText.color.r, _saveText.color.g, _saveText.color.b, (float)_colorStrangeWhenCanSave/255)
-                : new Color(_saveText.color.r, _saveText.color.g, _saveText.color.b, (float)_colorStrangeWhenCouldntSave/255)));
-
             _disposables.Add(_masterVolumeSlider.onValueChanged.AsObservable()
                 .Subscribe(viewModel.RequestSetMasterVolumeBySlider));
-            _disposables.Add(_languageDropdown.onValueChanged.AsObservable().Subscribe(index => viewModel.RequestSetLanguage(_locales[index].Code)));
             _disposables.Add(_masterVolumeInputField.onEndEdit.AsObservable().Subscribe(v =>
             {
                 viewModel.RequestSetMasterVolumeByInputField(v);
                 _masterVolumeInputField.text = viewModel.MasterVolume.CurrentValue.ToString("F3");
             }));
+            
+            //sensitivity
+            _disposables.Add(viewModel.Sensitivity01.Subscribe(v => _sensivitySlider.SetValueWithoutNotify(v)));
+            _disposables.Add(viewModel.Sensitivity.Subscribe(v => _sensivityInputField.text = v.ToString("F3")));
+            _disposables.Add(_sensivitySlider.onValueChanged.AsObservable()
+                .Subscribe(viewModel.RequestSetSensitivityBySlider));
+            _disposables.Add(_sensivityInputField.onEndEdit.AsObservable().Subscribe(v =>
+            {
+                viewModel.RequestSetSensitivityByInputField(v);
+                _sensivityInputField.text = viewModel.Sensitivity.CurrentValue.ToString("F3");
+            }));
+            
+            //language
+            _disposables.Add(viewModel.LanguageCode.Subscribe(v =>
+            {
+                _languageDropdown.value = _locales.IndexOf(_locales.First(x => x.Code == v));
+            }));
+            _disposables.Add(_languageDropdown.onValueChanged.AsObservable().Subscribe(index => viewModel.RequestSetLanguage(_locales[index].Code)));
+            
+            //button show
+            _disposables.Add(viewModel.HasChanges.Subscribe(v => _saveText.color = v
+                ? new Color(_saveText.color.r, _saveText.color.g, _saveText.color.b, (float)_colorStrangeWhenCanSave/255)
+                : new Color(_saveText.color.r, _saveText.color.g, _saveText.color.b, (float)_colorStrangeWhenCouldntSave/255)));
         }
 
         private void OnDestroy()

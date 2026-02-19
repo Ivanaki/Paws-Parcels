@@ -21,3 +21,8 @@ MonoBehaviour:
     SelectedQuest: 
     SucceedQuests: []
     CurrentActiveDestinations: []
+    PlayerData:
+      Position: {x: 0, y: 0, z: 0}
+      Rotation: {x: 0, y: 0, z: 0, w: 0}
+      Yaw: 0
+      Pitch: 35

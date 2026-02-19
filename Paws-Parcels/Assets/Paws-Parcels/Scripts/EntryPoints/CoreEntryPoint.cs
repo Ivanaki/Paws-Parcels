@@ -80,8 +80,10 @@ namespace Game.Root
             _gameInputService.InputSystem.UI.Disable();
             _gameInputService.InputSystem.Gameplay.Enable();
             _gameInputService.InputSystem.Car.Disable();
-            _gameInputService.InputSystem.Player.Disable();
+            _gameInputService.InputSystem.Player.Enable();
+            _gameInputService.InputSystem.Mouse.Enable();
             _cursorService.SetCursorStateLocked(true);
+            Time.timeScale = 1f;
             
             //TODO с четверга:
             //сделать ui и систему Quests

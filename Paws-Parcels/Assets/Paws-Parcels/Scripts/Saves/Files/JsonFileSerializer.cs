@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.UnityConverters.Math;
 using Paws_Parcels.Scripts.Saves;
 using UnityEngine;
 
@@ -33,8 +34,13 @@ namespace Saves
         {
             JsonConvert.DefaultSettings = () => new JsonSerializerSettings()
             {
+                Converters = new JsonConverter[] {
+                    new Vector3Converter(),
+                    new QuaternionConverter()
+                },
                 TypeNameHandling = TypeNameHandling.Auto,
-                TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple
+                TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple,
+                Formatting = Formatting.Indented
             };
         }
         
@@ -45,7 +51,7 @@ namespace Saves
                 SaveStatic.CreateFolders(folders);
 
                 var path = SaveStatic.BuildFilePath(key, Extension, folders);
-                var json = JsonConvert.SerializeObject(data, Formatting.Indented);
+                var json = JsonConvert.SerializeObject(data);
 
                 using var fileStream = new StreamWriter(path);
                 fileStream.Write(json);

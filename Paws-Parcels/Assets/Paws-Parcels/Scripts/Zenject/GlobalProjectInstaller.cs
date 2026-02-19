@@ -1,5 +1,6 @@
 using Game.Root;
 using Paws_Parcels.Scripts;
+using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Quests;
 using Paws_Parcels.Scripts.Saves.States;
 using Paws_Parcels.Scripts.Saves.States.GameState;
@@ -48,6 +49,8 @@ namespace MotorHome.Scripts.Installers
                     DontDestroyOnLoad(c.gameObject);
                 }).NonLazy();
             
+            
+            
             Container.Bind<JsonFileSerializer>().AsSingle();
             Container.Bind<ScreenshotSaver>().AsSingle();
             Container.Bind<LoadService>().AsSingle();
@@ -61,14 +64,15 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<GameInputService>().AsSingle();
             Container.Bind<CursorService>().AsSingle();
             Container.Bind<PlayerLocationService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<LocalizationService>().AsSingle();
-            
             Container.Bind<MessageSystem>().AsSingle();
             
             Container.Bind<QuestsDatabase>().AsSingle();
             Container.Bind<EditorDataService>().AsSingle();
             Container.Bind<UiObjectsDatabase>().AsSingle();
             Container.Bind<CanvasUiVisualizer>().AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<LocalizationService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ApplyInFixUpdate>().AsSingle();
             
             //Old bindings
             

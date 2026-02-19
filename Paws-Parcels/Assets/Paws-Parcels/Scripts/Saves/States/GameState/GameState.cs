@@ -1,10 +1,20 @@
 using System;
 using System.Collections.Generic;
 using Paws_Parcels.Scripts.Quests;
+using UnityEngine;
 
 
 namespace Paws_Parcels.Scripts.Saves.States.GameState
 {
+    [Serializable]
+    public struct PlayerSaveData
+    {
+        public Vector3 Position;
+        public Quaternion Rotation;
+        public float Yaw;
+        public float Pitch;
+    }
+    
     [System.Serializable]
     public class GameState
     {
@@ -20,6 +30,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public string SelectedQuest;
         public List<string> SucceedQuests = new();
         public List<string> CurrentActiveDestinations = new();
+        
+        //Player
+        public PlayerSaveData PlayerData;
         
         public int GetNewSavableEntityID()
         {

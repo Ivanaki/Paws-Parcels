@@ -16,22 +16,32 @@ namespace UI.Screens.Settings
         
         public ReadOnlyReactiveProperty<bool> HasChanges => _hasChanges;
         public ReadOnlyReactiveProperty<float> MasterVolume => _masterVolume;
+        public ReadOnlyReactiveProperty<float> Sensitivity => _sensitivity;
+        public ReadOnlyReactiveProperty<float> Sensitivity01 => _sensitivity01;
         public ReadOnlyReactiveProperty<string> LanguageCode => _languageCode;
         public List<SettingsService.LocaleData> LanguageVariants { get; }
 
 
         private readonly ReactiveProperty<bool> _hasChanges = new(false);
         private readonly ReactiveProperty<float> _masterVolume = new();
+        private readonly ReactiveProperty<float> _sensitivity = new();
+        private readonly ReactiveProperty<float> _sensitivity01 = new();
         private readonly ReactiveProperty<string> _languageCode = new();
         
         private readonly SettingsService _settingsService;
-        
+        private readonly float _maxSensitivity;
+        private readonly float _maxSensitivityOnSlider;
 
-        public PopupSettingsViewModel(SettingsService settingsService)
+
+        public PopupSettingsViewModel(SettingsService settingsService, float maxSensitivity, float maxSensitivityOnSlider)
         {
             _settingsService = settingsService;
+            _maxSensitivity = Mathf.Max(maxSensitivity, 1f);
+            _maxSensitivityOnSlider = Mathf.Max(maxSensitivityOnSlider, 1f);
 
             settingsService.MasterVolume.Subscribe(value => _masterVolume.Value = value);
+            settingsService.Sensitivity.Subscribe(value => _sensitivity.Value = value);
+            settingsService.Sensitivity.Subscribe(value => _sensitivity01.Value = value/_maxSensitivityOnSlider);
             settingsService.LanguageCode.Subscribe(value => _languageCode.Value = value);
             
             LanguageVariants = settingsService.GetLanguages();
@@ -52,6 +62,24 @@ namespace UI.Screens.Settings
                 _masterVolume.Value = v;
             }
         }
+        
+        public void RequestSetSensitivityBySlider(float value)
+        {
+            _hasChanges.Value = true;
+            _sensitivity.Value = value * _maxSensitivityOnSlider;
+            _sensitivity01.Value = value;
+        }
+        
+        public void RequestSetSensitivityByInputField(string value)
+        {
+            _hasChanges.Value = true;
+            if (float.TryParse(value, out float v))
+            {
+                v = Mathf.Clamp(v, 0f, _maxSensitivity);
+                _sensitivity.Value = v;
+                _sensitivity01.Value = v/_maxSensitivityOnSlider;
+            }
+        }
 
         public void RequestSetLanguage(string languageCode)
         {
@@ -66,7 +94,8 @@ namespace UI.Screens.Settings
                 _settingsService.SaveSettings(new SettingsState()
                 {
                     MasterVolume = _masterVolume.Value,
-                    LanguageCode = _languageCode.Value
+                    LanguageCode = _languageCode.Value,
+                    Sensitivity = _sensitivity.Value
                 });
                 _hasChanges.Value = false;
             }

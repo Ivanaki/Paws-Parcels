@@ -31,10 +31,19 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         private const string ScreenshotName = "Screenshot";
         
         public GameProxy GameProxy { get; }
-        public Observable<bool> SaveResult => _saveResultSubject;
         public IReadOnlyObservableDictionary<Guid, GameMeta> MetaMap => _metaMap;
 
-        private readonly Subject<bool> _saveResultSubject = new();
+        /// <summary>
+        /// For rigidbody saves
+        /// </summary>
+        public Observable<Unit> CollectDataBeforeSave => _collectDataBeforeSave;
+        /// <summary>
+        /// For rigidbody load
+        /// </summary>
+        public Observable<Unit> ApplyDataAfterLoad => _applyDataAfterLoad;
+        
+        private readonly Subject<Unit> _collectDataBeforeSave = new();
+        private readonly Subject<Unit> _applyDataAfterLoad = new();
 
         private readonly JsonFileSerializer _jsonSerializer;
         private readonly ScreenshotSaver _screensaver;
@@ -141,6 +150,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                     var state = callBack.Value;
                     GameProxy.Change(state);
                     Debug.Log($"Game state loaded: {meta.SaveName}");
+                    _applyDataAfterLoad.OnNext(Unit.Default);
                     return new GameStateProviderLoadCallback(){IsSuccess = true};
                 }
                 
@@ -160,6 +170,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
 
         public bool SaveGameState(bool isAutoSave)
         {
+            _collectDataBeforeSave.OnNext(Unit.Default);
+            
             var newID = Guid.NewGuid();
             
             var dateTime = DateTime.UtcNow;
@@ -194,7 +206,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             if (callbackGameState.IsComplete && callbackMetaData.IsComplete)
             {
                 _metaMap.Add(newID, meta);
-                _saveResultSubject.OnNext(true);
+                //_saveResultSubject.OnNext(true);
                 return true;
             }
 
@@ -204,7 +216,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             Debug.LogError(callbackGameState.Exception?.Message);
             Debug.LogError(callbackMetaData.Exception?.Message);
-            _saveResultSubject.OnNext(false);
+            //_saveResultSubject.OnNext(false);
             return false;
         }
 
@@ -232,6 +244,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             {
                 var baseGameSo = Resources.Load<BaseGameSO>("BaseStates/BaseGameSO");
                 GameProxy.Change(baseGameSo.GameState);
+                _applyDataAfterLoad.OnNext(Unit.Default);
                 return true;
             }
             catch (Exception e)

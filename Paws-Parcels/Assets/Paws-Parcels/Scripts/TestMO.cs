@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NaughtyAttributes;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Quests;
+using Paws_Parcels.Scripts.Saves.States;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using Quests;
 using R3;
@@ -18,6 +19,7 @@ namespace Paws_Parcels.Scripts
         [Inject] private MessageSystem _messageSystem;
         [Inject] private QuestsService _questsService;
         [Inject] private GameStateProvider _gameStateProvider;
+        [Inject] private SettingsStateProvider _settingsStateProvider;
 
         //public 
 
@@ -95,10 +97,12 @@ namespace Paws_Parcels.Scripts
         }
 
         [ReadOnly] public GameState gameState;
+        [ReadOnly] public SettingsState settingsState;
         
         private void Start()
         {
             gameState = _gameStateProvider.GameProxy.Origin;
+            settingsState = _settingsStateProvider.SettingsProxy.SettingsState;
             
             _gameStateProvider.GameProxy.SucceedQuests.ObserveAdd().Subscribe(e =>
             {

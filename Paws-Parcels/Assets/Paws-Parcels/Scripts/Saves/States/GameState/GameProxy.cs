@@ -17,7 +17,13 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public ObservableList<QuestDataProxy> ActiveQuests { get; } = new();
         public ObservableList<string> SucceedQuests { get; } = new();
         public ObservableList<string> CurrentActiveDestinations { get; } = new();
-        
+
+        public PlayerSaveData PlayerData
+        {
+            get => Origin.PlayerData;
+            set => Origin.PlayerData = value;
+        }
+
         public GameProxy(GameState origin)
         {
             //не забудь изменить change внизу
@@ -48,6 +54,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             CurrentActiveDestinations.Clear();
             gameState.CurrentActiveDestinations.ForEach(questData => CurrentActiveDestinations.Add(questData));
+            
+            PlayerData = gameState.PlayerData;
         }
         
         /*public void Change(GameProxy gameProxy)

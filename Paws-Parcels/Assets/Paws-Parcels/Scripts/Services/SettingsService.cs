@@ -17,6 +17,7 @@ namespace UI.Screens.Settings
         private const string LanguageNameKey = "LanguageName";
         
         public ReadOnlyReactiveProperty<float> MasterVolume { get; }
+        public ReadOnlyReactiveProperty<float> Sensitivity { get; }
         public ReadOnlyReactiveProperty<string> LanguageCode { get; }
         
         private readonly SettingsStateProvider _settingsStateProvider;
@@ -28,6 +29,7 @@ namespace UI.Screens.Settings
             _localizationService = localizationService;
 
             MasterVolume = settingsStateProvider.SettingsProxy.MasterVolume;
+            Sensitivity = settingsStateProvider.SettingsProxy.Sensitivity;
             LanguageCode = settingsStateProvider.SettingsProxy.LanguageCode;
             
             LanguageCode.Skip(1).Subscribe(code =>
