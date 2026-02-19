@@ -69,7 +69,7 @@ namespace Paws_Parcels.Scripts
             }
             if (Input.GetKeyDown(KeyCode.U))
             {
-                _gameStateProvider.GameProxy.SelectedQuest.Value = "None";
+                _gameStateProvider.GameProxy.SelectedQuest.Value = "Test";
             }
             if (Input.GetKeyDown(KeyCode.Keypad1))
             {
@@ -106,6 +106,7 @@ namespace Paws_Parcels.Scripts
             });
             
             _questsService.ActiveNewQuest("Gasoline");
+            _questsService.ActiveNewQuest("Test");
             //print(LocalizationSettings.SelectedLocale.CustomFormatterCode);
             //print(LocalizationSettings.SelectedLocale.LocaleName);
             //print(LocalizationSettings.SelectedLocale.name);

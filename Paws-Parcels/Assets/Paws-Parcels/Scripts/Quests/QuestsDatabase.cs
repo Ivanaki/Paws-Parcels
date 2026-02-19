@@ -28,6 +28,12 @@ namespace Quests
                     Debug.LogError($"quest {quest.Id} has no missions in it");
                     continue;
                 }
+                
+                if (string.IsNullOrEmpty(quest.Id))
+                {
+                    Debug.LogError($"Quest has empty Id");
+                    continue;
+                }
 
                 var result = _questsDict.TryAdd(quest.Id, quest);
                 

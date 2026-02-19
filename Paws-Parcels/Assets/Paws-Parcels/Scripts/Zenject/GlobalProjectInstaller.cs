@@ -57,8 +57,6 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<QuestsService>().AsSingle();
             Container.Bind<RewardService>().AsSingle();
             Container.Bind<DestinationService>().AsSingle();
-            Container.Bind<QuestsDatabase>().AsSingle();
-            Container.Bind<EditorDataService>().AsSingle();
             Container.Bind<MessageToUserService>().AsSingle();
             Container.Bind<GameInputService>().AsSingle();
             Container.Bind<CursorService>().AsSingle();
@@ -66,6 +64,11 @@ namespace MotorHome.Scripts.Installers
             Container.BindInterfacesAndSelfTo<LocalizationService>().AsSingle();
             
             Container.Bind<MessageSystem>().AsSingle();
+            
+            Container.Bind<QuestsDatabase>().AsSingle();
+            Container.Bind<EditorDataService>().AsSingle();
+            Container.Bind<UiObjectsDatabase>().AsSingle();
+            Container.Bind<CanvasUiVisualizer>().AsSingle();
             
             //Old bindings
             

@@ -104,7 +104,7 @@ namespace Paws_Parcels.Scripts.Quests
         public string Id;
         
         [Space]
-        public bool ActiveOnAwake = true;
+        [HideInInspector]public bool ActiveOnAwake = true;
         /*[HideIf(nameof(ActiveOnAwake))] 
         public string ActivateMessage;*/
         

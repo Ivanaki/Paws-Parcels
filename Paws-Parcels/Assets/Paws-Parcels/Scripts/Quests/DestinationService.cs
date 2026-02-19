@@ -201,6 +201,7 @@ namespace Quests
         public void RemoveMark(MarkObject markObject)
         {
             _allMarksDict.Remove(markObject.Id);
+            markObject.Hide();
         }
     }
 }
