@@ -111,7 +111,7 @@ namespace Quests
             
             if (_allMarksDict.TryGetValue(destinationId, out var markObject))
             {
-                markObject.Show();
+                markObject.ShowWhenQuestActive();
             }
         }
         
@@ -126,7 +126,7 @@ namespace Quests
                     _allCurrentShowableMarksDict.Remove(destinationId);
                     if (_allMarksDict.TryGetValue(destinationId, out var markObject))
                     {
-                        markObject.Hide();
+                        markObject.HideWhenQuestActive();
                     }
                 }
             }
@@ -154,7 +154,7 @@ namespace Quests
             {
                 if (_allMarksDict.TryGetValue(value, out var markObject))
                 {
-                    markObject.Hide();
+                    markObject.HideWhenQuestActive();
                 }
             }
             _allCurrentShowableMarksDict.Clear();
@@ -184,7 +184,7 @@ namespace Quests
             {
                 if (_allCurrentShowableMarksDict.ContainsKey(markObject.Id))
                 {
-                    markObject.Show();
+                    markObject.ShowWhenQuestActive();
                     
                     if (_lastSelectedQuest == _allCurrentShowableMarksDict[markObject.Id].FirstOrDefault(x => x == _lastSelectedQuest))
                         markObject.Select();
@@ -201,7 +201,7 @@ namespace Quests
         public void RemoveMark(MarkObject markObject)
         {
             _allMarksDict.Remove(markObject.Id);
-            markObject.Hide();
+            markObject.HideWhenQuestActive();
         }
     }
 }

@@ -15,6 +15,16 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public float Pitch;
     }
     
+    [Serializable]
+    public struct CarSaveData
+    {
+        public Vector3 Position;
+        public Quaternion Rotation;
+        public Vector3 LinearVelocity;
+        public Vector3 AngularVelocity;
+        // и ещё вращение камеры
+    }
+    
     [System.Serializable]
     public class GameState
     {

@@ -38,8 +38,8 @@ namespace Paws_Parcels.Scripts.Player
 			_gameInputService.InputSystem.Player.Move.performed += OnMove;
 			_gameInputService.InputSystem.Player.Move.canceled += OnMove;
 
-			_gameInputService.InputSystem.Mouse.Look.performed += OnLook;
-			_gameInputService.InputSystem.Mouse.Look.canceled += OnLook;
+			_gameInputService.InputSystem.PlayerNotMovement.Look.performed += OnLook;
+			_gameInputService.InputSystem.PlayerNotMovement.Look.canceled += OnLook;
 
 			_gameInputService.InputSystem.Player.Jump.performed += OnJump;
 			_gameInputService.InputSystem.Player.Jump.canceled += OnJump;
@@ -53,8 +53,8 @@ namespace Paws_Parcels.Scripts.Player
 			_gameInputService.InputSystem.Player.Move.performed -= OnMove;
 			_gameInputService.InputSystem.Player.Move.canceled -= OnMove;
 
-			_gameInputService.InputSystem.Mouse.Look.performed -= OnLook;
-			_gameInputService.InputSystem.Mouse.Look.canceled -= OnLook;
+			_gameInputService.InputSystem.PlayerNotMovement.Look.performed -= OnLook;
+			_gameInputService.InputSystem.PlayerNotMovement.Look.canceled -= OnLook;
 
 			_gameInputService.InputSystem.Player.Jump.performed -= OnJump;
 			_gameInputService.InputSystem.Player.Jump.canceled -= OnJump;

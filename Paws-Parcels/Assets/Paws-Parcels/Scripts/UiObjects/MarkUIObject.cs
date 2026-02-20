@@ -9,8 +9,9 @@ namespace Services
     public class MarkUIObject : UiObject
     {
         [SerializeField] private Image _image;
+        //[SerializeField] private Image _handShowImage;
 
-        private IDisposable _disposable;
+        private CompositeDisposable _disposable;
         
         public override void Construct(IShowableInUIObject showableInUIObject)
         {
@@ -22,10 +23,23 @@ namespace Services
                 return;
             }
 
-            _disposable = markObject.IsSelected.Subscribe(v =>
+            _disposable = new CompositeDisposable();
+            
+            _disposable.Add(markObject.IsSelected.Subscribe(v =>
             {
                 _image.color = v ? Color.yellow : Color.white;
-            });
+                //_handShowImage.color = v ? Color.yellow : Color.white;
+            }));
+            
+            /*_disposable.Add(markObject.IsInteract.Subscribe(v =>
+            {
+                _image.enabled = v;
+            }));
+
+            _disposable.Add(markObject.IsInteractWithMinDistance.Subscribe(v =>
+            {
+                _handShowImage.gameObject.SetActive(v);
+            }));*/
         }
 
         private void OnDestroy()

@@ -29,7 +29,7 @@ namespace Services
             }
         }
         
-        [SerializeField] private RectTransform _barier;
+        //[SerializeField] private RectTransform _barier;
         //[SerializeField] private bool _hideWhenBehind = true;
         
         private ObservableHashSet<IShowableInUIObject> _objectsToShow;

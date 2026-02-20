@@ -89,7 +89,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     ""name"": ""InputSystem_Actions"",
     ""maps"": [
         {
-            ""name"": ""Mouse"",
+            ""name"": ""PlayerNotMovement"",
             ""id"": ""4a960125-3cd5-4e69-a879-2302314af8b7"",
             ""actions"": [
                 {
@@ -105,6 +105,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""65a4b616-ddf0-4266-81da-4b76bada074a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""ad04b1e3-f329-41b1-a626-b864c64b9563"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -208,6 +217,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b8c8519-593c-4a2c-a387-e441c79f77f0"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59453459-8dce-4a3f-905d-84ccbff2d1b9"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -742,15 +773,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""6d97ffe2-dc21-412a-aa71-25d9f01d1ff3"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""OpenQuests"",
                     ""type"": ""Button"",
                     ""id"": ""d6cd741d-8029-4ef9-aa84-5ca4dbffbd19"",
@@ -769,28 +791,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""OpenPause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f6ee3cce-ef33-476f-aa05-54c490c1f55f"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3c387a24-a2e7-42f7-b359-c7849ddbb3e9"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1418,10 +1418,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Mouse
-        m_Mouse = asset.FindActionMap("Mouse", throwIfNotFound: true);
-        m_Mouse_Look = m_Mouse.FindAction("Look", throwIfNotFound: true);
-        m_Mouse_Attack = m_Mouse.FindAction("Attack", throwIfNotFound: true);
+        // PlayerNotMovement
+        m_PlayerNotMovement = asset.FindActionMap("PlayerNotMovement", throwIfNotFound: true);
+        m_PlayerNotMovement_Look = m_PlayerNotMovement.FindAction("Look", throwIfNotFound: true);
+        m_PlayerNotMovement_Attack = m_PlayerNotMovement.FindAction("Attack", throwIfNotFound: true);
+        m_PlayerNotMovement_Interact = m_PlayerNotMovement.FindAction("Interact", throwIfNotFound: true);
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
@@ -1438,7 +1439,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_OpenPause = m_Gameplay.FindAction("OpenPause", throwIfNotFound: true);
-        m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_OpenQuests = m_Gameplay.FindAction("OpenQuests", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -1457,7 +1457,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
 
     ~@InputSystem_Actions()
     {
-        UnityEngine.Debug.Assert(!m_Mouse.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Mouse.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_PlayerNotMovement.enabled, "This will cause a leak and performance issues, InputSystem_Actions.PlayerNotMovement.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Car.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Car.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Gameplay.Disable() has not been called.");
@@ -1534,34 +1534,39 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Mouse
-    private readonly InputActionMap m_Mouse;
-    private List<IMouseActions> m_MouseActionsCallbackInterfaces = new List<IMouseActions>();
-    private readonly InputAction m_Mouse_Look;
-    private readonly InputAction m_Mouse_Attack;
+    // PlayerNotMovement
+    private readonly InputActionMap m_PlayerNotMovement;
+    private List<IPlayerNotMovementActions> m_PlayerNotMovementActionsCallbackInterfaces = new List<IPlayerNotMovementActions>();
+    private readonly InputAction m_PlayerNotMovement_Look;
+    private readonly InputAction m_PlayerNotMovement_Attack;
+    private readonly InputAction m_PlayerNotMovement_Interact;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Mouse".
+    /// Provides access to input actions defined in input action map "PlayerNotMovement".
     /// </summary>
-    public struct MouseActions
+    public struct PlayerNotMovementActions
     {
         private @InputSystem_Actions m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public MouseActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        public PlayerNotMovementActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Mouse/Look".
+        /// Provides access to the underlying input action "PlayerNotMovement/Look".
         /// </summary>
-        public InputAction @Look => m_Wrapper.m_Mouse_Look;
+        public InputAction @Look => m_Wrapper.m_PlayerNotMovement_Look;
         /// <summary>
-        /// Provides access to the underlying input action "Mouse/Attack".
+        /// Provides access to the underlying input action "PlayerNotMovement/Attack".
         /// </summary>
-        public InputAction @Attack => m_Wrapper.m_Mouse_Attack;
+        public InputAction @Attack => m_Wrapper.m_PlayerNotMovement_Attack;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerNotMovement/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_PlayerNotMovement_Interact;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Mouse; }
+        public InputActionMap Get() { return m_Wrapper.m_PlayerNotMovement; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -1569,9 +1574,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="MouseActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="PlayerNotMovementActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(MouseActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(PlayerNotMovementActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -1579,17 +1584,20 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="MouseActions" />
-        public void AddCallbacks(IMouseActions instance)
+        /// <seealso cref="PlayerNotMovementActions" />
+        public void AddCallbacks(IPlayerNotMovementActions instance)
         {
-            if (instance == null || m_Wrapper.m_MouseActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MouseActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerNotMovementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerNotMovementActionsCallbackInterfaces.Add(instance);
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         /// <summary>
@@ -1598,8 +1606,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="MouseActions" />
-        private void UnregisterCallbacks(IMouseActions instance)
+        /// <seealso cref="PlayerNotMovementActions" />
+        private void UnregisterCallbacks(IPlayerNotMovementActions instance)
         {
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
@@ -1607,15 +1615,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="MouseActions.UnregisterCallbacks(IMouseActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PlayerNotMovementActions.UnregisterCallbacks(IPlayerNotMovementActions)" />.
         /// </summary>
-        /// <seealso cref="MouseActions.UnregisterCallbacks(IMouseActions)" />
-        public void RemoveCallbacks(IMouseActions instance)
+        /// <seealso cref="PlayerNotMovementActions.UnregisterCallbacks(IPlayerNotMovementActions)" />
+        public void RemoveCallbacks(IPlayerNotMovementActions instance)
         {
-            if (m_Wrapper.m_MouseActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerNotMovementActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -1625,21 +1636,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="MouseActions.AddCallbacks(IMouseActions)" />
-        /// <seealso cref="MouseActions.RemoveCallbacks(IMouseActions)" />
-        /// <seealso cref="MouseActions.UnregisterCallbacks(IMouseActions)" />
-        public void SetCallbacks(IMouseActions instance)
+        /// <seealso cref="PlayerNotMovementActions.AddCallbacks(IPlayerNotMovementActions)" />
+        /// <seealso cref="PlayerNotMovementActions.RemoveCallbacks(IPlayerNotMovementActions)" />
+        /// <seealso cref="PlayerNotMovementActions.UnregisterCallbacks(IPlayerNotMovementActions)" />
+        public void SetCallbacks(IPlayerNotMovementActions instance)
         {
-            foreach (var item in m_Wrapper.m_MouseActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerNotMovementActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_MouseActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerNotMovementActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="MouseActions" /> instance referencing this action map.
+    /// Provides a new <see cref="PlayerNotMovementActions" /> instance referencing this action map.
     /// </summary>
-    public MouseActions @Mouse => new MouseActions(this);
+    public PlayerNotMovementActions @PlayerNotMovement => new PlayerNotMovementActions(this);
 
     // Player
     private readonly InputActionMap m_Player;
@@ -1914,7 +1925,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_OpenPause;
-    private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_OpenQuests;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
@@ -1931,10 +1941,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/OpenPause".
         /// </summary>
         public InputAction @OpenPause => m_Wrapper.m_Gameplay_OpenPause;
-        /// <summary>
-        /// Provides access to the underlying input action "Gameplay/Interact".
-        /// </summary>
-        public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         /// <summary>
         /// Provides access to the underlying input action "Gameplay/OpenQuests".
         /// </summary>
@@ -1968,9 +1974,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @OpenPause.started += instance.OnOpenPause;
             @OpenPause.performed += instance.OnOpenPause;
             @OpenPause.canceled += instance.OnOpenPause;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
             @OpenQuests.started += instance.OnOpenQuests;
             @OpenQuests.performed += instance.OnOpenQuests;
             @OpenQuests.canceled += instance.OnOpenQuests;
@@ -1988,9 +1991,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @OpenPause.started -= instance.OnOpenPause;
             @OpenPause.performed -= instance.OnOpenPause;
             @OpenPause.canceled -= instance.OnOpenPause;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
             @OpenQuests.started -= instance.OnOpenQuests;
             @OpenQuests.performed -= instance.OnOpenQuests;
             @OpenQuests.canceled -= instance.OnOpenQuests;
@@ -2299,11 +2299,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Mouse" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PlayerNotMovement" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="MouseActions.AddCallbacks(IMouseActions)" />
-    /// <seealso cref="MouseActions.RemoveCallbacks(IMouseActions)" />
-    public interface IMouseActions
+    /// <seealso cref="PlayerNotMovementActions.AddCallbacks(IPlayerNotMovementActions)" />
+    /// <seealso cref="PlayerNotMovementActions.RemoveCallbacks(IPlayerNotMovementActions)" />
+    public interface IPlayerNotMovementActions
     {
         /// <summary>
         /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
@@ -2319,6 +2319,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player" which allows adding and removing callbacks.
@@ -2413,13 +2420,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenPause(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteract(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "OpenQuests" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

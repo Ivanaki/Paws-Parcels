@@ -3,7 +3,7 @@
     "name": "InputSystem_Actions",
     "maps": [
         {
-            "name": "Mouse",
+            "name": "PlayerNotMovement",
             "id": "4a960125-3cd5-4e69-a879-2302314af8b7",
             "actions": [
                 {
@@ -19,6 +19,15 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "65a4b616-ddf0-4266-81da-4b76bada074a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "ad04b1e3-f329-41b1-a626-b864c64b9563",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -122,6 +131,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b8c8519-593c-4a2c-a387-e441c79f77f0",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59453459-8dce-4a3f-905d-84ccbff2d1b9",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -656,15 +687,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "6d97ffe2-dc21-412a-aa71-25d9f01d1ff3",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "OpenQuests",
                     "type": "Button",
                     "id": "d6cd741d-8029-4ef9-aa84-5ca4dbffbd19",
@@ -683,28 +705,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "OpenPause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f6ee3cce-ef33-476f-aa05-54c490c1f55f",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3c387a24-a2e7-42f7-b359-c7849ddbb3e9",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

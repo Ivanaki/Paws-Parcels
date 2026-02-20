@@ -8,7 +8,7 @@ namespace MotorHome.Scripts.Car.View
     [RequireComponent(typeof(CarInput))]
     public class CarController : MonoBehaviour
     {
-        private InputActionAsset m_InputActionAsset;
+        //private InputActionAsset m_InputActionAsset;
         [SerializeField] private string m_SteerActionName = "Steer";
         [SerializeField] private string m_ThrottleActionName = "Throttle";
         [SerializeField] private string m_HandbrakeActionName = "Handbrake";
@@ -21,9 +21,9 @@ namespace MotorHome.Scripts.Car.View
         private GasSystem _gasSystem;
 
         [Inject]
-        private void Construct(InputActionAsset inputActionAsset, GasSystem gasSystem)
+        private void Construct(GasSystem gasSystem)
         {
-            m_InputActionAsset  = inputActionAsset;
+            //m_InputActionAsset  = inputActionAsset;
             _gasSystem = gasSystem;
         }
 
@@ -34,7 +34,7 @@ namespace MotorHome.Scripts.Car.View
         
         private void Start()
         {
-            if (m_InputActionAsset == null)
+            /*if (m_InputActionAsset == null)
             {
                 Debug.LogError($"[{nameof(CarController)}] No InputActionAsset assigned. Assign the reference in edit mode.");
                 return;
@@ -61,7 +61,7 @@ namespace MotorHome.Scripts.Car.View
                 Debug.LogWarning($"[{nameof(CarController)}] '{m_HandbrakeActionName}' action not found. Check the InputActionAsset.");
             }
             
-            m_InputActionAsset.Enable();
+            m_InputActionAsset.Enable();*/
         }
 
 

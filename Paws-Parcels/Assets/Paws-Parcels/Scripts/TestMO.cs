@@ -30,7 +30,7 @@ namespace Paws_Parcels.Scripts
         
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            /*if (Input.GetKeyDown(KeyCode.Z))
             {
                 _messageSystem.SendCompositeMessage(this, "f1");
             }
@@ -54,7 +54,7 @@ namespace Paws_Parcels.Scripts
             if (Input.GetKeyDown(KeyCode.D))
             {
                 _messageSystem.SendCompositeMessage(this, "t3");
-            }
+            }*/
             
             if (Input.GetKeyDown(KeyCode.O))
             {
@@ -65,7 +65,7 @@ namespace Paws_Parcels.Scripts
                 _messageSystem.SendCompositeMessage(this, "Off");
             }
             
-            if (Input.GetKeyDown(KeyCode.S))
+            /*if (Input.GetKeyDown(KeyCode.S))
             {
                 _gameStateProvider.GameProxy.SelectedQuest.Value = "Gasoline";
             }
@@ -92,7 +92,7 @@ namespace Paws_Parcels.Scripts
             if (Input.GetKeyDown(KeyCode.Keypad5))
             {
                 _messageSystem.SendCompositeMessage(this, "5");
-            }
+            }*/
             
         }
 
@@ -111,6 +111,7 @@ namespace Paws_Parcels.Scripts
             
             _questsService.ActiveNewQuest("Gasoline");
             _questsService.ActiveNewQuest("Test");
+            _gameStateProvider.GameProxy.SelectedQuest.Value = "Test";
             //print(LocalizationSettings.SelectedLocale.CustomFormatterCode);
             //print(LocalizationSettings.SelectedLocale.LocaleName);
             //print(LocalizationSettings.SelectedLocale.name);

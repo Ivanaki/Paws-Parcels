@@ -39,7 +39,6 @@ namespace Paws_Parcels.Scripts.Player
         private void OnEnable()
         {
             _disposable = new CompositeDisposable();
-            IDisposable dis;
 
             _disposable.Add(_sensitivity.Subscribe(value  =>
                 _thirdPersonController.SetSensivity(value)));

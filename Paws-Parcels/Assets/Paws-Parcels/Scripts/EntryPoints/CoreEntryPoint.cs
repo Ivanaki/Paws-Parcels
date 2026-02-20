@@ -81,7 +81,7 @@ namespace Game.Root
             _gameInputService.InputSystem.Gameplay.Enable();
             _gameInputService.InputSystem.Car.Disable();
             _gameInputService.InputSystem.Player.Enable();
-            _gameInputService.InputSystem.Mouse.Enable();
+            _gameInputService.InputSystem.PlayerNotMovement.Enable();
             _cursorService.SetCursorStateLocked(true);
             Time.timeScale = 1f;
             

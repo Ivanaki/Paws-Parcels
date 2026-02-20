@@ -42,7 +42,7 @@ namespace UI.Core
             
             _cursorService.SetCursorStateLocked(false);
             _gameInputService.InputSystem.Gameplay.Disable();
-            _gameInputService.InputSystem.Mouse.Disable();
+            _gameInputService.InputSystem.PlayerNotMovement.Disable();
             _gameInputService.InputSystem.UI.Enable();
             _gameInputService.BlockPlayerAndCarWithUi();
 
@@ -56,7 +56,7 @@ namespace UI.Core
             
             _cursorService.SetCursorStateLocked(false);
             _gameInputService.InputSystem.Gameplay.Disable();
-            _gameInputService.InputSystem.Mouse.Disable();
+            _gameInputService.InputSystem.PlayerNotMovement.Disable();
             _gameInputService.InputSystem.UI.Enable();
             _gameInputService.UnblockPlayerAndCarWithUi();
             
@@ -69,7 +69,7 @@ namespace UI.Core
             
             _cursorService.SetCursorStateLocked(true);
             _gameInputService.InputSystem.Gameplay.Enable();
-            _gameInputService.InputSystem.Mouse.Enable();
+            _gameInputService.InputSystem.PlayerNotMovement.Enable();
             _gameInputService.InputSystem.UI.Disable();
             _gameInputService.UnblockPlayerAndCarWithUi();
             
