@@ -92,6 +92,8 @@ MonoBehaviour:
   _uiTypeId: interactable
   _image: {fileID: 5696780443627622585}
   _handShowImage: {fileID: 8639752686422298757}
+  _spriteBase: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  _spriteActiveQuest: {fileID: 0}
 --- !u!1 &6623378218663379593
 GameObject:
   m_ObjectHideFlags: 0

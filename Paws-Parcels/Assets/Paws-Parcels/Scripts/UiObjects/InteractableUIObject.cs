@@ -10,6 +10,8 @@ namespace Services
     {
         [SerializeField] private Image _image;
         [SerializeField] private Image _handShowImage;
+        /*[SerializeField] private Sprite _spriteBase;
+        [SerializeField] private Sprite _spriteActiveQuest;*/
 
         private CompositeDisposable _disposable;
         
@@ -30,15 +32,15 @@ namespace Services
                 _image.color = v ? Color.yellow : Color.white;
                 _handShowImage.color = v ? Color.yellow : Color.white;
             }));
-            
-            /*_disposable.Add(interactableObject.IsInteract.Subscribe(v =>
-            {
-                _image.enabled = v;
-            }));*/
 
             _disposable.Add(interactableObject.IsInteractWithMinDistance.Subscribe(v =>
             {
                 _handShowImage.gameObject.SetActive(v);
+            }));
+            
+            _disposable.Add(interactableObject.IsActiveWithQuest.Subscribe(v =>
+            {
+                RectTransform.sizeDelta = v ? new Vector2(68, 68) : new Vector2(40, 40);
             }));
         }
 
