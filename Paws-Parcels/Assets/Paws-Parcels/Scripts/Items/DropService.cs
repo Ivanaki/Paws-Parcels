@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using Services;
 using UnityEngine.InputSystem;
 
@@ -27,4 +27,4 @@ namespace Items
             _gameInputService.InputSystem.PlayerNotMovement.Drop.performed -= Drop;
         }
     }
-}
+}*/

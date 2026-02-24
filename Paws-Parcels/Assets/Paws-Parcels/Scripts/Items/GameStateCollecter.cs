@@ -36,8 +36,8 @@ namespace Paws_Parcels.Scripts
             var car = GameObject.FindGameObjectWithTag("Car");
             if (car != null)
             {
-                //pos
-                //rot
+                so.GameState.CarData.Position = car.transform.position;
+                so.GameState.CarData.Rotation = car.transform.rotation;
             }
             else
             {
@@ -68,6 +68,9 @@ namespace Paws_Parcels.Scripts
                 Debug.LogWarning("No items found");
             }
             
+            //TODO save unity, because this collect dont apply
+            
+            Debug.Log("Data collected");
             //no quests, need write hands
         }
     }

@@ -1,5 +1,6 @@
 using Game.Root;
 using Items;
+using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Player;
 using Services;
 using UI.Core;
@@ -20,15 +21,16 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<CoreSignals>().AsSingle();
             Container.Bind<HUDService>().AsSingle();
             
-            Container.BindInterfacesAndSelfTo<ItemsInWorldVisualizer>().AsSingle();
-            Container.BindInterfacesAndSelfTo<DropService>().AsSingle();
-            
             //UIViewModels: (по идее должно быть в отдельном контейнере, но в зенжекте такого нет)
             Container.Bind<CoreUIManager>().AsSingle();
             Container.Bind<UICoreRootViewModel>().AsSingle();
             
             //инпут с клавиатуры и мышки, можно считать это тоже ViewModelsContainer
             Container.BindInterfacesTo<CoreBackService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerInputCore>().AsSingle();
+            
+            //визуализация предметов в мире
+            Container.BindInterfacesAndSelfTo<ItemsInWorldVisualizer>().AsSingle();
         }
     }
 }

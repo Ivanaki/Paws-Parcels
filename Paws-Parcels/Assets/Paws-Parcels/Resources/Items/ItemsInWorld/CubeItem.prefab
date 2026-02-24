@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a9d921666b4b3aaf1848c5a51eb79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Player.Item
+  _dontChangeMarkId: 0
   _markId: 
   _showOnCanvas: 1
-  _uiTypeId: interactable
+  _uiTypeId: base
   _itemTypeId: cube
 --- !u!54 &6619194477282213228
 Rigidbody:

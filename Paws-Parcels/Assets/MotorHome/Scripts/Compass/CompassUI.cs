@@ -1,5 +1,6 @@
 using System;
 using MotorHome.Scripts.Saves;
+using Paws_Parcels.Car.Logic;
 using R3;
 using UnityEngine;
 using Zenject;
@@ -23,7 +24,7 @@ namespace MotorHome.Scripts
         private IDisposable _disposable;
 
         [Inject]
-        private void Construct(CarPlayerSwitcher carPlayerSwitcher, Player player, Car.Logic.Car car,
+        private void Construct(CarPlayerSwitcher carPlayerSwitcher, Player player, Car car,
             GameStateProvider gameStateProvider)
         {
             _carPlayerSwitcher = carPlayerSwitcher;

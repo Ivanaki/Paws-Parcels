@@ -25,10 +25,19 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             set => Origin.PlayerData = value;
         }
         
+        public CarSaveData CarData
+        {
+            get => Origin.CarData;
+            set => Origin.CarData = value;
+        }
+        
         public ObservableList<ItemProxy> ItemsInWorld { get; } = new();
         public ReactiveProperty<bool> IsItemInHandsNull { get; }
         public ReactiveProperty<string> InHandsItemTypeId { get; }
         public string InHandsMarkId { get => Origin.InHandsMarkId; set => Origin.InHandsMarkId = value; }
+        
+        public ReactiveProperty<bool> IsPlayerInCar { get; }
+        public ReactiveProperty<bool> IsCarDoorOpen { get; }
 
         public GameProxy(GameState origin)
         {
@@ -52,6 +61,12 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             InHandsItemTypeId = new ReactiveProperty<string>(origin.InHandsItemTypeId);
             InHandsItemTypeId.Skip(1).Subscribe(v => origin.InHandsItemTypeId = v);
+
+            IsPlayerInCar = new ReactiveProperty<bool>(origin.IsPlayerInCar);
+            IsPlayerInCar.Skip(1).Subscribe(v => origin.IsPlayerInCar = v);
+
+            IsCarDoorOpen = new ReactiveProperty<bool>(origin.IsCarDoorOpen);
+            IsCarDoorOpen.Skip(1).Subscribe(v => origin.IsCarDoorOpen = v);
         }
 
         public void Change(GameState origin)
@@ -72,6 +87,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             origin.CurrentActiveDestinations.ForEach(questData => CurrentActiveDestinations.Add(questData));
             
             PlayerData = origin.PlayerData;
+            CarData = origin.CarData;
             
             ItemsInWorld.Clear();
             origin.ItemsInWorld.ForEach(questData => ItemsInWorld.Add(new ItemProxy(questData)));
@@ -80,6 +96,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             InHandsItemTypeId.Value = origin.InHandsItemTypeId;
             InHandsMarkId = origin.InHandsMarkId;
 
+            IsPlayerInCar.Value = origin.IsPlayerInCar;
+            IsCarDoorOpen.Value = origin.IsCarDoorOpen;
         }
         
         /*public void Change(GameProxy gameProxy)

@@ -7,15 +7,9 @@ using UnityEngine.Events;
 
 namespace Paws_Parcels.Scripts
 {
-    
+    [RequireComponent(typeof(Collider))]
     public class TriggerEvent : MonoBehaviour
     {
-        [Serializable]
-        private class Tags
-        {
-            public List<string> _tagsList;
-        }
-        
         [SerializeField] private UnityEvent<GameObject> _onTriggerEnterUnityEvent = new();
         [SerializeField] private UnityEvent<GameObject> _onTriggerExitUnityEvent = new();
 
@@ -31,6 +25,8 @@ namespace Paws_Parcels.Scripts
         {
             OnTriggerEnterObservable = _onTriggerEnterUnityEvent.AsObservable();
             OnTriggerExitObservable = _onTriggerExitUnityEvent.AsObservable();
+            
+            GetComponent<Collider>().isTrigger = true;
         }
         
         protected virtual void OnTriggerEnter(Collider other)

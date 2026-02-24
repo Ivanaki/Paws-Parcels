@@ -95,7 +95,7 @@ namespace UI.Screens.Settings
                 {
                     MasterVolume = _masterVolume.Value,
                     LanguageCode = _languageCode.Value,
-                    Sensitivity = _sensitivity.Value
+                    PlayerSensitivity = _sensitivity.Value
                 });
                 _hasChanges.Value = false;
             }
@@ -104,6 +104,11 @@ namespace UI.Screens.Settings
         public void RequestReset()
         {
             _settingsService.ResetSettings();
+            
+            _masterVolume.Value = _settingsService.MasterVolume.CurrentValue;
+            _sensitivity.Value = _settingsService.Sensitivity.CurrentValue;
+            _sensitivity01.Value = _settingsService.Sensitivity.CurrentValue/_maxSensitivityOnSlider;
+            _languageCode.Value = _settingsService.LanguageCode.CurrentValue;
             _hasChanges.Value = false;
         }
 

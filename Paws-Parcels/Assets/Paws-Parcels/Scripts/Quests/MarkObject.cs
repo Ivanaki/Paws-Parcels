@@ -15,7 +15,6 @@ namespace Quests
         
         public string MarkId => _markId;
         public override string UiTypeId => _uiTypeId;
-        public Transform Transform => transform;
         
         protected bool showOnCanvas => _showOnCanvas;
         protected string uiTypeId => _uiTypeId;
@@ -29,7 +28,7 @@ namespace Quests
         [SerializeField] private string _markId;
         [SerializeField] private bool _showOnCanvas = false;
         [ShowIf(nameof(_showOnCanvas))]
-        [SerializeField] private string _uiTypeId;
+        [SerializeField] private string _uiTypeId = "base";
 
         private bool _isEnabled = false;
 

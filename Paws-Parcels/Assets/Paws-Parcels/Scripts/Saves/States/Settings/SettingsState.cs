@@ -6,7 +6,8 @@ namespace Paws_Parcels.Scripts.Saves.States
     public class SettingsState
     {
         public float MasterVolume;
-        public float Sensitivity;
+        public float PlayerSensitivity;
+        public float CarSensitivity;
         public string LanguageCode;
         
         //public float MusicVolume;

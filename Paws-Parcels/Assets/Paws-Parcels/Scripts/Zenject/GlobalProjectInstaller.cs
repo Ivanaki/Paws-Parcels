@@ -1,6 +1,8 @@
+using Car_Player;
 using Game.Root;
 using Items;
 using Paws_Parcels.Scripts;
+using Paws_Parcels.Scripts.Car_Player;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Quests;
 using Paws_Parcels.Scripts.Saves.States;
@@ -74,6 +76,8 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<ItemsDatabase>().AsSingle();
             Container.Bind<ItemsSystem>().AsSingle();
             Container.Bind<DropSettings>().AsSingle();
+            Container.Bind<SitInCarService>().AsSingle();
+            Container.Bind<DoorService>().AsSingle();
             
             Container.BindInterfacesAndSelfTo<LocalizationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ApplyInFixUpdate>().AsSingle();

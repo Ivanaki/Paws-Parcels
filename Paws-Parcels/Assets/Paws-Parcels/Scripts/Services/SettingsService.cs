@@ -29,7 +29,7 @@ namespace UI.Screens.Settings
             _localizationService = localizationService;
 
             MasterVolume = settingsStateProvider.SettingsProxy.MasterVolume;
-            Sensitivity = settingsStateProvider.SettingsProxy.Sensitivity;
+            Sensitivity = settingsStateProvider.SettingsProxy.PlayerSensitivity;
             LanguageCode = settingsStateProvider.SettingsProxy.LanguageCode;
             
             LanguageCode.Skip(1).Subscribe(code =>

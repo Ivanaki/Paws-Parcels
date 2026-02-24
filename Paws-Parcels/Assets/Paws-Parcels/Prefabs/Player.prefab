@@ -481,7 +481,7 @@ MonoBehaviour:
   _interactRadius: 2.2
   _interactLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   _interactCenterOfSphere: {fileID: 2654270352110724248}
 --- !u!114 &4365107281831813469
 MonoBehaviour:
@@ -513,6 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemsInHandsVisualizer
   _inHandsPosTransform: {fileID: 7506749484165125710}
+  _animator: {fileID: 8919566783491423571}
 --- !u!1 &6776699614683619619
 GameObject:
   m_ObjectHideFlags: 0

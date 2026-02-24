@@ -43,7 +43,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         }
     }*/
     
-    /*[Serializable]
+    [Serializable]
     public struct CarSaveData
     {
         public Vector3 Position;
@@ -51,7 +51,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public Vector3 LinearVelocity;
         public Vector3 AngularVelocity;
         // и ещё вращение камеры
-    }*/
+    }
 
     //не забывать обновлять GameStateCollecter
     [System.Serializable]
@@ -73,12 +73,19 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         //Player
         public PlayerSaveData PlayerData;
         
+        //Car
+        public CarSaveData CarData;
+        
         //Items
         public List<ItemData> ItemsInWorld = new();
         //public HandsItemSaveData ItemInHands;
         public bool IsItemInHandsNull = true;
         public string InHandsItemTypeId = "";
         public string InHandsMarkId = "";
+        
+        //car&player
+        public bool IsPlayerInCar;
+        public bool IsCarDoorOpen;
         
         
         public int GetNewSavableEntityID()

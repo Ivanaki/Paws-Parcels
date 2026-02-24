@@ -4,8 +4,12 @@ using UnityEngine;
 
 namespace Paws_Parcels.Scripts.Player
 {
+    //обязательно коллайдер на объекте или на дочернем(со скриптом redirector)
     public abstract class InteractableObject : MarkObject
     {
+        //TODO сделать проверку лучом от игрока до объекта
+        //[SerializeField] private bool _needCheckWithRay = false;
+        
         public ReadOnlyReactiveProperty<bool> IsInteractWithMinDistance => _isInteractWithMinDistance;
         public ReadOnlyReactiveProperty<bool> IsActiveWithQuest => _isActiveWithQuest;
         

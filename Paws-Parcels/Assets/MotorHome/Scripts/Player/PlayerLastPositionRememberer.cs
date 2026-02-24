@@ -9,8 +9,8 @@ namespace MotorHome.Scripts
     [RequireComponent(typeof(Player))]
     public class PlayerLastPositionRememberer : MonoBehaviour
     {
-        [SerializeField] private float _rememberTime = 0.5f;
-        [SerializeField] private float _minimumPlayerDistance = 2f;
+        //[SerializeField] private float _rememberTime = 0.5f;
+        //[SerializeField] private float _minimumPlayerDistance = 2f;
         private Vector3 _lastPosition;
         //private ThirdPersonController _playerController;
         private Player _player;
@@ -45,7 +45,7 @@ namespace MotorHome.Scripts
 
         private void Start()
         {
-            InvokeRepeating(nameof(Remember), _rememberTime, _rememberTime);
+            //InvokeRepeating(nameof(Remember), _rememberTime, _rememberTime);
             //StartCoroutine(CheckCorutine());
         }
         

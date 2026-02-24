@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using MotorHome.Scripts.Saves;
+using Paws_Parcels.Car.Logic;
 using R3;
 using UnityEngine;
 using Zenject;
 
 namespace MotorHome.Scripts
 {
-    [RequireComponent(typeof(Car.Logic.Car))]
+    [RequireComponent(typeof(Car))]
     [RequireComponent(typeof(Rigidbody))]
     public class CarApplySaves : MonoBehaviour
     {

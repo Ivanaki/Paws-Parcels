@@ -27,7 +27,7 @@ namespace Paws_Parcels.Scripts.Player
         {
             _gameStateProvider = gameStateProvider;
             _applyInFixUpdate = applyInFixUpdate;
-            _sensitivity = settingsStateProvider.SettingsProxy.Sensitivity;
+            _sensitivity = settingsStateProvider.SettingsProxy.PlayerSensitivity;
         }
 
         private void Awake()
