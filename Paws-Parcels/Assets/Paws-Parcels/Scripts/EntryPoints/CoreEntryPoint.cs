@@ -25,6 +25,7 @@ namespace Game.Root
         private LoadService _loadService;
         private GameInputService _gameInputService;
         private CursorService _cursorService;
+        private DiContainer _container;
 
         private IDisposable _disposable;
 
@@ -32,7 +33,7 @@ namespace Game.Root
         private void Construct(CoreSignals coreSignals, GameEntryPoint gameEntryPoint,
             UIGameView uiGameView, UICoreRootViewModel uiCoreRootViewModel, CoreUIManager coreUIManager,
             GameStateProvider gameStateProvider, LoadService loadService, GameInputService  gameInputService,
-            CursorService cursorService)
+            CursorService cursorService, DiContainer container)
         {
             _coreSignals = coreSignals;
             _gameEntryPoint = gameEntryPoint;
@@ -43,6 +44,7 @@ namespace Game.Root
             _loadService = loadService;
             _gameInputService = gameInputService;
             _cursorService = cursorService;
+            _container = container;
         }
         
         //последовательность методов: Awake -> OnEnable -> IInitializable -> Start
@@ -85,6 +87,8 @@ namespace Game.Root
             _cursorService.SetCursorStateLocked(true);
             Time.timeScale = 1f;
             
+            
+            
             //TODO с четверга:
             //сделать ui и систему Quests
             //далее переходить к самим механикам на сцене
@@ -117,7 +121,8 @@ namespace Game.Root
 
         private void InitUI()
         {
-            var uiSceneRootBinder = Instantiate(_uiCoreRootBinderPrefab);
+            var uiSceneRootBinder = _container.InstantiatePrefabForComponent<UICoreRootBinder>(_uiCoreRootBinderPrefab);
+            //var uiSceneRootBinder = Instantiate(_uiCoreRootBinderPrefab);
             _uiGameView.AttachSceneUI(uiSceneRootBinder.gameObject);
             
             uiSceneRootBinder.Bind(_uiCoreRootViewModel);

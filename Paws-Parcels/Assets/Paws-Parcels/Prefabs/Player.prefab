@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 6396549565688153317}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,6 +298,8 @@ GameObject:
   - component: {fileID: 6486422674368408936}
   - component: {fileID: 2195053658567129980}
   - component: {fileID: 2120389658527026775}
+  - component: {fileID: 4365107281831813469}
+  - component: {fileID: 5653811496312906179}
   m_Layer: 10
   m_Name: PlayerArmature
   m_TagString: Player
@@ -476,11 +478,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1983d091dac40b2b6bc3da35410b3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Player.PlayerInteractable
-  _interactRadius: 3
+  _interactRadius: 2.2
   _interactLayerMask:
     serializedVersion: 2
     m_Bits: 64
   _interactCenterOfSphere: {fileID: 2654270352110724248}
+--- !u!114 &4365107281831813469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168173317745742414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02093febbd344ddba9acc8e623721d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Items.PlayerDropSettings
+  DropTransform: {fileID: 2357260375951518124}
+  LocalDropLinearVelocityVector: {x: 0, y: 1.5, z: 1.5}
+  DropLinVelocityCoof: 1
+  LocalDropAngularVelocity: {x: 3, y: 0, z: 0}
+  DropAnVelocityCoof: 1
+--- !u!114 &5653811496312906179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168173317745742414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d495ccf834567b9f23e4db885de48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Items.ItemsInHandsVisualizer
+  _inHandsPosTransform: {fileID: 7506749484165125710}
 --- !u!1 &6776699614683619619
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +525,7 @@ GameObject:
   m_Layer: 0
   m_Name: DropPosition
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -506,7 +538,7 @@ Transform:
   m_GameObject: {fileID: 6776699614683619619}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.808, z: 1.582}
+  m_LocalPosition: {x: 0, y: 0.736, z: 0.461}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -568,7 +600,7 @@ Transform:
   m_GameObject: {fileID: 7697271988509826840}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.679, z: 0.457}
+  m_LocalPosition: {x: 0, y: 0.736, z: 0.461}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

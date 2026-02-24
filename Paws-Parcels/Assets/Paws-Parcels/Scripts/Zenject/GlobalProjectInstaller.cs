@@ -1,4 +1,5 @@
 using Game.Root;
+using Items;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Quests;
@@ -70,6 +71,9 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<EditorDataService>().AsSingle();
             Container.Bind<UiObjectsDatabase>().AsSingle();
             Container.Bind<CanvasUiVisualizer>().AsSingle();
+            Container.Bind<ItemsDatabase>().AsSingle();
+            Container.Bind<ItemsSystem>().AsSingle();
+            Container.Bind<DropSettings>().AsSingle();
             
             Container.BindInterfacesAndSelfTo<LocalizationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<ApplyInFixUpdate>().AsSingle();

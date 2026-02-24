@@ -9,10 +9,8 @@ namespace Paws_Parcels.Scripts.Player
         public ReadOnlyReactiveProperty<bool> IsInteractWithMinDistance => _isInteractWithMinDistance;
         public ReadOnlyReactiveProperty<bool> IsActiveWithQuest => _isActiveWithQuest;
         
-        private readonly ReactiveProperty<bool> _isInteractWithMinDistance = new();
-        private readonly ReactiveProperty<bool> _isActiveWithQuest = new();
-        
-        //private readonly ReactiveProperty<bool> _isActiveQuest = new();
+        private readonly ReactiveProperty<bool> _isInteractWithMinDistance = new(false);
+        private readonly ReactiveProperty<bool> _isActiveWithQuest = new(false);
         
         public virtual void Interact()
         {
@@ -41,8 +39,6 @@ namespace Paws_Parcels.Scripts.Player
         
         public virtual void CanInteract()
         {
-            //_isInteract.Value = true;
-            
             if(showOnCanvas)
                 canvasUiVisualizer.ShowOnCanvas(this);
         }
@@ -51,7 +47,6 @@ namespace Paws_Parcels.Scripts.Player
         {
             if(showOnCanvas)
                 canvasUiVisualizer.HideOnCanvas(this);
-            //_isInteract.Value = false;
         }
     }
 }

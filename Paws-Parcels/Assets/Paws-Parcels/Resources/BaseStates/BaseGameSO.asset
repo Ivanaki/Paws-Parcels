@@ -23,6 +23,37 @@ MonoBehaviour:
     CurrentActiveDestinations: []
     PlayerData:
       Position: {x: 0, y: 0, z: 0}
-      Rotation: {x: 0, y: 0, z: 0, w: 0}
+      Rotation: {x: -0, y: -0, z: -0, w: 1}
       Yaw: 0
       Pitch: 35
+    ItemsInWorld:
+    - ItemTypeId: cube
+      MarkId: 
+      Position: {x: -1.79, y: 0.89, z: 5.19}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      MarkId: 
+      Position: {x: -3.66, y: 0.89, z: 3.55}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      MarkId: 
+      Position: {x: 0.45, y: 0.89, z: 3.01}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      MarkId: 
+      Position: {x: -1.64, y: 0.89, z: 3.13}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      MarkId: 
+      Position: {x: -2.55, y: 0.89, z: 1.4}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}

@@ -7,60 +7,71 @@ using Zenject;
 
 namespace Quests
 {
-    public class MarkObject : MonoBehaviour, IShowableInUIObject
+    public class MarkObject : ShowableInUIBehaviour
     {
         /*public virtual ReadOnlyReactiveProperty<bool> IsInteract { get; } = new ReactiveProperty<bool>();
         public virtual ReadOnlyReactiveProperty<bool> IsInteractWithMinDistance { get; }  = new ReactiveProperty<bool>();*/
         public ReadOnlyReactiveProperty<bool> IsSelected => _isSelected;
         
-        public string Id => _id;
-        public string UiTypeId => _uiTypeId;
+        public string MarkId => _markId;
+        public override string UiTypeId => _uiTypeId;
         public Transform Transform => transform;
         
         protected bool showOnCanvas => _showOnCanvas;
         protected string uiTypeId => _uiTypeId;
         protected CanvasUiVisualizer canvasUiVisualizer => _canvasUiVisualizer;
         
-        
         private readonly ReactiveProperty<bool> _isSelected = new();
         //private readonly ReactiveProperty<bool> _isActive = new();
         
-        [Header("MarkObject Settings")]
-        [SerializeField] private string _id;
+        [Header("MarkObject Settings")] 
+        [SerializeField] private bool _dontChangeMarkId = false;
+        [SerializeField] private string _markId;
         [SerializeField] private bool _showOnCanvas = false;
         [ShowIf(nameof(_showOnCanvas))]
         [SerializeField] private string _uiTypeId;
 
+        private bool _isEnabled = false;
+
         [Inject] private DestinationService _destinationService;
         [Inject] private CanvasUiVisualizer _canvasUiVisualizer;
-        
-        //private CompositeDisposable _disposables = new();
 
-        protected virtual void Awake()
+        protected void SetMarkId(string markId)
         {
-            HideWhenQuestActive();
+            if(_dontChangeMarkId) return;
+            
+            if (_isEnabled == false)
+            {
+                _markId = markId;
+            }
+            else
+            {
+                OnDisable();
+                _markId = markId;
+                OnEnable();
+            }
         }
-
+        
         protected virtual void OnEnable()
         {
+            _isEnabled = true;
             _destinationService.AddMark(this);
         }
 
         protected virtual void OnDisable()
         {
+            _isEnabled = false;
             _destinationService.RemoveMark(this);
         }
 
         public virtual void ShowWhenQuestActive()
         {
-            //_isActive.Value = true;
             if(_showOnCanvas)
                 _canvasUiVisualizer.ShowOnCanvas(this);
         }
 
         public virtual void HideWhenQuestActive()
         {
-            //_isActive.Value = false;
             if(_showOnCanvas)
                 _canvasUiVisualizer.HideOnCanvas(this);
         }

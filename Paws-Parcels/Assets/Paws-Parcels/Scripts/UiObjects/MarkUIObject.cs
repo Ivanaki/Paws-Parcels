@@ -13,7 +13,7 @@ namespace Services
 
         private CompositeDisposable _disposable;
         
-        public override void Construct(IShowableInUIObject showableInUIObject)
+        public override void Construct(ShowableInUIBehaviour showableInUIObject)
         {
             var markObject = showableInUIObject as MarkObject;
             

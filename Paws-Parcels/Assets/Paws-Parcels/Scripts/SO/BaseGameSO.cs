@@ -6,6 +6,5 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
     public class BaseGameSO : ScriptableObject
     {
         [field: SerializeField] public GameState GameState { get; private set; }
-        //[field: SerializeField] public GameStateTest GameStateTest { get; private set; }
     }
 }

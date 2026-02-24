@@ -178,15 +178,17 @@ namespace Quests
         
         public void AddMark(MarkObject markObject)
         {
-            var result = _allMarksDict.TryAdd(markObject.Id, markObject);
+            if(string.IsNullOrEmpty(markObject.MarkId)) return;
+            
+            var result = _allMarksDict.TryAdd(markObject.MarkId, markObject);
             
             if (result)
             {
-                if (_allCurrentShowableMarksDict.ContainsKey(markObject.Id))
+                if (_allCurrentShowableMarksDict.ContainsKey(markObject.MarkId))
                 {
                     markObject.ShowWhenQuestActive();
                     
-                    if (_lastSelectedQuest == _allCurrentShowableMarksDict[markObject.Id].FirstOrDefault(x => x == _lastSelectedQuest))
+                    if (_lastSelectedQuest == _allCurrentShowableMarksDict[markObject.MarkId].FirstOrDefault(x => x == _lastSelectedQuest))
                         markObject.Select();
                     else
                         markObject.Unselect();
@@ -194,13 +196,13 @@ namespace Quests
             }
             else
             {
-                Debug.LogError($"Marks object has same id in scene: {markObject.Id}");
+                Debug.LogError($"Marks object has same id in scene: {markObject.MarkId}");
             }
         }
 
         public void RemoveMark(MarkObject markObject)
         {
-            _allMarksDict.Remove(markObject.Id);
+            _allMarksDict.Remove(markObject.MarkId);
             markObject.HideWhenQuestActive();
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using Items;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Quests;
 using R3;
@@ -23,6 +24,11 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             get => Origin.PlayerData;
             set => Origin.PlayerData = value;
         }
+        
+        public ObservableList<ItemProxy> ItemsInWorld { get; } = new();
+        public ReactiveProperty<bool> IsItemInHandsNull { get; }
+        public ReactiveProperty<string> InHandsItemTypeId { get; }
+        public string InHandsMarkId { get => Origin.InHandsMarkId; set => Origin.InHandsMarkId = value; }
 
         public GameProxy(GameState origin)
         {
@@ -38,24 +44,42 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             SelectedQuest.Skip(1).Subscribe(v => origin.SelectedQuest = v);
             
             InitQuests(origin);
+            
+            InitItems(origin);
+
+            IsItemInHandsNull = new ReactiveProperty<bool>(origin.IsItemInHandsNull);
+            IsItemInHandsNull.Skip(1).Subscribe(v => origin.IsItemInHandsNull = v);
+            
+            InHandsItemTypeId = new ReactiveProperty<string>(origin.InHandsItemTypeId);
+            InHandsItemTypeId.Skip(1).Subscribe(v => origin.InHandsItemTypeId = v);
         }
 
-        public void Change(GameState gameState)
+        public void Change(GameState origin)
         {
-            TrackedMissionID.Value = gameState.TrackedMissionID;
-            IsCompassActive.Value = gameState.IsCompassActive;
-            SelectedQuest.Value = gameState.SelectedQuest;
+            //обязательно копируем, если это class (ссылки могут остаться)
+            
+            TrackedMissionID.Value = origin.TrackedMissionID;
+            IsCompassActive.Value = origin.IsCompassActive;
+            SelectedQuest.Value = origin.SelectedQuest;
             
             ActiveQuests.Clear();
-            gameState.ActiveQuests.ForEach(questData => ActiveQuests.Add(new QuestDataProxy(questData)));
+            origin.ActiveQuests.ForEach(questData => ActiveQuests.Add(new QuestDataProxy(questData)));
             
             SucceedQuests.Clear();
-            gameState.SucceedQuests.ForEach(questData => SucceedQuests.Add(questData));
+            origin.SucceedQuests.ForEach(questData => SucceedQuests.Add(questData));
             
             CurrentActiveDestinations.Clear();
-            gameState.CurrentActiveDestinations.ForEach(questData => CurrentActiveDestinations.Add(questData));
+            origin.CurrentActiveDestinations.ForEach(questData => CurrentActiveDestinations.Add(questData));
             
-            PlayerData = gameState.PlayerData;
+            PlayerData = origin.PlayerData;
+            
+            ItemsInWorld.Clear();
+            origin.ItemsInWorld.ForEach(questData => ItemsInWorld.Add(new ItemProxy(questData)));
+
+            IsItemInHandsNull.Value = origin.IsItemInHandsNull;
+            InHandsItemTypeId.Value = origin.InHandsItemTypeId;
+            InHandsMarkId = origin.InHandsMarkId;
+
         }
         
         /*public void Change(GameProxy gameProxy)
@@ -74,64 +98,78 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             return Origin.GetNewNonSavableEntityID();
         }
         
-        private void InitQuests(GameState gameState)
+        private void InitQuests(GameState origin)
         {
-            gameState.ActiveQuests.ForEach(questData => ActiveQuests.Add(new QuestDataProxy(questData)));
+            origin.ActiveQuests.ForEach(questData => ActiveQuests.Add(new QuestDataProxy(questData)));
             
             ActiveQuests.ObserveAdd().Subscribe(e =>
             {
                 var addedResource = e.Value;
-                gameState.ActiveQuests.Add(addedResource.Origin);
+                origin.ActiveQuests.Add(addedResource.Origin);
             });
             
             ActiveQuests.ObserveRemove().Subscribe(e =>
             {
                 var removedResource = e.Value;
-                gameState.ActiveQuests.Remove(removedResource.Origin);
+                origin.ActiveQuests.Remove(removedResource.Origin);
             });
             
             ActiveQuests.ObserveClear().Subscribe(e =>
             {
-                gameState.ActiveQuests.Clear();
+                origin.ActiveQuests.Clear();
             });
             
-            gameState.SucceedQuests.ForEach(questData => SucceedQuests.Add(questData));
+            origin.SucceedQuests.ForEach(questData => SucceedQuests.Add(questData));
             
             SucceedQuests.ObserveAdd().Subscribe(e =>
             {
                 var addedResource = e.Value;
-                gameState.SucceedQuests.Add(addedResource);
+                origin.SucceedQuests.Add(addedResource);
             });
             
             SucceedQuests.ObserveRemove().Subscribe(e =>
             {
                 var removedResource = e.Value;
-                gameState.SucceedQuests.Remove(removedResource);
+                origin.SucceedQuests.Remove(removedResource);
             });
             
             SucceedQuests.ObserveClear().Subscribe(e =>
             {
-                gameState.SucceedQuests.Clear();
+                origin.SucceedQuests.Clear();
             });
             
-            gameState.CurrentActiveDestinations.ForEach(questData => CurrentActiveDestinations.Add(questData));
+            origin.CurrentActiveDestinations.ForEach(questData => CurrentActiveDestinations.Add(questData));
             
             CurrentActiveDestinations.ObserveAdd().Subscribe(e =>
             {
                 var addedResource = e.Value;
-                gameState.CurrentActiveDestinations.Add(addedResource);
+                origin.CurrentActiveDestinations.Add(addedResource);
             });
             
             CurrentActiveDestinations.ObserveRemove().Subscribe(e =>
             {
                 var removedResource = e.Value;
-                gameState.CurrentActiveDestinations.Remove(removedResource);
+                origin.CurrentActiveDestinations.Remove(removedResource);
             });
             
             CurrentActiveDestinations.ObserveClear().Subscribe(e =>
             {
-                gameState.CurrentActiveDestinations.Clear();
+                origin.CurrentActiveDestinations.Clear();
             });
+        }
+
+        private void InitItems(GameState origin)
+        {
+            origin.ItemsInWorld.ForEach(item => ItemsInWorld.Add(new ItemProxy(item)));
+            
+            ItemsInWorld.ObserveAdd().Subscribe(e => 
+                origin.ItemsInWorld.Add(e.Value.Origin));
+            
+            ItemsInWorld.ObserveRemove().Subscribe(e =>
+                origin.ItemsInWorld.Remove(e.Value.Origin));
+            
+            ItemsInWorld.ObserveClear().Subscribe(e =>
+                origin.ItemsInWorld.Clear());
         }
     }
 }

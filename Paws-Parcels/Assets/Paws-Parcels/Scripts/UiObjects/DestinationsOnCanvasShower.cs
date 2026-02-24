@@ -9,20 +9,26 @@ using Object = UnityEngine.Object;
 
 namespace Services
 {
-    public interface IShowableInUIObject
+    public abstract class ShowableInUIBehaviour : MonoBehaviour
+    {
+        public abstract string UiTypeId { get; }
+        public Transform Transform => transform;
+    }
+    
+    /*public interface IShowableInUIObject
     {
         string UiTypeId { get; }
         Transform Transform { get; }
-    }
+    }*/
     
     public class DestinationsOnCanvasShower : MonoBehaviour
     {
         private class ObjectToShowOnUi
         {
-            public IShowableInUIObject ShowableInUIObject { get; }
+            public ShowableInUIBehaviour ShowableInUIObject { get; }
             public UiObject UiObject { get; }
 
-            public ObjectToShowOnUi(IShowableInUIObject showableInUIObject, UiObject uiObject)
+            public ObjectToShowOnUi(ShowableInUIBehaviour showableInUIObject, UiObject uiObject)
             {
                 ShowableInUIObject = showableInUIObject;
                 UiObject = uiObject;
@@ -32,16 +38,17 @@ namespace Services
         //[SerializeField] private RectTransform _barier;
         //[SerializeField] private bool _hideWhenBehind = true;
         
-        private ObservableHashSet<IShowableInUIObject> _objectsToShow;
+        private ObservableHashSet<ShowableInUIBehaviour> _objectsToShow;
         private IReadOnlyDictionary<string, UiObject> _objectsPrefabsDict;
 
         private List<ObjectToShowOnUi> _uiObjects = new();
         private Camera _cameraMain;
         
-        public void Construct(ObservableHashSet<IShowableInUIObject> objectsToShow, IReadOnlyDictionary<string, UiObject> objectsPrefabsDict)
+        [Inject]
+        public void Construct(CanvasUiVisualizer canvasUiVisualizer, UiObjectsDatabase uiObjectsDatabase)
         {
-            _objectsToShow = objectsToShow;
-            _objectsPrefabsDict = objectsPrefabsDict;
+            _objectsToShow = canvasUiVisualizer.ObjectsToShow;
+            _objectsPrefabsDict = uiObjectsDatabase.ObjectsPrefabsDict;
         }
 
         private CompositeDisposable _disposable = new();
@@ -70,7 +77,7 @@ namespace Services
             
             return;
 
-            void Add(IShowableInUIObject showable)
+            void Add(ShowableInUIBehaviour showable)
             {
                 if (_objectsPrefabsDict.TryGetValue(showable.UiTypeId, out var uiObjectPrefab))
                 {
@@ -85,7 +92,7 @@ namespace Services
                 }
             }
 
-            void Remove(IShowableInUIObject showable)
+            void Remove(ShowableInUIBehaviour showable)
             {
                 var obj =_uiObjects.FirstOrDefault(x => x.ShowableInUIObject == showable);
                 Destroy(obj.UiObject.gameObject);
@@ -111,6 +118,7 @@ namespace Services
         {
             foreach (var objAsset in _uiObjects)
             {
+                if(objAsset.ShowableInUIObject == null) continue;
                 if(objAsset.ShowableInUIObject.Transform == null) continue;
                 
                 var pos = objAsset.ShowableInUIObject.Transform.position;

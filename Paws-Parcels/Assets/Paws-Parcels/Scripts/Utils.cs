@@ -12,10 +12,5 @@ namespace Paws_Parcels.Scripts
             tex.Apply();
             return tex;
         }
-        
-        public static CultureInfo GetCultureInfo()
-        {
-            return new CultureInfo("en-US");
-        }
     }
 }

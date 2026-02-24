@@ -7,7 +7,7 @@ namespace UI.HUD
 {
     public class HUDBinder : MonoBehaviour
     {
-        [SerializeField] private DestinationsOnCanvasShower _destinationsOnCanvasShower;
+        //[SerializeField] private DestinationsOnCanvasShower _destinationsOnCanvasShower;
         [SerializeField] private GameObject _compassGameObject;
         
         private readonly CompositeDisposable _disposables = new();
@@ -19,7 +19,7 @@ namespace UI.HUD
                 _compassGameObject.SetActive(active);
             }));
             
-            _destinationsOnCanvasShower.Construct(viewModel.ObjectsToShow, viewModel.ObjectsPrefabsDict);
+            //_destinationsOnCanvasShower.Construct(viewModel.ObjectsToShow, viewModel.ObjectsPrefabsDict);
         }
 
         private void OnDestroy()

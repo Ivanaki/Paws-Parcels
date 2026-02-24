@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using ObservableCollections;
-using Paws_Parcels.Scripts.Quests;
 using R3;
 using SaveLaod;
 using Saves;
@@ -244,6 +243,12 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             {
                 var baseGameSo = Resources.Load<BaseGameSO>("BaseStates/BaseGameSO");
                 GameProxy.Change(baseGameSo.GameState);
+                
+                //fix serialize so, if ItemInHands == null
+                //if (string.IsNullOrEmpty(GameProxy.ItemInHands.CurrentValue.ItemTypeId) &&
+                 //   string.IsNullOrEmpty(GameProxy.ItemInHands.CurrentValue.MarkId))
+                 //   GameProxy.ItemInHands.Value = null;
+                
                 _applyDataAfterLoad.OnNext(Unit.Default);
                 return true;
             }
