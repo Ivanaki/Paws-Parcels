@@ -17,6 +17,6 @@ namespace Services
             _rectTransform = GetComponent<RectTransform>();
         }
 
-        public abstract void Construct(ShowableInUIBehaviour showableInUIObject);
+        public abstract void Construct(IShowableInUI showableInUIObject);
     }
 }

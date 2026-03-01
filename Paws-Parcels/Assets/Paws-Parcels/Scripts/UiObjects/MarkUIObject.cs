@@ -13,9 +13,9 @@ namespace Services
 
         private CompositeDisposable _disposable;
         
-        public override void Construct(ShowableInUIBehaviour showableInUIObject)
+        public override void Construct(IShowableInUI showableInUIObject)
         {
-            var markObject = showableInUIObject as MarkObject;
+            var markObject = showableInUIObject as DestinationObject;
             
             if (markObject == null)
             {
@@ -25,7 +25,7 @@ namespace Services
 
             _disposable = new CompositeDisposable();
             
-            _disposable.Add(markObject.IsSelected.Subscribe(v =>
+            _disposable.Add(markObject.IsQuestSelect.Subscribe(v =>
             {
                 _image.color = v ? Color.yellow : Color.white;
                 //_handShowImage.color = v ? Color.yellow : Color.white;

@@ -25,7 +25,7 @@ namespace Items
                 {
                     _gameProxy.IsItemInHandsNull.Value = false;
                     _gameProxy.InHandsItemTypeId.Value = itemProxy.ItemTypeId;
-                    _gameProxy.InHandsMarkId = itemProxy.MarkId;
+                    _gameProxy.InHandsMarkId = itemProxy.DestinationId;
                     return true;
                 }
             }
@@ -39,7 +39,7 @@ namespace Items
                 _gameProxy.ItemsInWorld.Add(new ItemProxy(new ItemData
                 {
                     ItemTypeId = _gameProxy.InHandsItemTypeId.Value,
-                    MarkId = _gameProxy.InHandsMarkId,
+                    DestinationId = _gameProxy.InHandsMarkId,
                     Position = _dropSettings.GetDropPosition(),
                     Rotation = _dropSettings.GetDropRotation(),
                     LinearVelocity = _dropSettings.GetDropLinearVelocity(),

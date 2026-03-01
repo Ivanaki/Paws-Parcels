@@ -55,20 +55,24 @@ namespace Paws_Parcels.Scripts
                     so.GameState.ItemsInWorld.Add(new ItemData()
                     {
                         ItemTypeId = item.ItemTypeId,
-                        MarkId = item.MarkId,
+                        DestinationId = item.DestinationId,
                         Position = itemGameObject.transform.position,
                         Rotation = itemGameObject.transform.rotation,
                         AngularVelocity = Vector3.zero,
                         LinearVelocity = Vector3.zero,
                     });
                 }
+#if UNITY_EDITOR
+                EditorUtility.SetDirty(so);
+                // Дополнительно: сохраняем изменения в файл
+                AssetDatabase.SaveAssetIfDirty(so);
+                AssetDatabase.Refresh();
+#endif
             }
             else
             {
                 Debug.LogWarning("No items found");
             }
-            
-            //TODO save unity, because this collect dont apply
             
             Debug.Log("Data collected");
             //no quests, need write hands

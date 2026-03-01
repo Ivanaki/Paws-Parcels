@@ -15,7 +15,7 @@ namespace Quests
     public class DestinationService
     {
         //словарь имя-destination
-        private readonly Dictionary<string, MarkObject> _allMarksDict = new();
+        private readonly Dictionary<string, DestinationObject> _allMarksDict = new();
         
         private readonly Dictionary<string, CompositeDisposable> _questSubscriptionsDict = new();
         private readonly Dictionary<string, List<string>> _allCurrentShowableMarksDict = new();
@@ -109,9 +109,9 @@ namespace Quests
             if (_allCurrentShowableMarksDict.TryAdd(destinationId, new List<string>(){questId}) == false)
                 _allCurrentShowableMarksDict[destinationId].Add(questId);
             
-            if (_allMarksDict.TryGetValue(destinationId, out var markObject))
+            if (_allMarksDict.TryGetValue(destinationId, out var destinationObject))
             {
-                markObject.ShowWhenQuestActive();
+                destinationObject.QuestActivated();
             }
         }
         
@@ -126,7 +126,7 @@ namespace Quests
                     _allCurrentShowableMarksDict.Remove(destinationId);
                     if (_allMarksDict.TryGetValue(destinationId, out var markObject))
                     {
-                        markObject.HideWhenQuestActive();
+                        markObject.QuestDeactived();
                     }
                 }
             }
@@ -154,7 +154,7 @@ namespace Quests
             {
                 if (_allMarksDict.TryGetValue(value, out var markObject))
                 {
-                    markObject.HideWhenQuestActive();
+                    markObject.QuestDeactived();
                 }
             }
             _allCurrentShowableMarksDict.Clear();
@@ -164,7 +164,7 @@ namespace Quests
         {
             if (_allMarksDict.TryGetValue(destinationId, out var markObject))
             {
-                markObject.Select();
+                markObject.QuestSelected();
             }
         }
 
@@ -172,38 +172,44 @@ namespace Quests
         {
             if (_allMarksDict.TryGetValue(destinationId, out var markObject))
             {
-                markObject.Unselect();
+                markObject.QuestUnselected();
             }
         }
         
-        public void AddMark(MarkObject markObject)
+        public void AddDestination(DestinationObject destinationObject)
         {
-            if(string.IsNullOrEmpty(markObject.MarkId)) return;
+            if(destinationObject == null) return;
+            if(destinationObject.gameObject == null) return;
+            if(string.IsNullOrEmpty(destinationObject.DestinationId)) return;
             
-            var result = _allMarksDict.TryAdd(markObject.MarkId, markObject);
+            var result = _allMarksDict.TryAdd(destinationObject.DestinationId, destinationObject);
             
             if (result)
             {
-                if (_allCurrentShowableMarksDict.ContainsKey(markObject.MarkId))
+                if (_allCurrentShowableMarksDict.ContainsKey(destinationObject.DestinationId))
                 {
-                    markObject.ShowWhenQuestActive();
+                    destinationObject.QuestActivated();
                     
-                    if (_lastSelectedQuest == _allCurrentShowableMarksDict[markObject.MarkId].FirstOrDefault(x => x == _lastSelectedQuest))
-                        markObject.Select();
+                    if (_lastSelectedQuest == _allCurrentShowableMarksDict[destinationObject.DestinationId].FirstOrDefault(x => x == _lastSelectedQuest))
+                        destinationObject.QuestSelected();
                     else
-                        markObject.Unselect();
+                        destinationObject.QuestUnselected();
                 }
             }
             else
             {
-                Debug.LogError($"Marks object has same id in scene: {markObject.MarkId}");
+                Debug.LogError($"Marks object has same id in scene: {destinationObject.DestinationId}");
             }
         }
 
-        public void RemoveMark(MarkObject markObject)
+        public void RemoveDestination(DestinationObject destinationObject)
         {
-            _allMarksDict.Remove(markObject.MarkId);
-            markObject.HideWhenQuestActive();
+            if(destinationObject == null) return;
+            if(destinationObject.gameObject == null) return;
+            if(string.IsNullOrEmpty(destinationObject.DestinationId)) return;
+            
+            _allMarksDict.Remove(destinationObject.DestinationId);
+            destinationObject.QuestDeactived();
         }
     }
 }

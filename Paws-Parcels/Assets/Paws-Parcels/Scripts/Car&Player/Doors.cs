@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Paws_Parcels.Scripts.Player
 {
-    public class Door : InteractableObject
+    public class Doors : BaseInteractable
     {
         [Inject] private DoorService _doorService;
         

@@ -1,56 +1,47 @@
 using Quests;
 using R3;
+using Services;
 using UnityEngine;
+using Zenject;
 
 namespace Paws_Parcels.Scripts.Player
 {
     //обязательно коллайдер на объекте или на дочернем(со скриптом redirector)
-    public abstract class InteractableObject : MarkObject
+    public abstract class InteractableObject : DestinationObject
     {
         //TODO сделать проверку лучом от игрока до объекта
         //[SerializeField] private bool _needCheckWithRay = false;
-        
-        public ReadOnlyReactiveProperty<bool> IsInteractWithMinDistance => _isInteractWithMinDistance;
-        public ReadOnlyReactiveProperty<bool> IsActiveWithQuest => _isActiveWithQuest;
-        
-        private readonly ReactiveProperty<bool> _isInteractWithMinDistance = new(false);
-        private readonly ReactiveProperty<bool> _isActiveWithQuest = new(false);
-        
-        public virtual void Interact()
-        {
-            print("interact not overrided");
-        }
 
-        public override void ShowWhenQuestActive()
-        {
-            _isActiveWithQuest.Value = true;
-        }
         
-        public override void HideWhenQuestActive()
-        {
-            _isActiveWithQuest.Value = false;
-        }
+        
+        
+        public ReadOnlyReactiveProperty<bool> CanInteract => _canInteract;
+        private readonly ReactiveProperty<bool> _canInteract = new(false);
+
+        [Inject] private CanvasUiVisualizer _canvasUiVisualizer;
+
+        public abstract void Interact();
 
         public virtual void CanInteractWithMinDistance()
         {
-            _isInteractWithMinDistance.Value = true;
+            _canInteract.Value = true;
         }
 
         public virtual void CouldntInteractWithMinDistance()
         {
-            _isInteractWithMinDistance.Value = false;
+            _canInteract.Value = false;
         }
         
-        public virtual void CanInteract()
+        public virtual void Highlight()
         {
-            if(showOnCanvas)
-                canvasUiVisualizer.ShowOnCanvas(this);
+            if(string.IsNullOrEmpty(UiShowTypeId) == false)
+                _canvasUiVisualizer.ShowOnCanvas(this);
         }
         
-        public virtual void CouldntInteract()
+        public virtual void Unhighlight()
         {
-            if(showOnCanvas)
-                canvasUiVisualizer.HideOnCanvas(this);
+            if(string.IsNullOrEmpty(UiShowTypeId) == false)
+                _canvasUiVisualizer.HideOnCanvas(this);
         }
     }
 }

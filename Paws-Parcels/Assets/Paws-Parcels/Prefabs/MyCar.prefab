@@ -1511,7 +1511,7 @@ GameObject:
   - component: {fileID: 250531719897213495}
   - component: {fileID: 3575039414483997170}
   m_Layer: 7
-  m_Name: Enter_0
+  m_Name: Enter_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1622,10 +1622,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de04feec5957422ea91254984f7a2d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Car.EnterDoor
-  _dontChangeMarkId: 1
-  _markId: enter_0
-  _showOnCanvas: 1
-  _uiTypeId: base
+  _destinationShowUiPosition: {fileID: 0}
+  _uiShowTypeId: interact
+  _uiShowText: "\u0421\u0435\u0441\u0442\u044C \u0432 \u043C\u0430\u0448\u0438\u043D\u0443"
+  _destinationId: door_left
+  _doorAnimator: {fileID: 2582910078438899460}
 --- !u!1 &1170066022110885679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,12 +1980,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562621166571390008}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -1.6667897, y: 0.16680904, z: 0.9784653}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3007867695403976448}
+  m_Father: {fileID: 8117639798234219422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &244823918533230878
 MeshFilter:
@@ -2099,14 +2100,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845532365305658402}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2027785882704613315}
   - {fileID: 5564426960842058251}
-  m_Father: {fileID: 7643062207014591002}
+  m_Father: {fileID: 5303770357646194074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8566864757218173210
 MonoBehaviour:
@@ -2121,6 +2122,118 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Car_Player.CarCameraEnabler
   _cinemachineCamera: {fileID: 7385165739858342009}
+--- !u!1 &1848033509347535769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7685829257906410555}
+  - component: {fileID: 1442770765616271396}
+  - component: {fileID: 2776744739693564743}
+  - component: {fileID: 4279444400385339962}
+  m_Layer: 7
+  m_Name: Bad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7685829257906410555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848033509347535769}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.207, y: 0.521, z: -1.52}
+  m_LocalScale: {x: 0.25754, y: 0.25754, z: 0.25754}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7643062207014591002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1442770765616271396
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848033509347535769}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2776744739693564743
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848033509347535769}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &4279444400385339962
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848033509347535769}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1885425527872956778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,7 +2401,7 @@ GameObject:
   - component: {fileID: 1624266418914750445}
   - component: {fileID: 3113438903108154292}
   m_Layer: 2
-  m_Name: CinemachineCamera
+  m_Name: CarOutsideCinemachineCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2497,12 +2610,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2261021470916974984}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -1.6667897, y: 0.16680904, z: 0.9784653}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3007867695403976448}
+  m_Father: {fileID: 8117639798234219422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2211301560717840522
 MeshFilter:
@@ -3810,6 +3923,7 @@ GameObject:
   - component: {fileID: 3124566246310745263}
   - component: {fileID: 7958358792371922787}
   - component: {fileID: 1724730252321090489}
+  - component: {fileID: 6190426311161927524}
   m_Layer: 0
   m_Name: MyCar
   m_TagString: Car
@@ -3836,6 +3950,7 @@ Transform:
   - {fileID: 681385300478047077}
   - {fileID: 2307604157437899411}
   - {fileID: 7643062207014591002}
+  - {fileID: 566872649199498406}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6297173265138168171
@@ -4062,6 +4177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764ba579d96b4f86b5ca2899b41013ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Car.CarApplySaves
+  _cinemachineCamera: {fileID: 2352394939322735127}
 --- !u!114 &1724730252321090489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4074,6 +4190,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936407bc78564378ae6163e8bdc62ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Car.CarGasoline
+--- !u!114 &6190426311161927524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3582412472463973297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4262cfa7dfb478da721a94fee976a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Car.CarSitPlayerInCarVisualizer
+  _playerManiken: {fileID: 8575882298861203104}
 --- !u!1 &3590496903178732959
 GameObject:
   m_ObjectHideFlags: 0
@@ -4809,6 +4938,38 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4187460268987364998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7901259519175890834}
+  m_Layer: 11
+  m_Name: RightDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7901259519175890834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4187460268987364998}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5000001, y: 0.4999999, z: 0.5000001, w: 0.4999999}
+  m_LocalPosition: {x: 1.068466, y: 0.80980897, z: 2.1697903}
+  m_LocalScale: {x: 100.000015, y: 100.00003, z: 100.000015}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 8117639798234219422}
+  m_Father: {fileID: 1402239181545854055}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4187549636661000732
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,12 +4996,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4187549636661000732}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -1.6667901, y: 0.16680904, z: 0.9784652}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: 0.000000059604638, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3007867695403976448}
+  m_Father: {fileID: 8117639798234219422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &518479152535697066
 MeshFilter:
@@ -4910,7 +5071,7 @@ GameObject:
   - component: {fileID: 6678543126659349442}
   m_Layer: 0
   m_Name: PlayerSpawnTransform
-  m_TagString: Untagged
+  m_TagString: PlayerOutCarPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4924,7 +5085,7 @@ Transform:
   m_GameObject: {fileID: 4347832948315418714}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.797, y: 0.20599997, z: 1.8169999}
+  m_LocalPosition: {x: -1.9, y: -0.57, z: 1.668}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4944,7 +5105,7 @@ GameObject:
   - component: {fileID: 7464395820406341499}
   - component: {fileID: 5916240455128274313}
   m_Layer: 7
-  m_Name: Enter_1
+  m_Name: Enter_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5055,10 +5216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de04feec5957422ea91254984f7a2d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Car.EnterDoor
-  _dontChangeMarkId: 1
-  _markId: enter_1
-  _showOnCanvas: 1
-  _uiTypeId: base
+  _destinationShowUiPosition: {fileID: 0}
+  _uiShowTypeId: interact
+  _uiShowText: "\u0421\u0435\u0441\u0442\u044C \u0432 \u043C\u0430\u0448\u0438\u043D\u0443"
+  _destinationId: door_right
+  _doorAnimator: {fileID: 2044730348092149446}
 --- !u!1 &4366748539485894454
 GameObject:
   m_ObjectHideFlags: 0
@@ -5627,7 +5789,7 @@ GameObject:
   - component: {fileID: 2027785882704613315}
   - component: {fileID: 7385165739858342009}
   m_Layer: 11
-  m_Name: CinemachineCamera
+  m_Name: CarInsideCinemachineCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5777,7 +5939,7 @@ Transform:
   - {fileID: 982686862194589274}
   - {fileID: 144521929983185848}
   - {fileID: 7747424032179841041}
-  - {fileID: 566872649199498406}
+  - {fileID: 7685829257906410555}
   m_Father: {fileID: 5303770357646194074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5135463929362727838
@@ -7001,12 +7163,9 @@ Transform:
   m_Children:
   - {fileID: 3943232975840066031}
   - {fileID: 1324203347012665524}
-  - {fileID: 6917855878220469800}
   - {fileID: 8206070117797158609}
   - {fileID: 5164914220079217030}
   - {fileID: 7801109326291910805}
-  - {fileID: 1634410251786581545}
-  - {fileID: 638721547536811080}
   - {fileID: 5631013299698462022}
   - {fileID: 7376090017920900842}
   - {fileID: 5046281075062485253}
@@ -7362,7 +7521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88640270870624212}
   m_Layer: 11
-  m_Name: Cube.040 (1)
+  m_Name: Left_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8019,6 +8178,63 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &7146892948066834924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8117639798234219422}
+  - component: {fileID: 2044730348092149446}
+  m_Layer: 11
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8117639798234219422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146892948066834924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1634410251786581545}
+  - {fileID: 638721547536811080}
+  - {fileID: 6917855878220469800}
+  m_Father: {fileID: 7901259519175890834}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2044730348092149446
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146892948066834924}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a64f0e5d0743f4a890bf9e369bd8cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7155089511745199974
 GameObject:
   m_ObjectHideFlags: 0
@@ -8176,10 +8392,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bef7f72b7d48659c066f5f3f2890f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Player.Door
-  _dontChangeMarkId: 1
-  _markId: doors
-  _showOnCanvas: 1
-  _uiTypeId: base
+  _destinationShowUiPosition: {fileID: 0}
+  _uiShowTypeId: interact
+  _uiShowText: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0434\u0432\u0435\u0440\u044C"
+  _destinationId: doors
 --- !u!1 &7239321218611989536
 GameObject:
   m_ObjectHideFlags: 0
@@ -8391,8 +8607,9 @@ Transform:
   m_Children:
   - {fileID: 5310889980515616879}
   - {fileID: 3630586022619095081}
-  - {fileID: 88640270870624212}
   - {fileID: 2437709778684584765}
+  - {fileID: 88640270870624212}
+  - {fileID: 7901259519175890834}
   m_Father: {fileID: 3270963125141373183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7429004757039739529

@@ -31,15 +31,15 @@ MonoBehaviour:
         OnHighlightMessage: On
       ManyDestinations:
         Destinations:
-        - Id: i11
+        - Id: 1
           NotHighlightOnAwake: 0
           OffHighlightMessage: Off1
           OnHighlightMessage: On1
-        - Id: i12
+        - Id: 2
           NotHighlightOnAwake: 0
           OffHighlightMessage: Off2
           OnHighlightMessage: On2
-        - Id: i13
+        - Id: 3
           NotHighlightOnAwake: 0
           OffHighlightMessage: Off3
           OnHighlightMessage: On3

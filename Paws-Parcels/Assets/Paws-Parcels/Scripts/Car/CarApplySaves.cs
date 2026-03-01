@@ -2,6 +2,7 @@ using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Saves.States;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
+using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
 
@@ -10,6 +11,8 @@ namespace Paws_Parcels.Car
     [RequireComponent(typeof(Rigidbody))]
     public class CarApplySaves : MonoBehaviour
     {
+        [SerializeField] private CinemachineCamera _cinemachineCamera;
+        
         private GameStateProvider _gameStateProvider;
         private ApplyInFixUpdate _applyInFixUpdate;
         private ReadOnlyReactiveProperty<float> _carSensitivity;
@@ -71,6 +74,11 @@ namespace Paws_Parcels.Car
                     //Yaw = _thirdPersonController.GetTargetYaw(),
                     //Pitch = _thirdPersonController.GetTargetPitch()
                 };
+            }));
+            
+            _disposable.Add(_gameStateProvider.GameProxy.IsPlayerInCar.Subscribe(isOn =>
+            {
+                _cinemachineCamera.Priority.Value = isOn ? 100 : -100;
             }));
         }
         

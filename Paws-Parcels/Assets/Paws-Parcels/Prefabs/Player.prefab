@@ -454,6 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551196a7ead0404bbdb5086709748ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MotorHome.Scripts.PlayerApplySaves
+  _modelToHide: {fileID: 8956885741058806299}
 --- !u!114 &2195053658567129980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,7 +479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1983d091dac40b2b6bc3da35410b3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Player.PlayerInteractable
-  _interactRadius: 2.2
+  _interactRadius: 1.8
+  _highlightRadius: 2.5
   _interactLayerMask:
     serializedVersion: 2
     m_Bits: 192
@@ -495,11 +497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02093febbd344ddba9acc8e623721d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.PlayerDropSettings
-  DropTransform: {fileID: 2357260375951518124}
-  LocalDropLinearVelocityVector: {x: 0, y: 1.5, z: 1.5}
-  DropLinVelocityCoof: 1
-  LocalDropAngularVelocity: {x: 3, y: 0, z: 0}
-  DropAnVelocityCoof: 1
+  _dropTransform: {fileID: 2357260375951518124}
+  _localDropLinearVelocityVector: {x: 0, y: 1.5, z: 1.5}
+  _localDropAngularVelocity: {x: 3, y: 0, z: 0}
 --- !u!114 &5653811496312906179
 MonoBehaviour:
   m_ObjectHideFlags: 0

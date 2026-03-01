@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f00c5bbf8c444b782a82c671cd1c25b, type: 3}
+  m_Name: Bulka_sova
+  m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Quests.Quest
+  Id: bulka_sova
+  ActiveOnAwake: 1
+  HasMonologBeforeQuestActivate: 0
+  HasGiver: 0
+  GiverId: 
+  Missions:
+  - Id: take
+    HasDestination: 1
+    DestinationParent:
+      SpecificDistance: 0
+      DestinationShowDistance: 0
+      IsMany: 1
+      Destination:
+        Id: 1
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: Off
+        OnHighlightMessage: On
+      ManyDestinations:
+        Destinations:
+        - Id: 1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 
+          OnHighlightMessage: 
+        - Id: 2
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 
+          OnHighlightMessage: 
+        - Id: 3
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 
+          OnHighlightMessage: 
+    IsMany: 0
+    Message:
+      Message: take_block_1
+      HasCount: 0
+      MessageCount: 5
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - Id: 
+    HasDestination: 0
+    DestinationParent:
+      SpecificDistance: 0
+      DestinationShowDistance: 0
+      IsMany: 0
+      Destination:
+        Id: 
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: 
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  Rewards:
+  - Reward: 
+    Count: 0

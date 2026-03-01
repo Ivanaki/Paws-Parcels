@@ -13,7 +13,7 @@ namespace Services
         Locations
     }
     
-    public class LocalizationService : IDisposable
+    public class LocalizationService/* : IDisposable*/
     {
         //private const string StringsTableKey = Tables.Menu.ToBinaryString();
         private const string BaseLocaleCode = "en";
@@ -120,10 +120,10 @@ namespace Services
             LocalizationSettings.SelectedLocale = locale;
         }
 
-        public void Dispose()
+        /*public void Dispose()
         {
             _currentLocale?.Dispose();
             LocalizationSettings.SelectedLocaleChanged -= ChangeLocate;
-        }
+        }*/
     }
 }

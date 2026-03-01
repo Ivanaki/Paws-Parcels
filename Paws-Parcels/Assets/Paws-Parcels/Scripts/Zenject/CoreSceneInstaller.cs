@@ -26,11 +26,12 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<UICoreRootViewModel>().AsSingle();
             
             //инпут с клавиатуры и мышки, можно считать это тоже ViewModelsContainer
-            Container.BindInterfacesTo<CoreBackService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<PlayerInputCore>().AsSingle();
+            Container.BindInterfacesTo<CoreBackService>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<PlayerInputCore>().AsSingle().NonLazy();
             
             //визуализация предметов в мире
-            Container.BindInterfacesAndSelfTo<ItemsInWorldVisualizer>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ItemsInWorldVisualizer>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<InputsCoreService>().AsSingle().NonLazy();
         }
     }
 }

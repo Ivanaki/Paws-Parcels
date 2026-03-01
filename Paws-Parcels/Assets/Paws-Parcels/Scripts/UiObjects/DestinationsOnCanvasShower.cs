@@ -1,18 +1,17 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using ObservableCollections;
 using R3;
 using UnityEngine;
 using Zenject;
-using Object = UnityEngine.Object;
 
 namespace Services
 {
-    public abstract class ShowableInUIBehaviour : MonoBehaviour
+    public interface IShowableInUI
     {
-        public abstract string UiTypeId { get; }
-        public Transform Transform => transform;
+        public string UiShowTypeId { get; }
+        public Vector3 GetGlobalPositionShowablePoint();
+        public bool IsDestroyed();
     }
     
     /*public interface IShowableInUIObject
@@ -25,10 +24,10 @@ namespace Services
     {
         private class ObjectToShowOnUi
         {
-            public ShowableInUIBehaviour ShowableInUIObject { get; }
+            public IShowableInUI ShowableInUIObject { get; }
             public UiObject UiObject { get; }
 
-            public ObjectToShowOnUi(ShowableInUIBehaviour showableInUIObject, UiObject uiObject)
+            public ObjectToShowOnUi(IShowableInUI showableInUIObject, UiObject uiObject)
             {
                 ShowableInUIObject = showableInUIObject;
                 UiObject = uiObject;
@@ -38,7 +37,7 @@ namespace Services
         //[SerializeField] private RectTransform _barier;
         //[SerializeField] private bool _hideWhenBehind = true;
         
-        private ObservableHashSet<ShowableInUIBehaviour> _objectsToShow;
+        private ObservableHashSet<IShowableInUI> _objectsToShow;
         private IReadOnlyDictionary<string, UiObject> _objectsPrefabsDict;
 
         private List<ObjectToShowOnUi> _uiObjects = new();
@@ -77,9 +76,9 @@ namespace Services
             
             return;
 
-            void Add(ShowableInUIBehaviour showable)
+            void Add(IShowableInUI showable)
             {
-                if (_objectsPrefabsDict.TryGetValue(showable.UiTypeId, out var uiObjectPrefab))
+                if (_objectsPrefabsDict.TryGetValue(showable.UiShowTypeId, out var uiObjectPrefab))
                 {
                     var instance = Instantiate(uiObjectPrefab, transform);
                     instance.Construct(showable);
@@ -88,11 +87,11 @@ namespace Services
                 }
                 else
                 {
-                    Debug.LogError($"Object {showable.UiTypeId} doesn't exist");
+                    Debug.LogError($"Object {showable.UiShowTypeId} doesn't exist");
                 }
             }
 
-            void Remove(ShowableInUIBehaviour showable)
+            void Remove(IShowableInUI showable)
             {
                 var obj =_uiObjects.FirstOrDefault(x => x.ShowableInUIObject == showable);
                 Destroy(obj.UiObject.gameObject);
@@ -119,9 +118,9 @@ namespace Services
             foreach (var objAsset in _uiObjects)
             {
                 if(objAsset.ShowableInUIObject == null) continue;
-                if(objAsset.ShowableInUIObject.Transform == null) continue;
+                if(objAsset.ShowableInUIObject.IsDestroyed()) continue;
                 
-                var pos = objAsset.ShowableInUIObject.Transform.position;
+                var pos = objAsset.ShowableInUIObject.GetGlobalPositionShowablePoint();
                 var screenPoint = _cameraMain.WorldToScreenPoint(pos);
                 
                 bool visible = screenPoint.z > 0;

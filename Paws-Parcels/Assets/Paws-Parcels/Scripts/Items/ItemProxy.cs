@@ -14,7 +14,7 @@ namespace Items
         }
 
         public string ItemTypeId { set => Origin.ItemTypeId = value; get => Origin.ItemTypeId; }
-        public string MarkId { set => Origin.MarkId = value; get => Origin.MarkId; }
+        public string DestinationId { set => Origin.DestinationId = value; get => Origin.DestinationId; }
         public Vector3 Position { set => Origin.Position = value; get => Origin.Position; }
         public Quaternion Rotation { set => Origin.Rotation = value; get => Origin.Rotation; }
         public Vector3 LinearVelocity { set => Origin.LinearVelocity = value; get => Origin.LinearVelocity; }

@@ -2,7 +2,7 @@ namespace Services
 {
     public class DialogUIObject : UiObject
     {
-        public override void Construct(ShowableInUIBehaviour showableInUIObject)
+        public override void Construct(IShowableInUI showableInUIObject)
         {
             /*var markObject = showableInUIObject as MarkObject;
             

@@ -264,6 +264,12 @@ namespace Paws_Parcels.Scripts.Quests
                 Debug.LogError("This quest is already active: " + questID);
                 return;
             }
+
+            if (SucceedQuests.Contains(questID))
+            {
+                Debug.LogError("This quest is succeed: " + questID);
+                return;
+            }
             
             var quest = _questsDict[questID];
 

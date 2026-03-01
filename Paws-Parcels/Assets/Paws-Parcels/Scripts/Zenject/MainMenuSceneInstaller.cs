@@ -20,6 +20,8 @@ namespace Paws_Parcels.Scripts.Installers
             
             //инпут с клавиатуры и мышки, можно считать это тоже ViewModelsContainer
             Container.BindInterfacesTo<MainMenuBackService>().AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<InputsMainMenuService>().AsSingle().NonLazy();
         }
     }
 }

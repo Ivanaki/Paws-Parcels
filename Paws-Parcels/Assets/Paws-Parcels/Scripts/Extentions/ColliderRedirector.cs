@@ -1,7 +1,7 @@
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Paws_Parcels.Scripts.Player
+namespace Paws_Parcels.Extentions
 {
     public class ColliderRedirector : MonoBehaviour
     {

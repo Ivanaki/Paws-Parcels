@@ -71,7 +71,7 @@ namespace Services
 
         
         private readonly bool allowReceiveSameFrameAdded = false;
-        private readonly bool debug = true;
+        private readonly bool debug = false;
         private readonly bool _allowExceptions = false;
         
         private readonly HashSet<GameObject> _sendersToLog = new();

@@ -52,8 +52,8 @@ namespace Items
                     var item = _itemsDict[x];
                     x.Position = item.transform.position;
                     x.Rotation = item.transform.rotation;
-                    x.LinearVelocity = item.LinearVelocity;
-                    x.AngularVelocity = item.AngularVelocity;
+                    x.LinearVelocity = item.GetLinearVelocity();
+                    x.AngularVelocity = item.GetAngularVelocity();
                 });
             }));
         }
@@ -70,6 +70,7 @@ namespace Items
         private void DeleteItem(ItemProxy itemProxy)
         {
             var item = _itemsDict[itemProxy];
+            item.gameObject.SetActive(false);
             UnityEngine.Object.Destroy(item.gameObject);
             _itemsDict.Remove(itemProxy);
         }
@@ -77,7 +78,10 @@ namespace Items
         private void DeleteAllItems()
         {
             foreach (var item in _itemsDict.Values)
+            {
+                item.gameObject.SetActive(false);
                 UnityEngine.Object.Destroy(item.gameObject);
+            }
             
             _itemsDict.Clear();
         }

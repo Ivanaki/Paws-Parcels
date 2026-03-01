@@ -12,6 +12,8 @@ namespace Paws_Parcels.Scripts.Player
     [RequireComponent(typeof(ThirdPersonController))]
     public class PlayerApplySaves : MonoBehaviour
     {
+        [SerializeField] private GameObject _modelToHide;
+        
         private GameStateProvider _gameStateProvider;
         private ApplyInFixUpdate _applyInFixUpdate;
         private ReadOnlyReactiveProperty<float> _sensitivity;
@@ -20,6 +22,7 @@ namespace Paws_Parcels.Scripts.Player
         private CharacterController _characterController;
         
         private CompositeDisposable _disposable;
+        private Transform _spawnPositionOutCar;
         
         [Inject]
         public void Construct(GameStateProvider gameStateProvider, ApplyInFixUpdate applyInFixUpdate,
@@ -34,10 +37,12 @@ namespace Paws_Parcels.Scripts.Player
         {
             _characterController = GetComponent<CharacterController>();
             _thirdPersonController = GetComponent<ThirdPersonController>();
+            GetSpawnPosition();
         }
 
         private void OnEnable()
         {
+            GetSpawnPosition();
             _disposable = new CompositeDisposable();
 
             _disposable.Add(_sensitivity.Subscribe(value  =>
@@ -64,11 +69,34 @@ namespace Paws_Parcels.Scripts.Player
                     Pitch = _thirdPersonController.GetTargetPitch()
                 };
             }));
+            
+            _disposable.Add(_gameStateProvider.GameProxy.IsPlayerInCar.Subscribe(value =>
+            {
+                _thirdPersonController.enabled = !value;
+                _characterController.enabled = !value;
+                _modelToHide.SetActive(!value);
+                if (value == false)
+                {
+                    GetSpawnPosition();
+                    if (_spawnPositionOutCar != null)
+                    {
+                        _characterController.transform.position = _spawnPositionOutCar.position;
+                    }
+                }
+            }));
         }
         
         private void OnDisable()
         {
             _disposable?.Dispose();
+        }
+
+        private void GetSpawnPosition()
+        {
+            if (_spawnPositionOutCar == null)
+            {
+                _spawnPositionOutCar = GameObject.FindGameObjectWithTag("PlayerOutCarPosition").transform;
+            }
         }
     }
 }

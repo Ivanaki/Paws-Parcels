@@ -1,6 +1,7 @@
 using Paws_Parcels.Scripts.Player;
 using Quests;
 using R3;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,12 +11,15 @@ namespace Services
     {
         [SerializeField] private Image _image;
         [SerializeField] private Image _handShowImage;
+        [SerializeField] private TMP_Text _tmpText;
+
+        
         /*[SerializeField] private Sprite _spriteBase;
         [SerializeField] private Sprite _spriteActiveQuest;*/
 
         private CompositeDisposable _disposable;
         
-        public override void Construct(ShowableInUIBehaviour showableInUIObject)
+        public override void Construct(IShowableInUI showableInUIObject)
         {
             var interactableObject = showableInUIObject as InteractableObject;
             
@@ -24,21 +28,23 @@ namespace Services
                 Debug.LogWarning("InteractableUIObject has no InteractableObject");
                 return;
             }
+            
+            _tmpText.text = interactableObject.UiShowText;
 
             _disposable = new CompositeDisposable();
             
-            _disposable.Add(interactableObject.IsSelected.Subscribe(v =>
+            _disposable.Add(interactableObject.IsQuestSelect.Subscribe(v =>
             {
                 _image.color = v ? Color.yellow : Color.white;
                 _handShowImage.color = v ? Color.yellow : Color.white;
             }));
 
-            _disposable.Add(interactableObject.IsInteractWithMinDistance.Subscribe(v =>
+            _disposable.Add(interactableObject.CanInteract.Subscribe(v =>
             {
                 _handShowImage.gameObject.SetActive(v);
             }));
             
-            _disposable.Add(interactableObject.IsActiveWithQuest.Subscribe(v =>
+            _disposable.Add(interactableObject.IsQuestActive.Subscribe(v =>
             {
                 RectTransform.sizeDelta = v ? new Vector2(68, 68) : new Vector2(40, 40);
             }));

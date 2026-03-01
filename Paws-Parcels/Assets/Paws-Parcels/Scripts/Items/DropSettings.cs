@@ -38,8 +38,7 @@ namespace Items
             if(_playerDropSettings == null)
                 return Vector3.zero;
 
-            return _playerDropSettings.DropTransform.TransformDirection(_playerDropSettings.LocalDropLinearVelocityVector)
-                * _playerDropSettings.DropLinVelocityCoof;
+            return _playerDropSettings.DropTransform.TransformDirection(_playerDropSettings.LocalDropLinearVelocityVector);
         }
         
         public Vector3 GetDropAngularVelocity()
@@ -47,8 +46,7 @@ namespace Items
             if(_playerDropSettings == null)
                 return Vector3.zero;
             
-            return _playerDropSettings.DropTransform.TransformDirection(_playerDropSettings.LocalDropAngularVelocity)
-                   * _playerDropSettings.DropAnVelocityCoof;
+            return _playerDropSettings.DropTransform.TransformDirection(_playerDropSettings.LocalDropAngularVelocity);
         }
     }
 }

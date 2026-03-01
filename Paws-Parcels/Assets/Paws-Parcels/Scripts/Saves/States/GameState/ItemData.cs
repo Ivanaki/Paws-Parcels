@@ -7,7 +7,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
     public class ItemData
     {
         public string ItemTypeId;
-        public string MarkId;
+        public string DestinationId;
         public Vector3 Position;
         public Quaternion Rotation;
         public Vector3 LinearVelocity;

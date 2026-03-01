@@ -18,19 +18,19 @@ namespace UI.Core
         private readonly SettingsService _settingsService;
         private readonly LoadService _loadService;
         private readonly CursorService _cursorService;
-        private readonly GameInputService _gameInputService;
+        private readonly InputsCoreService _inputsCoreService;
         private readonly EditorDataService _editorDataService;
 
         public CoreUIManager(UICoreRootViewModel coreRootViewModel, CoreSignals coreSignals, 
             SettingsService settingsService, LoadService loadService, CursorService cursorService,
-            GameInputService gameInputService, EditorDataService editorDataService)
+            InputsCoreService inputsCoreService, EditorDataService editorDataService)
         {
             _coreRootViewModel = coreRootViewModel;
             _coreSignals = coreSignals;
             _settingsService = settingsService;
             _loadService = loadService;
             _cursorService = cursorService;
-            _gameInputService = gameInputService;
+            _inputsCoreService = inputsCoreService;
             _editorDataService = editorDataService;
         }
         
@@ -41,11 +41,7 @@ namespace UI.Core
             _coreRootViewModel.OpenScreen(viewModel);
             
             _cursorService.SetCursorStateLocked(false);
-            _gameInputService.InputSystem.Gameplay.Disable();
-            _gameInputService.InputSystem.PlayerNotMovement.Disable();
-            _gameInputService.InputSystem.UI.Enable();
-            _gameInputService.BlockPlayerAndCarWithUi();
-
+            _inputsCoreService.StopAllUiOpened();
             Time.timeScale = 0f;
         }
         
@@ -55,11 +51,7 @@ namespace UI.Core
             _coreRootViewModel.OpenScreen(viewModel);
             
             _cursorService.SetCursorStateLocked(false);
-            _gameInputService.InputSystem.Gameplay.Disable();
-            _gameInputService.InputSystem.PlayerNotMovement.Disable();
-            _gameInputService.InputSystem.UI.Enable();
-            _gameInputService.UnblockPlayerAndCarWithUi();
-            
+            _inputsCoreService.NotDisableMovementUiOpened();
             Time.timeScale = 1f;
         }
 
@@ -68,11 +60,8 @@ namespace UI.Core
             _coreRootViewModel.CloseScreen();
             
             _cursorService.SetCursorStateLocked(true);
-            _gameInputService.InputSystem.Gameplay.Enable();
-            _gameInputService.InputSystem.PlayerNotMovement.Enable();
-            _gameInputService.InputSystem.UI.Disable();
-            _gameInputService.UnblockPlayerAndCarWithUi();
-            
+            _inputsCoreService.StopAllUiClosed();
+            _inputsCoreService.NotDisableMovementUiClosed();
             Time.timeScale = 1f;
         }
         

@@ -5,16 +5,16 @@ namespace Services
 {
     public class CanvasUiVisualizer
     {
-        public ObservableHashSet<ShowableInUIBehaviour> ObjectsToShow => _objectsToShow;
+        public ObservableHashSet<IShowableInUI> ObjectsToShow => _objectsToShow;
         
-        private readonly ObservableHashSet<ShowableInUIBehaviour> _objectsToShow = new();
+        private readonly ObservableHashSet<IShowableInUI> _objectsToShow = new();
         
-        public void ShowOnCanvas(ShowableInUIBehaviour obj)
+        public void ShowOnCanvas(IShowableInUI obj)
         {
             _objectsToShow.Add(obj);
         }
 
-        public void HideOnCanvas(ShowableInUIBehaviour obj)
+        public void HideOnCanvas(IShowableInUI obj)
         {
             _objectsToShow.Remove(obj);
         }

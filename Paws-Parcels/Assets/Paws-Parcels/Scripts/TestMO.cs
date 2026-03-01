@@ -20,9 +20,7 @@ namespace Paws_Parcels.Scripts
         [Inject] private QuestsService _questsService;
         [Inject] private GameStateProvider _gameStateProvider;
         [Inject] private SettingsStateProvider _settingsStateProvider;
-
-        //public 
-
+        
         public void Send(string message)
         {
             _messageSystem.SendCompositeMessage(this, message);
@@ -30,32 +28,6 @@ namespace Paws_Parcels.Scripts
         
         private void Update()
         {
-            /*if (Input.GetKeyDown(KeyCode.Z))
-            {
-                _messageSystem.SendCompositeMessage(this, "f1");
-            }
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                _messageSystem.SendCompositeMessage(this, "f2");
-            }
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                _messageSystem.SendCompositeMessage(this, "f3");
-            }
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                _messageSystem.SendCompositeMessage(this, "t1");
-                _messageSystem.SendCompositeMessage(this, "A");
-            }
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                _messageSystem.SendCompositeMessage(this, "t2");
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                _messageSystem.SendCompositeMessage(this, "t3");
-            }*/
-            
             if (Input.GetKeyDown(KeyCode.O))
             {
                 _messageSystem.SendCompositeMessage(this, "On");
@@ -65,35 +37,14 @@ namespace Paws_Parcels.Scripts
                 _messageSystem.SendCompositeMessage(this, "Off");
             }
             
-            /*if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.Z))
             {
-                _gameStateProvider.GameProxy.SelectedQuest.Value = "Gasoline";
+                _gameStateProvider.GameProxy.SelectedQuest.Value = "bulka_sova";
             }
-            if (Input.GetKeyDown(KeyCode.U))
+            if (Input.GetKeyDown(KeyCode.X))
             {
-                _gameStateProvider.GameProxy.SelectedQuest.Value = "Test";
+                _gameStateProvider.GameProxy.SelectedQuest.Value = "bulka_sova_t";
             }
-            if (Input.GetKeyDown(KeyCode.Keypad1))
-            {
-                _messageSystem.SendCompositeMessage(this, "1");
-            }
-            if (Input.GetKeyDown(KeyCode.Keypad2))
-            {
-                _messageSystem.SendCompositeMessage(this, "2");
-            }
-            if (Input.GetKeyDown(KeyCode.Keypad3))
-            {
-                _messageSystem.SendCompositeMessage(this, "3");
-            }
-            if (Input.GetKeyDown(KeyCode.Keypad4))
-            {
-                _messageSystem.SendCompositeMessage(this, "4");
-            }
-            if (Input.GetKeyDown(KeyCode.Keypad5))
-            {
-                _messageSystem.SendCompositeMessage(this, "5");
-            }*/
-            
         }
 
         [ReadOnly] public GameState gameState;
@@ -109,9 +60,10 @@ namespace Paws_Parcels.Scripts
                 print(e.Value);
             });
             
-            _questsService.ActiveNewQuest("Gasoline");
-            _questsService.ActiveNewQuest("Test");
-            _gameStateProvider.GameProxy.SelectedQuest.Value = "Test";
+            _questsService.ActiveNewQuest("bulka_sova");
+            _questsService.ActiveNewQuest("bulka_sova_t");
+            //_questsService.ActiveNewQuest("Test");
+            _gameStateProvider.GameProxy.SelectedQuest.Value = "bulka_sova";
             //print(LocalizationSettings.SelectedLocale.CustomFormatterCode);
             //print(LocalizationSettings.SelectedLocale.LocaleName);
             //print(LocalizationSettings.SelectedLocale.name);

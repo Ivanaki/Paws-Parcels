@@ -63,13 +63,9 @@ namespace Game.Root
 
             _messageToUserService.SendMessage(mainMenuEnterParams.MessageToUser,
                 mainMenuEnterParams.IsWasErrorWhileLoadCoreScene ? Color.red : Color.white);
-
-            _gameInputService.InputSystem.UI.Enable();
-            _gameInputService.InputSystem.Gameplay.Disable();
-            _gameInputService.InputSystem.Car.Disable();
-            _gameInputService.InputSystem.Player.Disable();
-            _cursorService.SetCursorStateLocked(false);
             
+            _cursorService.SetCursorStateLocked(false);
+            Time.timeScale = 1f;
             
             /*var loadType = LoadType.New;
             var saveNumber = -1;*/

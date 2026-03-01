@@ -13,11 +13,13 @@ namespace Paws_Parcels.Scripts.Car_Player
 
         public bool TrySit()
         {
-            if (_gameProxy.IsPlayerInCar.Value == false && _gameProxy.IsItemInHandsNull.Value)
+            if (_gameProxy.IsPlayerInCar.Value == false && _gameProxy.IsItemInHandsNull.Value/* &&
+                _gameProxy.IsCarDoorOpen.Value == false*/)
             {
                 _gameProxy.IsPlayerInCar.Value = true;
                 return true;
             }
+
             return false;
         }
 

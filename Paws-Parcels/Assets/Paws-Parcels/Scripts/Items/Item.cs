@@ -1,6 +1,5 @@
 using System;
 using Items;
-using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
 using UnityEngine;
 
@@ -12,12 +11,18 @@ namespace Paws_Parcels.Scripts.Player
     [RequireComponent(typeof(Rigidbody))]
     public class Item : InteractableObject
     {
-        public Vector3 LinearVelocity => _rigidbody.linearVelocity;
-        public Vector3 AngularVelocity => _rigidbody.angularVelocity;
         public string ItemTypeId => _itemTypeId;
-        
-        [Header("Item Settings")]
+        public override string DestinationId => _destinationId;
+        public override string UiShowTypeId => _uiShowTypeId;
+        public override string UiShowText => _uiShowText;
+
+        [Header("Item prefab settings")]
         [SerializeField] private string _itemTypeId;
+        [SerializeField] private string _uiShowTypeId;
+        [SerializeField] private string _uiShowText;
+        
+        [Header("Item in scene changes")]
+        [SerializeField] private string _destinationId;
         
         private ItemsInWorldVisualizer _itemsInWorldVisualizer;
         private ItemProxy _itemProxy;
@@ -30,12 +35,12 @@ namespace Paws_Parcels.Scripts.Player
         public void ConstructItem(ApplyInFixUpdate applyInFixUpdate, ItemProxy itemProxy, ItemsInWorldVisualizer itemsInWorldVisualizer)
         {
             _isInstantiated = true;
-            UpdateRigidbody();
+            InitializeRigidbody();
             
             _itemProxy = itemProxy;
             _itemsInWorldVisualizer = itemsInWorldVisualizer;
             
-            SetMarkId(itemProxy.MarkId);
+            _destinationId = itemProxy.DestinationId;
             
             transform.position = itemProxy.Position;
             transform.rotation = itemProxy.Rotation;
@@ -61,10 +66,10 @@ namespace Paws_Parcels.Scripts.Player
                 return;
             }
             
-            UpdateRigidbody();
+            InitializeRigidbody();
         }
 
-        private void UpdateRigidbody()
+        private void InitializeRigidbody()
         {
             if (_rigidbody == null)
             {
@@ -81,5 +86,8 @@ namespace Paws_Parcels.Scripts.Player
         {
             _disposable?.Dispose();
         }
+        
+        public Vector3 GetLinearVelocity() => _rigidbody.linearVelocity;
+        public Vector3 GetAngularVelocity() => _rigidbody.angularVelocity;
     }
 }

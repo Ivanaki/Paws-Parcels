@@ -79,16 +79,9 @@ namespace Game.Root
             
             InitUI();
             
-            _gameInputService.InputSystem.UI.Disable();
-            _gameInputService.InputSystem.Gameplay.Enable();
-            _gameInputService.InputSystem.Car.Disable();
-            _gameInputService.InputSystem.Player.Enable();
-            _gameInputService.InputSystem.PlayerNotMovement.Enable();
-            _gameInputService.InputSystem.CarNotMovement.Enable();
+            
             _cursorService.SetCursorStateLocked(true);
             Time.timeScale = 1f;
-            
-            
             
             //TODO с четверга:
             //сделать ui и систему Quests
