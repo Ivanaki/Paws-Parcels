@@ -1,3 +1,4 @@
+using System;
 using Quests;
 using R3;
 using Services;
@@ -7,6 +8,7 @@ using Zenject;
 namespace Paws_Parcels.Scripts.Player
 {
     //обязательно коллайдер на объекте или на дочернем(со скриптом redirector)
+    //коллайдер должен быть всегда в центре
     public abstract class InteractableObject : DestinationObject
     {
         //TODO сделать проверку лучом от игрока до объекта
@@ -19,6 +21,28 @@ namespace Paws_Parcels.Scripts.Player
         private readonly ReactiveProperty<bool> _canInteract = new(false);
 
         [Inject] private CanvasUiVisualizer _canvasUiVisualizer;
+
+        protected void Start()
+        {
+            if (TryGetComponent(out SphereCollider colliderS))
+                if (colliderS.center != Vector3.zero)
+                    Debug.LogError("Collider center is not zero on interactable: " + gameObject.name);
+            if (TryGetComponent(out BoxCollider colliderB))
+                if (colliderB.center != Vector3.zero)
+                    Debug.LogError("Collider center is not zero on interactable: " + gameObject.name);
+
+
+            var collidersS = GetComponentsInChildren<SphereCollider>();
+            foreach (var sphereCollider in collidersS)
+                if (sphereCollider.center != Vector3.zero)
+                    Debug.LogError("Collider center is not zero on interactable: " + gameObject.name + ", child:"
+                                   + sphereCollider.gameObject.name);
+            var collidersB = GetComponentsInChildren<BoxCollider>();
+            foreach (var boxCollider in collidersB)
+                if (boxCollider.center != Vector3.zero)
+                    Debug.LogError("Collider center is not zero on interactable: " + gameObject.name + ", child:"
+                                   + boxCollider.gameObject.name);
+        }
 
         public abstract void Interact();
 

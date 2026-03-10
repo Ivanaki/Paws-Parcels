@@ -16,32 +16,6 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public float Yaw;
         public float Pitch;
     }
-
-    /*[Serializable]
-    public class HandsItemSaveData
-    {
-        public bool isNull = false;
-        public string ItemTypeId = "";
-        public string MarkId = "";
-
-        public HandsItemSaveData()
-        {
-        }
-        
-        public HandsItemSaveData(HandsItemSaveData origin)
-        {
-            ItemTypeId = origin.ItemTypeId;
-            MarkId = origin.MarkId;
-            isNull = origin.isNull;
-        }
-
-        public HandsItemSaveData(ItemProxy itemProxy)
-        {
-            isNull = false;
-            ItemTypeId = itemProxy.ItemTypeId;
-            MarkId = itemProxy.MarkId;
-        }
-    }*/
     
     [Serializable]
     public struct CarSaveData
@@ -52,7 +26,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public Vector3 AngularVelocity;
         // и ещё вращение камеры
     }
-
+    
     //не забывать обновлять GameStateCollecter
     [System.Serializable]
     public class GameState
@@ -76,12 +50,17 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         //Car
         public CarSaveData CarData;
         
-        //Items
+        //Items in world
         public List<ItemData> ItemsInWorld = new();
-        //public HandsItemSaveData ItemInHands;
+        
+        //Items in hands
         public bool IsItemInHandsNull = true;
         public string InHandsItemTypeId = "";
         public string InHandsMarkId = "";
+        
+        //Items in car
+        public List<ItemInsideCar> ItemsInsideCar = new();
+        public List<ItemUpCar> ItemsUpCar = new();
         
         //car&player
         public bool IsPlayerInCar;

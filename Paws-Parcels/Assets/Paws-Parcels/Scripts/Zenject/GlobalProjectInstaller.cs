@@ -77,6 +77,7 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<DropSettings>().AsSingle();
             Container.Bind<SitInCarService>().AsSingle();
             Container.Bind<DoorService>().AsSingle();
+            Container.Bind<PutInCarItemsService>().AsSingle();
             
             Container.Bind<LocalizationService>().AsSingle();
             

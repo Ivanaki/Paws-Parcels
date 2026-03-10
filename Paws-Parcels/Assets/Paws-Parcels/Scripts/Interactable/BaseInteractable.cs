@@ -9,7 +9,7 @@ namespace Paws_Parcels.Scripts.Player
         public override string UiShowText => _uiShowText;
         
         [Header("Door settings")]
-        [SerializeField] private string _uiShowTypeId;
+        [SerializeField] private string _uiShowTypeId = "interact";
         [SerializeField] private string _uiShowText;
         [SerializeField] private string _destinationId;
     }

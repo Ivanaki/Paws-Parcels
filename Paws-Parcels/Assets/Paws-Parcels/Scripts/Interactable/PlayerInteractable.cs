@@ -12,6 +12,7 @@ namespace Paws_Parcels.Scripts.Player
         [SerializeField] private float _interactRadius = 1.5f;
         [SerializeField] private float _highlightRadius = 2.5f;
         [SerializeField] private LayerMask _interactLayerMask;
+        [SerializeField] private LayerMask _checkCanInteractLayerMask;
         [SerializeField] private Transform _interactCenterOfSphere;
 
         private InputSystem_Actions _inputSystem;
@@ -59,15 +60,21 @@ namespace Paws_Parcels.Scripts.Player
         private Collider[] _hitCollidersInteract = new Collider[20];
         private readonly List<InteractableObject> _interactables = new();
         
+        private readonly Dictionary<InteractableObject, Collider> _interactColliders = new();
+
+        private Vector3 _direction;
+        
         private InteractableObject FindMinimumDistanceObject()
         {
             _interactables.Clear();
+            _interactColliders.Clear();
             var size = Physics.OverlapSphereNonAlloc(_interactCenterOfSphere.position, _interactRadius, _hitCollidersInteract, _interactLayerMask);
             for (var i = 0; i < size; i++)
             {
                 if(ColliderRedirector.TryGet(_hitCollidersInteract[i].gameObject, out InteractableObject interactableObject))
                 {
                     _interactables.Add(interactableObject);
+                    _interactColliders.Add(interactableObject, _hitCollidersInteract[i]);
                 }
             }
             
@@ -76,10 +83,17 @@ namespace Paws_Parcels.Scripts.Player
             foreach (var interactableObj in _interactables)
             {
                 var dis = Vector3.Distance(interactableObj.transform.position, _interactCenterOfSphere.position);
-                if (dis < minDistance)
+                _direction = _interactColliders[interactableObj].transform.position - _interactCenterOfSphere.position;
+                if (Physics.Raycast(_interactCenterOfSphere.position, _direction, out var hit, dis, _checkCanInteractLayerMask))
                 {
-                    interactable = interactableObj;
-                    minDistance = dis;
+                    if (hit.collider == _interactColliders[interactableObj])
+                    {
+                        if (dis < minDistance)
+                        {
+                            interactable = interactableObj;
+                            minDistance = dis;
+                        }
+                    }
                 }
             }
 

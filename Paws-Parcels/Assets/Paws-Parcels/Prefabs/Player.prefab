@@ -484,6 +484,9 @@ MonoBehaviour:
   _interactLayerMask:
     serializedVersion: 2
     m_Bits: 192
+  _checkCanInteractLayerMask:
+    serializedVersion: 2
+    m_Bits: 6391
   _interactCenterOfSphere: {fileID: 2654270352110724248}
 --- !u!114 &4365107281831813469
 MonoBehaviour:
