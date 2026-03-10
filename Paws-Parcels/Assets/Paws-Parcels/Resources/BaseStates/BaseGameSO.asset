@@ -62,8 +62,16 @@ MonoBehaviour:
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      DestinationId: 
+      Position: {x: -3.05, y: 3.2, z: -3.93}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
     IsItemInHandsNull: 1
     InHandsItemTypeId: 
     InHandsMarkId: 
+    ItemsInsideCar: []
+    ItemsUpCar: []
     IsPlayerInCar: 0
     IsCarDoorOpen: 0
