@@ -13,8 +13,13 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
     {
         public Vector3 Position;
         public Quaternion Rotation;
+        
+        public float Speed;
+        public float Verticalvelocity;
+        public float TargetRotation;
         public float Yaw;
         public float Pitch;
+        public float AnimationBlend;
     }
     
     [Serializable]
@@ -60,7 +65,6 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         
         //Items in car
         public List<ItemInsideCar> ItemsInsideCar = new();
-        public List<ItemUpCar> ItemsUpCar = new();
         
         //car&player
         public bool IsPlayerInCar;

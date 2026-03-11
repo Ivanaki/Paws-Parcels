@@ -10,7 +10,9 @@ namespace Services
     {
         Menu,
         Quests,
-        Locations
+        Locations,
+        Interactables_name,
+        Dialogs
     }
     
     public class LocalizationService/* : IDisposable*/

@@ -37,7 +37,6 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public string InHandsMarkId { get => Origin.InHandsMarkId; set => Origin.InHandsMarkId = value; }
         
         public ObservableList<ItemInsideCarProxy> ItemsInsideCar { get; } = new();
-        public ObservableList<ItemUpCarProxy> ItemsUpCar { get; } = new();
         
         public ReactiveProperty<bool> IsPlayerInCar { get; }
         public ReactiveProperty<bool> IsCarDoorOpen { get; }
@@ -101,9 +100,6 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             ItemsInsideCar.Clear();
             origin.ItemsInsideCar.ForEach(questData => ItemsInsideCar.Add(new ItemInsideCarProxy(questData)));
-
-            ItemsUpCar.Clear();
-            origin.ItemsUpCar.ForEach(questData => ItemsUpCar.Add(new (questData)));
 
             IsPlayerInCar.Value = origin.IsPlayerInCar;
             IsCarDoorOpen.Value = origin.IsCarDoorOpen;
@@ -209,18 +205,6 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             ItemsInsideCar.ObserveClear().Subscribe(e =>
                 origin.ItemsInsideCar.Clear());
-            
-            
-            origin.ItemsUpCar.ForEach(item => ItemsUpCar.Add(new (item)));
-            
-            ItemsUpCar.ObserveAdd().Subscribe(e => 
-                origin.ItemsUpCar.Add(e.Value.Origin));
-            
-            ItemsUpCar.ObserveRemove().Subscribe(e =>
-                origin.ItemsUpCar.Remove(e.Value.Origin));
-            
-            ItemsUpCar.ObserveClear().Subscribe(e =>
-                origin.ItemsUpCar.Clear());
         }
     }
 }

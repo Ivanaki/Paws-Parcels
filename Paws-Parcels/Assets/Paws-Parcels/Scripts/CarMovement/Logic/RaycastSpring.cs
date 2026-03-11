@@ -63,7 +63,12 @@ namespace Paws_Parcels.Car.Logic
                 float dampingForce = -m_Settings.SpringDamperConstant * m_Velocity;
                 netForce += dampingForce;
 
-                m_CarRigidbody.AddForceAtPosition(m_CarTransform.up * netForce, origin);
+                var upVector = m_CarTransform.up;
+                if(upVector.x < m_Settings.OffsetSpring)
+                    upVector = new Vector3(0, upVector.y, upVector.z);
+                if(upVector.z < m_Settings.OffsetSpring)
+                    upVector = new Vector3(upVector.x, upVector.y, 0);
+                m_CarRigidbody.AddForceAtPosition(upVector * netForce, origin);
             }
             else
             {

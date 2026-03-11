@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using Paws_Parcels.Car.Logic;
+using UnityEngine;
 
 namespace Paws_Parcels.Car.View.Visual
 {
     public class CarWheelsVisual : MonoBehaviour
     {
+        [SerializeField] private float _wheelRadius = 0.41f;
+        
         [Header("0: FrontLeft, 1: FrontRight, 2: RearRight, 3: RearLeft")]
         [SerializeField]
         private Transform[] m_WheelTransforms = new Transform[WheelCount];
@@ -47,9 +50,18 @@ namespace Paws_Parcels.Car.View.Visual
         {
             return m_WheelTransforms[wheel].position;
         }
+
+        private void RecanculateWheels()
+        {
+            var carSettings = GetComponent<CarSettings>();
+            m_FullyCompressedY = carSettings.AxleHeight + _wheelRadius;
+            m_FullyExtendedY = carSettings.AxleHeight - carSettings.SpringMaxLength + _wheelRadius;
+        }
         
         private void Start()
         {
+            RecanculateWheels();
+            
             m_ViewState = transform.root.GetComponentInChildren<CarViewState>();
             
             if (!m_ViewState)

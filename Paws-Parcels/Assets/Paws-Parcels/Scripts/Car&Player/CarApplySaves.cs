@@ -58,6 +58,7 @@ namespace Paws_Parcels.Car
                 {
                     transform.position = carData.Position;
                     transform.rotation = carData.Rotation;
+                    _rigidbody.WakeUp();
                     _rigidbody.linearVelocity = carData.LinearVelocity;
                     _rigidbody.angularVelocity = carData.AngularVelocity;
                 });

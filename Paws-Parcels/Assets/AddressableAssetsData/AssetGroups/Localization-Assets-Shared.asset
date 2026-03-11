@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33f10c4839538e341914440a1a741127
+    m_Address: Assets/Paws-Parcels/Localization/Interactables_name Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a3a0b308f134024b83b17f2a06a10cc
     m_Address: Assets/Paws-Parcels/Localization/Quests Shared Data.asset
     m_ReadOnly: 1

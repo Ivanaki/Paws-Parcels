@@ -1,5 +1,6 @@
 using System;
 using Paws_Parcels.Scripts.Saves.States;
+using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -167,15 +168,29 @@ namespace Paws_Parcels.Scripts.Player
         {
             _settingsSensivity = sensivity;
         }
+
+        private int _applySavesFrame = 0;
         
-        public void SetRotation(float yaw, float pitch)
+        public void SetSaves(PlayerSaveData saveData)
         {
-            _cinemachineTargetYaw = yaw;
-            _cinemachineTargetPitch = pitch;
+            _speed = saveData.Speed;
+            _verticalVelocity = saveData.Verticalvelocity;
+            _targetRotation = saveData.TargetRotation;
+            _cinemachineTargetYaw = saveData.Yaw;
+            _cinemachineTargetPitch = saveData.Pitch;
+            _animationBlend = saveData.AnimationBlend;
+            
+            _applySavesFrame = Time.frameCount;
         }
 
+        
         public float GetTargetYaw() => _cinemachineTargetYaw;
         public float GetTargetPitch() => _cinemachineTargetPitch;
+        public float GetSpeed() => _speed;
+        public float GetVerticalVelocity() => _verticalVelocity;
+        public float GetTargetRotation() => _targetRotation;
+        public float GetAnimationBlend() => _animationBlend;
+        
         
         private void AssignAnimationIDs()
         {
@@ -220,42 +235,50 @@ namespace Paws_Parcels.Scripts.Player
         {
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
-
-            if (_input.move == Vector2.zero) targetSpeed = 0.0f;
-
-            float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
-
-            float speedOffset = 0.1f;
-            float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
-
-            if (currentHorizontalSpeed < targetSpeed - speedOffset ||
-                currentHorizontalSpeed > targetSpeed + speedOffset)
+            if (_applySavesFrame != Time.frameCount)
             {
-                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
-                    Time.deltaTime * SpeedChangeRate);
+                if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
-                _speed = Mathf.Round(_speed * 1000f) / 1000f;
+                float currentHorizontalSpeed =
+                    new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+
+                float speedOffset = 0.1f;
+                float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
+
+                if (currentHorizontalSpeed < targetSpeed - speedOffset ||
+                    currentHorizontalSpeed > targetSpeed + speedOffset)
+                {
+                    _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
+                        Time.deltaTime * SpeedChangeRate);
+
+                    _speed = Mathf.Round(_speed * 1000f) / 1000f;
+                }
+                else
+                {
+                    _speed = targetSpeed;
+                }
+
+
+
+                Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+
+                if (_input.move != Vector2.zero)
+                {
+                    _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
+                                      _mainCamera.transform.eulerAngles.y;
+                    float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation,
+                        ref _rotationVelocity,
+                        RotationSmoothTime);
+
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                }
+                
+                if (_hasAnimator)
+                {
+                    _animator.SetFloat(_animIDSpeed, _animationBlend);
+                    _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+                }
             }
-            else
-            {
-                _speed = targetSpeed;
-            }
-
-            _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
-            if (_animationBlend < 0.01f) _animationBlend = 0f;
-
-            Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
-
-            if (_input.move != Vector2.zero)
-            {
-                _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
-                                  _mainCamera.transform.eulerAngles.y;
-                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
-                    RotationSmoothTime);
-
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
-            }
-
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
@@ -264,12 +287,8 @@ namespace Paws_Parcels.Scripts.Player
                 _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
                                  new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
             
-
-            if (_hasAnimator)
-            {
-                _animator.SetFloat(_animIDSpeed, _animationBlend);
-                _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
-            }
+            _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
+            if (_animationBlend < 0.01f) _animationBlend = 0f;
         }
 
         private void JumpAndGravity()

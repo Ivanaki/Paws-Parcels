@@ -70,7 +70,7 @@ namespace Paws_Parcels.Car
 
         private void RefreshCameraTrackingTarget()
         {
-            Transform trackingTarget = null;
+            /*Transform trackingTarget = null;
             for (int i = 0; i < _currentCar.transform.childCount; i++)
             {
                 Transform child = _currentCar.transform.GetChild(i);
@@ -91,19 +91,19 @@ namespace Paws_Parcels.Car
                 trackingTargetGo.transform.localScale = Vector3.one;
 
                 trackingTarget = trackingTargetGo.transform;
-            }
+            }*/
 
-            m_CinemachineCamera.Target = new CameraTarget
+            /*m_CinemachineCamera.Target = new CameraTarget
             {
                 TrackingTarget = trackingTarget, LookAtTarget = trackingTarget
             };
 
-            m_CameraTrackingTarget = trackingTarget;
+            m_CameraTrackingTarget = trackingTarget;*/
 
-            var cinemachineFollow = m_CinemachineCamera.GetComponent<CinemachineFollow>();
+            /*var cinemachineFollow = m_CinemachineCamera.GetComponent<CinemachineFollow>();
             var carCollider = _currentCar.GetComponent<BoxCollider>();
             const float LargeCarSize = 7.0f;
-            cinemachineFollow.FollowOffset = carCollider.size.magnitude < LargeCarSize ? m_CameraRegularCarOffset : m_CameraLargeCarOffset;
+            cinemachineFollow.FollowOffset = carCollider.size.magnitude < LargeCarSize ? m_CameraRegularCarOffset : m_CameraLargeCarOffset;*/
         }
     }
 }

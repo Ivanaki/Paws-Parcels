@@ -24,10 +24,14 @@ MonoBehaviour:
     PlayerData:
       Position: {x: 0.53, y: 0, z: -0.97}
       Rotation: {x: -0, y: -0, z: -0, w: 1}
+      Speed: 0
+      Verticalvelocity: 0
+      TargetRotation: 0
       Yaw: 0
       Pitch: 35
+      AnimationBlend: 0
     CarData:
-      Position: {x: -3.15, y: 0.78, z: -3.81}
+      Position: {x: -3.15, y: 1.93, z: -3.81}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
@@ -64,7 +68,25 @@ MonoBehaviour:
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: cube
       DestinationId: 
-      Position: {x: -3.05, y: 3.2, z: -3.93}
+      Position: {x: -3.523, y: 4.046, z: -4.65}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      DestinationId: 
+      Position: {x: -2.807, y: 4.046, z: -3.518}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      DestinationId: 
+      Position: {x: -3.623, y: 4.046, z: -2.681}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      DestinationId: 
+      Position: {x: -2.73, y: 4.046, z: -4.912}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}

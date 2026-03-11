@@ -39,15 +39,19 @@ namespace Services
         
         private ObservableHashSet<IShowableInUI> _objectsToShow;
         private IReadOnlyDictionary<string, UiObject> _objectsPrefabsDict;
+        
+        private DiContainer _container;
 
         private List<ObjectToShowOnUi> _uiObjects = new();
         private Camera _cameraMain;
         
         [Inject]
-        public void Construct(CanvasUiVisualizer canvasUiVisualizer, UiObjectsDatabase uiObjectsDatabase)
+        public void Construct(CanvasUiVisualizer canvasUiVisualizer, UiObjectsDatabase uiObjectsDatabase,
+            DiContainer container)
         {
             _objectsToShow = canvasUiVisualizer.ObjectsToShow;
             _objectsPrefabsDict = uiObjectsDatabase.ObjectsPrefabsDict;
+            _container = container;
         }
 
         private CompositeDisposable _disposable = new();
@@ -80,7 +84,8 @@ namespace Services
             {
                 if (_objectsPrefabsDict.TryGetValue(showable.UiShowTypeId, out var uiObjectPrefab))
                 {
-                    var instance = Instantiate(uiObjectPrefab, transform);
+                    var instance = _container.InstantiatePrefabForComponent<UiObject>(uiObjectPrefab, transform);
+                    //var instance = Instantiate(uiObjectPrefab, transform);
                     instance.Construct(showable);
 
                     _uiObjects.Add(new ObjectToShowOnUi(showable, instance));
@@ -93,7 +98,7 @@ namespace Services
 
             void Remove(IShowableInUI showable)
             {
-                var obj =_uiObjects.FirstOrDefault(x => x.ShowableInUIObject == showable);
+                var obj = _uiObjects.FirstOrDefault(x => x.ShowableInUIObject == showable);
                 Destroy(obj.UiObject.gameObject);
                 _uiObjects.Remove(obj);
             }

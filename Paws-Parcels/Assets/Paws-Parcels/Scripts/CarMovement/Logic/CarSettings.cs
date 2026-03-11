@@ -37,6 +37,9 @@ namespace Paws_Parcels.Car.Logic
         [Tooltip("Damping strength. Controls oscillation and bounce.")]
         [Min(0.0f)] public float SpringDamperConstant = 100.0f;
         
+        [Tooltip("Погрешность velocity, с которой колесо не даёт никакой силы для движения вперёд")]
+        [Min(0.0f)] public float OffsetSpring = 0.1f;
+        
         [Header("GROUNDING")]
         
         [Tooltip("Fallback material when no special ground is detected.")]

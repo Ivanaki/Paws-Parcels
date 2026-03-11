@@ -16,7 +16,7 @@ namespace Quests
         
         public abstract string DestinationId { get; }
         public abstract string UiShowTypeId { get; }
-        public abstract string UiShowText { get; }
+        public abstract string UIShowTextCode { get; }
         
         
         public virtual ReadOnlyReactiveProperty<bool> IsQuestActive => _isQuestActive;

@@ -10,6 +10,6 @@ namespace Quests
 
         public override string DestinationId => _destinationId;
         public override string UiShowTypeId => _uiShowTypeId;
-        public override string UiShowText => _uiShowText;
+        public override string UIShowTextCode => _uiShowText;
     }
 }

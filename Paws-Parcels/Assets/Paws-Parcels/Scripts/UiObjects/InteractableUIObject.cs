@@ -4,6 +4,7 @@ using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Services
 {
@@ -17,6 +18,8 @@ namespace Services
         /*[SerializeField] private Sprite _spriteBase;
         [SerializeField] private Sprite _spriteActiveQuest;*/
 
+        [Inject] private LocalizationService _localizationService;
+        
         private CompositeDisposable _disposable;
         
         public override void Construct(IShowableInUI showableInUIObject)
@@ -29,9 +32,12 @@ namespace Services
                 return;
             }
             
-            _tmpText.text = interactableObject.UiShowText;
-
             _disposable = new CompositeDisposable();
+
+            _disposable.Add(_localizationService.CurrentLocale.Subscribe(locale =>
+            {
+                _tmpText.text = _localizationService.GetCurrentLanguageStringOrDefault(interactableObject.UIShowTextCode, Tables.Interactables_name);
+            }));
             
             _disposable.Add(interactableObject.IsQuestSelect.Subscribe(v =>
             {

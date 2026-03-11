@@ -2,7 +2,7 @@ using System;
 
 namespace Paws_Parcels.Scripts.Saves.States.GameState
 {
-    [Serializable]
+    /*[Serializable]
     public class ItemUpCar
     {
         public string ItemTypeId = "";
@@ -32,5 +32,5 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             ItemTypeId = itemUpCar.ItemTypeId;
             DestinationId = itemUpCar.DestinationId;
         }
-    }
+    }*/
 }

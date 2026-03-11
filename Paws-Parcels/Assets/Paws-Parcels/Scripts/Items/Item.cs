@@ -5,6 +5,12 @@ using UnityEngine;
 
 namespace Paws_Parcels.Scripts.Player
 {
+    public enum ItemLargeType
+    {
+        Big,
+        Small
+    }
+    
     /// <summary>
     /// Обязательно, если это префаб, то отключить его active
     /// </summary>
@@ -12,14 +18,17 @@ namespace Paws_Parcels.Scripts.Player
     public class Item : InteractableObject
     {
         public string ItemTypeId => _itemTypeId;
+        public ItemLargeType ItemLargeType => _itemLargeType;
         public override string DestinationId => _destinationId;
         public override string UiShowTypeId => _uiShowTypeId;
-        public override string UiShowText => _uiShowText;
+        public override string UIShowTextCode => _uiShowTextCode;
 
         [Header("Item prefab settings")]
         [SerializeField] private string _itemTypeId;
         [SerializeField] private string _uiShowTypeId;
-        [SerializeField] private string _uiShowText;
+        [SerializeField] private string _uiShowTextCode;
+        [SerializeField] private ItemLargeType _itemLargeType;
+        
         
         [Header("Item in scene changes")]
         [SerializeField] private string _destinationId;
@@ -51,6 +60,7 @@ namespace Paws_Parcels.Scripts.Player
                 
                 transform.position = itemProxy.Position;
                 transform.rotation = itemProxy.Rotation;
+                _rigidbody.WakeUp();
                 _rigidbody.linearVelocity = itemProxy.LinearVelocity;
                 _rigidbody.angularVelocity = itemProxy.AngularVelocity;
             });

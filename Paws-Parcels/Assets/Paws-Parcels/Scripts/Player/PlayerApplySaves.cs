@@ -58,7 +58,7 @@ namespace Paws_Parcels.Scripts.Player
                     var playerData = _gameStateProvider.GameProxy.PlayerData;
                     _characterController.transform.position = playerData.Position;
                     _characterController.transform.rotation = playerData.Rotation;
-                    _thirdPersonController.SetRotation(playerData.Yaw, playerData.Pitch);
+                    _thirdPersonController.SetSaves(playerData);
                 });
             }));
 
@@ -69,7 +69,11 @@ namespace Paws_Parcels.Scripts.Player
                     Position = _characterController.transform.position,
                     Rotation = _characterController.transform.rotation,
                     Yaw = _thirdPersonController.GetTargetYaw(),
-                    Pitch = _thirdPersonController.GetTargetPitch()
+                    Pitch = _thirdPersonController.GetTargetPitch(),
+                    AnimationBlend = _thirdPersonController.GetAnimationBlend(),
+                    Speed = _thirdPersonController.GetSpeed(),
+                    TargetRotation = _thirdPersonController.GetTargetRotation(),
+                    Verticalvelocity = _thirdPersonController.GetVerticalVelocity()
                 };
             }));
             

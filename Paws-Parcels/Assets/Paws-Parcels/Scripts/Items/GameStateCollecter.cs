@@ -51,6 +51,8 @@ namespace Paws_Parcels.Scripts
                 so.GameState.ItemsInWorld.Clear();
                 foreach (var itemGameObject in items)
                 {
+                    if(itemGameObject == null || itemGameObject.activeInHierarchy == false) continue;
+                    
                     var item = itemGameObject.GetComponent<Item>();
                     so.GameState.ItemsInWorld.Add(new ItemData()
                     {

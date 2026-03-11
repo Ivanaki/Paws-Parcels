@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Interactables_name Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Interactables_name
+  m_TableCollectionNameGuidString: 33f10c4839538e341914440a1a741127
+  m_Entries:
+  - m_Id: 27660378112
+    m_Key: put_up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13471948201984
+    m_Key: put_inside
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13542194405376
+    m_Key: enter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13589640372224
+    m_Key: bed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13675858485248
+    m_Key: cube
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13921611145216
+    m_Key: open_doors
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8918302904429838471
+  references:
+    version: 2
+    RefIds:
+    - rid: 8918302904429838471
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1773246298159
