@@ -2364,6 +2364,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8158110677102559681, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: m_MouseSensitivity
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158110677102559681, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: m_CameraTrackingTarget
+      value: 
+      objectReference: {fileID: 1982353693}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3970,6 +3978,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1982353693 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7596296213129195317, guid: a2917ec6579897d47975508de0954229, type: 3}
+  m_PrefabInstance: {fileID: 1246737055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2009460485
 GameObject:
   m_ObjectHideFlags: 0

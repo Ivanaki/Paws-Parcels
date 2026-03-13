@@ -21,8 +21,11 @@ namespace UI.Screens.Settings
         [SerializeField] private Slider _masterVolumeSlider;
         [SerializeField] private TMP_InputField _masterVolumeInputField;
         
-        [SerializeField] private Slider _sensivitySlider;
-        [SerializeField] private TMP_InputField _sensivityInputField;
+        [SerializeField] private Slider _sensivityPlayerSlider;
+        [SerializeField] private TMP_InputField _sensivityPlayerInputField;
+
+        [SerializeField] private Slider _sensivityCarSlider;
+        [SerializeField] private TMP_InputField _sensivityCarInputField;
 
         [SerializeField] private TMP_Dropdown _languageDropdown;
 
@@ -61,15 +64,26 @@ namespace UI.Screens.Settings
                 _masterVolumeInputField.text = viewModel.MasterVolume.CurrentValue.ToString("F3");
             }));
             
-            //sensitivity
-            _disposables.Add(viewModel.Sensitivity01.Subscribe(v => _sensivitySlider.SetValueWithoutNotify(v)));
-            _disposables.Add(viewModel.Sensitivity.Subscribe(v => _sensivityInputField.text = v.ToString("F3")));
-            _disposables.Add(_sensivitySlider.onValueChanged.AsObservable()
-                .Subscribe(viewModel.RequestSetSensitivityBySlider));
-            _disposables.Add(_sensivityInputField.onEndEdit.AsObservable().Subscribe(v =>
+            //sensitivity player
+            _disposables.Add(viewModel.SensitivityPlayer01.Subscribe(v => _sensivityPlayerSlider.SetValueWithoutNotify(v)));
+            _disposables.Add(viewModel.SensitivityPlayer.Subscribe(v => _sensivityPlayerInputField.text = v.ToString("F3")));
+            _disposables.Add(_sensivityPlayerSlider.onValueChanged.AsObservable()
+                .Subscribe(viewModel.RequestSetSensitivityPlayerBySlider));
+            _disposables.Add(_sensivityPlayerInputField.onEndEdit.AsObservable().Subscribe(v =>
             {
-                viewModel.RequestSetSensitivityByInputField(v);
-                _sensivityInputField.text = viewModel.Sensitivity.CurrentValue.ToString("F3");
+                viewModel.RequestSetSensitivityPlayerByInputField(v);
+                _sensivityPlayerInputField.text = viewModel.SensitivityPlayer.CurrentValue.ToString("F3");
+            }));
+            
+            //sensitivity car
+            _disposables.Add(viewModel.SensitivityCar01.Subscribe(v => _sensivityCarSlider.SetValueWithoutNotify(v)));
+            _disposables.Add(viewModel.SensitivityCar.Subscribe(v => _sensivityCarInputField.text = v.ToString("F3")));
+            _disposables.Add(_sensivityCarSlider.onValueChanged.AsObservable()
+                .Subscribe(viewModel.RequestSetSensitivityCarBySlider));
+            _disposables.Add(_sensivityCarInputField.onEndEdit.AsObservable().Subscribe(v =>
+            {
+                viewModel.RequestSetSensitivityCarByInputField(v);
+                _sensivityCarInputField.text = viewModel.SensitivityCar.CurrentValue.ToString("F3");
             }));
             
             //language

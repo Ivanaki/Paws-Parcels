@@ -16,16 +16,20 @@ namespace UI.Screens.Settings
         
         public ReadOnlyReactiveProperty<bool> HasChanges => _hasChanges;
         public ReadOnlyReactiveProperty<float> MasterVolume => _masterVolume;
-        public ReadOnlyReactiveProperty<float> Sensitivity => _sensitivity;
-        public ReadOnlyReactiveProperty<float> Sensitivity01 => _sensitivity01;
+        public ReadOnlyReactiveProperty<float> SensitivityPlayer => _sensitivityPlayer;
+        public ReadOnlyReactiveProperty<float> SensitivityPlayer01 => _sensitivityPlayer01;
+        public ReadOnlyReactiveProperty<float> SensitivityCar => _sensitivityCar;
+        public ReadOnlyReactiveProperty<float> SensitivityCar01 => _sensitivityCar01;
         public ReadOnlyReactiveProperty<string> LanguageCode => _languageCode;
         public List<SettingsService.LocaleData> LanguageVariants { get; }
 
 
         private readonly ReactiveProperty<bool> _hasChanges = new(false);
         private readonly ReactiveProperty<float> _masterVolume = new();
-        private readonly ReactiveProperty<float> _sensitivity = new();
-        private readonly ReactiveProperty<float> _sensitivity01 = new();
+        private readonly ReactiveProperty<float> _sensitivityPlayer = new();
+        private readonly ReactiveProperty<float> _sensitivityPlayer01 = new();
+        private readonly ReactiveProperty<float> _sensitivityCar = new();
+        private readonly ReactiveProperty<float> _sensitivityCar01 = new();
         private readonly ReactiveProperty<string> _languageCode = new();
         
         private readonly SettingsService _settingsService;
@@ -40,8 +44,10 @@ namespace UI.Screens.Settings
             _maxSensitivityOnSlider = Mathf.Max(maxSensitivityOnSlider, 1f);
 
             settingsService.MasterVolume.Subscribe(value => _masterVolume.Value = value);
-            settingsService.Sensitivity.Subscribe(value => _sensitivity.Value = value);
-            settingsService.Sensitivity.Subscribe(value => _sensitivity01.Value = value/_maxSensitivityOnSlider);
+            settingsService.SensitivityPlayer.Subscribe(value => _sensitivityPlayer.Value = value);
+            settingsService.SensitivityPlayer.Subscribe(value => _sensitivityPlayer01.Value = value/_maxSensitivityOnSlider);
+            settingsService.SensitivityCar.Subscribe(value => _sensitivityCar.Value = value);
+            settingsService.SensitivityCar.Subscribe(value => _sensitivityCar01.Value = value/_maxSensitivityOnSlider);
             settingsService.LanguageCode.Subscribe(value => _languageCode.Value = value);
             
             LanguageVariants = settingsService.GetLanguages();
@@ -63,21 +69,39 @@ namespace UI.Screens.Settings
             }
         }
         
-        public void RequestSetSensitivityBySlider(float value)
+        public void RequestSetSensitivityPlayerBySlider(float value)
         {
             _hasChanges.Value = true;
-            _sensitivity.Value = value * _maxSensitivityOnSlider;
-            _sensitivity01.Value = value;
+            _sensitivityPlayer.Value = value * _maxSensitivityOnSlider;
+            _sensitivityPlayer01.Value = value;
         }
         
-        public void RequestSetSensitivityByInputField(string value)
+        public void RequestSetSensitivityPlayerByInputField(string value)
         {
             _hasChanges.Value = true;
             if (float.TryParse(value, out float v))
             {
                 v = Mathf.Clamp(v, 0f, _maxSensitivity);
-                _sensitivity.Value = v;
-                _sensitivity01.Value = v/_maxSensitivityOnSlider;
+                _sensitivityPlayer.Value = v;
+                _sensitivityPlayer01.Value = v/_maxSensitivityOnSlider;
+            }
+        }
+
+        public void RequestSetSensitivityCarBySlider(float value)
+        {
+            _hasChanges.Value = true;
+            _sensitivityCar.Value = value * _maxSensitivityOnSlider;
+            _sensitivityCar01.Value = value;
+        }
+        
+        public void RequestSetSensitivityCarByInputField(string value)
+        {
+            _hasChanges.Value = true;
+            if (float.TryParse(value, out float v))
+            {
+                v = Mathf.Clamp(v, 0f, _maxSensitivity);
+                _sensitivityCar.Value = v;
+                _sensitivityCar01.Value = v/_maxSensitivityOnSlider;
             }
         }
 
@@ -95,7 +119,8 @@ namespace UI.Screens.Settings
                 {
                     MasterVolume = _masterVolume.Value,
                     LanguageCode = _languageCode.Value,
-                    PlayerSensitivity = _sensitivity.Value
+                    PlayerSensitivity = _sensitivityPlayer.Value,
+                    CarSensitivity = _sensitivityCar.Value,
                 });
                 _hasChanges.Value = false;
             }
@@ -106,8 +131,10 @@ namespace UI.Screens.Settings
             _settingsService.ResetSettings();
             
             _masterVolume.Value = _settingsService.MasterVolume.CurrentValue;
-            _sensitivity.Value = _settingsService.Sensitivity.CurrentValue;
-            _sensitivity01.Value = _settingsService.Sensitivity.CurrentValue/_maxSensitivityOnSlider;
+            _sensitivityPlayer.Value = _settingsService.SensitivityPlayer.CurrentValue;
+            _sensitivityPlayer01.Value = _settingsService.SensitivityPlayer.CurrentValue/_maxSensitivityOnSlider;
+            _sensitivityCar.Value = _settingsService.SensitivityCar.CurrentValue;
+            _sensitivityCar01.Value = _settingsService.SensitivityCar.CurrentValue/_maxSensitivityOnSlider;
             _languageCode.Value = _settingsService.LanguageCode.CurrentValue;
             _hasChanges.Value = false;
         }
