@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Paws_Parcels.Car;
 using Paws_Parcels.Extentions;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
@@ -96,7 +97,7 @@ namespace Paws_Parcels.Scripts.Player
                     {
                         if (dis < minDistance)
                         {
-                            if (interactableObj is Item)
+                            if (interactableObj is Item or EnterDoor)
                             {
                                 if (_isHandsNull.CurrentValue)
                                 {
