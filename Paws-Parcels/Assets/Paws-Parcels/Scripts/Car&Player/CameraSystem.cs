@@ -34,8 +34,8 @@ namespace Paws_Parcels.Car
         [Min(0.0001f)]
         private float m_CameraFovSmoothTime = 1.0f;
         
-        [SerializeField]
-        private string m_CameraTrackingTargetName = "CameraTrackingTarget";
+        /*[SerializeField]
+        private string m_CameraTrackingTargetName = "CameraTrackingTarget";*/
 
         [SerializeField] private Logic.Car _currentCar;
         

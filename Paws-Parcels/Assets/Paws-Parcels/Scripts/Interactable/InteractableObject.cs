@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Quests;
 using R3;
 using Services;
@@ -11,16 +12,12 @@ namespace Paws_Parcels.Scripts.Player
     //коллайдер должен быть всегда в центре
     public abstract class InteractableObject : DestinationObject
     {
-        //TODO сделать проверку лучом от игрока до объекта
-        //[SerializeField] private bool _needCheckWithRay = false;
-
-        
-        
+        public abstract IReadOnlyList<string> ActivateLocations { get; }
         
         public ReadOnlyReactiveProperty<bool> CanInteract => _canInteract;
         private readonly ReactiveProperty<bool> _canInteract = new(false);
 
-        [Inject] private CanvasUiVisualizer _canvasUiVisualizer;
+        [Inject] protected CanvasUiVisualizer _canvasUiVisualizer;
 
         protected void Start()
         {

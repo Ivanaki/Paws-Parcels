@@ -14,5 +14,10 @@ namespace Paws_Parcels.Scripts.Player
         {
             _thirdPersonController.OnFootstep(animationEvent, (_leftFoot.position + _rightFoot.position)/2);
         }
+
+        public void OnLand(AnimationEvent animationEvent)
+        {
+            _thirdPersonController.OnLand(animationEvent);
+        }
     }
 }

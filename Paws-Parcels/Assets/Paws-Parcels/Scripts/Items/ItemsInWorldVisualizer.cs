@@ -4,7 +4,7 @@ using ObservableCollections;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
+using UnityEngine;
 using Zenject;
 
 namespace Items
@@ -60,6 +60,12 @@ namespace Items
 
         private void SpawnItem(ItemProxy itemProxy)
         {
+            if (_itemsTypeDict.ContainsKey(itemProxy.ItemTypeId) == false)
+            {
+                Debug.Log("Смотри ошибку выше в сообщениях");
+                return;
+            }
+            
             var spawned = _container.InstantiatePrefabForComponent<Item>(_itemsTypeDict[itemProxy.ItemTypeId]);
             
             spawned.ConstructItem(_applyInFixUpdate, itemProxy, this);

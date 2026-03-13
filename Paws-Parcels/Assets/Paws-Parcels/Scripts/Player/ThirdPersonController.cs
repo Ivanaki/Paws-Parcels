@@ -2,6 +2,7 @@ using System;
 using Paws_Parcels.Scripts.Saves.States;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
+using Services;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -32,7 +33,8 @@ namespace Paws_Parcels.Scripts.Player
 
         public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
-        [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+        [Range(0, 1)] public float FootstepAudioVolume = 1f;
+        [Range(0, 1)] public float LandAudioVolume = 1f;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -109,6 +111,8 @@ namespace Paws_Parcels.Scripts.Player
         private float _settingsSensivity = 1f;
 
         private ReadOnlyReactiveProperty<float> _masterVolume;
+
+        private PlayerService _playerService;
         
         /*private bool IsCurrentDeviceMouse
         {
@@ -119,9 +123,10 @@ namespace Paws_Parcels.Scripts.Player
         }*/
         
         [Inject]
-        private void Construct(SettingsStateProvider settingsStateProvider)
+        private void Construct(SettingsStateProvider settingsStateProvider, PlayerService playerService)
         {
             _masterVolume = settingsStateProvider.SettingsProxy.MasterVolume;
+            _playerService = playerService;
         }
 
         private void Awake()
@@ -133,6 +138,32 @@ namespace Paws_Parcels.Scripts.Player
 
             _cinemachineTargetPitch = CinemachineCameraTarget.transform.rotation.eulerAngles.x;
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
+
+            StopLookAt();
+        }
+
+        private CompositeDisposable _disposables;
+        
+        private void OnEnable()
+        {
+            _disposables = new();
+            _disposables.Add(_playerService.CanPlayerMouseAndInteract.Subscribe(value =>
+            {
+                if (value)
+                {
+                    StopLookAt();
+                }
+            }));
+            
+            _playerService.OnLookAt.AddListener(StartLookAt);
+            _playerService.OffLookAt.AddListener(StopLookAt);
+        }
+
+        private void OnDisable()
+        {
+            _playerService.OnLookAt.RemoveListener(StartLookAt);
+            _playerService.OffLookAt.RemoveListener(StopLookAt);
+            _disposables?.Dispose();
         }
 
         private void Start()
@@ -157,13 +188,61 @@ namespace Paws_Parcels.Scripts.Player
             JumpAndGravity();
             GroundedCheck();
             Move();
+
+            if (_playerService.CanPlayerMouseAndInteract.CurrentValue == false)
+            {
+                UpdateLookAt();
+            }
         }
 
         private void LateUpdate()
         {
             CameraRotation();
         }
+        
+        private Transform _lookTarget;
+        private float _lookSpeed;
+        private bool _isLookingAtTarget;
+        
+        public void StartLookAt(Transform target, float rotationSpeed)
+        {
+            if (target == null || _playerService.CanPlayerMouseAndInteract.CurrentValue)
+            {
+                StopLookAt();
+                return;
+            }
+            
+            _lookTarget = target;
+            _lookSpeed = rotationSpeed;
+            _isLookingAtTarget = true;
+        }
+        
+        public void StopLookAt()
+        {
+            _isLookingAtTarget = false;
+            _lookTarget = null;
+        }
+        
+        private void UpdateLookAt()
+        {
+            if (!_isLookingAtTarget || _lookTarget == null)
+                return;
 
+            Vector3 direction = _lookTarget.position - transform.position;
+            direction.y = 0f;
+
+            if (direction.sqrMagnitude < 0.001f)
+                return;
+
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                targetRotation,
+                _lookSpeed * Time.deltaTime
+            );
+        }
+        
         public void SetSensivity(float sensivity)
         {
             _settingsSensivity = sensivity;
@@ -221,13 +300,18 @@ namespace Paws_Parcels.Scripts.Player
                 //float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
                 float deltaTimeMultiplier = 1.0f;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * SensivityCoof * _settingsSensivity;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * SensivityCoof * _settingsSensivity;
+                if(_playerService.CanPlayerMouseAndInteract.CurrentValue)
+                {
+                    _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * SensivityCoof * _settingsSensivity;
+                    _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * SensivityCoof * _settingsSensivity;
+                }
             }
 
             _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
             _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
-
+            
+            //if(_playerService.CanPlayerMouseAndInteract.CurrentValue == false) return;
+            
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
         }
 
@@ -270,7 +354,10 @@ namespace Paws_Parcels.Scripts.Player
                         ref _rotationVelocity,
                         RotationSmoothTime);
 
-                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                    if (_playerService.CanPlayerMouseAndInteract.CurrentValue)
+                    {
+                        transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                    }
                 }
                 
                 if (_hasAnimator)
@@ -281,14 +368,16 @@ namespace Paws_Parcels.Scripts.Player
             }
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
-
+            
+            _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
+            if (_animationBlend < 0.01f) _animationBlend = 0f;
+            
+            if(_playerService.CanPlayerMove.CurrentValue == false) return;
+            
             //-------------------------------- игнорим ошибку с отключенным PlayerController
             if(_controller != null && _controller.enabled && gameObject.activeInHierarchy)
                 _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
                                  new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-            
-            _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
-            if (_animationBlend < 0.01f) _animationBlend = 0f;
         }
 
         private void JumpAndGravity()
@@ -381,12 +470,12 @@ namespace Paws_Parcels.Scripts.Player
             }
         }
 
-        private void OnLand(AnimationEvent animationEvent)
+        public void OnLand(AnimationEvent animationEvent)
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f && LandingAudioClip != null)
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center),
-                    FootstepAudioVolume * _masterVolume.CurrentValue);
+                    LandAudioVolume * _masterVolume.CurrentValue);
             }
         }
     }

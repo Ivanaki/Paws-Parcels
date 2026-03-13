@@ -129,6 +129,8 @@ namespace Paws_Parcels.Car.Logic
             {
                 m_Wheels[i].FixedUpdate();
             }
+            
+            UpdateAirControl();
         }
 
         private void UpdateSteerInput()
@@ -231,7 +233,36 @@ namespace Paws_Parcels.Car.Logic
             return m_Springs[wheel].GroundMaterial;
         }
         
+        private bool IsGrounded()
+        {
+            for (int i = 0; i < WheelIndex.Count; i++)
+            {
+                if (m_Springs[i].IsGrounded)
+                    return true;
+            }
 
+            return false;
+        }
+        
+        private void UpdateAirControl()
+        {
+            if (IsGrounded()) return;
+
+            float pitch = m_Input.Throttle; // W/S
+            float roll = -m_Input.Steer;    // A/D
+
+            Vector3 torque =
+                transform.right * pitch +
+                transform.forward * roll;
+
+            m_Rigidbody.AddTorque(
+                torque * m_Settings.AirRotationStrength,
+                ForceMode.Acceleration
+            );
+
+            // небольшое затухание вращения
+            m_Rigidbody.angularVelocity *= 1.0f - m_Settings.AirAngularDamping * Time.fixedDeltaTime;
+        }
 
 #if UNITY_EDITOR
         private void OnValidate()

@@ -65,7 +65,7 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<DestinationService>().AsSingle();
             Container.Bind<MessageToUserService>().AsSingle();
             Container.Bind<CursorService>().AsSingle();
-            Container.Bind<PlayerLocationService>().AsSingle();
+            Container.Bind<InteractablesLocationsService>().AsSingle();
             Container.Bind<MessageSystem>().AsSingle();
             
             Container.Bind<QuestsDatabase>().AsSingle();
@@ -77,13 +77,14 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<DropSettings>().AsSingle();
             Container.Bind<SitInCarService>().AsSingle();
             Container.Bind<DoorService>().AsSingle();
-            Container.Bind<PutInCarItemsService>().AsSingle();
             
             Container.Bind<LocalizationService>().AsSingle();
+            Container.Bind<PlayerService>().AsSingle();
             
             //в global bindings нет смысла биндить интерфейсы IDisposable
             Container.BindInterfacesAndSelfTo<ApplyInFixUpdate>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameInputService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PutInCarItemsService>().AsSingle();
             
             //Old bindings
             

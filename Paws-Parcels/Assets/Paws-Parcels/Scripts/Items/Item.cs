@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Items;
 using R3;
+using Services;
 using UnityEngine;
 
 namespace Paws_Parcels.Scripts.Player
@@ -17,18 +19,34 @@ namespace Paws_Parcels.Scripts.Player
     [RequireComponent(typeof(Rigidbody))]
     public class Item : InteractableObject
     {
+        private class ShowOnCanvasCircle : IShowableInUI
+        {
+            private readonly Transform _transformParent;
+
+            public ShowOnCanvasCircle(Transform transformParent)
+            {
+                _transformParent = transformParent;
+            }
+            public string UiShowTypeId => "circle";
+            public Vector3 GetGlobalPositionShowablePoint() => _transformParent.position;
+            public bool IsDestroyed() => _transformParent.gameObject == null;
+        }
+        
+        public bool IsItemInCarUp => _isItemInCarUp;
         public string ItemTypeId => _itemTypeId;
         public ItemLargeType ItemLargeType => _itemLargeType;
         public override string DestinationId => _destinationId;
         public override string UiShowTypeId => _uiShowTypeId;
         public override string UIShowTextCode => _uiShowTextCode;
+        
+        public override IReadOnlyList<string> ActivateLocations => _activeLocations;
 
         [Header("Item prefab settings")]
         [SerializeField] private string _itemTypeId;
-        [SerializeField] private string _uiShowTypeId;
+        [SerializeField] private string _uiShowTypeId = "interact";
         [SerializeField] private string _uiShowTextCode;
         [SerializeField] private ItemLargeType _itemLargeType;
-        
+        [SerializeField] private List<string> _activeLocations = new(){"None"};
         
         [Header("Item in scene changes")]
         [SerializeField] private string _destinationId;
@@ -38,6 +56,10 @@ namespace Paws_Parcels.Scripts.Player
         
         private bool _isInstantiated = false;
         private Rigidbody _rigidbody = null;
+
+        private bool _isItemInCarUp = false;
+        private HashSet<object> _highlightInitiators = new();
+        private ShowOnCanvasCircle _showOnCanvasCircle;
 
         private IDisposable _disposable;
         
@@ -68,6 +90,8 @@ namespace Paws_Parcels.Scripts.Player
         
         private void Awake()
         {
+            _showOnCanvasCircle = new ShowOnCanvasCircle(transform);
+            
             //если объект находится на сцене(не инициализировался) сразу, то убираем его
             if (_isInstantiated == false)
             {
@@ -86,17 +110,59 @@ namespace Paws_Parcels.Scripts.Player
                 _rigidbody = GetComponent<Rigidbody>();
             }
         }
+
         
+
         public override void Interact()
         {
             _itemsInWorldVisualizer.RequestPickUp(_itemProxy);
+        }
+
+        public void HighlightItem(object scriptToHighlight)
+        {
+            _highlightInitiators.Add(scriptToHighlight);
+            UpdateHighlight();
+        }
+
+        public void UnhighlightItem(object scriptToUnhighlight)
+        {
+            _highlightInitiators.Remove(scriptToUnhighlight);
+            UpdateHighlight();
+        }
+        
+        private void UpdateHighlight()
+        {
+            if (_highlightInitiators.Count > 0)
+            {
+                _canvasUiVisualizer.ShowOnCanvas(_showOnCanvasCircle);
+            }
+            else
+            {
+                _canvasUiVisualizer.HideOnCanvas(_showOnCanvasCircle);
+            }
         }
 
         private void OnDestroy()
         {
             _disposable?.Dispose();
         }
-        
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("CarUp"))
+            {
+                _isItemInCarUp = true;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("CarUp"))
+            {
+                _isItemInCarUp = false;
+            }
+        }
+
         public Vector3 GetLinearVelocity() => _rigidbody.linearVelocity;
         public Vector3 GetAngularVelocity() => _rigidbody.angularVelocity;
     }

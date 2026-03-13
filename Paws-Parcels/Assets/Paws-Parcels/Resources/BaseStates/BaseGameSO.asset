@@ -38,36 +38,6 @@ MonoBehaviour:
     ItemsInWorld:
     - ItemTypeId: cube
       DestinationId: 
-      Position: {x: -3.66, y: 0.89, z: 3.55}
-      Rotation: {x: 0, y: 0, z: 0, w: 1}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: cube
-      DestinationId: 
-      Position: {x: -5.67, y: 0.89, z: 6.47}
-      Rotation: {x: 0, y: 0, z: 0, w: 1}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: cube
-      DestinationId: 
-      Position: {x: -2.55, y: 0.89, z: 1.4}
-      Rotation: {x: 0, y: 0, z: 0, w: 1}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: cube
-      DestinationId: 
-      Position: {x: -1.64, y: 0.89, z: 3.13}
-      Rotation: {x: 0, y: 0, z: 0, w: 1}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: cube
-      DestinationId: 
-      Position: {x: -1.74, y: 1.83, z: 6.92}
-      Rotation: {x: 0, y: 0, z: 0, w: 1}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: cube
-      DestinationId: 
       Position: {x: -3.523, y: 4.046, z: -4.65}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       LinearVelocity: {x: 0, y: 0, z: 0}
@@ -75,6 +45,18 @@ MonoBehaviour:
     - ItemTypeId: cube
       DestinationId: 
       Position: {x: -2.807, y: 4.046, z: -3.518}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      DestinationId: 
+      Position: {x: 1.614, y: 0.28999996, z: -4.987}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      DestinationId: 
+      Position: {x: 1.248, y: 0.28999996, z: -5.459}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
@@ -90,10 +72,27 @@ MonoBehaviour:
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      DestinationId: 
+      Position: {x: 1.343, y: 0.747, z: -5.139}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: cube
+      DestinationId: 
+      Position: {x: 1.017, y: 0.29, z: -4.981}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: book
+      DestinationId: 
+      Position: {x: -0.5793065, y: 0.028518738, z: -1.6635349}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
     IsItemInHandsNull: 1
     InHandsItemTypeId: 
     InHandsMarkId: 
     ItemsInsideCar: []
-    ItemsUpCar: []
     IsPlayerInCar: 0
     IsCarDoorOpen: 0

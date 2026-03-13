@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Items
@@ -11,5 +12,19 @@ namespace Items
         [SerializeField] private string _itemTypeId;
         [SerializeField] private Vector3 _localPosition;
         [SerializeField] private Quaternion _localRotation;
+        
+        [Button]
+        public void TakeInfoFromTransform()
+        {
+            _localPosition = transform.localPosition;
+            _localRotation = transform.localRotation;
+        }
+
+        [Button]
+        public void ApplyInfo()
+        {
+            transform.localPosition = _localPosition;
+            transform.localRotation = _localRotation;
+        }
     }
 }

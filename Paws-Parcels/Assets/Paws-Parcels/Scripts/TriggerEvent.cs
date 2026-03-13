@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using NaughtyAttributes;
 using R3;
 using UnityEngine;
@@ -17,15 +15,15 @@ namespace Paws_Parcels.Scripts
         
         [ShowIf(nameof(_checkTag)), Tag]
         [SerializeField] private string _tag;
+
+        public Observable<Collider> OnTriggerEnterObservable => _onTriggerEnterSubject;
+        public Observable<Collider> OnTriggerExitObservable => _onTriggerExitSubject;
         
-        public Observable<GameObject> OnTriggerEnterObservable {get; private set;}
-        public Observable<GameObject> OnTriggerExitObservable {get; private set;}
+        private readonly Subject<Collider> _onTriggerEnterSubject = new();
+        private readonly Subject<Collider> _onTriggerExitSubject = new();
 
         protected virtual void Awake()
         {
-            OnTriggerEnterObservable = _onTriggerEnterUnityEvent.AsObservable();
-            OnTriggerExitObservable = _onTriggerExitUnityEvent.AsObservable();
-            
             GetComponent<Collider>().isTrigger = true;
         }
         
@@ -34,6 +32,7 @@ namespace Paws_Parcels.Scripts
             if (_checkTag == false || (_checkTag && CheckTags(other.tag)))
             {
                 _onTriggerEnterUnityEvent.Invoke(other.gameObject);
+                _onTriggerEnterSubject.OnNext(other);
             }
         }
 
@@ -42,6 +41,7 @@ namespace Paws_Parcels.Scripts
             if (_checkTag == false || (_checkTag && CheckTags(other.tag)))
             {
                 _onTriggerExitUnityEvent.Invoke(other.gameObject);
+                _onTriggerExitSubject.OnNext(other);
             }
         }
 

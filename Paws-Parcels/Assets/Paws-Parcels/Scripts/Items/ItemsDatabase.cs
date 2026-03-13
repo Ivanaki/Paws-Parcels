@@ -1,9 +1,5 @@
-using System;
 using System.Collections.Generic;
 using Paws_Parcels.Scripts.Player;
-using Paws_Parcels.Scripts.Quests;
-using Quests;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 namespace Items
@@ -12,9 +8,11 @@ namespace Items
     {
         public IReadOnlyDictionary<string, Item> ItemsTypeInWorldDict => _itemsTypeInWorldDict;
         public IReadOnlyDictionary<string, ItemInHands> ItemsTypeInHandsPrefabsDict => _itemsTypeInHandsPrefabsDict;
+        public IReadOnlyDictionary<string, ItemInsideCar> ItemsTypeInsideCarPrefabsDict => _itemsTypeInsideCarPrefabsDict;
         
         private readonly Dictionary<string, Item> _itemsTypeInWorldDict = new();
         private readonly Dictionary<string, ItemInHands> _itemsTypeInHandsPrefabsDict = new();
+        private readonly Dictionary<string, ItemInsideCar> _itemsTypeInsideCarPrefabsDict = new();
         
         public ItemsDatabase()
         {
@@ -36,7 +34,8 @@ namespace Items
 
                     if (item.gameObject.activeSelf)
                     {
-                        Debug.LogError(@$"item with type ""{item.ItemTypeId}"" is active in prefab. Set active to false.");
+                        Debug.LogError(@$"item with type ""{item.ItemTypeId}"" is active in prefab. Set active to false.
+                            Поставь false в Active на всех префабах в ItemsInWorld");
                         return;
                     }
 
@@ -72,6 +71,31 @@ namespace Items
                     }
 
                     var result = _itemsTypeInHandsPrefabsDict.TryAdd(item.ItemTypeId, item);
+                
+                    if (result == false)
+                    { 
+                        Debug.LogError("Same id in 2 items. Need fix it. This item dont added with id: " + item.ItemTypeId);
+                    }
+                }
+            }
+            
+            var itemsInsideCar = Resources.LoadAll<ItemInsideCar>("Items/ItemsInsideCar");
+            if(itemsInsideCar.Length > 0)
+            {
+                foreach (var item in itemsInsideCar)
+                {
+                    if (item == null)
+                    {
+                        continue;
+                    }
+                
+                    if (string.IsNullOrEmpty(item.ItemTypeId))
+                    {
+                        Debug.LogError($"item has empty ItemTypeId");
+                        continue;
+                    }
+
+                    var result = _itemsTypeInsideCarPrefabsDict.TryAdd(item.ItemTypeId, item);
                 
                     if (result == false)
                     { 

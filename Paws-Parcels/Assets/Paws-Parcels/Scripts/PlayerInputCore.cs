@@ -1,4 +1,5 @@
 using System;
+using Car_Player;
 using Items;
 using Paws_Parcels.Scripts.Car_Player;
 using Services;
@@ -13,7 +14,8 @@ namespace Paws_Parcels.Scripts
         private readonly SitInCarService _sitInCarService;
         private readonly InputSystem_Actions _inputSystem;
 
-        public PlayerInputCore(GameInputService gameInputService, ItemsSystem itemsSystem, SitInCarService sitInCarService)
+        public PlayerInputCore(GameInputService gameInputService, ItemsSystem itemsSystem, 
+            SitInCarService sitInCarService)
         {
             _inputSystem = gameInputService.InputSystem;
             _itemsSystem = itemsSystem;
@@ -24,6 +26,7 @@ namespace Paws_Parcels.Scripts
         {
             _inputSystem.PlayerNotMovement.Drop.performed += Drop;
             _inputSystem.CarNotMovement.Exit.performed += ExitCar;
+            
         }
         
         public void Dispose()

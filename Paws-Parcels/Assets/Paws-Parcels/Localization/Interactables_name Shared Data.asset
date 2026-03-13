@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: open_doors
     m_Metadata:
       m_Items: []
+  - m_Id: 241361264156672
+    m_Key: book
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

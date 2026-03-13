@@ -1,4 +1,5 @@
 using System;
+using Car_Player;
 using UI.Core;
 using UnityEngine.InputSystem;
 
@@ -8,12 +9,15 @@ namespace Services
     {
         private readonly GameInputService _gameInputService;
         private readonly CoreUIManager _coreUIManager;
-        
-        public CoreBackService(GameInputService gameInputService, CoreUIManager coreUIManager)
+        private readonly PutInCarItemsService _putInCarItemsService;
+
+        public CoreBackService(GameInputService gameInputService, CoreUIManager coreUIManager, 
+            PutInCarItemsService putInCarItemsService)
         {
             _gameInputService = gameInputService;
             _coreUIManager = coreUIManager;
-            
+            _putInCarItemsService = putInCarItemsService;
+
             gameInputService.InputSystem.UI.Back.performed += BackUI;
             gameInputService.InputSystem.Gameplay.OpenPause.performed += OpenPause;
             gameInputService.InputSystem.Gameplay.OpenQuests.performed += OpenQuests;
@@ -31,6 +35,9 @@ namespace Services
 
         private void OpenPause(InputAction.CallbackContext obj = new())
         {
+            var resultPut = _putInCarItemsService.TryCancel();
+            if(resultPut) return;
+            
             _coreUIManager.OpenScreenPause();
         }
 

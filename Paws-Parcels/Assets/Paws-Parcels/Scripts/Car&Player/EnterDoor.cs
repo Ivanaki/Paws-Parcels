@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Paws_Parcels.Scripts.Car_Player;
 using Paws_Parcels.Scripts.Player;
 using UnityEngine;
@@ -9,6 +10,9 @@ namespace Paws_Parcels.Car
     {
         private static readonly int Sit = Animator.StringToHash("Sit");
         [SerializeField] private Animator _doorAnimator;
+        
+        public override IReadOnlyList<string> ActivateLocations => _activeLocations;
+        [SerializeField] private List<string> _activeLocations = new(){"None"};
         
         [Inject] private SitInCarService _sitInCarService;
         

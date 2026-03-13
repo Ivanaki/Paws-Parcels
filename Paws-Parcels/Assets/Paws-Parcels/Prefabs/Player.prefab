@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 2120389658527026775}
   - component: {fileID: 4365107281831813469}
   - component: {fileID: 5653811496312906179}
+  - component: {fileID: 5985402351895529857}
   m_Layer: 10
   m_Name: PlayerArmature
   m_TagString: Player
@@ -365,7 +366,7 @@ MonoBehaviour:
   SprintSpeed: 5.335
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
-  LandingAudioClip: {fileID: 0}
+  LandingAudioClip: {fileID: 8300000, guid: e7c66f51025358c49acd06778301d9ac, type: 3}
   FootstepAudioClips:
   - {fileID: 8300000, guid: 4d11813f5983ce047873c94858e6a6c1, type: 3}
   - {fileID: 8300000, guid: 6154d2d90f91ac743a30a16a58f9fa32, type: 3}
@@ -389,6 +390,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a70895712392d4345be385abfae08f28, type: 3}
   - {fileID: 8300000, guid: b70d04f1f7e251b4f8629b271d71c623, type: 3}
   FootstepAudioVolume: 1
+  LandAudioVolume: 1
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.3
@@ -398,7 +400,7 @@ MonoBehaviour:
   GroundedRadius: 0.28
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 6145
+    m_Bits: 14401
   CinemachineCameraTarget: {fileID: 1873131021161298334}
   TopClamp: 70
   BottomClamp: -30
@@ -486,7 +488,7 @@ MonoBehaviour:
     m_Bits: 192
   _checkCanInteractLayerMask:
     serializedVersion: 2
-    m_Bits: 6391
+    m_Bits: 14583
   _interactCenterOfSphere: {fileID: 2654270352110724248}
 --- !u!114 &4365107281831813469
 MonoBehaviour:
@@ -517,6 +519,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemsInHandsVisualizer
   _inHandsPosTransform: {fileID: 7506749484165125710}
   _animator: {fileID: 8919566783491423571}
+--- !u!114 &5985402351895529857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168173317745742414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d64ae1c72be48828358cf6e9e131bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Car_Player.PlayerUpTeleporter
+  _rayLayerMask:
+    serializedVersion: 2
+    m_Bits: 14529
+  _maxDistanceRay: 5
 --- !u!1 &6776699614683619619
 GameObject:
   m_ObjectHideFlags: 0

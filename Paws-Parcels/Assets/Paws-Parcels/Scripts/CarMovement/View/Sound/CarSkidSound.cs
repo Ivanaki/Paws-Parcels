@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Paws_Parcels.Extentions;
+using Paws_Parcels.Scripts.Saves.States;
+using R3;
 using UnityEngine;
+using Zenject;
 
 namespace Paws_Parcels.Car.View.Sound
 {
-    public class CarSkidSound : MonoBehaviour
+    public class CarSkidSound : MonoDisposable
     {
         [Serializable]
         private class GroundSfxSettings
@@ -42,6 +46,26 @@ namespace Paws_Parcels.Car.View.Sound
         private PhysicsMaterial[] m_MaterialBuffer;
         private int[] m_MaterialCounts;
 
+        private ReadOnlyReactiveProperty<float> _masterVolume;
+        
+        [Inject]
+        private void Construct(SettingsStateProvider settingsStateProvider)
+        {
+            _masterVolume = settingsStateProvider.SettingsProxy.MasterVolume;
+        }
+
+        private float _last;
+        
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            _disposable.Add(_masterVolume.Subscribe(_ =>
+            {
+                m_AudioSource.volume = _last * _masterVolume.CurrentValue;
+            }));
+        }
+        
         private void Start()
         {
             if (!m_ViewState)
@@ -108,9 +132,12 @@ namespace Paws_Parcels.Car.View.Sound
                 m_SkidTimer = 0.0f;
             }
 
-            m_AudioSource.volume = Mathf.SmoothDamp(
-                m_AudioSource.volume, volumeTarget, ref m_VolumeDampVelocity, m_SmoothTime);
+            _last = Mathf.SmoothDamp(_last, volumeTarget, ref m_VolumeDampVelocity, m_SmoothTime);
+            
+            m_AudioSource.volume = _last * _masterVolume.CurrentValue;
 
+            
+            
             SetPlaying(m_AudioSource.volume > 0.0f);
         }
 

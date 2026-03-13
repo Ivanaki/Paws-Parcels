@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
+using Paws_Parcels.Extentions;
+using Paws_Parcels.Scripts.Saves.States;
+using R3;
 using UnityEngine;
+using Zenject;
 
 namespace Paws_Parcels.Car.View.Sound
 {
-    public class CarHitSound : MonoBehaviour
+    public class CarHitSound : MonoDisposable
     {
         [SerializeField]
         private AudioSource m_AudioSource;
@@ -28,6 +32,23 @@ namespace Paws_Parcels.Car.View.Sound
         [Range(0.0f, 1.0f)]
         private float m_BottomHitDotProductThreshold = 0.8f;
 
+        private ReadOnlyReactiveProperty<float> _masterVolume;
+        private float _hitVelocityNormalized;
+        
+        [Inject]
+        private void Construct(SettingsStateProvider settingsStateProvider)
+        {
+            _masterVolume = settingsStateProvider.SettingsProxy.MasterVolume;
+        }
+        
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            _disposable.Add(_masterVolume.Subscribe(_ =>
+                m_AudioSource.volume = _hitVelocityNormalized * _masterVolume.CurrentValue));
+        }
+
         private void OnCollisionEnter(Collision collision)
         {
             if (m_IgnoredObjects.Contains(collision.gameObject))
@@ -47,9 +68,11 @@ namespace Paws_Parcels.Car.View.Sound
                 if (!m_AudioSource.isPlaying)
                 {
                     float hitVelocityNormalized = collision.relativeVelocity.magnitude / m_MaxHitVelocity;
-                    m_AudioSource.volume = hitVelocityNormalized;
+                    m_AudioSource.volume = hitVelocityNormalized * _masterVolume.CurrentValue;
                     m_AudioSource.pitch = Mathf.Lerp(m_PitchMin, m_PitchMax, hitVelocityNormalized);
                     m_AudioSource.Play();
+                    
+                    _hitVelocityNormalized = hitVelocityNormalized;
                 }
             }
         }

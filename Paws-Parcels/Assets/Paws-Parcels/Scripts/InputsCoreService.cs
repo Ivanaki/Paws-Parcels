@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
 using Services;
@@ -15,11 +16,53 @@ namespace Paws_Parcels.Scripts
         private bool _stopAllUiActive = false;
         private bool _notDisableMovementUiActive = false;
         
+        //private readonly List<IPlayerStopper> _playerStoppersMovement = new();
+        //private readonly List<IPlayerStopper> _playerStoppersMouseAndInteract = new();
+        
         public InputsCoreService(GameStateProvider gameStateProvider, GameInputService gameInputService)
         {
             _isPlayerInCar = gameStateProvider.GameProxy.IsPlayerInCar;
             _inputSystem = gameInputService.InputSystem;
         }
+
+        /*public void StopPlayerMovement(IPlayerStopper playerStopper)
+        {
+            _playerStoppersMovement.Add(playerStopper);
+            UpdatePlayerStop();
+        }
+        
+        public void StopPlayerMouseAndInteract(IPlayerStopper playerStopper)
+        {
+            _playerStoppersMouseAndInteract.Add(playerStopper);
+            UpdatePlayerStop();
+        }
+
+        public void StartPlayerMovement(IPlayerStopper playerStopper)
+        {
+            _playerStoppersMovement.Remove(playerStopper);
+            UpdatePlayerStop();
+        }
+
+        public void StartPlayerMouseAndInteract(IPlayerStopper playerStopper)
+        {
+            _playerStoppersMouseAndInteract.Remove(playerStopper);
+            UpdatePlayerStop();
+        }
+
+        private void UpdatePlayerStop()
+        {
+            if (_playerStoppersMovement.Count == 0)
+                _inputSystem.Player.Enable();
+            if (_playerStoppersMouseAndInteract.Count == 0)
+                _inputSystem.PlayerNotMovement.Enable();
+            
+            UpdateInputs();
+            
+            if (_playerStoppersMovement.Count > 0)
+                _inputSystem.Player.Disable();
+            if (_playerStoppersMouseAndInteract.Count > 0)
+                _inputSystem.PlayerNotMovement.Disable();
+        }*/
         
         public void Initialize()
         {

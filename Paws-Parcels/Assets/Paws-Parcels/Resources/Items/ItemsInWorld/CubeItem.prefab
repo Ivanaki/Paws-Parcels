@@ -50,6 +50,9 @@ MonoBehaviour:
   _itemTypeId: cube
   _uiShowTypeId: interact
   _uiShowTextCode: cube
+  _itemLargeType: 0
+  _activeLocations:
+  - All
   _destinationId: 
 --- !u!54 &6619194477282213228
 Rigidbody:

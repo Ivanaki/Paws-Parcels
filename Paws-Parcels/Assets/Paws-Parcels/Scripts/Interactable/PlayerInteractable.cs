@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using Paws_Parcels.Extentions;
+using Paws_Parcels.Scripts.Saves.States.GameState;
+using R3;
 using Services;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,15 +19,18 @@ namespace Paws_Parcels.Scripts.Player
         [SerializeField] private Transform _interactCenterOfSphere;
 
         private InputSystem_Actions _inputSystem;
-
-        
+        private ReadOnlyReactiveProperty<bool> _isHandsNull;
+        private InteractablesLocationsService _interactablesLocationsService;
         
         private InteractableObject _minDistanceInteractableObject = null;
         
         [Inject]
-        private void Construct(GameInputService gameInputService)
+        private void Construct(GameInputService gameInputService, GameStateProvider gameStateProvider,
+            InteractablesLocationsService interactablesLocationsService)
         {
             _inputSystem = gameInputService.InputSystem;
+            _isHandsNull = gameStateProvider.GameProxy.IsItemInHandsNull;
+            _interactablesLocationsService = interactablesLocationsService;
         }
         
         private void OnEnable()
@@ -90,8 +96,19 @@ namespace Paws_Parcels.Scripts.Player
                     {
                         if (dis < minDistance)
                         {
-                            interactable = interactableObj;
-                            minDistance = dis;
+                            if (interactableObj is Item)
+                            {
+                                if (_isHandsNull.CurrentValue)
+                                {
+                                    interactable = interactableObj;
+                                    minDistance = dis;
+                                }
+                            }
+                            else
+                            {
+                                interactable = interactableObj;
+                                minDistance = dis;
+                            }
                         }
                     }
                 }
@@ -103,7 +120,7 @@ namespace Paws_Parcels.Scripts.Player
         private HashSet<InteractableObject> _lastInteractableObjects = new();
         private HashSet<InteractableObject> _newInteractableObjects = new();
         private readonly HashSet<InteractableObject> _temp = new();
-        private readonly Collider[] _hitCollidersHighlight = new Collider[20];
+        private readonly Collider[] _hitCollidersHighlight = new Collider[200];
         
         private void HighlightInteractables()
         {
@@ -114,7 +131,12 @@ namespace Paws_Parcels.Scripts.Player
             {
                 if(ColliderRedirector.TryGet(_hitCollidersHighlight[i].gameObject, out InteractableObject interactableObject))
                 {
-                    _newInteractableObjects.Add(interactableObject);
+                    if (interactableObject.ActivateLocations.Any(location =>
+                            _interactablesLocationsService.CurrentLocation == location 
+                            || location == "Any" || location == "All"))
+                    {
+                        _newInteractableObjects.Add(interactableObject);
+                    }
                 }
             }
             

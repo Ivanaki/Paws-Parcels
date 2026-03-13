@@ -79,8 +79,8 @@ namespace Paws_Parcels.Scripts.Player
 
 		public void OnJump(InputAction.CallbackContext obj)
 		{
-			//if(_canMoving)
-			//	JumpInput(value.isPressed);
+			if(_canMoving)
+				JumpInput(obj.ReadValueAsButton());
 		}
 
 		public void OnSprint(InputAction.CallbackContext obj)

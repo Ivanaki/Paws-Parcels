@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using Paws_Parcels.Extentions;
+using Paws_Parcels.Scripts.Saves.States;
+using R3;
+using UnityEngine;
+using Zenject;
 
 namespace Paws_Parcels.Car.View.Sound
 {
-    public class CarEngineSound : MonoBehaviour
+    public class CarEngineSound : MonoDisposable
     {
         [SerializeField]
         private AudioSource m_AudioSource;
@@ -46,7 +50,27 @@ namespace Paws_Parcels.Car.View.Sound
         private float m_VolumeDampVelocity;
         private float m_PitchDampVelocity;
         private float m_TopSpeedTimer;
+        
+        private ReadOnlyReactiveProperty<float> _masterVolume;
+        
+        [Inject]
+        private void Construct(SettingsStateProvider settingsStateProvider)
+        {
+            _masterVolume = settingsStateProvider.SettingsProxy.MasterVolume;
+        }
 
+        private float _last;
+        
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            _disposable.Add(_masterVolume.Subscribe(_ =>
+            {
+                m_AudioSource.volume = m_AudioSource.volume = _last * _masterVolume.CurrentValue;
+            }));
+        }
+        
         private void Start()
         {
             if (!m_ViewState)
@@ -80,7 +104,10 @@ namespace Paws_Parcels.Car.View.Sound
             targetVolume += Mathf.Abs(throttleInput) * m_ThrottleAddVolume;
             targetVolume += speedRatio * m_VelocityAddVolume;
             targetVolume = Mathf.Clamp01(targetVolume);
-            m_AudioSource.volume = Mathf.SmoothDamp(m_AudioSource.volume, targetVolume, ref m_VolumeDampVelocity, m_SmoothTime);
+
+            _last = Mathf.SmoothDamp(_last, targetVolume, ref m_VolumeDampVelocity, m_SmoothTime);
+            
+            m_AudioSource.volume = _last * _masterVolume.CurrentValue;
         }
 
         private void UpdatePitch()

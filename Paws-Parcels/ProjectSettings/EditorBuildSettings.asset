@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Paws-Parcels/Scenes/Core.unity
     guid: 929e00e4d24f2d34ca2244b657416f89
-  - enabled: 1
+  - enabled: 0
     path: Assets/MotorHome/Scenes/CoreOld.unity
     guid: 1ca404af4ebd8be479e41e292977ce54
   m_configObjects:

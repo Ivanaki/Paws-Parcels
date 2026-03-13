@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using Paws_Parcels.Extentions;
+using Paws_Parcels.Scripts.Saves.States;
+using R3;
+using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Paws_Parcels.Car.View.Sound
 {
-    public class CarTireHitSound : MonoBehaviour
+    public class CarTireHitSound : MonoDisposable
     {
         [SerializeField]
         private AudioSource m_AudioSource;
@@ -44,6 +48,26 @@ namespace Paws_Parcels.Car.View.Sound
         [SerializeField]
         private int m_WheelIndex;
 
+        private ReadOnlyReactiveProperty<float> _masterVolume;
+        
+        [Inject]
+        private void Construct(SettingsStateProvider settingsStateProvider)
+        {
+            _masterVolume = settingsStateProvider.SettingsProxy.MasterVolume;
+        }
+
+        private float _last;
+        
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            _disposable.Add(_masterVolume.Subscribe(_ =>
+            {
+                m_AudioSource.volume = _last * _masterVolume.CurrentValue;
+            }));
+        }
+        
         private void Start()
         {
             if (!m_ViewState)
@@ -65,7 +89,8 @@ namespace Paws_Parcels.Car.View.Sound
 
                 if (!m_AudioSource.isPlaying || m_AudioSource.time > m_MinReplayTime)
                 {
-                    m_AudioSource.volume = Mathf.Lerp(m_VolumeMin, m_VolumeMax, hitNormalized);
+                    _last = Mathf.Lerp(m_VolumeMin, m_VolumeMax, hitNormalized);
+                    m_AudioSource.volume = _last * _masterVolume.CurrentValue;
                     m_AudioSource.pitch = Random.Range(m_PitchMin, m_PitchMax);
                     m_AudioSource.Play();
                 }

@@ -117,6 +117,9 @@ namespace Paws_Parcels.Car.Logic
             }
 
             float slopeCompensationAccel = -Vector3.Dot(m_Right, Physics.gravity) * compensationMultiplier * GetGroundDynamicFriction() / WheelIndex.Count;
+            
+            //if (Mathf.Abs(slopeCompensationAccel) < m_Settings.OffsetSpring) slopeCompensationAccel = 0f;
+            
             m_CarRigidbody.AddForceAtPosition(m_Right * slopeCompensationAccel, GetForcePosition(m_Settings.GripForcesOffset), ForceMode.Acceleration);
         }
         
@@ -146,6 +149,8 @@ namespace Paws_Parcels.Car.Logic
             float velocityChange = -m_LateralVelocity * m_GripFactor * slopeModifier;
             float acceleration = velocityChange / WheelIndex.Count / Time.fixedDeltaTime;
 
+            //if (Mathf.Abs(acceleration) < m_Settings.OffsetSpring) acceleration = 0f;
+            
             m_CarRigidbody.AddForceAtPosition(m_Right * acceleration, GetForcePosition(m_Settings.GripForcesOffset), ForceMode.Acceleration);
         }
 
@@ -206,7 +211,7 @@ namespace Paws_Parcels.Car.Logic
 
         private void UpdateRollingResistance()
         {
-            const float EpsilonVelocity = 0.1f;
+            const float EpsilonVelocity = 0.001f;
             if (Mathf.Abs(m_LongitudinalVelocity) < EpsilonVelocity) return;
             
             Vector3 rollDirection = Mathf.Sign(m_LongitudinalVelocity) * m_Forward;

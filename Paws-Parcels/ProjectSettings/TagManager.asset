@@ -8,6 +8,8 @@ TagManager:
   - Car
   - Item
   - PlayerOutCarPosition
+  - CarUp
+  - PutObjectPlayerTeleportPoint
   layers:
   - Default
   - TransparentFX

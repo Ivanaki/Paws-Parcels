@@ -48,11 +48,12 @@ namespace Services
             _disposable.Add(interactableObject.CanInteract.Subscribe(v =>
             {
                 _handShowImage.gameObject.SetActive(v);
+                _tmpText.gameObject.SetActive(v);
             }));
             
             _disposable.Add(interactableObject.IsQuestActive.Subscribe(v =>
             {
-                RectTransform.sizeDelta = v ? new Vector2(68, 68) : new Vector2(40, 40);
+                RectTransform.sizeDelta = v ? new Vector2(68, 68) : new Vector2(25, 25);
             }));
         }
 

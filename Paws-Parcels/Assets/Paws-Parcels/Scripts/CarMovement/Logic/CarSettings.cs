@@ -4,6 +4,14 @@ namespace Paws_Parcels.Car.Logic
 {
     public class CarSettings : MonoBehaviour
     {
+        [Header("AIR CONTROL")]
+
+        [Tooltip("Torque strength for air rotation.")]
+        [Min(0.0f)] public float AirRotationStrength = 1f;
+
+        [Tooltip("Angular damping while airborne.")]
+        [Min(0.0f)] public float AirAngularDamping = 1.0f;
+        
         [Header("AXLES")]
         
         [Tooltip("(Z-axis): distance between front and rear axles.")]
@@ -37,8 +45,8 @@ namespace Paws_Parcels.Car.Logic
         [Tooltip("Damping strength. Controls oscillation and bounce.")]
         [Min(0.0f)] public float SpringDamperConstant = 100.0f;
         
-        [Tooltip("Погрешность velocity, с которой колесо не даёт никакой силы для движения вперёд")]
-        [Min(0.0f)] public float OffsetSpring = 0.1f;
+        /*[Tooltip("Погрешность velocity, с которой колесо не даёт никакой силы для движения вперёд")]
+        [Min(0.0f)] public float OffsetSpring = 0.1f;*/
         
         [Header("GROUNDING")]
         
