@@ -1,18 +1,21 @@
 using System;
 using Car_Player;
+using R3;
 using UI.Core;
 using UnityEngine.InputSystem;
 
 namespace Services
 {
-    public class CoreBackService : IDisposable
+    public class CoreUIController : IDisposable
     {
         private readonly GameInputService _gameInputService;
         private readonly CoreUIManager _coreUIManager;
         private readonly PutInCarItemsService _putInCarItemsService;
 
-        public CoreBackService(GameInputService gameInputService, CoreUIManager coreUIManager, 
-            PutInCarItemsService putInCarItemsService)
+        private CompositeDisposable _disposables = new();
+        
+        public CoreUIController(GameInputService gameInputService, CoreUIManager coreUIManager, 
+            PutInCarItemsService putInCarItemsService, ShowableInterfaceService showableInterfaceService)
         {
             _gameInputService = gameInputService;
             _coreUIManager = coreUIManager;
@@ -21,6 +24,10 @@ namespace Services
             gameInputService.InputSystem.UI.Back.performed += BackUI;
             gameInputService.InputSystem.Gameplay.OpenPause.performed += OpenPause;
             gameInputService.InputSystem.Gameplay.OpenQuests.performed += OpenQuests;
+
+            _disposables.Add(showableInterfaceService.CloseAllObservable.Subscribe(_ => _coreUIManager.CloseAll())); 
+            _disposables.Add(showableInterfaceService.BanOpenObservable.Subscribe(_ => _coreUIManager.BanOpen()));
+            _disposables.Add(showableInterfaceService.UnbanOpenObservable.Subscribe(_ => _coreUIManager.UnbanOpen()));
         }
         
         private void BackUI(InputAction.CallbackContext obj = new())
@@ -51,6 +58,7 @@ namespace Services
             _gameInputService.InputSystem.UI.Back.performed -= BackUI;
             _gameInputService.InputSystem.Gameplay.OpenPause.performed -= OpenPause;
             _gameInputService.InputSystem.Gameplay.OpenQuests.performed -= OpenQuests;
+            _disposables?.Dispose();
         }
     }
 }

@@ -28,7 +28,7 @@ MonoBehaviour:
     - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 594f2cf11d693bc49a45b0c3cd5f3e0d
-    m_Address: DIalogs_ru
+    m_Address: Dialogs_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru

@@ -27,9 +27,9 @@ namespace Paws_Parcels.Car
         [SerializeField] 
         private Vector3 m_CameraLargeCarOffset;
 
-        [SerializeField]
+        /*[SerializeField]
         [Range(0.0f, 180.0f)] 
-        private float m_CameraSwivelAngle = 90.0f;
+        private float m_CameraSwivelAngle = 90.0f;*/
 
         [SerializeField]
         [Range(0.0f, 120.0f)]

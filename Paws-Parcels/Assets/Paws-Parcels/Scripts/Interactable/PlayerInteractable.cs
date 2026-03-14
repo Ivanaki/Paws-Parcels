@@ -97,7 +97,7 @@ namespace Paws_Parcels.Scripts.Player
                     {
                         if (dis < minDistance)
                         {
-                            if (interactableObj is Item or EnterDoor)
+                            if (interactableObj.DontShowWithItemInHands)
                             {
                                 if (_isHandsNull.CurrentValue)
                                 {

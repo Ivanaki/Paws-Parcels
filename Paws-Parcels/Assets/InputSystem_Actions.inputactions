@@ -1399,6 +1399,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Cutscene",
+            "id": "2db89f61-352e-4048-9d22-6972be76f32e",
+            "actions": [
+                {
+                    "name": "Next",
+                    "type": "Button",
+                    "id": "182d40db-9787-4b84-9655-1e00d5b9bb38",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ccd4e579-658d-4a95-ad1f-747e53d7466f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

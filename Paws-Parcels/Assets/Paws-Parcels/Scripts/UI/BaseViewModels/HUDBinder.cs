@@ -9,6 +9,7 @@ namespace UI.HUD
     {
         //[SerializeField] private DestinationsOnCanvasShower _destinationsOnCanvasShower;
         [SerializeField] private GameObject _compassGameObject;
+        [SerializeField] private GameObject _parentAllHud;
         
         private readonly CompositeDisposable _disposables = new();
         
@@ -19,6 +20,11 @@ namespace UI.HUD
                 _compassGameObject.SetActive(active);
             }));
             
+            _disposables.Add(viewModel.ActiveHud.Subscribe(value =>
+            {
+                //спрятать весь hud
+                _parentAllHud.SetActive(value);
+            }));
             //_destinationsOnCanvasShower.Construct(viewModel.ObjectsToShow, viewModel.ObjectsPrefabsDict);
         }
 

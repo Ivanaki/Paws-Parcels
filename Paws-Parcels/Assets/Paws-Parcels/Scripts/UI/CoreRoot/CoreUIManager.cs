@@ -21,6 +21,8 @@ namespace UI.Core
         private readonly InputsCoreService _inputsCoreService;
         private readonly EditorDataService _editorDataService;
 
+        private bool _banOpen = false;
+        
         public CoreUIManager(UICoreRootViewModel coreRootViewModel, CoreSignals coreSignals, 
             SettingsService settingsService, LoadService loadService, CursorService cursorService,
             InputsCoreService inputsCoreService, EditorDataService editorDataService)
@@ -37,6 +39,8 @@ namespace UI.Core
         
         public void OpenScreenPause()
         {
+            if(_banOpen) return;
+            
             var viewModel = new ScreenPauseViewModel(this, _coreSignals.MainMenuSignal, _loadService);
             _coreRootViewModel.OpenScreen(viewModel);
             
@@ -47,6 +51,8 @@ namespace UI.Core
         
         public void OpenScreenQuests()
         {
+            if(_banOpen) return;
+            
             var viewModel = new ScreenQuestsViewModel(this);
             _coreRootViewModel.OpenScreen(viewModel);
             
@@ -57,6 +63,8 @@ namespace UI.Core
 
         public void CloseScreen()
         {
+            if(_banOpen) return;
+            
             _coreRootViewModel.CloseScreen();
             
             _cursorService.SetCursorStateLocked(true);
@@ -68,12 +76,16 @@ namespace UI.Core
 
         public void OpenPopupLoadMenu()
         {
+            if(_banOpen) return;
+            
             var viewModel = new PopupLoadMenuViewModel(_loadService);
             _coreRootViewModel.OpenPopup(viewModel);
         }
         
         public void OpenPopupSettings()
         {
+            if(_banOpen) return;
+            
             var viewModel = new PopupSettingsViewModel(_settingsService,
                 _editorDataService.EditorSettings.MaxSensitivity,
                 _editorDataService.EditorSettings.MaxSensitivityOnSlider);
@@ -83,6 +95,22 @@ namespace UI.Core
         public bool TryCloseLastPopup()
         {
             return _coreRootViewModel.TryCloseLastPopup();
+        }
+
+        public void CloseAll()
+        {
+            _coreRootViewModel.CloseAllPopups();
+            CloseScreen();
+        }
+
+        public void BanOpen()
+        {
+            _banOpen = true;
+        }
+
+        public void UnbanOpen()
+        {
+            _banOpen = false;
         }
     }
 }

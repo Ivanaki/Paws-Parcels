@@ -12,8 +12,8 @@ namespace Paws_Parcels.Scripts.Player
     [RequireComponent(typeof(ThirdPersonController))]
     [RequireComponent(typeof(PlayerInteractable))]
     public class PlayerApplySaves : MonoBehaviour
-    {
-        [SerializeField] private GameObject _modelToHide;
+    { 
+        //[SerializeField] private GameObject _modelToHide;
         
         private GameStateProvider _gameStateProvider;
         private ApplyInFixUpdate _applyInFixUpdate;
@@ -21,7 +21,7 @@ namespace Paws_Parcels.Scripts.Player
         
         private ThirdPersonController _thirdPersonController;
         private CharacterController _characterController;
-        private PlayerInteractable _playerInteractable;
+        //private PlayerInteractable _playerInteractable;
         
         private CompositeDisposable _disposable;
         private Transform _spawnPositionOutCar;
@@ -39,7 +39,7 @@ namespace Paws_Parcels.Scripts.Player
         {
             _characterController = GetComponent<CharacterController>();
             _thirdPersonController = GetComponent<ThirdPersonController>();
-            _playerInteractable = GetComponent<PlayerInteractable>();
+            //_playerInteractable = GetComponent<PlayerInteractable>();
             GetSpawnPosition();
         }
 
@@ -79,10 +79,10 @@ namespace Paws_Parcels.Scripts.Player
             
             _disposable.Add(_gameStateProvider.GameProxy.IsPlayerInCar.Subscribe(value =>
             {
-                _thirdPersonController.enabled = !value;
+                /*_thirdPersonController.enabled = !value;
                 _characterController.enabled = !value;
                 _playerInteractable.enabled = !value;
-                _modelToHide.SetActive(!value);
+                _modelToHide.SetActive(!value);*/
                 if (value == false)
                 {
                     GetSpawnPosition();

@@ -19,19 +19,21 @@ namespace MotorHome.Scripts.Installers
             //Container.Bind<PlayerEmpty>().FromInstance(_playerEmpty).AsSingle();
             
             Container.Bind<CoreSignals>().AsSingle();
-            Container.Bind<HUDService>().AsSingle();
+            //Container.Bind<HUDService>().AsSingle();
             
             //UIViewModels: (по идее должно быть в отдельном контейнере, но в зенжекте такого нет)
             Container.Bind<CoreUIManager>().AsSingle();
             Container.Bind<UICoreRootViewModel>().AsSingle();
             
             //инпут с клавиатуры и мышки, можно считать это тоже ViewModelsContainer
-            Container.BindInterfacesTo<CoreBackService>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<PlayerInputCore>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CoreUIController>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<PlayerInputCore>().AsSingle().NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<InputsCoreService>().AsSingle().NonLazy();
             
             //визуализация предметов в мире
             Container.BindInterfacesAndSelfTo<ItemsInWorldVisualizer>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<InputsCoreService>().AsSingle().NonLazy();
+            
         }
     }
 }

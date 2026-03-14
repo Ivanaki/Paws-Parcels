@@ -61,9 +61,9 @@ namespace Paws_Parcels.Scripts.Quests
     [Serializable]
     public class DestinationParent
     {
-        public bool SpecificDistance;
-        [ShowIf(nameof(SpecificDistance)), AllowNesting]
-        public float DestinationShowDistance = 5f;
+        //public bool SpecificDistance;
+        //[ShowIf(nameof(SpecificDistance)), AllowNesting]
+        //public float DestinationShowDistance = 5f;
         
         public bool IsMany;
         [HideIf(nameof(IsMany)), AllowNesting]

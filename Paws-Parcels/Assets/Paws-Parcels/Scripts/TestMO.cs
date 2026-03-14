@@ -20,6 +20,9 @@ namespace Paws_Parcels.Scripts
         [Inject] private QuestsService _questsService;
         [Inject] private GameStateProvider _gameStateProvider;
         [Inject] private SettingsStateProvider _settingsStateProvider;
+        [Inject] private CutsceneService _cutsceneService;
+        [Inject] private LocalizationService _localizationService;
+        
         
         public void Send(string message)
         {
@@ -28,6 +31,10 @@ namespace Paws_Parcels.Scripts
         
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                _cutsceneService.StartCutScene("test");
+            }
             if (Input.GetKeyDown(KeyCode.O))
             {
                 _messageSystem.SendCompositeMessage(this, "On");
@@ -52,6 +59,8 @@ namespace Paws_Parcels.Scripts
         
         private void Start()
         {
+            var t = _localizationService.GetCurrentLanguageStringOrDefault("test", Tables.Dialogs);
+            
             gameState = _gameStateProvider.GameProxy.Origin;
             settingsState = _settingsStateProvider.SettingsProxy.SettingsState;
             

@@ -12,6 +12,7 @@ using SaveLaod;
 using Saves;
 using Services;
 using UI;
+using UI.HUD;
 using UI.Screens.Settings;
 using UnityEngine;
 using Zenject;
@@ -80,6 +81,10 @@ namespace MotorHome.Scripts.Installers
             
             Container.Bind<LocalizationService>().AsSingle();
             Container.Bind<PlayerService>().AsSingle();
+            Container.Bind<CutsceneService>().AsSingle();
+            Container.Bind<PlayerShowableService>().AsSingle();
+            Container.Bind<ShowableInterfaceService>().AsSingle();
+            Container.Bind<HUDService>().AsSingle();
             
             //в global bindings нет смысла биндить интерфейсы IDisposable
             Container.BindInterfacesAndSelfTo<ApplyInFixUpdate>().AsSingle();

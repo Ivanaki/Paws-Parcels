@@ -38,7 +38,8 @@ namespace Paws_Parcels.Scripts.Player
         public override string DestinationId => _destinationId;
         public override string UiShowTypeId => _uiShowTypeId;
         public override string UIShowTextCode => _uiShowTextCode;
-        
+        public override bool DontShowWithItemInHands => _dontShowWithItemInHands;
+
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
 
         [Header("Item prefab settings")]
@@ -47,6 +48,7 @@ namespace Paws_Parcels.Scripts.Player
         [SerializeField] private string _uiShowTextCode;
         [SerializeField] private ItemLargeType _itemLargeType;
         [SerializeField] private List<string> _activeLocations = new(){"None"};
+        [SerializeField] private bool _dontShowWithItemInHands = true;
         
         [Header("Item in scene changes")]
         [SerializeField] private string _destinationId;

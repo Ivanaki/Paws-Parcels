@@ -11,10 +11,11 @@ namespace UI.Core
         public readonly MessageViewModel MessageViewModel;
         
         //сюда кидаем сервисы и создаем ViewModels с этими сервисами
-        public UICoreRootViewModel(HUDService hudService, MessageToUserService messageToUserService/*, 
+        public UICoreRootViewModel(HUDService hudService, MessageToUserService messageToUserService,
+            ShowableInterfaceService showableInterfaceService/*, 
             CanvasUiVisualizer canvasUiVisualizer, UiObjectsDatabase uiObjectsDatabase*/)
         {
-            HudViewModel = new HUDViewModel(hudService/*, canvasUiVisualizer.ObjectsToShow, uiObjectsDatabase.ObjectsPrefabsDict*/);
+            HudViewModel = new HUDViewModel(hudService, showableInterfaceService/*, canvasUiVisualizer.ObjectsToShow, uiObjectsDatabase.ObjectsPrefabsDict*/);
             MessageViewModel = new MessageViewModel(messageToUserService);
         }
     }

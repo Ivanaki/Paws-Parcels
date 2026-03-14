@@ -21,8 +21,6 @@ MonoBehaviour:
   - Id: f1
     HasDestination: 1
     DestinationParent:
-      SpecificDistance: 0
-      DestinationShowDistance: 0
       IsMany: 1
       Destination:
         Id: i1
@@ -31,21 +29,25 @@ MonoBehaviour:
         OnHighlightMessage: On
       ManyDestinations:
         Destinations:
-        - Id: 1
+        - Id: b1
           NotHighlightOnAwake: 0
-          OffHighlightMessage: Off1
-          OnHighlightMessage: On1
-        - Id: 2
+          OffHighlightMessage: take:b3/take:b2
+          OnHighlightMessage: drop
+        - Id: b2
           NotHighlightOnAwake: 0
-          OffHighlightMessage: Off2
-          OnHighlightMessage: On2
-        - Id: 3
+          OffHighlightMessage: take:b1/take:b3
+          OnHighlightMessage: drop
+        - Id: b3
           NotHighlightOnAwake: 0
-          OffHighlightMessage: Off3
-          OnHighlightMessage: On3
+          OffHighlightMessage: take:b1/take:b2
+          OnHighlightMessage: drop
+        - Id: end
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: drop
+          OnHighlightMessage: take:b1/take:b2/take:b3
     IsMany: 0
     Message:
-      Message: f1/1/2/3/4/5
+      Message: 3_boxes_on_pos
       HasCount: 1
       MessageCount: 5
       MinusMessage: A
@@ -54,8 +56,6 @@ MonoBehaviour:
   - Id: f2
     HasDestination: 1
     DestinationParent:
-      SpecificDistance: 1
-      DestinationShowDistance: -0.27
       IsMany: 0
       Destination:
         Id: i2
@@ -75,8 +75,6 @@ MonoBehaviour:
   - Id: f3
     HasDestination: 1
     DestinationParent:
-      SpecificDistance: 0
-      DestinationShowDistance: 0
       IsMany: 0
       Destination:
         Id: i3

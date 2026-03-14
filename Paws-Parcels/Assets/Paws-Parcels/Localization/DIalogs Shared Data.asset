@@ -10,11 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: DIalogs Shared Data
+  m_Name: Dialogs Shared Data
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
-  m_TableCollectionName: DIalogs
+  m_TableCollectionName: Dialogs
   m_TableCollectionNameGuidString: 0f9ed7c1f399e274484a643eff0f3897
-  m_Entries: []
+  m_Entries:
+  - m_Id: 12790884226146304
+    m_Key: test
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
