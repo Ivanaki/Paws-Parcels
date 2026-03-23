@@ -25,32 +25,9 @@ namespace Paws_Parcels.NPCDialogs
         [SerializeField] private string _npcNameCode;
         [SerializeField] DialogueReference _dialogue = new();
         
-        private bool _isPlayerNear = false;
-        
         public override void Interact()
         {
             
         }
-
-        public override void Highlight()
-        {
-            base.Highlight();
-            _isPlayerNear = true;
-        }
-
-        public override void Unhighlight()
-        {
-            base.Unhighlight();
-            _isPlayerNear = false;
-        }
-
-        private void Update()
-        {
-            if (_isPlayerNear)
-            {
-                
-            }
-        }
-        
     }
 }
