@@ -27,6 +27,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 235b31d768035274f8271d8173887d8d
+    m_Address: npc_names_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d63d0d3662554b629cf55157b3d1e05
+    m_Address: VoiceoverSample_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc904b2ab92127749ac7da6e2b7f5885
     m_Address: Menu_en
     m_ReadOnly: 1

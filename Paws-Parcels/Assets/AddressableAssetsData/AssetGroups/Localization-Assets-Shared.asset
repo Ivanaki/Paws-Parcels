@@ -25,8 +25,20 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64bbf71c048364f9e8706925bb5ae463
+    m_Address: Assets/Samples/Yarn Spinner Samples/3.1.0/Voiceover and Localisation/Localization
+      Tables/VoiceoverSampleAssets Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a3a0b308f134024b83b17f2a06a10cc
     m_Address: Assets/Paws-Parcels/Localization/Quests Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e286ec56529f405ebb1933199177e8e
+    m_Address: Assets/Samples/Yarn Spinner Samples/3.1.0/Voiceover and Localisation/Localization
+      Tables/VoiceoverSample Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -37,6 +49,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0c8d4a422875134499799e74183ab89
     m_Address: Assets/Paws-Parcels/Localization/Locations Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f74e6d99987ce064bb0e9cd5f575425f
+    m_Address: Assets/Paws-Parcels/Localization/npc_names Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

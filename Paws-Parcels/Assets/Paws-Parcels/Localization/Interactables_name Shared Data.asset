@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: book
     m_Metadata:
       m_Items: []
+  - m_Id: 4234015421341696
+    m_Key: ted
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

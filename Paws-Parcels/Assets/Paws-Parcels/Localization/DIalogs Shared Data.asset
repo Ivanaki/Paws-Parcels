@@ -15,10 +15,61 @@ MonoBehaviour:
   m_TableCollectionName: Dialogs
   m_TableCollectionNameGuidString: 0f9ed7c1f399e274484a643eff0f3897
   m_Entries:
-  - m_Id: 12790884226146304
-    m_Key: test
+  - m_Id: 12822695597678592
+    m_Key: line:0fbbe62
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 8918302973206987034
+  - m_Id: 12832438827458560
+    m_Key: line:0d5449e
+    m_Metadata:
+      m_Items:
+      - rid: 8918302973206987058
+  - m_Id: 12832438861012992
+    m_Key: line:01a2cdf
+    m_Metadata:
+      m_Items:
+      - rid: 8918302973206987059
+  - m_Id: 12832438861012993
+    m_Key: line:087d94c
+    m_Metadata:
+      m_Items:
+      - rid: 8918302973206987060
+  - m_Id: 12832438861012994
+    m_Key: line:08ba09e
+    m_Metadata:
+      m_Items:
+      - rid: 8918302973206987061
+  - m_Id: 12832438861012995
+    m_Key: line:05f4d3e
+    m_Metadata:
+      m_Items:
+      - rid: 8918302973206987062
+  - m_Id: 12832438861012996
+    m_Key: line:086a8aa
+    m_Metadata:
+      m_Items:
+      - rid: 8918302973206987063
+  - m_Id: 12832438861012997
+    m_Key: line:0e18a0e
+    m_Metadata:
+      m_Items:
+      - rid: 8918302973206987064
+  - m_Id: 12832438861012998
+    m_Key: line:001950a
+    m_Metadata:
+      m_Items:
+      - rid: 8918302973206987065
+  - m_Id: 15954733523640320
+    m_Key: line:d4d905d5
+    m_Metadata:
+      m_Items:
+      - rid: 8918303168709787762
+  - m_Id: 15954881121198080
+    m_Key: line:1f1ef2e6
+    m_Metadata:
+      m_Items:
+      - rid: 8918303168709787763
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -30,3 +81,59 @@ MonoBehaviour:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1770452196476
+    - rid: 8918302973206987034
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Hello
+        tags: []
+    - rid: 8918302973206987058
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Start
+        tags: []
+    - rid: 8918302973206987059
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Start
+        tags:
+        - lastline
+    - rid: 8918302973206987060
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Start
+        tags: []
+    - rid: 8918302973206987061
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Start
+        tags: []
+    - rid: 8918302973206987062
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Start
+        tags: []
+    - rid: 8918302973206987063
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Start
+        tags: []
+    - rid: 8918302973206987064
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Start
+        tags: []
+    - rid: 8918302973206987065
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Start
+        tags: []
+    - rid: 8918303168709787762
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Ted
+        tags: []
+    - rid: 8918303168709787763
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: TedNone
+        tags: []

@@ -1,35 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 namespace DefaultNamespace
 {
     public class Test : MonoBehaviour
     {
-        [SerializeField] private Vector3 _force;
-        [SerializeField, Range(0.1f, 3f)] private float _time;
+        [SerializeField] private string _s;
         
         
-        
-        
-        private void Start()
+        private void Update()
         {
-            StartCoroutine(F());
-
-        }
-
-        private IEnumerator F()
-        {
-            while (true)
+            if (Input.GetKeyDown(KeyCode.K))
             {
-                yield return new WaitForSeconds(_time);
-                Inpuls();
+                GetComponent<DialogueRunner>().StartDialogue(_s);
             }
-        }
-        
-        private void Inpuls()
-        {
-            GetComponent<Rigidbody>().AddForce(_force, ForceMode.VelocityChange);
         }
     }
 }

@@ -46,6 +46,10 @@ MonoBehaviour:
     m_Localized: Book
     m_Metadata:
       m_Items: []
+  - m_Id: 4234015421341696
+    m_Localized: Talk to Ted
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
