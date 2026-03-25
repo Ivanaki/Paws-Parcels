@@ -9,9 +9,9 @@ namespace Paws_Parcels.Scripts
 {
     public class InputsCoreService : IInitializable, IDisposable
     {
+        private readonly GameInputService _gameInputService;
         private ReadOnlyReactiveProperty<bool> _isPlayerInCar { get; }
         private InputSystem_Actions _inputSystem { get; }
-        private ReadOnlyReactiveProperty<bool> _cutscenePlaying { get; }
 
         private CompositeDisposable _disposable = new();
         private bool _stopAllUiActive = false;
@@ -19,15 +19,17 @@ namespace Paws_Parcels.Scripts
 
         public InputsCoreService(GameStateProvider gameStateProvider, GameInputService gameInputService)
         {
+            _gameInputService = gameInputService;
             _isPlayerInCar = gameStateProvider.GameProxy.IsPlayerInCar;
             _inputSystem = gameInputService.InputSystem;
-            _cutscenePlaying = gameInputService.CutscenePlaying;
         }
 
         public void Initialize()
         {
             _disposable.Add(_isPlayerInCar.Subscribe(_ => UpdateInputs()));
-            _disposable.Add(_cutscenePlaying.Subscribe(_ => UpdateInputs()));
+            _disposable.Add(_gameInputService.CutsceneInput.Subscribe(_ => UpdateInputs()));
+            _disposable.Add(_gameInputService.DialogueInput.Subscribe(_ => UpdateInputs()));
+            _disposable.Add(_gameInputService.AllGameplayInput.Subscribe(_ => UpdateInputs()));
             UpdateInputs();
         }
 
@@ -62,10 +64,18 @@ namespace Paws_Parcels.Scripts
 
         private void UpdateInputs()
         {
-            if (_cutscenePlaying.CurrentValue)
-            {
+            if (_gameInputService.CutsceneInput.CurrentValue)
                 _inputSystem.Cutscene.Enable();
-                
+            else
+                _inputSystem.Cutscene.Disable();
+            
+            /*if (_gameInputService.DialogueInput.CurrentValue)
+                _inputSystem.Cutscene.Enable();
+            else
+                _inputSystem.Cutscene.Disable();*/
+            
+            if (_gameInputService.AllGameplayInput.CurrentValue == false)
+            {
                 _inputSystem.UI.Disable();
                 _inputSystem.Gameplay.Disable();
                 _inputSystem.CarNotMovement.Disable();

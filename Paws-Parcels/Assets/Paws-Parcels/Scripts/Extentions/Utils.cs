@@ -11,5 +11,18 @@ namespace Paws_Parcels.Scripts
             tex.Apply();
             return tex;
         }
+        
+        public static float VectorToGlobalYRotation(Vector3 direction)
+        {
+            direction.y = 0f;
+
+            if (direction.sqrMagnitude < 0.0001f)
+                return 0f;
+
+            direction.Normalize();
+            float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+
+            return angle;
+        }
     }
 }

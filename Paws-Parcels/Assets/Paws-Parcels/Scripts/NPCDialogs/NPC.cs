@@ -1,10 +1,15 @@
 using System;
 using System.Collections.Generic;
+using DefaultNamespace;
+using DG.Tweening;
 using Extentions;
+using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Player;
 using R3;
+using Unity.Cinemachine;
 using UnityEngine;
 using Yarn.Unity;
+using Zenject;
 
 namespace Paws_Parcels.NPCDialogs
 {
@@ -23,11 +28,59 @@ namespace Paws_Parcels.NPCDialogs
         
         [Header("NPC Settings")]
         [SerializeField] private string _npcNameCode;
-        [SerializeField] DialogueReference _dialogue = new();
+        [SerializeField] DialogueReference _dialogueReference = new();
+        [SerializeField] private NpcHeadLookAt _npcHeadLookAt;
+        [SerializeField] private CinemachineCamera _cinemachineCamera;
+        //[SerializeField] private float _yRotWhenDialog;
+        [SerializeField] private float _rotationDuration = 1f;
+        //[SerializeField] private float _playerRotationSpeed = 100f;
+        [SerializeField] private Transform _npcTransform;
+        
+        
+
+        [Inject] private DialogueService _dialogueService;
+        
+        private CompositeDisposable _disposables;
+
+        private float _baseYRot;
+        private Tween _rotateTween;
+        //private bool _isCurrentNPCDialogRunning = false;
+
+        private void Awake()
+        {
+            _baseYRot = _npcTransform.eulerAngles.y;
+            _cinemachineCamera.Priority.Enabled = true;
+        }
         
         public override void Interact()
         {
-            
+            _dialogueService.TryStartDialogue(_dialogueReference, _npcNameCode, _npcTransform, _rotationDuration);
         }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            
+            _disposables = new();
+            
+            _disposables.Add(_dialogueService.IsDialogRunning.Subscribe(isRunning =>
+            {
+                if (isRunning && _dialogueService.CurrentNpcDialog == _npcNameCode)
+                {
+                    _rotateTween?.Kill();
+                    var yRot = Utils.VectorToGlobalYRotation(_npcHeadLookAt.Target - _npcHeadLookAt.Origin);
+                    _rotateTween = _npcTransform.DORotate(new Vector3(0, yRot, 0), _rotationDuration);
+                    _cinemachineCamera.Priority.Value = 100;
+                }
+                else
+                {
+                    _rotateTween?.Kill();
+                    _rotateTween = _npcTransform.DORotate(new Vector3(0, _baseYRot, 0), _rotationDuration);
+                    _cinemachineCamera.Priority.Value = -100;
+                }
+            }));
+        }
+        
+        
     }
 }

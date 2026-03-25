@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using Paws_Parcels.Scripts.Saves.States;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
@@ -157,12 +158,14 @@ namespace Paws_Parcels.Scripts.Player
             
             _playerService.OnLookAt.AddListener(StartLookAt);
             _playerService.OffLookAt.AddListener(StopLookAt);
+            _playerService.OnFixedTimeRotate.AddListener(FixedRotate);
         }
 
         private void OnDisable()
         {
             _playerService.OnLookAt.RemoveListener(StartLookAt);
             _playerService.OffLookAt.RemoveListener(StopLookAt);
+            _playerService.OnFixedTimeRotate.RemoveListener(FixedRotate);
             _disposables?.Dispose();
         }
 
@@ -203,6 +206,12 @@ namespace Paws_Parcels.Scripts.Player
         private Transform _lookTarget;
         private float _lookSpeed;
         private bool _isLookingAtTarget;
+
+        private void FixedRotate(Transform target, float duration)
+        {
+            var yRot = Utils.VectorToGlobalYRotation(target.position - transform.position);
+            transform.DORotate(new Vector3(0, yRot, 0), duration);
+        }
         
         public void StartLookAt(Transform target, float rotationSpeed)
         {

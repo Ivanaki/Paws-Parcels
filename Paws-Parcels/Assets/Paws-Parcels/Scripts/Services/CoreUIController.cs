@@ -28,6 +28,7 @@ namespace Services
             _disposables.Add(showableInterfaceService.CloseAllObservable.Subscribe(_ => _coreUIManager.CloseAll())); 
             _disposables.Add(showableInterfaceService.BanOpenObservable.Subscribe(_ => _coreUIManager.BanOpen()));
             _disposables.Add(showableInterfaceService.UnbanOpenObservable.Subscribe(_ => _coreUIManager.UnbanOpen()));
+            _disposables.Add(showableInterfaceService.OpenDialogObservable.Subscribe(_ => _coreUIManager.OpenScreenDialog()));
         }
         
         private void BackUI(InputAction.CallbackContext obj = new())
@@ -36,7 +37,7 @@ namespace Services
 
             if (result == false)
             {
-                _coreUIManager.CloseScreen();
+                _coreUIManager.TryCloseScreen();
             }
         }
 

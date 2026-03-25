@@ -1,0 +1,144 @@
+using System;
+using NPCDialogs;
+using ObservableCollections;
+using Paws_Parcels.Scripts.Saves.States.GameResources;
+using R3;
+using Services;
+using UnityEngine;
+using Yarn.Unity;
+
+namespace Paws_Parcels.NPCDialogs
+{
+    public class DialogueService
+    {
+        private readonly ShowableInterfaceService _showableInterfaceService;
+        private readonly PlayerService _playerService;
+        private readonly GameInputService _gameInputService;
+        
+        private readonly IReadOnlyObservableDictionary<string, Action<DialogueRunner>> _commandsRegistrations;
+        private readonly IReadOnlyObservableDictionary<string, Action<DialogueRunner>> _functionsRegistrations;
+
+        public ReadOnlyReactiveProperty<bool> IsDialogRunning => _isDialogRunning;
+        public string CurrentNpcDialog => _currentNpcDialog;
+
+        private ReactiveProperty<bool> _isDialogRunning = new(false);
+        private string _currentNpcDialog;
+        private DialogueRunner _currentRunner = null;
+
+        public DialogueService(ShowableInterfaceService showableInterfaceService, PlayerService playerService,
+            GameInputService gameInputService, DialogueRegistrations dialogueRegistrations)
+        {
+            _showableInterfaceService = showableInterfaceService;
+            _playerService = playerService;
+            _gameInputService = gameInputService;
+            
+            _commandsRegistrations = dialogueRegistrations.CommandsRegistrations;
+            _functionsRegistrations = dialogueRegistrations.FunctionsRegistrations;
+
+            _commandsRegistrations.ObserveAdd().Subscribe(e =>
+            {
+                if (_currentRunner != null)
+                {
+                    var action = e.Value.Value;
+                    action(_currentRunner);
+                }
+            });
+            
+            _commandsRegistrations.ObserveRemove().Subscribe(e =>
+            {
+                if (_currentRunner != null)
+                {
+                    _currentRunner.RemoveCommandHandler(e.Value.Key);
+                }
+            });
+            
+            
+            _functionsRegistrations.ObserveAdd().Subscribe(e =>
+            {
+                if (_currentRunner != null)
+                {
+                    var action = e.Value.Value;
+                    action(_currentRunner);
+                }
+            });
+            
+            _functionsRegistrations.ObserveRemove().Subscribe(e =>
+            {
+                if (_currentRunner != null)
+                {
+                    _currentRunner.RemoveFunction(e.Value.Key);
+                }
+            });
+        }
+        
+        public bool TryStartDialogue(DialogueReference dialogueReference, string npcNameCode, Transform npc, float duration)
+        {
+            if (_isDialogRunning.Value)
+            {
+                Debug.LogWarning("Dialogue service is already running");
+                return false;
+            }
+
+            if (dialogueReference == null)
+            {
+                Debug.LogWarning("Dialogue reference is null");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(dialogueReference.nodeName))
+            {
+                Debug.LogWarning("Dialogue reference node is null");
+                return false;
+            }
+            
+            _showableInterfaceService.CloseAllInterface();
+            _showableInterfaceService.OpenDialog();
+
+            if (_currentRunner == null)
+            {
+                _showableInterfaceService.CloseAllInterface();
+                Debug.LogWarning("DialogueRunner is null");
+                return false;
+            }
+            
+            _gameInputService.SetDialogueInput(true);
+            _gameInputService.SetAllGameplayInput(false);
+            
+            _playerService.StopMouseAndInteract(this);
+            _playerService.StopMovement(this);
+            _playerService.StartFixedTimeRotate(npc, duration);
+            
+            //_showableInterfaceService.HideHud();
+            _showableInterfaceService.BanOpen();
+            
+            _currentNpcDialog = npcNameCode;
+            _isDialogRunning.Value = true;
+            
+            _currentRunner.StartDialogue(dialogueReference.nodeName);
+            
+            return true;
+        }
+        
+
+        public void SetRunner(DialogueRunner runner)
+        {
+            if(runner == _currentRunner) return;
+            
+            _currentRunner = runner;
+
+            AddCommandsAndFunctions();
+        }
+
+        private void AddCommandsAndFunctions()
+        {
+            foreach (var pair in _commandsRegistrations)
+            {
+                pair.Value.Invoke(_currentRunner);
+            }
+            foreach (var pair in _functionsRegistrations)
+            {
+                pair.Value.Invoke(_currentRunner);
+            }
+        }
+    }
+}

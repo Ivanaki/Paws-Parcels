@@ -39,7 +39,7 @@ namespace UI.MainMenu
 
         public void CloseScreen()
         {
-            _mainMenuRootViewModel.CloseScreen();
+            _mainMenuRootViewModel.TryCloseScreen();
         }
         
         public void OpenPopupSettings()

@@ -1,6 +1,7 @@
 using System;
 using R3;
 using Services;
+using TMPro;
 using UnityEngine;
 
 namespace UI.HUD
@@ -10,6 +11,7 @@ namespace UI.HUD
         //[SerializeField] private DestinationsOnCanvasShower _destinationsOnCanvasShower;
         [SerializeField] private GameObject _compassGameObject;
         [SerializeField] private GameObject _parentAllHud;
+        [SerializeField] private TMP_Text _moneyText;
         
         private readonly CompositeDisposable _disposables = new();
         
@@ -24,6 +26,11 @@ namespace UI.HUD
             {
                 //спрятать весь hud
                 _parentAllHud.SetActive(value);
+            }));
+            
+            _disposables.Add(viewModel.Money.Subscribe(value =>
+            {
+                _moneyText.text = value.ToString();
             }));
             //_destinationsOnCanvasShower.Construct(viewModel.ObjectsToShow, viewModel.ObjectsPrefabsDict);
         }

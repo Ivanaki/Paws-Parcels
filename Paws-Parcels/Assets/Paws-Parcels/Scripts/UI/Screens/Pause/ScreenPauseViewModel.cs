@@ -21,7 +21,7 @@ namespace UI.Screens.Pause
 
         public void RequestBackToGame()
         {
-            _coreUIManager.CloseScreen();
+            _coreUIManager.TryCloseScreen();
         }
 
         public void RequestSave()

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace DefaultNamespace
 {
     [RequireComponent(typeof(Animator))]
-    public class NpcHeadLookAtOptimized : MonoBehaviour
+    public class NpcHeadLookAt : MonoBehaviour
     {
         [Header("Target")]
         private Transform player;
@@ -69,8 +69,11 @@ namespace DefaultNamespace
         private const float MinDirectionSqr = 0.0001f;
         private const float DefaultIdleDistance = 2f;
 
+        
+        
         private void Awake()
         {
+            //var t = GameObject.FindGameObjectsWithTag("Player");
             player = GameObject.FindGameObjectWithTag("Player").transform;
             
             _animator = GetComponent<Animator>();
@@ -91,6 +94,9 @@ namespace DefaultNamespace
 #if UNITY_EDITOR
         private void OnValidate()
         {
+            if(player == null)
+                player = GameObject.FindGameObjectWithTag("Player").transform;
+            
             detectionRadius = Mathf.Max(0f, detectionRadius);
             loseRadius = Mathf.Max(detectionRadius, loseRadius);
             senseInterval = Mathf.Max(0.02f, senseInterval);
@@ -168,6 +174,10 @@ namespace DefaultNamespace
 
             Vector3 origin = eyesOrigin.position;
             Vector3 target = playerPos + targetOffset;
+
+            Origin = origin;
+            Target = target;
+            
             Vector3 toTarget = target - origin;
             float toTargetSqr = toTarget.sqrMagnitude;
 
@@ -302,9 +312,11 @@ namespace DefaultNamespace
             _animator.SetLookAtWeight(_currentWeight, bodyWeight, headWeight, eyesWeight, clampWeight);
             _animator.SetLookAtPosition(_smoothedLookPosition);
         }
-
+        
         private void OnDrawGizmosSelected()
         {
+            
+            
             if (!debug)
                 return;
 
@@ -337,5 +349,8 @@ namespace DefaultNamespace
             Gizmos.color = Color.magenta;
             Gizmos.DrawSphere(_smoothedLookPosition, 0.06f);
         }
+
+        public Vector3 Origin;
+        public Vector3 Target;
     }
 }

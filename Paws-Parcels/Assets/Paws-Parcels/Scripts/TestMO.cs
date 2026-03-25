@@ -22,7 +22,14 @@ namespace Paws_Parcels.Scripts
         [Inject] private SettingsStateProvider _settingsStateProvider;
         [Inject] private CutsceneService _cutsceneService;
         [Inject] private LocalizationService _localizationService;
-        
+
+        [SerializeField] private GameObject _prefab;
+
+        [Button]
+        public void Spawn()
+        {
+            Instantiate(_prefab);
+        }
         
         public void Send(string message)
         {
@@ -59,6 +66,7 @@ namespace Paws_Parcels.Scripts
         
         private void Start()
         {
+            
             var t = _localizationService.GetCurrentLanguageStringOrDefault("test", Tables.Dialogs);
             
             gameState = _gameStateProvider.GameProxy.Origin;

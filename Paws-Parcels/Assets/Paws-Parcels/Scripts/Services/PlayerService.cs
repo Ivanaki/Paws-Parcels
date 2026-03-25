@@ -10,7 +10,8 @@ namespace Services
     {
         public class LookAtEvent : UnityEvent<Transform, float> { }
         
-        public LookAtEvent OnLookAt = new LookAtEvent();
+        public LookAtEvent OnLookAt = new();
+        public LookAtEvent OnFixedTimeRotate = new();
         public UnityEvent OffLookAt = new();
         
         public ReadOnlyReactiveProperty<bool> CanPlayerMove => _canPlayerMove;
@@ -22,6 +23,11 @@ namespace Services
         private readonly List<object> _playerStoppersMovement = new();
         private readonly List<object> _playerStoppersMouseAndInteract = new();
 
+        public void StartFixedTimeRotate(Transform position, float duration = 1f)
+        {
+            OnFixedTimeRotate.Invoke(position, duration);
+        }
+        
         public void StartLookAt(Transform position, float rotationSpeed = 1f)
         {
             OnLookAt.Invoke(position, rotationSpeed);

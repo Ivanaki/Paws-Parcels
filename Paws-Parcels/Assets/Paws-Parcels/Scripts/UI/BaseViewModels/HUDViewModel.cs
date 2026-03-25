@@ -10,6 +10,8 @@ namespace UI.HUD
         public ReadOnlyReactiveProperty<bool> IsCompassActive { get; }
         public ReadOnlyReactiveProperty<bool> ActiveHud { get; }
         
+        public ReadOnlyReactiveProperty<int> Money { get; }
+        
         public HUDViewModel(HUDService hudService, ShowableInterfaceService showableInterfaceService/*,
             ObservableHashSet<ShowableInUIBehaviour> objectsToShow,
             IReadOnlyDictionary<string, UiObject> objectsPrefabsDict */)
@@ -18,6 +20,7 @@ namespace UI.HUD
             //ObjectsPrefabsDict = objectsPrefabsDict;
             ActiveHud = showableInterfaceService.HudActive;
             IsCompassActive = hudService.IsCompassActive;
+            Money = hudService.Money;
         }
     }
 }

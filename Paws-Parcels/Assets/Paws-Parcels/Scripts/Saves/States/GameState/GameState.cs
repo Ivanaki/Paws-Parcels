@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Items;
 using Paws_Parcels.Scripts.Quests;
+using Paws_Parcels.Scripts.Saves.States.GameResources;
 using UnityEngine;
 using Zenject;
 
@@ -69,6 +70,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         //car&player
         public bool IsPlayerInCar;
         public bool IsCarDoorOpen;
+        
+        //Resources
+        public List<ResourceData> Resources = new();
         
         
         public int GetNewSavableEntityID()

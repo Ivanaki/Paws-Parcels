@@ -2,6 +2,7 @@ using System;
 using Items;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Quests;
+using Paws_Parcels.Scripts.Saves.States.GameResources;
 using R3;
 
 namespace Paws_Parcels.Scripts.Saves.States.GameState
@@ -40,6 +41,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         
         public ReactiveProperty<bool> IsPlayerInCar { get; }
         public ReactiveProperty<bool> IsCarDoorOpen { get; }
+        
+        public ObservableList<ResourceProxy> Resources { get; } = new();
 
         public GameProxy(GameState origin)
         {
@@ -69,6 +72,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
 
             IsCarDoorOpen = new ReactiveProperty<bool>(origin.IsCarDoorOpen);
             IsCarDoorOpen.Skip(1).Subscribe(v => origin.IsCarDoorOpen = v);
+
+            InitResources(origin);
         }
 
         public void Change(GameState origin)
@@ -103,6 +108,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
 
             IsPlayerInCar.Value = origin.IsPlayerInCar;
             IsCarDoorOpen.Value = origin.IsCarDoorOpen;
+            
+            Resources.Clear();
+            origin.Resources.ForEach(questData => Resources.Add(new ResourceProxy(questData)));
         }
         
         /*public void Change(GameProxy gameProxy)
@@ -205,6 +213,20 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             ItemsInsideCar.ObserveClear().Subscribe(e =>
                 origin.ItemsInsideCar.Clear());
+        }
+
+        private void InitResources(GameState origin)
+        {
+            origin.Resources.ForEach(item => Resources.Add(new ResourceProxy(item)));
+            
+            Resources.ObserveAdd().Subscribe(e => 
+                origin.Resources.Add(e.Value.Origin));
+            
+            Resources.ObserveRemove().Subscribe(e =>
+                origin.Resources.Remove(e.Value.Origin));
+            
+            Resources.ObserveClear().Subscribe(e =>
+                origin.Resources.Clear());
         }
     }
 }

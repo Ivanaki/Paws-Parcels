@@ -1,7 +1,9 @@
 using System;
 using Game.Root;
+using Paws_Parcels.NPCDialogs;
 using Paws_Parcels.Scripts;
 using Services;
+using UI.DialogueScreen;
 using UI.Screens.LoadMenu;
 using UI.Screens.Pause;
 using UI.Screens.Quests;
@@ -20,12 +22,14 @@ namespace UI.Core
         private readonly CursorService _cursorService;
         private readonly InputsCoreService _inputsCoreService;
         private readonly EditorDataService _editorDataService;
+        private readonly DialogueService _dialogueService;
 
         private bool _banOpen = false;
         
         public CoreUIManager(UICoreRootViewModel coreRootViewModel, CoreSignals coreSignals, 
             SettingsService settingsService, LoadService loadService, CursorService cursorService,
-            InputsCoreService inputsCoreService, EditorDataService editorDataService)
+            InputsCoreService inputsCoreService, EditorDataService editorDataService,
+            DialogueService dialogueService)
         {
             _coreRootViewModel = coreRootViewModel;
             _coreSignals = coreSignals;
@@ -34,8 +38,20 @@ namespace UI.Core
             _cursorService = cursorService;
             _inputsCoreService = inputsCoreService;
             _editorDataService = editorDataService;
+            _dialogueService = dialogueService;
         }
-        
+
+        public void OpenScreenDialog()
+        {
+            if(_banOpen) return;
+            
+            var viewModel = new ScreenDialogueViewModel(_dialogueService);
+            _coreRootViewModel.OpenScreen(viewModel);
+            
+            _cursorService.SetCursorStateLocked(false);
+            _inputsCoreService.StopAllUiOpened();
+            Time.timeScale = 1f;
+        }
         
         public void OpenScreenPause()
         {
@@ -61,16 +77,19 @@ namespace UI.Core
             Time.timeScale = 1f;
         }
 
-        public void CloseScreen()
+        public bool TryCloseScreen()
         {
-            if(_banOpen) return;
+            if(_banOpen) return false;
             
-            _coreRootViewModel.CloseScreen();
+            var closeRes = _coreRootViewModel.TryCloseScreen();
+            
+            if(closeRes == false) return false;
             
             _cursorService.SetCursorStateLocked(true);
             _inputsCoreService.StopAllUiClosed();
             _inputsCoreService.NotDisableMovementUiClosed();
             Time.timeScale = 1f;
+            return true;
         }
         
 
@@ -100,7 +119,7 @@ namespace UI.Core
         public void CloseAll()
         {
             _coreRootViewModel.CloseAllPopups();
-            CloseScreen();
+            TryCloseScreen();
         }
 
         public void BanOpen()

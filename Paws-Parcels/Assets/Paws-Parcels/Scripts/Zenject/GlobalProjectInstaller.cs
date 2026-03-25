@@ -1,6 +1,8 @@
 using Car_Player;
 using Game.Root;
 using Items;
+using NPCDialogs;
+using Paws_Parcels.NPCDialogs;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Car_Player;
 using Paws_Parcels.Scripts.Player;
@@ -68,7 +70,6 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<CursorService>().AsSingle();
             Container.Bind<InteractablesLocationsService>().AsSingle();
             Container.Bind<MessageSystem>().AsSingle();
-            
             Container.Bind<QuestsDatabase>().AsSingle();
             Container.Bind<EditorDataService>().AsSingle();
             Container.Bind<UiObjectsDatabase>().AsSingle();
@@ -78,13 +79,18 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<DropSettings>().AsSingle();
             Container.Bind<SitInCarService>().AsSingle();
             Container.Bind<DoorService>().AsSingle();
-            
             Container.Bind<LocalizationService>().AsSingle();
             Container.Bind<PlayerService>().AsSingle();
             Container.Bind<CutsceneService>().AsSingle();
             Container.Bind<PlayerShowableService>().AsSingle();
             Container.Bind<ShowableInterfaceService>().AsSingle();
             Container.Bind<HUDService>().AsSingle();
+            Container.Bind<DialogueService>().AsSingle();
+            Container.Bind<ResourcesService>().AsSingle();
+            Container.Bind<DialogueRegistrations>().AsSingle();
+            
+            //NonLazy
+            Container.Bind<BaseDialogueRegistrations>().AsSingle().NonLazy();
             
             //в global bindings нет смысла биндить интерфейсы IDisposable
             Container.BindInterfacesAndSelfTo<ApplyInFixUpdate>().AsSingle();

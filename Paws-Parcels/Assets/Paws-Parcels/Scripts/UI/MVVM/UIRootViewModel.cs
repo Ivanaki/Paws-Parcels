@@ -4,6 +4,7 @@ using System.Linq;
 using ObservableCollections;
 using R3;
 using Services;
+using UI.DialogueScreen;
 
 namespace UI.MVVM
 {
@@ -28,10 +29,14 @@ namespace UI.MVVM
             _openedScreen.Value = screenViewModel;
         }
 
-        public void CloseScreen()
+        public bool TryCloseScreen()
         {
+            if (_openedScreen.Value is ScreenDialogueViewModel)
+                return false;
+            
             _openedScreen.Value?.Dispose();
             _openedScreen.Value = null;
+            return true;
         }
 
         public void OpenPopup(WindowViewModel popupViewModel)

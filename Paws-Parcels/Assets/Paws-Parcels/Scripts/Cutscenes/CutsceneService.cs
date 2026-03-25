@@ -43,7 +43,8 @@ namespace Services
                 _playerShowableService.Hide();
             
             //остановить ввод инпута всего, кроме кадсценовского
-            _gameInputService.CutscenePlay();
+            _gameInputService.SetAllGameplayInput(false);
+            _gameInputService.SetCutsceneInput(true);
             
             //закрыть и отключить возможность открывать интерфейс
             _showableInterfaceService.CloseAllInterface();
@@ -61,7 +62,8 @@ namespace Services
                 if (cutscene.HidePlayer)
                     _playerShowableService.Show();
             
-                _gameInputService.CutsceneStopped();
+                _gameInputService.SetAllGameplayInput(true);
+                _gameInputService.SetCutsceneInput(false);
                 _showableInterfaceService.UnbanOpen();
                 _showableInterfaceService.ShowHud();
             });
