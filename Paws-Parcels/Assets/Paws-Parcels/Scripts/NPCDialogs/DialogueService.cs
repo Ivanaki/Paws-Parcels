@@ -52,7 +52,6 @@ namespace Paws_Parcels.NPCDialogs
                 }
             });
             
-            
             _functionsRegistrations.ObserveAdd().Subscribe(e =>
             {
                 if (_currentRunner != null)
@@ -108,7 +107,7 @@ namespace Paws_Parcels.NPCDialogs
             _playerService.StopMovement(this);
             _playerService.StartFixedTimeRotate(npc, duration);
             
-            //_showableInterfaceService.HideHud();
+            _showableInterfaceService.HideHud();
             _showableInterfaceService.BanOpen();
             
             _currentNpcDialog = npcNameCode;
@@ -126,16 +125,13 @@ namespace Paws_Parcels.NPCDialogs
             
             _currentRunner = runner;
 
-            AddCommandsAndFunctions();
+            RegisterAll(_commandsRegistrations);
+            RegisterAll(_functionsRegistrations);
         }
 
-        private void AddCommandsAndFunctions()
+        private void RegisterAll(IReadOnlyObservableDictionary<string, Action<DialogueRunner>> registrations)
         {
-            foreach (var pair in _commandsRegistrations)
-            {
-                pair.Value.Invoke(_currentRunner);
-            }
-            foreach (var pair in _functionsRegistrations)
+            foreach (var pair in registrations)
             {
                 pair.Value.Invoke(_currentRunner);
             }

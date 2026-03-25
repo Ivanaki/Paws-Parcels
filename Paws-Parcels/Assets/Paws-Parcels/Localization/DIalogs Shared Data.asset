@@ -150,6 +150,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 8918303196210790544
+  - m_Id: 16693766491054080
+    m_Key: line:d3acbff3
+    m_Metadata:
+      m_Items:
+      - rid: 8918303214984757357
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -298,4 +303,9 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: TedNone
+        tags: []
+    - rid: 8918303214984757357
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Eat
         tags: []
