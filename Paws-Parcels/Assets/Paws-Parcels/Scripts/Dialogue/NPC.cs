@@ -14,7 +14,13 @@ using Zenject;
 
 namespace Paws_Parcels.NPCDialogs
 {
-    public class NPC : InteractableObject
+    public interface INPC
+    {
+        void SetDialog(DialogueReference dialogue);
+        string NpcName { get; }
+    }
+
+    public class NPC : InteractableObject, INPC
     {
         public override string DestinationId => _npcNameCode;
         public override string UiShowTypeId => _uiShowTypeId;
@@ -48,17 +54,28 @@ namespace Paws_Parcels.NPCDialogs
 
         private float _baseYRot;
         private Tween _rotateTween;
+        
+        private DialogueReference _currentDialogue = null;
         //private bool _isCurrentNPCDialogRunning = false;
 
         private void Awake()
         {
             _baseYRot = _npcTransform.eulerAngles.y;
             _cinemachineCamera.Priority.Enabled = true;
+            
+            _currentDialogue ??= _startNpcDialog;
         }
         
         public override void Interact()
         {
-            _dialogueService.TryStartDialogue(_startNpcDialog, _npcNameCode, _npcTransform, _rotationDuration);
+            if (_currentDialogue != null)
+            {
+                _dialogueService.TryStartDialogue(_currentDialogue, _npcNameCode, _npcTransform, _rotationDuration);
+            }
+            else
+            {
+                Debug.LogWarning("Dont have any dialogue on NPC: " + _npcNameCode);
+            }
         }
 
         protected override void OnEnable()
@@ -91,6 +108,11 @@ namespace Paws_Parcels.NPCDialogs
         {
             base.OnDisable();
             _dialogueInQuestsService.UnregisterNpc(this);
+        }
+
+        public void SetDialog(DialogueReference dialogue)
+        {
+            _currentDialogue = dialogue;
         }
     }
 }

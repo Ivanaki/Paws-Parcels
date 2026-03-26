@@ -19,15 +19,15 @@ MonoBehaviour:
   GiverId: 
   Missions:
   - Id: f1
-    IsThisMissionDialogue: 0
+    IsThisMissionDialogue: 1
     DialogueParent:
-      NpcName: 
+      NpcName: ted
       MainDialogue:
-        project: {fileID: 0}
-        nodeName: 
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: TedNone
       AfterMainDialogue:
-        project: {fileID: 0}
-        nodeName: 
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Eat
     HasDestination: 1
     DestinationParent:
       IsMany: 1

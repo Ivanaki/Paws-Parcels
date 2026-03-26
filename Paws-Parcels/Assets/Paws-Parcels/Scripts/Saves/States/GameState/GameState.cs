@@ -46,7 +46,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         
         //Quests
         public List<QuestData> ActiveQuests = new();
-        public string SelectedQuest;
+        public string SelectedQuest = "";
         public List<string> SucceedQuests = new();
         public List<string> CurrentActiveDestinations = new();
         

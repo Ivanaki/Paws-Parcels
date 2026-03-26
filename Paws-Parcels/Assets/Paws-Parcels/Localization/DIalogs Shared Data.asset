@@ -210,6 +210,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 8918303222068674663
+  - m_Id: 17106316659630080
+    m_Key: line:9a4cbc9d
+    m_Metadata:
+      m_Items:
+      - rid: 8918303239614234737
+  - m_Id: 17106316688990208
+    m_Key: line:fe688e02
+    m_Metadata:
+      m_Items:
+      - rid: 8918303239614234738
+  - m_Id: 17108266050494464
+    m_Key: line:ca68d2f4
+    m_Metadata:
+      m_Items:
+      - rid: 8918303239614234749
+  - m_Id: 17108266084048896
+    m_Key: line:6b974ab8
+    m_Metadata:
+      m_Items:
+      - rid: 8918303239614234750
+  - m_Id: 17108266084048897
+    m_Key: line:0fb37827
+    m_Metadata:
+      m_Items:
+      - rid: 8918303239614234751
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -419,4 +444,29 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: Eat
+        tags: []
+    - rid: 8918303239614234737
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Ted2
+        tags: []
+    - rid: 8918303239614234738
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Ted2End
+        tags: []
+    - rid: 8918303239614234749
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Eat
+        tags: []
+    - rid: 8918303239614234750
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Ted2
+        tags: []
+    - rid: 8918303239614234751
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Ted2End
         tags: []

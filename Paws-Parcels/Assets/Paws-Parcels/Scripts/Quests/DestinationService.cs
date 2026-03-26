@@ -22,6 +22,8 @@ namespace Quests
 
         private string _lastSelectedQuest = null;
         
+        private readonly HashSet<string> _selectedDestinations = new();
+        
         public DestinationService(GameStateProvider gameStateProvider)
         {
             var activeQuests = gameStateProvider.GameProxy.ActiveQuests;
@@ -57,6 +59,10 @@ namespace Quests
                     var qdpUnselect = activeQuests.FirstOrDefault(x => x.Id == _lastSelectedQuest);
                     if (qdpUnselect != null)
                         qdpUnselect.ActiveDestinations.ForEach(UnSelectMark);
+                    
+                    foreach (var selectedDestination in _selectedDestinations)
+                        UnSelectMark(selectedDestination);
+                    _selectedDestinations.Clear();
                 }
                 
                 _lastSelectedQuest = newQuest;
@@ -162,6 +168,8 @@ namespace Quests
 
         private void SelectMark(string destinationId)
         {
+            _selectedDestinations.Add(destinationId);
+            
             if (_allMarksDict.TryGetValue(destinationId, out var markObject))
             {
                 markObject.QuestSelected();

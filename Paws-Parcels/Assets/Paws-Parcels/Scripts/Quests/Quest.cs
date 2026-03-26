@@ -84,7 +84,7 @@ namespace Paws_Parcels.Scripts.Quests
     [Serializable]
     public class Mission
     {
-        public string Id;
+        //public string Id;
         
         //public string ShortPhraseCode;
         //[TextArea(3,5)] public string DescriptionCode;
@@ -123,13 +123,13 @@ namespace Paws_Parcels.Scripts.Quests
         public string ActivateMessage;*/
         
         
-        [Space]
-        public bool HasMonologBeforeQuestActivate = false; // [QuestName]:AwakeMonolog
+        //[Space]
+        //public bool HasMonologBeforeQuestActivate = false; // [QuestName]:AwakeMonolog
         
-        [Space]
+        /*[Space]
         public bool HasGiver = false;
         [ShowIf(nameof(HasGiver))]
-        public string GiverId; // Quest:GiverDialog
+        public string GiverId; // Quest:GiverDialog*/
         
         //Диалоги: берёшь квест, после взятия квеста короткая справка
         

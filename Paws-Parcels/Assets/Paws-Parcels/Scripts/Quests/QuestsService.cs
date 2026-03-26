@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Dialogue;
 using NUnit.Framework;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Saves.States.GameState;
@@ -28,6 +29,8 @@ namespace Paws_Parcels.Scripts.Quests
 
         private readonly RewardService _rewardService;
         private readonly MessageSystem _messageSystem;
+
+        private readonly DialogueInQuestsService _dialogueInQuestsService;
         //private readonly DestinationService _destinationService;
 
         private IReadOnlyDictionary<string, Quest> _questsDict { get; }
@@ -42,10 +45,14 @@ namespace Paws_Parcels.Scripts.Quests
         private readonly Dictionary<string, CompositeDisposable> _questId_ReactiveMessage_Dict = new();
         
         private readonly Dictionary<string, CompositeDisposable> _onOffHighLightDisposablesDict = new();
+       
         private readonly Dictionary<string, IDisposable> _questSubscriptionsDict = new();
         
+        //private readonly Dictionary<string, CompositeDisposable> _dialogueMissionDisposablesDict = new();
+        private readonly HashSet<string> _dialogueQuestIds = new();
+        
         public QuestsService(RewardService rewardService, MessageSystem messageSystem, GameStateProvider gameStateProvider,
-            QuestsDatabase questsDatabase)
+            QuestsDatabase questsDatabase, DialogueInQuestsService dialogueInQuestsService)
         {
             _questsDict = questsDatabase.QuestsDict;
             ActiveQuests = gameStateProvider.GameProxy.ActiveQuests;
@@ -55,7 +62,8 @@ namespace Paws_Parcels.Scripts.Quests
             
             _rewardService = rewardService;
             _messageSystem = messageSystem;
-            
+            _dialogueInQuestsService = dialogueInQuestsService;
+
             ActiveQuests.ForEach(NewQuestAdded);
 
             ActiveQuests.ObserveAdd().Subscribe(e => NewQuestAdded(e.Value));
@@ -93,8 +101,32 @@ namespace Paws_Parcels.Scripts.Quests
             //_questId_ReactiveMessage_Dict[questId] = rm;
 
             SubscribeMissionComplete(questDataProxy.CurrentMission.Value);
+            
+//Подписка на dialogs
+#region Dialogs
 
-            //добавить destinations
+            var disposable3 = questDataProxy.CurrentMission.Subscribe(currentMissionIndex =>
+            {
+                var mission = quest.Missions[currentMissionIndex];
+                
+                if (mission.IsThisMissionDialogue)
+                {
+                    var dialogueParent = mission.DialogueParent;
+
+                    _dialogueQuestIds.Add(questDataProxy.Id);
+                    _dialogueInQuestsService.NewMission(dialogueParent.NpcName, new OneNpc(questDataProxy.Id, 
+                        dialogueParent.MainDialogue, dialogueParent.AfterMainDialogue));
+                }
+                else
+                {
+                    _dialogueQuestIds.Remove(questDataProxy.Id);
+                    _dialogueInQuestsService.RemoveQuest(questDataProxy.Id);
+                }
+            });
+
+#endregion
+            
+//добавить destinations
 #region Destinations
 
             var disposable1 = questDataProxy.CurrentMission.Subscribe(v =>
@@ -169,7 +201,7 @@ namespace Paws_Parcels.Scripts.Quests
                 }
             });
             
-            _questSubscriptionsDict[questDataProxy.Id] = Disposable.Combine(disposable1, disposable2);
+            _questSubscriptionsDict[questDataProxy.Id] = Disposable.Combine(disposable1, disposable2, disposable3);
 
 #endregion
             return;
@@ -182,11 +214,6 @@ namespace Paws_Parcels.Scripts.Quests
                 _questId_ReactiveMessage_Dict[questId] = disposable;
                 
                 var mission = quest.Missions[currentMission];
-
-                if (mission.IsThisMissionDialogue)
-                {
-                    
-                }
                 
                 disposable.Add(_messageSystem.AddListenerWithManyMessages(mission.Message.Message).Subscribe(_ =>
                 {
@@ -242,18 +269,31 @@ namespace Paws_Parcels.Scripts.Quests
                 reactiveMessage.Dispose();
                 _questId_ReactiveMessage_Dict.Remove(qdp.Id);
             }
+            
+            _dialogueQuestIds.Remove(qdp.Id);
+            _dialogueInQuestsService.RemoveQuest(qdp.Id);
+
+            if (qdp.Id == SelectedQuest.CurrentValue)
+            {
+                SelectedQuest.Value = ActiveQuests.Count > 0 ? ActiveQuests.First().Id : "";
+            }
         }
 
         private void ClearQuests()
         {
-            foreach (var dis in _onOffHighLightDisposablesDict.Values) dis.Dispose();
+            foreach (var dis in _onOffHighLightDisposablesDict.Values) dis?.Dispose();
             _onOffHighLightDisposablesDict.Clear();
             
-            foreach (var dis in _questSubscriptionsDict.Values) dis.Dispose();
+            foreach (var dis in _questSubscriptionsDict.Values) dis?.Dispose();
             _questSubscriptionsDict.Clear();
             
-            foreach (var dis in _questId_ReactiveMessage_Dict.Values) dis.Dispose();
+            foreach (var dis in _questId_ReactiveMessage_Dict.Values) dis?.Dispose();
             _questId_ReactiveMessage_Dict.Clear();
+            
+            foreach (var dialogueQuestId in _dialogueQuestIds) _dialogueInQuestsService.RemoveQuest(dialogueQuestId);
+            _dialogueQuestIds.Clear();
+
+            SelectedQuest.Value = "";
         }
 
         public void ActiveNewQuest(string questID)
