@@ -182,6 +182,11 @@ namespace Paws_Parcels.Scripts.Quests
                 _questId_ReactiveMessage_Dict[questId] = disposable;
                 
                 var mission = quest.Missions[currentMission];
+
+                if (mission.IsThisMissionDialogue)
+                {
+                    
+                }
                 
                 disposable.Add(_messageSystem.AddListenerWithManyMessages(mission.Message.Message).Subscribe(_ =>
                 {
@@ -315,10 +320,10 @@ namespace Paws_Parcels.Scripts.Quests
             }
         }
         
-        public string GetQuestCode(int questId)
+        /*public string GetQuestCode(int questId)
         {
             return "testMissionName";
-        }
+        }*/
 
         public void Dispose()
         {

@@ -11,8 +11,9 @@ namespace NPCDialogs
         public BaseDialogueRegistrations(DialogueRegistrations dialogueRegistrations, ResourcesService resourcesService)
         {
             _resourcesService = resourcesService;
-            dialogueRegistrations.AddCommand("add_money", runner => runner.AddCommandHandler<int>("add_money", AddMoney));
-            dialogueRegistrations.AddFunction("get_money", runner => runner.AddFunction("get_money", GetMoney));
+            dialogueRegistrations.AddCommand("add_money", runner => runner?.AddCommandHandler<int>("add_money", AddMoney));
+            dialogueRegistrations.AddCommand("spend_money", runner => runner?.AddCommandHandler<int>("spend_money", SpendMoney));
+            dialogueRegistrations.AddFunction("get_money", runner => runner?.AddFunction("get_money", GetMoney));
 
             //_resourcesService.ObserveResource(ResourcesType.Money).Subscribe(v => Debug.Log(v));
         }
@@ -20,6 +21,11 @@ namespace NPCDialogs
         private void AddMoney(int amount)
         {
             _resourcesService.TryAddResource(ResourcesType.Money, amount);
+        }
+
+        private void SpendMoney(int amount)
+        {
+            _resourcesService.TrySpendResource(ResourcesType.Money, amount);
         }
 
         private int GetMoney()

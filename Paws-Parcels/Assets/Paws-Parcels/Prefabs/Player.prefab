@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 6396549565688153317}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 4365107281831813469}
   - component: {fileID: 5653811496312906179}
   - component: {fileID: 5985402351895529857}
+  - component: {fileID: 1044848858596468910}
   m_Layer: 10
   m_Name: PlayerArmature
   m_TagString: Player
@@ -456,7 +457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551196a7ead0404bbdb5086709748ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MotorHome.Scripts.PlayerApplySaves
-  _modelToHide: {fileID: 8956885741058806299}
 --- !u!114 &2195053658567129980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +535,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 14529
   _maxDistanceRay: 5
+--- !u!114 &1044848858596468910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168173317745742414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0407bd55c540489cb10235870ac337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Player.ShowPlayerVisualizer
+  _modelToHide: {fileID: 8956885741058806299}
 --- !u!1 &6776699614683619619
 GameObject:
   m_ObjectHideFlags: 0

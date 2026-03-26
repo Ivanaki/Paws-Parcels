@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DefaultNamespace;
 using DG.Tweening;
+using Dialogue;
 using Extentions;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Player;
@@ -21,6 +22,8 @@ namespace Paws_Parcels.NPCDialogs
         public override bool DontShowWithItemInHands => false;
 
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
+        
+        public string NpcName => _npcNameCode;
 
         [Header("Interactable Settings")]
         [SerializeField] private string _uiShowTypeId = "interact";
@@ -28,7 +31,7 @@ namespace Paws_Parcels.NPCDialogs
         
         [Header("NPC Settings")]
         [SerializeField] private string _npcNameCode;
-        [SerializeField] DialogueReference _dialogueReference = new();
+        [SerializeField] DialogueReference _startNpcDialog = new();
         [SerializeField] private NpcHeadLookAt _npcHeadLookAt;
         [SerializeField] private CinemachineCamera _cinemachineCamera;
         //[SerializeField] private float _yRotWhenDialog;
@@ -39,6 +42,7 @@ namespace Paws_Parcels.NPCDialogs
         
 
         [Inject] private DialogueService _dialogueService;
+        [Inject] private DialogueInQuestsService _dialogueInQuestsService;
         
         private CompositeDisposable _disposables;
 
@@ -54,12 +58,14 @@ namespace Paws_Parcels.NPCDialogs
         
         public override void Interact()
         {
-            _dialogueService.TryStartDialogue(_dialogueReference, _npcNameCode, _npcTransform, _rotationDuration);
+            _dialogueService.TryStartDialogue(_startNpcDialog, _npcNameCode, _npcTransform, _rotationDuration);
         }
 
         protected override void OnEnable()
         {
             base.OnEnable();
+            
+            _dialogueInQuestsService.RegisterNpc(this);
             
             _disposables = new();
             
@@ -80,7 +86,11 @@ namespace Paws_Parcels.NPCDialogs
                 }
             }));
         }
-        
-        
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            _dialogueInQuestsService.UnregisterNpc(this);
+        }
     }
 }

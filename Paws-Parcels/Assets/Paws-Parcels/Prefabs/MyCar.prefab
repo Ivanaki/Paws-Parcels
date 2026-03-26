@@ -1728,9 +1728,10 @@ MonoBehaviour:
   _uiShowTypeId: interact
   _uiShowTextCode: enter
   _destinationId: door_left
-  _doorAnimator: {fileID: 2582910078438899460}
   _activeLocations:
   - None
+  _dontShowWithItemInHands: 1
+  _doorAnimator: {fileID: 2582910078438899460}
 --- !u!1 &1170066022110885679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,6 +2260,7 @@ MonoBehaviour:
   _destinationId: put_up
   _activeLocations:
   - None
+  _dontShowWithItemInHands: 0
 --- !u!1 &1778582894428488418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,7 +2302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 566872649199498406}
   - component: {fileID: 8566864757218173210}
-  m_Layer: 7
+  m_Layer: 14
   m_Name: CameraEnabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2447,6 +2449,7 @@ MonoBehaviour:
   _destinationId: bed
   _activeLocations:
   - Car
+  _dontShowWithItemInHands: 0
 --- !u!1 &1885425527872956778
 GameObject:
   m_ObjectHideFlags: 0
@@ -4931,7 +4934,7 @@ GameObject:
   - component: {fileID: 1725769964888310637}
   - component: {fileID: 3672697148474904802}
   - component: {fileID: 2796182548527317949}
-  m_Layer: 7
+  m_Layer: 14
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6264,9 +6267,10 @@ MonoBehaviour:
   _uiShowTypeId: interact
   _uiShowTextCode: enter
   _destinationId: door_right
-  _doorAnimator: {fileID: 2044730348092149446}
   _activeLocations:
   - None
+  _dontShowWithItemInHands: 1
+  _doorAnimator: {fileID: 2044730348092149446}
 --- !u!1 &4366748539485894454
 GameObject:
   m_ObjectHideFlags: 0
@@ -6965,7 +6969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2027785882704613315}
   - component: {fileID: 7385165739858342009}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: CarInsideCinemachineCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7074,15 +7078,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d976b6cca09146acaab540935ebd8687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::My.CameraSystem
+  m_MouseSensitivity: 0.01
+  m_ReturnSpeed: 4
   m_CinemachineCamera: {fileID: 2352394939322735127}
   m_CameraRegularCarOffset: {x: 0, y: 3, z: -10}
   m_CameraLargeCarOffset: {x: 0, y: 3, z: -9}
-  m_CameraSwivelAngle: 90
   m_CameraNormalFov: 60
   m_CameraFastFov: 70
   m_CameraFastSpeed: 22
   m_CameraFovSmoothTime: 1
   _currentCar: {fileID: 8643706666181498805}
+  m_CameraTrackingTarget: {fileID: 7596296213129195317}
 --- !u!1 &5119911624087491621
 GameObject:
   m_ObjectHideFlags: 0
@@ -9917,6 +9923,7 @@ MonoBehaviour:
   _activeLocations:
   - None
   - Car
+  _dontShowWithItemInHands: 0
 --- !u!1 &7239321218611989536
 GameObject:
   m_ObjectHideFlags: 0
@@ -11192,6 +11199,7 @@ MonoBehaviour:
   _destinationId: put_inside
   _activeLocations:
   - Car
+  _dontShowWithItemInHands: 0
 --- !u!1 &8099301013394039649
 GameObject:
   m_ObjectHideFlags: 0

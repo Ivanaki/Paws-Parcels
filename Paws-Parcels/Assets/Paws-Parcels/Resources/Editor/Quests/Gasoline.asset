@@ -19,6 +19,15 @@ MonoBehaviour:
   GiverId: 
   Missions:
   - Id: f1
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
     HasDestination: 1
     DestinationParent:
       IsMany: 1
@@ -54,6 +63,15 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - Id: f2
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
     HasDestination: 1
     DestinationParent:
       IsMany: 0
@@ -73,6 +91,15 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - Id: f3
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
     HasDestination: 1
     DestinationParent:
       IsMany: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
+using Yarn.Unity;
 
 namespace Paws_Parcels.Scripts.Quests
 {
@@ -71,6 +72,14 @@ namespace Paws_Parcels.Scripts.Quests
         [ShowIf(nameof(IsMany)), AllowNesting]
         public ManyDestinations ManyDestinations;
     }
+
+    [Serializable]
+    public class DialogueParent
+    {
+        public string NpcName;
+        public DialogueReference MainDialogue;
+        public DialogueReference AfterMainDialogue;
+    }
     
     [Serializable]
     public class Mission
@@ -79,6 +88,11 @@ namespace Paws_Parcels.Scripts.Quests
         
         //public string ShortPhraseCode;
         //[TextArea(3,5)] public string DescriptionCode;
+        
+        [Header("Dialogue")]
+        public bool IsThisMissionDialogue;
+        [ShowIf(nameof(IsThisMissionDialogue)), AllowNesting]
+        public DialogueParent DialogueParent;
         
         [Header("Destination")]
         public bool HasDestination;

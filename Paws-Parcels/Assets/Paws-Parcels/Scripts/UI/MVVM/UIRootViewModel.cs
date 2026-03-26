@@ -31,9 +31,6 @@ namespace UI.MVVM
 
         public bool TryCloseScreen()
         {
-            if (_openedScreen.Value is ScreenDialogueViewModel)
-                return false;
-            
             _openedScreen.Value?.Dispose();
             _openedScreen.Value = null;
             return true;

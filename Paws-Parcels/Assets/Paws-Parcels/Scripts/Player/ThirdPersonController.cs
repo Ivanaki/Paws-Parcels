@@ -1,5 +1,7 @@
 using System;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using Paws_Parcels.Scripts.Saves.States;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
@@ -158,14 +160,18 @@ namespace Paws_Parcels.Scripts.Player
             
             _playerService.OnLookAt.AddListener(StartLookAt);
             _playerService.OffLookAt.AddListener(StopLookAt);
-            _playerService.OnFixedTimeRotate.AddListener(FixedRotate);
+            _playerService.OnFixedTimeRotateEvent.AddListener(FixedRotate);
+            _playerService.StopFixedTimeRotateEvent.AddListener(StopFixedTimeRotate);
+            _playerService.EndFixedTimeRotateEvent.AddListener(EndFixedTimeRotate);
         }
 
         private void OnDisable()
         {
             _playerService.OnLookAt.RemoveListener(StartLookAt);
             _playerService.OffLookAt.RemoveListener(StopLookAt);
-            _playerService.OnFixedTimeRotate.RemoveListener(FixedRotate);
+            _playerService.OnFixedTimeRotateEvent.RemoveListener(FixedRotate);
+            _playerService.StopFixedTimeRotateEvent.RemoveListener(StopFixedTimeRotate);
+            _playerService.EndFixedTimeRotateEvent.RemoveListener(EndFixedTimeRotate);
             _disposables?.Dispose();
         }
 
@@ -207,10 +213,22 @@ namespace Paws_Parcels.Scripts.Player
         private float _lookSpeed;
         private bool _isLookingAtTarget;
 
+        private TweenerCore<Quaternion, Vector3, QuaternionOptions> _currentFixedRotate;
+
         private void FixedRotate(Transform target, float duration)
         {
             var yRot = Utils.VectorToGlobalYRotation(target.position - transform.position);
-            transform.DORotate(new Vector3(0, yRot, 0), duration);
+            _currentFixedRotate = transform.DORotate(new Vector3(0, yRot, 0), duration);
+        }
+
+        private void StopFixedTimeRotate()
+        {
+            _currentFixedRotate?.Kill(true);
+        }
+
+        private void EndFixedTimeRotate()
+        {
+            _currentFixedRotate?.Kill();
         }
         
         public void StartLookAt(Transform target, float rotationSpeed)

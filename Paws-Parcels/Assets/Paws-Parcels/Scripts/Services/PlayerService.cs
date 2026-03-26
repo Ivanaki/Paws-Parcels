@@ -11,7 +11,9 @@ namespace Services
         public class LookAtEvent : UnityEvent<Transform, float> { }
         
         public LookAtEvent OnLookAt = new();
-        public LookAtEvent OnFixedTimeRotate = new();
+        public LookAtEvent OnFixedTimeRotateEvent = new();
+        public UnityEvent StopFixedTimeRotateEvent = new();
+        public UnityEvent EndFixedTimeRotateEvent = new();
         public UnityEvent OffLookAt = new();
         
         public ReadOnlyReactiveProperty<bool> CanPlayerMove => _canPlayerMove;
@@ -25,7 +27,17 @@ namespace Services
 
         public void StartFixedTimeRotate(Transform position, float duration = 1f)
         {
-            OnFixedTimeRotate.Invoke(position, duration);
+            OnFixedTimeRotateEvent.Invoke(position, duration);
+        }
+
+        public void StopFixedTimeRotate()
+        {
+            StopFixedTimeRotateEvent.Invoke();
+        }
+        
+        public void EndFixedTimeRotate()
+        {
+            EndFixedTimeRotateEvent.Invoke();
         }
         
         public void StartLookAt(Transform position, float rotationSpeed = 1f)
@@ -52,7 +64,7 @@ namespace Services
 
         public void StartMovement(object playerStopper)
         {
-            _playerStoppersMovement.Remove(playerStopper);
+             _playerStoppersMovement.Remove(playerStopper);
             UpdatePlayerStop();
         }
 

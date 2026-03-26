@@ -1,4 +1,5 @@
 using Car_Player;
+using Dialogue;
 using Game.Root;
 using Items;
 using NPCDialogs;
@@ -88,6 +89,7 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<DialogueService>().AsSingle();
             Container.Bind<ResourcesService>().AsSingle();
             Container.Bind<DialogueRegistrations>().AsSingle();
+            Container.Bind<DialogueInQuestsService>().AsSingle();
             
             //NonLazy
             Container.Bind<BaseDialogueRegistrations>().AsSingle().NonLazy();

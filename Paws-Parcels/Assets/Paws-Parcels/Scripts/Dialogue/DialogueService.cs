@@ -1,4 +1,5 @@
 using System;
+using Extentions;
 using NPCDialogs;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Saves.States.GameResources;
@@ -70,24 +71,24 @@ namespace Paws_Parcels.NPCDialogs
             });
         }
         
-        public bool TryStartDialogue(DialogueReference dialogueReference, string npcNameCode, Transform npc, float duration)
+        public async YarnTask<Observable<bool>> TryStartDialogue(DialogueReference dialogueReference, string npcNameCode, Transform npc, float duration)
         {
             if (_isDialogRunning.Value)
             {
                 Debug.LogWarning("Dialogue service is already running");
-                return false;
+                return Observable.Return(false);
             }
 
             if (dialogueReference == null)
             {
                 Debug.LogWarning("Dialogue reference is null");
-                return false;
+                return Observable.Return(false);
             }
 
             if (string.IsNullOrEmpty(dialogueReference.nodeName))
             {
                 Debug.LogWarning("Dialogue reference node is null");
-                return false;
+                return Observable.Return(false);
             }
             
             _showableInterfaceService.CloseAllInterface();
@@ -97,14 +98,14 @@ namespace Paws_Parcels.NPCDialogs
             {
                 _showableInterfaceService.CloseAllInterface();
                 Debug.LogWarning("DialogueRunner is null");
-                return false;
+                return Observable.Return(false);
             }
             
-            _gameInputService.SetDialogueInput(true);
-            _gameInputService.SetAllGameplayInput(false);
+            //_gameInputService.SetDialogueInput(true);
+            //_gameInputService.SetAllGameplayInput(false);
             
-            _playerService.StopMouseAndInteract(this);
-            _playerService.StopMovement(this);
+            //_playerService.StopMouseAndInteract(this);
+            //_playerService.StopMovement(this);
             _playerService.StartFixedTimeRotate(npc, duration);
             
             _showableInterfaceService.HideHud();
@@ -113,9 +114,32 @@ namespace Paws_Parcels.NPCDialogs
             _currentNpcDialog = npcNameCode;
             _isDialogRunning.Value = true;
             
-            _currentRunner.StartDialogue(dialogueReference.nodeName);
+            await YarnTask.Yield();
+            await _currentRunner.StartDialogue(dialogueReference.nodeName);
+
+            var endOfDialog = new Subject<Unit>();
+            _currentRunner.onDialogueComplete.AsObservable().Take(1).Subscribe(x => 
+                endOfDialog.OnNextAndDispose(Unit.Default));
             
-            return true;
+            endOfDialog.Subscribe(_ =>
+            {
+                //_gameInputService.SetDialogueInput(false);
+                //_gameInputService.SetAllGameplayInput(true);
+            
+                //_playerService.StartMouseAndInteract(this);
+                //_playerService.StartMovement(this);
+                _playerService.StopFixedTimeRotate();
+            
+                _showableInterfaceService.ShowHud();
+                _showableInterfaceService.UnbanOpen();
+                
+                _showableInterfaceService.CloseAllInterface();
+            
+                _currentNpcDialog = "";
+                _isDialogRunning.Value = false;
+            });
+            
+            return endOfDialog.Select(x => true);
         }
         
 
