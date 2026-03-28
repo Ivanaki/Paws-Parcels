@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Items;
+using ObservableCollections;
 using Paws_Parcels.Scripts.Quests;
 using Paws_Parcels.Scripts.Saves.States.GameResources;
+using R3;
 using UnityEngine;
 using Zenject;
 
@@ -31,6 +33,35 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public Vector3 LinearVelocity;
         public Vector3 AngularVelocity;
         // и ещё вращение камеры
+    }
+
+    [Serializable]
+    public class ItemDestinationData
+    {
+        public List<ItemClearData> Items = new();
+    }
+    
+    public class ItemDestinationProxy
+    {
+        public readonly ItemDestinationData Origin;
+        
+        public ObservableList<ItemClearProxy> Items { get; } = new();
+
+        public ItemDestinationProxy(ItemDestinationData origin)
+        {
+            Origin = origin;
+            
+            origin.Items.ForEach(item => Items.Add(new ItemClearProxy(item)));
+
+            Items.ObserveAdd().Subscribe(e => 
+                origin.Items.Add(e.Value.Origin));
+
+            Items.ObserveRemove().Subscribe(e => 
+                origin.Items.Remove(e.Value.Origin));
+            
+            Items.ObserveClear().Subscribe(e => 
+                origin.Items.Clear());
+        }
     }
     
     //не забывать обновлять GameStateCollecter
@@ -65,7 +96,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public string InHandsMarkId = "";
         
         //Items in car
-        public List<ItemInsideCar> ItemsInsideCar = new();
+        public List<ItemClearData> ItemsInsideCar = new();
         
         //car&player
         public bool IsPlayerInCar;
@@ -74,6 +105,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         //Resources
         public List<ResourceData> Resources = new();
         
+        //ItemDestinations
+        public Dictionary<string, ItemDestinationData> ItemsDestinations = new();
         
         public int GetNewSavableEntityID()
         {

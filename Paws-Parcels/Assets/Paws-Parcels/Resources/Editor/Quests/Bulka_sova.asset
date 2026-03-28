@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: bulka_sova
   ActiveOnAwake: 1
   Missions:
-  - IsThisMissionDialogue: 0
+  - IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: ted
       MainDialogue:
@@ -24,7 +24,7 @@ MonoBehaviour:
       AfterMainDialogue:
         project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
         nodeName: Eat
-    HasDestination: 0
+    HasDestination: 1
     DestinationParent:
       IsMany: 0
       Destination:

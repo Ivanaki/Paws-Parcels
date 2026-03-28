@@ -34,10 +34,11 @@ namespace Services
             
             _disposable = new CompositeDisposable();
 
-            _disposable.Add(_localizationService.CurrentLocale.Subscribe(locale =>
-            {
-                _tmpText.text = _localizationService.GetCurrentLanguageStringOrDefault(interactableObject.UIShowTextCode, Tables.Interactables_name);
-            }));
+            _disposable.Add(_localizationService.CurrentLocale.Subscribe(_ => 
+                UpdateShowText(interactableObject)));
+
+            _disposable.Add(interactableObject.UIShowTextCode.Subscribe(_ => 
+                UpdateShowText(interactableObject)));
             
             _disposable.Add(interactableObject.IsQuestSelect.Subscribe(v =>
             {
@@ -57,6 +58,11 @@ namespace Services
             }));
         }
 
+        private void UpdateShowText(InteractableObject interactableObject)
+        {
+            _tmpText.text = _localizationService.GetCurrentLanguageStringOrDefault(interactableObject.UIShowTextCode.CurrentValue, Tables.Interactables_name);
+        }
+        
         private void OnDestroy()
         {
             _disposable?.Dispose();

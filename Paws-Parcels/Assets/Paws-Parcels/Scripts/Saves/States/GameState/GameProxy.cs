@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Items;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Quests;
@@ -37,12 +38,14 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public ReactiveProperty<string> InHandsItemTypeId { get; }
         public string InHandsMarkId { get => Origin.InHandsMarkId; set => Origin.InHandsMarkId = value; }
         
-        public ObservableList<ItemInsideCarProxy> ItemsInsideCar { get; } = new();
+        public ObservableList<ItemClearProxy> ItemsInsideCar { get; } = new();
         
         public ReactiveProperty<bool> IsPlayerInCar { get; }
         public ReactiveProperty<bool> IsCarDoorOpen { get; }
         
         public ObservableList<ResourceProxy> Resources { get; } = new();
+        
+        public ObservableDictionary<string, ItemDestinationProxy> ItemsDestinationsPutters { get; } = new();
 
         public GameProxy(GameState origin)
         {
@@ -74,6 +77,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             IsCarDoorOpen.Skip(1).Subscribe(v => origin.IsCarDoorOpen = v);
 
             InitResources(origin);
+            InitItemsDestinations(origin);
         }
 
         public void Change(GameState origin)
@@ -104,13 +108,17 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             InHandsMarkId = origin.InHandsMarkId;
             
             ItemsInsideCar.Clear();
-            origin.ItemsInsideCar.ForEach(questData => ItemsInsideCar.Add(new ItemInsideCarProxy(questData)));
+            origin.ItemsInsideCar.ForEach(questData => ItemsInsideCar.Add(new ItemClearProxy(questData)));
 
             IsPlayerInCar.Value = origin.IsPlayerInCar;
             IsCarDoorOpen.Value = origin.IsCarDoorOpen;
             
             Resources.Clear();
             origin.Resources.ForEach(questData => Resources.Add(new ResourceProxy(questData)));
+
+            ItemsDestinationsPutters.Clear();
+            foreach (var originItemsDestination in origin.ItemsDestinations)
+                ItemsDestinationsPutters.Add(originItemsDestination.Key, new ItemDestinationProxy(originItemsDestination.Value));
         }
         
         /*public void Change(GameProxy gameProxy)
@@ -203,7 +211,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                 origin.ItemsInWorld.Clear());
             
             
-            origin.ItemsInsideCar.ForEach(item => ItemsInsideCar.Add(new ItemInsideCarProxy(item)));
+            origin.ItemsInsideCar.ForEach(item => ItemsInsideCar.Add(new ItemClearProxy(item)));
             
             ItemsInsideCar.ObserveAdd().Subscribe(e => 
                 origin.ItemsInsideCar.Add(e.Value.Origin));
@@ -227,6 +235,21 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             Resources.ObserveClear().Subscribe(e =>
                 origin.Resources.Clear());
+        }
+
+        private void InitItemsDestinations(GameState origin)
+        {
+            foreach (var originItemsDestination in origin.ItemsDestinations)
+                ItemsDestinationsPutters.Add(originItemsDestination.Key, new ItemDestinationProxy(originItemsDestination.Value));
+            
+            ItemsDestinationsPutters.ObserveAdd().Subscribe(e => 
+                origin.ItemsDestinations.Add(e.Value.Key, e.Value.Value.Origin));
+            
+            ItemsDestinationsPutters.ObserveRemove().Subscribe(e =>
+                origin.ItemsDestinations.Remove(e.Value.Key));
+            
+            ItemsDestinationsPutters.ObserveClear().Subscribe(e =>
+                origin.ItemsDestinations.Clear());
         }
     }
 }

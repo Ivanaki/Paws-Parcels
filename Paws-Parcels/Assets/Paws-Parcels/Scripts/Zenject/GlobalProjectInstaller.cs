@@ -1,4 +1,5 @@
 using Car_Player;
+using Destinations;
 using Dialogue;
 using Game.Root;
 using Items;
@@ -63,7 +64,6 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<LoadService>().AsSingle();
             Container.Bind<SettingsStateProvider>().AsSingle();
             Container.Bind<SettingsService>().AsSingle();
-            Container.Bind<GameStateProvider>().AsSingle();
             Container.Bind<QuestsService>().AsSingle();
             Container.Bind<RewardService>().AsSingle();
             Container.Bind<DestinationService>().AsSingle();
@@ -90,6 +90,11 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<ResourcesService>().AsSingle();
             Container.Bind<DialogueRegistrations>().AsSingle();
             Container.Bind<DialogueInQuestsService>().AsSingle();
+            Container.Bind<ItemDestinationPutterService>().AsSingle();
+            
+            //
+            Container.Bind<GameStateProvider>().AsSingle();
+            Container.Bind<GameProxy>().FromResolveGetter<GameStateProvider>(x => x.GameProxy).AsSingle();
             
             //NonLazy
             Container.Bind<BaseDialogueRegistrations>().AsSingle().NonLazy();

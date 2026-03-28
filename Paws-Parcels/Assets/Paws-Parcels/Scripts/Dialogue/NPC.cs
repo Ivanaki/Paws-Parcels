@@ -24,7 +24,7 @@ namespace Paws_Parcels.NPCDialogs
     {
         public override string DestinationId => _npcNameCode;
         public override string UiShowTypeId => _uiShowTypeId;
-        public override string UIShowTextCode => _npcNameCode;
+        public override ReadOnlyReactiveProperty<string> UIShowTextCode => _uiShowTextCodeRP;
         public override bool DontShowWithItemInHands => false;
 
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
@@ -45,7 +45,7 @@ namespace Paws_Parcels.NPCDialogs
         //[SerializeField] private float _playerRotationSpeed = 100f;
         [SerializeField] private Transform _npcTransform;
         
-        
+        private ReactiveProperty<string> _uiShowTextCodeRP = new("Bug");
 
         [Inject] private DialogueService _dialogueService;
         [Inject] private DialogueInQuestsService _dialogueInQuestsService;
@@ -60,6 +60,8 @@ namespace Paws_Parcels.NPCDialogs
 
         private void Awake()
         {
+            _uiShowTextCodeRP.Value = _npcNameCode;
+            
             _baseYRot = _npcTransform.eulerAngles.y;
             _cinemachineCamera.Priority.Enabled = true;
             

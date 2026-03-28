@@ -14,6 +14,7 @@ namespace Paws_Parcels.Scripts.Player
     {
         public abstract IReadOnlyList<string> ActivateLocations { get; }
         public abstract bool DontShowWithItemInHands { get; }
+        public abstract ReadOnlyReactiveProperty<string> UIShowTextCode { get; }
         
         public ReadOnlyReactiveProperty<bool> CanInteract => _canInteract;
         private readonly ReactiveProperty<bool> _canInteract = new(false);

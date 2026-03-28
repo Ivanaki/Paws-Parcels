@@ -3,15 +3,15 @@ using System;
 namespace Paws_Parcels.Scripts.Saves.States.GameState
 {
     [Serializable]
-    public class ItemInsideCar
+    public class ItemClearData
     {
         public string ItemTypeId = "";
         public string DestinationId = "";
     }
     
-    public class ItemInsideCarProxy
+    public class ItemClearProxy
     {
-        public ItemInsideCar Origin;
+        public ItemClearData Origin;
 
         public string ItemTypeId
         {
@@ -25,11 +25,11 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             set => Origin.DestinationId = value;
         }
         
-        public ItemInsideCarProxy(ItemInsideCar itemInsideCar)
+        public ItemClearProxy(ItemClearData itemClearData)
         {
-            Origin = itemInsideCar;
-            ItemTypeId = itemInsideCar.ItemTypeId;
-            DestinationId = itemInsideCar.DestinationId;
+            Origin = itemClearData;
+            ItemTypeId = itemClearData.ItemTypeId;
+            DestinationId = itemClearData.DestinationId;
         }
     }
 }

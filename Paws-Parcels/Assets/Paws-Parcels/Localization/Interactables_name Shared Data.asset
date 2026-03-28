@@ -47,6 +47,14 @@ MonoBehaviour:
     m_Key: ted
     m_Metadata:
       m_Items: []
+  - m_Id: 6074284345237504
+    m_Key: put_item
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6077583748341760
+    m_Key: take_item
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

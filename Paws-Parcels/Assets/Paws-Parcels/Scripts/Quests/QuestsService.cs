@@ -298,6 +298,8 @@ namespace Paws_Parcels.Scripts.Quests
 
         public void ActiveNewQuest(string questID)
         {
+            if(string.IsNullOrEmpty(questID)) return;
+            
             if (_questsDict.ContainsKey(questID) == false)
             {
                 Debug.LogError("No questID here: " + questID);

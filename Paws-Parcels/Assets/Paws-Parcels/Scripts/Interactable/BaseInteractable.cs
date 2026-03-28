@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using R3;
 using UnityEngine;
 
 namespace Paws_Parcels.Scripts.Player
@@ -7,9 +8,11 @@ namespace Paws_Parcels.Scripts.Player
     {
         public override string DestinationId => _destinationId;
         public override string UiShowTypeId => _uiShowTypeId;
-        public override string UIShowTextCode => _uiShowTextCode;
+        public override ReadOnlyReactiveProperty<string> UIShowTextCode => _uiShowTextCodeRP;
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
         public override bool DontShowWithItemInHands => _dontShowWithItemInHands;
+        
+        private ReactiveProperty<string> _uiShowTextCodeRP = new("Bug");
         
         [Header("Base settings")]
         [SerializeField] private string _uiShowTypeId = "interact";
@@ -17,5 +20,10 @@ namespace Paws_Parcels.Scripts.Player
         [SerializeField] private string _destinationId;
         [SerializeField] private List<string> _activeLocations = new(){"None"};
         [SerializeField] private bool _dontShowWithItemInHands = false;
+
+        private void Awake()
+        {
+            _uiShowTextCodeRP.Value = _uiShowTextCode;
+        }
     }
 }

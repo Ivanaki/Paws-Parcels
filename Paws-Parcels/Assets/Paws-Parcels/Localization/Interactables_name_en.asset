@@ -50,6 +50,14 @@ MonoBehaviour:
     m_Localized: Talk to Ted
     m_Metadata:
       m_Items: []
+  - m_Id: 6074284345237504
+    m_Localized: Put item
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6077583748341760
+    m_Localized: Take item
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

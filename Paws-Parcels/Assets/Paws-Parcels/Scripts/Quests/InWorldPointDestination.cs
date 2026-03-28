@@ -1,3 +1,4 @@
+using R3;
 using UnityEngine;
 
 namespace Quests
@@ -6,10 +7,8 @@ namespace Quests
     {
         [SerializeField] private string _destinationId;
         [SerializeField] private string _uiShowTypeId;
-        [SerializeField] private string _uiShowText;
-
+        
         public override string DestinationId => _destinationId;
         public override string UiShowTypeId => _uiShowTypeId;
-        public override string UIShowTextCode => _uiShowText;
     }
 }

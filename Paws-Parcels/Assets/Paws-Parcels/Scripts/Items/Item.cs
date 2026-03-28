@@ -37,10 +37,12 @@ namespace Paws_Parcels.Scripts.Player
         public ItemLargeType ItemLargeType => _itemLargeType;
         public override string DestinationId => _destinationId;
         public override string UiShowTypeId => _uiShowTypeId;
-        public override string UIShowTextCode => _uiShowTextCode;
+        public override ReadOnlyReactiveProperty<string> UIShowTextCode => _uiShowTextCodeRP;
         public override bool DontShowWithItemInHands => _dontShowWithItemInHands;
 
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
+
+        public Observable<Unit> OnDestroyObserve => _onDestroySubject;
 
         [Header("Item prefab settings")]
         [SerializeField] private string _itemTypeId;
@@ -52,6 +54,10 @@ namespace Paws_Parcels.Scripts.Player
         
         [Header("Item in scene changes")]
         [SerializeField] private string _destinationId;
+        
+        private readonly Subject<Unit> _onDestroySubject = new();
+        
+        private ReactiveProperty<string> _uiShowTextCodeRP = new("Bug");
         
         private ItemsInWorldVisualizer _itemsInWorldVisualizer;
         private ItemProxy _itemProxy;
@@ -67,6 +73,8 @@ namespace Paws_Parcels.Scripts.Player
         
         public void ConstructItem(ApplyInFixUpdate applyInFixUpdate, ItemProxy itemProxy, ItemsInWorldVisualizer itemsInWorldVisualizer)
         {
+            _uiShowTextCodeRP.Value = _uiShowTextCode;
+            
             _isInstantiated = true;
             InitializeRigidbody();
             
@@ -147,6 +155,7 @@ namespace Paws_Parcels.Scripts.Player
         private void OnDestroy()
         {
             _disposable?.Dispose();
+            _onDestroySubject.OnNext(Unit.Default);
         }
 
         private void OnTriggerEnter(Collider other)
