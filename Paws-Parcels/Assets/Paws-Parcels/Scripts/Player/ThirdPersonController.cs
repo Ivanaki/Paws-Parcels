@@ -499,7 +499,7 @@ namespace Paws_Parcels.Scripts.Player
 
         public void OnLand(AnimationEvent animationEvent)
         {
-            if (animationEvent.animatorClipInfo.weight > 0.5f && LandingAudioClip != null)
+            if (animationEvent.animatorClipInfo.weight > 0.00f && LandingAudioClip != null)
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center),
                     LandAudioVolume * _masterVolume.CurrentValue);
