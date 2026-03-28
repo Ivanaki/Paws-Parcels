@@ -4,6 +4,7 @@ using DefaultNamespace;
 using DG.Tweening;
 using Dialogue;
 using Extentions;
+using NPCDialogs;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Player;
 using R3;
@@ -44,6 +45,7 @@ namespace Paws_Parcels.NPCDialogs
         [SerializeField] private float _rotationDuration = 1f;
         //[SerializeField] private float _playerRotationSpeed = 100f;
         [SerializeField] private Transform _npcTransform;
+        [SerializeField] private BaseNPCRegistration _baseNpcRegistration;
         
         private ReactiveProperty<string> _uiShowTextCodeRP = new("Bug");
 

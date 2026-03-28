@@ -319,7 +319,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f023b0f001641b48acb9777ef830be2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 71039383}
   m_SourcePrefab: {fileID: 100100000, guid: 7f023b0f001641b48acb9777ef830be2, type: 3}
 --- !u!4 &71039380 stripped
 Transform:
@@ -336,6 +339,133 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 7f023b0f001641b48acb9777ef830be2, type: 3}
   m_PrefabInstance: {fileID: 71039379}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &71039383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71039381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7442fd7b786a4e1dbdfbc1cd44053e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MotorHome.Scripts.StepsAnimator
+  _thirdPersonController: {fileID: 1472182640}
+  _leftFoot: {fileID: 198093543}
+  _rightFoot: {fileID: 1478308666}
+--- !u!1 &106240117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 106240121}
+  - component: {fileID: 106240120}
+  - component: {fileID: 106240119}
+  - component: {fileID: 106240118}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &106240118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106240117}
+  m_Material: {fileID: 13400000, guid: 6897fef8e6085b64d8c0b248bd254865, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &106240119
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106240117}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &106240120
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106240117}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &106240121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106240117}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25.21, y: -0.34, z: -27.79}
+  m_LocalScale: {x: 16.567905, y: 1, z: 47.12444}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &114827692
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +867,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127118471}
   m_CullTransparentMesh: 1
+--- !u!4 &198093543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 448424949828438765, guid: 7f023b0f001641b48acb9777ef830be2, type: 3}
+  m_PrefabInstance: {fileID: 71039379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &231353681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,7 +1813,7 @@ MonoBehaviour:
   - _gameObject: {fileID: 71039381}
     _prefab: Assets/MotorHome/Animations/Dog/dog_ALL_anim.fbx
   - _gameObject: {fileID: 1246737056}
-    _prefab: Assets/Paws-Parcels/Prefabs/MyCar.prefab
+    _prefab: Assets/Paws-Parcels/Prefabs/Car/MyCar.prefab
   - _gameObject: {fileID: 1859470480}
     _prefab: Assets/Paws-Parcels/Resources/Items/ItemsInsideCar/BookItem.prefab
   - _gameObject: {fileID: 562179181}
@@ -3556,6 +3691,22 @@ Transform:
   - {fileID: 1488963900}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472182640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8072909332365300805, guid: 749b607e30dea8c44baaf6cb5b70a635, type: 3}
+  m_PrefabInstance: {fileID: 5010317793424982745}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1478308666 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2677437529613571355, guid: 7f023b0f001641b48acb9777ef830be2, type: 3}
+  m_PrefabInstance: {fileID: 71039379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1488963896
 GameObject:
   m_ObjectHideFlags: 0
@@ -6986,7 +7137,8 @@ PrefabInstance:
       propertyPath: _animator
       value: 
       objectReference: {fileID: 71039382}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4602067416560857221, guid: 749b607e30dea8c44baaf6cb5b70a635, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7385139709033495401, guid: 749b607e30dea8c44baaf6cb5b70a635, type: 3}
@@ -7229,6 +7381,7 @@ GameObject:
   - component: {fileID: 7592478630955418732}
   - component: {fileID: 7592478630955418733}
   - component: {fileID: 7592478630955418734}
+  - component: {fileID: 7592478630955418735}
   m_Layer: 7
   m_Name: dog_idle_anim (1)
   m_TagString: Untagged
@@ -7427,6 +7580,7 @@ MonoBehaviour:
   _cinemachineCamera: {fileID: 486618638}
   _rotationDuration: 1
   _npcTransform: {fileID: 7592478630955418731}
+  _baseNpcRegistration: {fileID: 0}
 --- !u!136 &7592478630955418734
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7450,6 +7604,18 @@ CapsuleCollider:
   m_Height: 2.27
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7592478630955418735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067897937349041873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d4c16edfa24fc78fa139c0d5af6a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogs.TestRegistrations
 --- !u!1 &7614323462012280603
 GameObject:
   m_ObjectHideFlags: 0
@@ -7663,3 +7829,4 @@ SceneRoots:
   - {fileID: 1291186259}
   - {fileID: 2023051287}
   - {fileID: 2100911814}
+  - {fileID: 106240121}

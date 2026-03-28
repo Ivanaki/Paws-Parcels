@@ -71,7 +71,8 @@ namespace Paws_Parcels.NPCDialogs
             });
         }
         
-        public async YarnTask<Observable<bool>> TryStartDialogue(DialogueReference dialogueReference, string npcNameCode, Transform npc, float duration)
+        public async YarnTask<Observable<bool>> TryStartDialogue(DialogueReference dialogueReference, string npcNameCode,
+            Transform npc, float duration)
         {
             if (_isDialogRunning.Value)
             {
