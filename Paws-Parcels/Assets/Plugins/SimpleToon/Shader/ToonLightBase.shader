@@ -27,11 +27,6 @@ Shader "Lpk/LightModel/ToonLightBase"
     {
         Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
         
-        HLSLINCLUDE
-        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl"
-        ENDHLSL
-        
         Pass
         {
             Name "UniversalForward"
@@ -55,9 +50,7 @@ Shader "Lpk/LightModel/ToonLightBase"
             // Unity defined keywords
             #pragma multi_compile_fog
             #pragma multi_compile_instancing
-
-            
-            
+             
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl"
@@ -224,36 +217,6 @@ Shader "Lpk/LightModel/ToonLightBase"
             
             ENDHLSL
         }
-        //UsePass "Universal Render Pipeline/Lit/ShadowCaster"
-Pass
-{
-    Name "ShadowCaster"
-    Tags { "LightMode" = "ShadowCaster" }
-    ZWrite On
-    ColorMask 0
-
-    HLSLPROGRAM
-    #pragma vertex vertShadow
-    #pragma fragment fragShadow
-    #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
-    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
-
-    struct Attributes { float4 positionOS : POSITION; };
-    struct Varyings { float4 positionCS : SV_POSITION; };
-
-    Varyings vertShadow(Attributes v)
-    {
-        Varyings o;
-        o.positionCS = TransformObjectToHClip(v.positionOS);
-        return o;
-    }
-
-    float4 fragShadow(Varyings i) : SV_Target
-    {
-        // ничего не выводим в цвет — шейдер нужен только для записи глубины в shadowmap
-        return 0;
-    }
-    ENDHLSL
-}
+        UsePass "Universal Render Pipeline/Lit/ShadowCaster"
     }
 }

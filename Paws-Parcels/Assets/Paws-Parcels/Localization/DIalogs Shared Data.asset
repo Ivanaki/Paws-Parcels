@@ -235,6 +235,66 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 8918303239614234751
+  - m_Id: 17829306305527808
+    m_Key: line:44c8d34b
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690560
+  - m_Id: 17829306334887936
+    m_Key: line:d2f8d43c
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690561
+  - m_Id: 17829306334887937
+    m_Key: line:2932e354
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690562
+  - m_Id: 17829306334887938
+    m_Key: line:bf02e423
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690563
+  - m_Id: 17829306334887939
+    m_Key: line:0553edba
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690564
+  - m_Id: 17829306334887940
+    m_Key: line:9363eacd
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690565
+  - m_Id: 17829306334887941
+    m_Key: line:30f68e53
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690566
+  - m_Id: 17829306334887942
+    m_Key: line:a6c68924
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690567
+  - m_Id: 17829306334887943
+    m_Key: line:b707fdf8
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690568
+  - m_Id: 17829306334887944
+    m_Key: line:2137fa8f
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690569
+  - m_Id: 17829306334887945
+    m_Key: line:c484e98f
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690570
+  - m_Id: 17829306334887946
+    m_Key: line:a51a6cdb
+    m_Metadata:
+      m_Items:
+      - rid: 8394464061322690571
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -246,6 +306,67 @@ MonoBehaviour:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1770452196476
+    - rid: 8394464061322690560
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: TedNone
+        tags: []
+    - rid: 8394464061322690561
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: TedNone
+        tags: []
+    - rid: 8394464061322690562
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: TedNone
+        tags: []
+    - rid: 8394464061322690563
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: TedNone
+        tags:
+        - lastline
+    - rid: 8394464061322690564
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: TedNone
+        tags: []
+    - rid: 8394464061322690565
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: TedNone
+        tags: []
+    - rid: 8394464061322690566
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: TedNone
+        tags: []
+    - rid: 8394464061322690567
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: TedNone
+        tags: []
+    - rid: 8394464061322690568
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Eat
+        tags: []
+    - rid: 8394464061322690569
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Eat
+        tags: []
+    - rid: 8394464061322690570
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Ted2
+        tags: []
+    - rid: 8394464061322690571
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Ted2End
+        tags: []
     - rid: 8918302973206987034
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:

@@ -145,10 +145,10 @@ Material:
     - _Cliff_Shadow: {r: 0.38039213, g: 0.39215687, b: 0.4823529, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _FakeLightColor: {r: 1, g: 0.9166666, b: 0, a: 0}
+    - _FakeLightColor: {r: 1, g: 1, b: 0, a: 0}
     - _FakeShadowColor: {r: 0, g: 0.49411765, b: 1, a: 1}
     - _Grass_Dry: {r: 0.58431375, g: 0.38039213, b: 0.23529407, a: 1}
-    - _Grass_HighLight: {r: 0.9811321, g: 0.48246762, b: 0.16197933, a: 1}
+    - _Grass_HighLight: {r: 1, g: 0.67687434, b: 0.4292453, a: 1}
     - _Grass_MidTone: {r: 0.5943396, g: 0.45492688, b: 0.14297791, a: 1}
     - _Grass_Shadow: {r: 0.4245283, g: 0.40510413, b: 0.23028658, a: 1}
   m_BuildTextureStacks: []

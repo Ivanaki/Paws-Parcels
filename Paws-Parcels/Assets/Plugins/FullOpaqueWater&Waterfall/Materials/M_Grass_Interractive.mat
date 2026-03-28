@@ -149,7 +149,7 @@ Material:
     - _FakeShadowColor: {r: 0, g: 0.49411765, b: 1, a: 1}
     - _Grass_Dry: {r: 0.58431375, g: 0.38039213, b: 0.23529407, a: 1}
     - _Grass_HighLight: {r: 0.9245283, g: 0.8342008, b: 0, a: 1}
-    - _Grass_MidTone: {r: 0.5566038, g: 0.31107944, b: 0, a: 1}
+    - _Grass_MidTone: {r: 0.8113208, g: 0.4768369, b: 0.057404764, a: 1}
     - _Grass_Shadow: {r: 0.3773585, g: 0.34798864, b: 0.083659664, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
