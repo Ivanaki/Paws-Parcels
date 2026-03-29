@@ -8,16 +8,8 @@ using UnityEngine;
 namespace Destinations
 {
     [RequireComponent(typeof(Collider))]
-    public class ItemPutterTriggerZone : DestinationObject
+    public class ItemPutterTriggerZone : InWorldPointDestination
     {
-        public override string DestinationId => _destinationId;
-        public override string UiShowTypeId => _uiShowTypeId;
-        
-        
-        [Header("Destination settings")]
-        [SerializeField] private string _destinationId;
-        [SerializeField] private string _uiShowTypeId;
-        
         [Header("ItemPutterTriggerZone settings")] 
         [SerializeField] private string _itemDestinationPutterId;
 

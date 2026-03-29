@@ -94,11 +94,11 @@ namespace Dialogue
                             npcData.OneNpcs.FirstOrDefault(x => x.QuestId == _selectedQuest.CurrentValue) ??
                             npcData.OneNpcs.First();
                         
-                        npc.SetDialog(hasSelected.MainDialogueReference);
+                        npc.SetDialog(hasSelected.MainDialogueReference, true);
                     }
                     else
                     {
-                        npc.SetDialog(npcData.EndDialogueReference);
+                        npc.SetDialog(npcData.EndDialogueReference, false);
                     }
                 }
             }

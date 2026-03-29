@@ -35,6 +35,10 @@ namespace Paws_Parcels.Scripts.Quests
     public class DestinationAsset
     {
         public string Id;
+        /*[AllowNesting, MinValue(0)]
+        public float ActivationDistanceSelected = 20f;
+        [AllowNesting, MinValue(0)]
+        public float ActivationDistance = 10f;*/
         public bool NotHighlightOnAwake;
         public string OffHighlightMessage;
         public string OnHighlightMessage;

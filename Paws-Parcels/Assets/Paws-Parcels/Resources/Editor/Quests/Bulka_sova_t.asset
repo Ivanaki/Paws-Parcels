@@ -17,7 +17,7 @@ MonoBehaviour:
   Missions:
   - IsThisMissionDialogue: 1
     DialogueParent:
-      NpcName: ted
+      NpcName: took
       MainDialogue:
         project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
         nodeName: Ted2
@@ -28,7 +28,7 @@ MonoBehaviour:
     DestinationParent:
       IsMany: 0
       Destination:
-        Id: ted
+        Id: took
         NotHighlightOnAwake: 0
         OffHighlightMessage: 
         OnHighlightMessage: 

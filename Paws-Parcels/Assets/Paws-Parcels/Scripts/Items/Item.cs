@@ -39,6 +39,7 @@ namespace Paws_Parcels.Scripts.Player
         public override string UiShowTypeId => _uiShowTypeId;
         public override ReadOnlyReactiveProperty<string> UIShowTextCode => _uiShowTextCodeRP;
         public override bool DontShowWithItemInHands => _dontShowWithItemInHands;
+        protected override float SelectedActivationDistance => _selectedActivationDistance;
 
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
 
@@ -51,6 +52,7 @@ namespace Paws_Parcels.Scripts.Player
         [SerializeField] private ItemLargeType _itemLargeType;
         [SerializeField] private List<string> _activeLocations = new(){"None"};
         [SerializeField] private bool _dontShowWithItemInHands = true;
+        [SerializeField] private float _selectedActivationDistance = 20f;
         
         [Header("Item in scene changes")]
         [SerializeField] private string _destinationId;
@@ -97,6 +99,7 @@ namespace Paws_Parcels.Scripts.Player
                 _rigidbody.angularVelocity = itemProxy.AngularVelocity;
             });
         }
+        
         
         private void Awake()
         {
@@ -152,8 +155,9 @@ namespace Paws_Parcels.Scripts.Player
             }
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
             _disposable?.Dispose();
             _onDestroySubject.OnNext(Unit.Default);
         }

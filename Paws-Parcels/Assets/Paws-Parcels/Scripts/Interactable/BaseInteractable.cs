@@ -12,6 +12,8 @@ namespace Paws_Parcels.Scripts.Player
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
         public override bool DontShowWithItemInHands => _dontShowWithItemInHands;
         
+        protected override float SelectedActivationDistance => _selectedActivationDistance;
+        
         private ReactiveProperty<string> _uiShowTextCodeRP = new("Bug");
         
         [Header("Base settings")]
@@ -20,6 +22,7 @@ namespace Paws_Parcels.Scripts.Player
         [SerializeField] private string _destinationId;
         [SerializeField] private List<string> _activeLocations = new(){"None"};
         [SerializeField] private bool _dontShowWithItemInHands = false;
+        [SerializeField] private float _selectedActivationDistance = 20f;
 
         private void Awake()
         {

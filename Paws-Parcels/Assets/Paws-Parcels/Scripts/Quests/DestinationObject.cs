@@ -12,20 +12,28 @@ namespace Quests
     {
         [Header("Destination settings")] 
         [Tooltip("Can be null")]
-        [SerializeField] private Transform _destinationShowUiPosition;
+        [SerializeField] protected Transform _destinationShowUiPosition;
         
         public abstract string DestinationId { get; }
         public abstract string UiShowTypeId { get; }
+
+        protected virtual float SelectedActivationDistance => 15f;
+        protected virtual float ActivationDistance => 7f;
         
-        
+        public abstract ReadOnlyReactiveProperty<bool> IsDestinationShow { get; }
         
         public virtual ReadOnlyReactiveProperty<bool> IsQuestActive => _isQuestActive;
         public virtual ReadOnlyReactiveProperty<bool> IsQuestSelect => _isQuestSelect;
         
         private readonly ReactiveProperty<bool> _isQuestActive = new(false);
         private readonly ReactiveProperty<bool> _isQuestSelect = new(false);
+        
+        //private readonly ReactiveProperty<bool> _isDestinationShow = new(false);
+        
+        protected CompositeDisposable _disposables;
  
         [Inject] private DestinationService _destinationService;
+        [Inject] protected CanvasUiVisualizer _canvasUiVisualizer;
         
         public virtual void QuestActivated()
         {
@@ -56,11 +64,20 @@ namespace Quests
         
         protected virtual void OnEnable()
         {
+            _disposables = new CompositeDisposable();
             _destinationService.AddDestination(this);
+            _disposables.Add(IsDestinationShow.Subscribe(show =>
+            {
+                if (show)
+                    _canvasUiVisualizer.ShowOnCanvas(this);
+                else
+                    _canvasUiVisualizer.HideOnCanvas(this);
+            }));
         }
 
         protected virtual void OnDisable()
         {
+            _disposables?.Dispose();
             _destinationService.RemoveDestination(this);
         }
     }

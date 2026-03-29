@@ -18,6 +18,7 @@ namespace Destinations
         public override ReadOnlyReactiveProperty<string> UIShowTextCode => _uiShowTextCodeRP;
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
         public override bool DontShowWithItemInHands => _dontShowWithItemInHands;
+        protected override float SelectedActivationDistance => _selectedActivationDistance;
         
         [Header("Interactable Settings")] 
         [SerializeField] private string _uiShowTypeId = "interact";
@@ -26,6 +27,7 @@ namespace Destinations
         [SerializeField] private string _destinationId;
         [SerializeField] private List<string> _activeLocations = new(){"None"};
         [SerializeField] private bool _dontShowWithItemInHands = false;
+        [SerializeField] private float _selectedActivationDistance = 20f;
         
         [Header("ItemDestination Settings")]
         [SerializeField] private string _itemDestinationPutterId;
@@ -35,7 +37,6 @@ namespace Destinations
         [Inject] private ItemDestinationPutterService _itemDestinationPutterService;
         [Inject] private ItemsDatabase _itemsDatabase;
         
-        private CompositeDisposable _disposables;
         private List<GameObject> _itemsCurrentActive = new();
         private IDisposable _subscription;
         
@@ -57,8 +58,6 @@ namespace Destinations
         protected override void OnEnable()
         {
             base.OnEnable();
-
-            _disposables = new();
             
             UpdateSubscription();
             UpdateItems();
@@ -76,7 +75,6 @@ namespace Destinations
         protected override void OnDisable()
         {
             base.OnDisable();
-            _disposables?.Dispose();
             _subscription?.Dispose();
         }
 

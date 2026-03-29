@@ -1,3 +1,4 @@
+using Extentions;
 using Paws_Parcels.Scripts.Player;
 using Quests;
 using R3;
@@ -54,7 +55,8 @@ namespace Services
             
             _disposable.Add(interactableObject.IsQuestActive.Subscribe(v =>
             {
-                RectTransform.sizeDelta = v ? new Vector2(68, 68) : new Vector2(25, 25);
+                _image.rectTransform.sizeDelta = v ? new Vector2(68, 68) : new Vector2(25, 25);
+                //print(transform.GetFullPath());
             }));
         }
 

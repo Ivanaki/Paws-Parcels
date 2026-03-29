@@ -17,7 +17,7 @@ namespace Paws_Parcels.NPCDialogs
 {
     public interface INPC
     {
-        void SetDialog(DialogueReference dialogue);
+        void SetDialog(DialogueReference dialogue, bool isMain);
         string NpcName { get; }
     }
 
@@ -29,12 +29,15 @@ namespace Paws_Parcels.NPCDialogs
         public override bool DontShowWithItemInHands => false;
 
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
-        
+
+        protected override float SelectedActivationDistance => _selectedActivationDistance;
+
         public string NpcName => _npcNameCode;
 
         [Header("Interactable Settings")]
         [SerializeField] private string _uiShowTypeId = "interact";
         [SerializeField] private List<string> _activeLocations = new(){"None"};
+        [SerializeField] private float _selectedActivationDistance = 20f;
         
         [Header("NPC Settings")]
         [SerializeField] private string _npcNameCode;
@@ -45,14 +48,12 @@ namespace Paws_Parcels.NPCDialogs
         [SerializeField] private float _rotationDuration = 1f;
         //[SerializeField] private float _playerRotationSpeed = 100f;
         [SerializeField] private Transform _npcTransform;
-        [SerializeField] private BaseNPCRegistration _baseNpcRegistration;
+        [SerializeField] private GameObject _mark;
         
         private ReactiveProperty<string> _uiShowTextCodeRP = new("Bug");
 
         [Inject] private DialogueService _dialogueService;
         [Inject] private DialogueInQuestsService _dialogueInQuestsService;
-        
-        private CompositeDisposable _disposables;
 
         private float _baseYRot;
         private Tween _rotateTween;
@@ -62,6 +63,8 @@ namespace Paws_Parcels.NPCDialogs
 
         private void Awake()
         {
+            _mark.SetActive(false);
+            
             _uiShowTextCodeRP.Value = _npcNameCode;
             
             _baseYRot = _npcTransform.eulerAngles.y;
@@ -88,8 +91,6 @@ namespace Paws_Parcels.NPCDialogs
             
             _dialogueInQuestsService.RegisterNpc(this);
             
-            _disposables = new();
-            
             _disposables.Add(_dialogueService.IsDialogRunning.Subscribe(isRunning =>
             {
                 if (isRunning && _dialogueService.CurrentNpcDialog == _npcNameCode)
@@ -114,9 +115,10 @@ namespace Paws_Parcels.NPCDialogs
             _dialogueInQuestsService.UnregisterNpc(this);
         }
 
-        public void SetDialog(DialogueReference dialogue)
+        public void SetDialog(DialogueReference dialogue, bool isMain)
         {
             _currentDialogue = dialogue;
+            _mark.SetActive(isMain);
         }
     }
 }

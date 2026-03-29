@@ -149,6 +149,8 @@ namespace Paws_Parcels.NPCDialogs
             if(runner == _currentRunner) return;
             
             _currentRunner = runner;
+            
+            if(runner == null) return;
 
             RegisterAll(_commandsRegistrations);
             RegisterAll(_functionsRegistrations);

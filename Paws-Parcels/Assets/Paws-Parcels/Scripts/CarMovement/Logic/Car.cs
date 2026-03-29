@@ -133,6 +133,11 @@ namespace Paws_Parcels.Car.Logic
             UpdateAirControl();
         }
 
+        public float GetSpeed()
+        {
+            return m_Rigidbody.linearVelocity.magnitude;
+        }
+        
         private void UpdateSteerInput()
         {
             float wheelbase = m_Settings.Wheelbase;

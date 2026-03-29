@@ -16,6 +16,8 @@ namespace Services
         public UnityEvent EndFixedTimeRotateEvent = new();
         public UnityEvent OffLookAt = new();
         
+        public Transform PlayerTransform => _playerTransform;
+        
         public ReadOnlyReactiveProperty<bool> CanPlayerMove => _canPlayerMove;
         public ReadOnlyReactiveProperty<bool> CanPlayerMouseAndInteract => _canPlayerMouseAndInteract;
 
@@ -24,7 +26,14 @@ namespace Services
         
         private readonly List<object> _playerStoppersMovement = new();
         private readonly List<object> _playerStoppersMouseAndInteract = new();
+        
+        private Transform _playerTransform;
 
+        public void SetPlayerTransform(Transform playerTransform)
+        {
+            _playerTransform = playerTransform;
+        }
+        
         public void StartFixedTimeRotate(Transform position, float duration = 1f)
         {
             OnFixedTimeRotateEvent.Invoke(position, duration);
