@@ -31,7 +31,7 @@
             
             private void FixedUpdate()
             {
-                if (_playerService.PlayerTransform != null)
+                if (_playerService.PlayerTransform != null && IsQuestActive.CurrentValue)
                 {
                     _desPos = (_destinationShowUiPosition != null
                         ? _destinationShowUiPosition.position

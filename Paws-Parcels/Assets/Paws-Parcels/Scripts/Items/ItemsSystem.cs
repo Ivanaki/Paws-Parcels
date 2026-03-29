@@ -1,18 +1,21 @@
 using ObservableCollections;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
+using Services;
 using UnityEngine;
 
 namespace Items
 {
     public class ItemsSystem
     {
+        private readonly MessageSystem _messageSystem;
         private DropSettings _dropSettings { get; }
         private GameProxy _gameProxy { get; }
         
         
-        public ItemsSystem(GameStateProvider gameStateProvider, DropSettings dropSettings)
+        public ItemsSystem(GameStateProvider gameStateProvider, DropSettings dropSettings, MessageSystem messageSystem)
         {
+            _messageSystem = messageSystem;
             _dropSettings = dropSettings;
             _gameProxy = gameStateProvider.GameProxy;
         }
@@ -27,6 +30,7 @@ namespace Items
                     _gameProxy.IsItemInHandsNull.Value = false;
                     _gameProxy.InHandsItemTypeId.Value = itemProxy.ItemTypeId;
                     _gameProxy.InHandsMarkId = itemProxy.DestinationId;
+                    _messageSystem.SendCompositeMessage(this, "pickup:" + itemProxy.DestinationId);
                     return true;
                 }
             }
@@ -46,6 +50,8 @@ namespace Items
                     LinearVelocity = _dropSettings.GetDropLinearVelocity(),
                     AngularVelocity = _dropSettings.GetDropAngularVelocity(),
                 }));
+                
+                _messageSystem.SendCompositeMessage(this, "drop:" + _gameProxy.InHandsMarkId);
                 
                 _gameProxy.IsItemInHandsNull.Value = true;
                 _gameProxy.InHandsItemTypeId.Value = "";

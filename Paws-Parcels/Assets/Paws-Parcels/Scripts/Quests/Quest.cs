@@ -48,11 +48,13 @@ namespace Paws_Parcels.Scripts.Quests
     public class MessageAsset
     {
         //public Guid Id;
+        [TextArea(1, 10)]
         public string Message;
         public bool HasCount;
         [ShowIf(nameof(HasCount)), AllowNesting]
         public int MessageCount;
         [ShowIf(nameof(HasCount)), AllowNesting]
+        [TextArea(1, 10)]
         public string MinusMessage;
     }
     

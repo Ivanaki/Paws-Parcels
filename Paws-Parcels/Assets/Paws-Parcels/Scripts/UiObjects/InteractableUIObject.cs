@@ -11,7 +11,10 @@ namespace Services
 {
     public class InteractableUIObject : UiObject
     {
-        [SerializeField] private Image _image;
+        [SerializeField] private Image _smallCircle;
+        [SerializeField] private Image _bigCircle;
+        
+        //[SerializeField] private Image _image;
         [SerializeField] private Image _handShowImage;
         [SerializeField] private TMP_Text _tmpText;
 
@@ -43,8 +46,7 @@ namespace Services
             
             _disposable.Add(interactableObject.IsQuestSelect.Subscribe(v =>
             {
-                _image.color = v ? Color.yellow : Color.white;
-                _handShowImage.color = v ? Color.yellow : Color.white;
+                UpdateColor(interactableObject);
             }));
 
             _disposable.Add(interactableObject.CanInteract.Subscribe(v =>
@@ -55,9 +57,20 @@ namespace Services
             
             _disposable.Add(interactableObject.IsQuestActive.Subscribe(v =>
             {
-                _image.rectTransform.sizeDelta = v ? new Vector2(68, 68) : new Vector2(25, 25);
+                _bigCircle.gameObject.SetActive(v);
+                UpdateColor(interactableObject);
+                //_image.rectTransform.sizeDelta = v ? new Vector2(68, 68) : new Vector2(25, 25);
                 //print(transform.GetFullPath());
             }));
+        }
+
+        private void UpdateColor(InteractableObject interactableObject)
+        {
+            var activeYellow = interactableObject.IsQuestSelect.CurrentValue &&
+                               interactableObject.IsQuestActive.CurrentValue;
+            _smallCircle.color = activeYellow ? Color.yellow : Color.white;
+            _bigCircle.color = activeYellow ? Color.yellow : Color.white;
+            _handShowImage.color = activeYellow ? Color.yellow : Color.white;
         }
 
         private void UpdateShowText(InteractableObject interactableObject)

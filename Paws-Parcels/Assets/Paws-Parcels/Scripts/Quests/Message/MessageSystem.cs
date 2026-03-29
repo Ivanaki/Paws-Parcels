@@ -148,7 +148,7 @@ namespace Services
                 return new List<string>();
 
             return messages
-                .Split(new[] { '/' }, System.StringSplitOptions.RemoveEmptyEntries)
+                .Split(new[] { "/\n", "/\r\n", "/" }, System.StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
         }
         

@@ -3,7 +3,9 @@ using Paws_Parcels.Extentions;
 using Paws_Parcels.Scripts.Player;
 using Quests;
 using R3;
+using Services;
 using UnityEngine;
+using Zenject;
 
 namespace Destinations
 {
@@ -14,6 +16,8 @@ namespace Destinations
         [SerializeField] private string _itemDestinationPutterId;
 
         private readonly HashSet<string> _items = new();
+
+        [Inject] private MessageSystem _messageSystem;
 
         private void Awake()
         {
@@ -30,6 +34,7 @@ namespace Destinations
                     item.OnDestroyObserve.Take(1).Subscribe(_ => Remove(item));
                     print($"Added item: {item.DestinationId}");
                     //послать сообщение: putterId_put:itemDestinationId
+                    _messageSystem.SendCompositeMessage(this, _itemDestinationPutterId + "-put:" + item.DestinationId);
                 }
             }
         }
@@ -49,6 +54,7 @@ namespace Destinations
             {
                 print($"Removed item: {item.DestinationId}");
                 //послать сообщение: putterId_take:itemDestinationId
+                _messageSystem.SendCompositeMessage(this, _itemDestinationPutterId + "-take:" + item.DestinationId);
             }
         }
     }
