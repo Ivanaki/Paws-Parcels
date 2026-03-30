@@ -1,4 +1,5 @@
 using System;
+using Map;
 using NaughtyAttributes;
 using R3;
 using Services;
@@ -8,7 +9,7 @@ using Zenject;
 
 namespace Quests
 {
-    public abstract class DestinationObject : MonoBehaviour, IShowableInUI
+    public abstract class DestinationObject : MonoBehaviour, IShowableInUI, IShowableOnMap
     {
         [Header("Destination settings")] 
         [Tooltip("Can be null")]
@@ -16,11 +17,13 @@ namespace Quests
         
         public abstract string DestinationId { get; }
         public abstract string UiShowTypeId { get; }
+        public abstract string MapShowTypeId { get; }
 
         protected virtual float SelectedActivationDistance => 15f;
         protected virtual float ActivationDistance => 7f;
         
-        public abstract ReadOnlyReactiveProperty<bool> IsDestinationShow { get; }
+        public abstract ReadOnlyReactiveProperty<bool> IsDestinationShowInUi { get; }
+        //public abstract ReadOnlyReactiveProperty<bool> IsDestinationShowOnMap { get; }
         
         public virtual ReadOnlyReactiveProperty<bool> IsQuestActive => _isQuestActive;
         public virtual ReadOnlyReactiveProperty<bool> IsQuestSelect => _isQuestSelect;
@@ -34,6 +37,7 @@ namespace Quests
  
         [Inject] private DestinationService _destinationService;
         [Inject] protected CanvasUiVisualizer _canvasUiVisualizer;
+        [Inject] protected MapUiVisualizer _mapUiVisualizer;
         
         public virtual void QuestActivated()
         {
@@ -58,6 +62,8 @@ namespace Quests
         public Vector3 GetGlobalPositionShowablePoint() =>
             _destinationShowUiPosition == null ? transform.position : _destinationShowUiPosition.position;
         
+        public Quaternion GetGlobalRotationShowablePoint() => 
+            _destinationShowUiPosition == null ? transform.rotation : _destinationShowUiPosition.rotation;
 
         //TODO проверить на работоспособность других вариантов проверки на null
         public bool IsDestroyed() => this == null;
@@ -66,12 +72,19 @@ namespace Quests
         {
             _disposables = new CompositeDisposable();
             _destinationService.AddDestination(this);
-            _disposables.Add(IsDestinationShow.Subscribe(show =>
+            _disposables.Add(IsDestinationShowInUi.Subscribe(show =>
             {
                 if (show)
                     _canvasUiVisualizer.ShowOnCanvas(this);
                 else
                     _canvasUiVisualizer.HideOnCanvas(this);
+            }));
+            _disposables.Add(IsQuestActive.Subscribe(show =>
+            {
+                if (show)
+                    _mapUiVisualizer.Show(this);
+                else
+                    _mapUiVisualizer.Hide(this);
             }));
         }
 

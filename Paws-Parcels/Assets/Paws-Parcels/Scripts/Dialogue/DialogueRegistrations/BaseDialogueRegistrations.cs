@@ -11,9 +11,9 @@ namespace NPCDialogs
         public BaseDialogueRegistrations(DialogueRegistrations dialogueRegistrations, ResourcesService resourcesService)
         {
             _resourcesService = resourcesService;
-            dialogueRegistrations.AddCommand("add_money", runner => runner?.AddCommandHandler<int>("add_money", AddMoney));
-            dialogueRegistrations.AddCommand("spend_money", runner => runner?.AddCommandHandler<int>("spend_money", SpendMoney));
-            dialogueRegistrations.AddFunction("get_money", runner => runner?.AddFunction("get_money", GetMoney));
+            dialogueRegistrations.RegisterCommand("add_money", runner => runner?.AddCommandHandler<int>("add_money", AddMoney));
+            dialogueRegistrations.RegisterCommand("spend_money", runner => runner?.AddCommandHandler<int>("spend_money", SpendMoney));
+            dialogueRegistrations.RegisterFunction("get_money", runner => runner?.AddFunction("get_money", GetMoney));
 
             //_resourcesService.ObserveResource(ResourcesType.Money).Subscribe(v => Debug.Log(v));
         }

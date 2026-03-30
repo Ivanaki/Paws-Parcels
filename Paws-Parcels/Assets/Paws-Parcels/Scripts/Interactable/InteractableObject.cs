@@ -16,7 +16,7 @@ namespace Paws_Parcels.Scripts.Player
         public abstract bool DontShowWithItemInHands { get; }
         public abstract ReadOnlyReactiveProperty<string> UIShowTextCode { get; }
 
-        public override ReadOnlyReactiveProperty<bool> IsDestinationShow => _isDestinationShow;
+        public override ReadOnlyReactiveProperty<bool> IsDestinationShowInUi => _isDestinationShow;
 
         public ReadOnlyReactiveProperty<bool> CanInteract => _canInteract;
         private readonly ReactiveProperty<bool> _canInteract = new(false);

@@ -67,7 +67,7 @@ namespace Paws_Parcels.Car
 
             if (rotating)
             {
-                Vector2 mouse = _gameInputService.InputSystem.CarNotMovement.Look.ReadValue<Vector2>();
+                Vector2 mouse = _gameInputService.InputSystem.Look.Look.ReadValue<Vector2>();
 
                 m_CurrentYaw += mouse.x * m_MouseSensitivity * _settingsStateProvider.SettingsProxy.CarSensitivity.CurrentValue;
             }

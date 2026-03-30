@@ -3,6 +3,7 @@ using Destinations;
 using Dialogue;
 using Game.Root;
 using Items;
+using Map;
 using NPCDialogs;
 using Paws_Parcels.NPCDialogs;
 using Paws_Parcels.Scripts;
@@ -91,6 +92,9 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<DialogueRegistrations>().AsSingle();
             Container.Bind<DialogueInQuestsService>().AsSingle();
             Container.Bind<ItemDestinationPutterService>().AsSingle();
+            Container.Bind<MapUiVisualizer>().AsSingle();
+            Container.Bind<MapObjectsDatabase>().AsSingle();
+
             
             //
             Container.Bind<GameStateProvider>().AsSingle();

@@ -25,20 +25,8 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 64bbf71c048364f9e8706925bb5ae463
-    m_Address: Assets/Samples/Yarn Spinner Samples/3.1.0/Voiceover and Localisation/Localization
-      Tables/VoiceoverSampleAssets Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a3a0b308f134024b83b17f2a06a10cc
     m_Address: Assets/Paws-Parcels/Localization/Quests Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8e286ec56529f405ebb1933199177e8e
-    m_Address: Assets/Samples/Yarn Spinner Samples/3.1.0/Voiceover and Localisation/Localization
-      Tables/VoiceoverSample Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -5,7 +5,6 @@ using ObservableCollections;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using Zenject;
 
@@ -15,6 +14,7 @@ namespace Destinations
     {
         public override string DestinationId => _destinationId;
         public override string UiShowTypeId => _uiShowTypeId;
+        public override string MapShowTypeId => _mapShowTypeId;
         public override ReadOnlyReactiveProperty<string> UIShowTextCode => _uiShowTextCodeRP;
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
         public override bool DontShowWithItemInHands => _dontShowWithItemInHands;
@@ -22,6 +22,7 @@ namespace Destinations
         
         [Header("Interactable Settings")] 
         [SerializeField] private string _uiShowTypeId = "interact";
+        [SerializeField] private string _mapShowTypeId = "dot";
         [SerializeField] private string _uiShowTextCodeWithItem;
         [SerializeField] private string _uiShowTextCodeWithoutItem;
         [SerializeField] private string _destinationId;

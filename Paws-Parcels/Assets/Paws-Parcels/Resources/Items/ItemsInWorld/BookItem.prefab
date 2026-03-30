@@ -156,8 +156,11 @@ MonoBehaviour:
   _destinationShowUiPosition: {fileID: 0}
   _itemTypeId: book
   _uiShowTypeId: interact
+  _mapShowTypeId: dot
   _uiShowTextCode: book
   _itemLargeType: 1
   _activeLocations:
   - All
+  _dontShowWithItemInHands: 1
+  _selectedActivationDistance: 20
   _destinationId: 

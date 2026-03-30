@@ -1726,11 +1726,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Car.EnterDoor
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
+  _mapShowTypeId: quest
   _uiShowTextCode: enter
   _destinationId: door_left
   _activeLocations:
   - None
   _dontShowWithItemInHands: 1
+  _selectedActivationDistance: 20
   _doorAnimator: {fileID: 2582910078438899460}
 --- !u!1 &1170066022110885679
 GameObject:
@@ -2256,11 +2258,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Car_Player.PutUpInteractable
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
+  _mapShowTypeId: quest
   _uiShowTextCode: put_up
   _destinationId: put_up
   _activeLocations:
   - None
   _dontShowWithItemInHands: 0
+  _selectedActivationDistance: 20
 --- !u!1 &1778582894428488418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,11 +2449,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Car_Player.BedInteractable
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
+  _mapShowTypeId: quest
   _uiShowTextCode: bed
   _destinationId: bed
   _activeLocations:
   - Car
   _dontShowWithItemInHands: 0
+  _selectedActivationDistance: 20
 --- !u!1 &1885425527872956778
 GameObject:
   m_ObjectHideFlags: 0
@@ -4494,6 +4500,8 @@ GameObject:
   - component: {fileID: 2297079555776101416}
   - component: {fileID: 9098877832007399079}
   - component: {fileID: 192671752293563475}
+  - component: {fileID: 5923598631485270549}
+  - component: {fileID: 249924465794633723}
   m_Layer: 0
   m_Name: MyCar
   m_TagString: Car
@@ -4829,6 +4837,30 @@ MonoBehaviour:
   _yOffsetWhenDrop: 1.5
   _waitTimeWhenObjectFlyInPut: 1.25
   _exitCollider: {fileID: 7658704889393895733}
+--- !u!114 &5923598631485270549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3582412472463973297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0f3127d81c439fa014d50eada42f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarMovement.BindRigidbodyToSitService
+--- !u!114 &249924465794633723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3582412472463973297}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f06fcc04cc45669bc5401abdcff827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Map.CarOnMapShower
 --- !u!1 &3590496903178732959
 GameObject:
   m_ObjectHideFlags: 0
@@ -6265,11 +6297,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Car.EnterDoor
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
+  _mapShowTypeId: quest
   _uiShowTextCode: enter
   _destinationId: door_right
   _activeLocations:
   - None
   _dontShowWithItemInHands: 1
+  _selectedActivationDistance: 20
   _doorAnimator: {fileID: 2044730348092149446}
 --- !u!1 &4366748539485894454
 GameObject:
@@ -9918,12 +9952,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Player.Door
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
+  _mapShowTypeId: quest
   _uiShowTextCode: open_doors
   _destinationId: doors
   _activeLocations:
   - None
   - Car
   _dontShowWithItemInHands: 0
+  _selectedActivationDistance: 20
 --- !u!1 &7239321218611989536
 GameObject:
   m_ObjectHideFlags: 0
@@ -11195,11 +11231,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Car_Player.PutInsideInteractable
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
+  _mapShowTypeId: quest
   _uiShowTextCode: put_inside
   _destinationId: put_inside
   _activeLocations:
   - Car
   _dontShowWithItemInHands: 0
+  _selectedActivationDistance: 20
 --- !u!1 &8099301013394039649
 GameObject:
   m_ObjectHideFlags: 0

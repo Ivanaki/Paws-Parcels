@@ -77,6 +77,7 @@ namespace Paws_Parcels.Scripts
             if (_gameInputService.AllGameplayInput.CurrentValue == false)
             {
                 _inputSystem.UI.Disable();
+                _inputSystem.Look.Disable();
                 _inputSystem.Gameplay.Disable();
                 _inputSystem.CarNotMovement.Disable();
                 _inputSystem.Car.Disable();
@@ -85,7 +86,7 @@ namespace Paws_Parcels.Scripts
             }
             else
             {
-                _inputSystem.Cutscene.Disable();
+                //_inputSystem.Cutscene.Disable();
                 
                 if (_stopAllUiActive)
                 {
@@ -96,6 +97,7 @@ namespace Paws_Parcels.Scripts
                     _inputSystem.Car.Disable();
                     _inputSystem.PlayerNotMovement.Disable();
                     _inputSystem.Player.Disable();
+                    _inputSystem.Look.Disable();
                 }
                 else
                 {
@@ -103,47 +105,41 @@ namespace Paws_Parcels.Scripts
                     {
                         _inputSystem.UI.Enable();
                         _inputSystem.Gameplay.Disable();
+                        
+                        _inputSystem.Look.Disable();
 
-                        if (_isPlayerInCar.CurrentValue)
-                        {
-                            _inputSystem.CarNotMovement.Disable();
-                            _inputSystem.Car.Enable();
-
-                            _inputSystem.PlayerNotMovement.Disable();
-                            _inputSystem.Player.Disable();
-                        }
-                        else
-                        {
-                            _inputSystem.PlayerNotMovement.Disable();
-                            _inputSystem.Player.Enable();
-
-                            _inputSystem.CarNotMovement.Disable();
-                            _inputSystem.Car.Disable();
-                        }
+                        InCar();
                     }
                     else
                     {
                         _inputSystem.UI.Disable();
                         _inputSystem.Gameplay.Enable();
+                        
+                        _inputSystem.Look.Enable();
 
-                        if (_isPlayerInCar.CurrentValue)
-                        {
-                            _inputSystem.CarNotMovement.Enable();
-                            _inputSystem.Car.Enable();
-
-                            _inputSystem.PlayerNotMovement.Disable();
-                            _inputSystem.Player.Disable();
-                        }
-                        else
-                        {
-                            _inputSystem.PlayerNotMovement.Enable();
-                            _inputSystem.Player.Enable();
-
-                            _inputSystem.CarNotMovement.Disable();
-                            _inputSystem.Car.Disable();
-                        }
+                        InCar();
                     }
                 }
+            }
+        }
+
+        private void InCar()
+        {
+            if (_isPlayerInCar.CurrentValue)
+            {
+                _inputSystem.CarNotMovement.Enable();
+                _inputSystem.Car.Enable();
+
+                _inputSystem.PlayerNotMovement.Disable();
+                _inputSystem.Player.Disable();
+            }
+            else
+            {
+                _inputSystem.PlayerNotMovement.Enable();
+                _inputSystem.Player.Enable();
+
+                _inputSystem.CarNotMovement.Disable();
+                _inputSystem.Car.Disable();
             }
         }
     }

@@ -25,6 +25,7 @@ namespace Paws_Parcels.NPCDialogs
     {
         public override string DestinationId => _npcNameCode;
         public override string UiShowTypeId => _uiShowTypeId;
+        public override string MapShowTypeId => _mapShowTypeId;
         public override ReadOnlyReactiveProperty<string> UIShowTextCode => _uiShowTextCodeRP;
         public override bool DontShowWithItemInHands => false;
 
@@ -36,6 +37,7 @@ namespace Paws_Parcels.NPCDialogs
 
         [Header("Interactable Settings")]
         [SerializeField] private string _uiShowTypeId = "interact";
+        [SerializeField] private string _mapShowTypeId = "quest";
         [SerializeField] private List<string> _activeLocations = new(){"None"};
         [SerializeField] private float _selectedActivationDistance = 20f;
         
@@ -44,9 +46,7 @@ namespace Paws_Parcels.NPCDialogs
         [SerializeField] DialogueReference _startNpcDialog = new();
         [SerializeField] private NpcHeadLookAt _npcHeadLookAt;
         [SerializeField] private CinemachineCamera _cinemachineCamera;
-        //[SerializeField] private float _yRotWhenDialog;
         [SerializeField] private float _rotationDuration = 1f;
-        //[SerializeField] private float _playerRotationSpeed = 100f;
         [SerializeField] private Transform _npcTransform;
         [SerializeField] private GameObject _mark;
         

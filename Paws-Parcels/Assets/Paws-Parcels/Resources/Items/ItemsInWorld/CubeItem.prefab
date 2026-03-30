@@ -49,10 +49,13 @@ MonoBehaviour:
   _destinationShowUiPosition: {fileID: 0}
   _itemTypeId: cube
   _uiShowTypeId: interact
+  _mapShowTypeId: dot
   _uiShowTextCode: cube
   _itemLargeType: 0
   _activeLocations:
   - All
+  _dontShowWithItemInHands: 1
+  _selectedActivationDistance: 20
   _destinationId: 
 --- !u!54 &6619194477282213228
 Rigidbody:

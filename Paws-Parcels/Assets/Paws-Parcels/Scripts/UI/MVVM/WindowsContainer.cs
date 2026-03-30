@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace UI.MVVM
 {
@@ -10,12 +11,14 @@ namespace UI.MVVM
         
         private readonly Dictionary<WindowViewModel, IWindowBinder> _openedPopupBinders = new();
         private IWindowBinder _openedScreenBinder;
+
+        [Inject] private DiContainer _container;
         
         public void OpenPopup(WindowViewModel viewModel)
         {
             var prefabPath = GetPopupPrefabPath(viewModel);
             var prefab = Resources.Load<GameObject>(prefabPath);
-            var createdPopup = Instantiate(prefab, _popupsContainer);
+            var createdPopup = _container.InstantiatePrefab(prefab, _popupsContainer);
             var binder = createdPopup.GetComponent<IWindowBinder>();
             
             binder.Bind(viewModel);
@@ -41,7 +44,7 @@ namespace UI.MVVM
             
             var prefabPath = GetScreenPrefabPath(viewModel);
             var prefab = Resources.Load<GameObject>(prefabPath);
-            var createdScreen = Instantiate(prefab, _screensContainer);
+            var createdScreen = _container.InstantiatePrefab(prefab, _screensContainer);
             var binder = createdScreen.GetComponent<IWindowBinder>();
             
             binder.Bind(viewModel);

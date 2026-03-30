@@ -14,7 +14,7 @@ namespace NPCDialogs
         private readonly ObservableDictionary<string, Action<DialogueRunner>> _commandsRegistrations = new();
         private readonly ObservableDictionary<string, Action<DialogueRunner>> _functionsRegistrations = new();
 
-        public void AddCommand(string commandName, Action<DialogueRunner> registerAction)
+        public void RegisterCommand(string commandName, Action<DialogueRunner> registerAction)
         {
             if (string.IsNullOrWhiteSpace(commandName))
             {
@@ -37,7 +37,7 @@ namespace NPCDialogs
             _commandsRegistrations[commandName] = registerAction;
         }
 
-        public void RemoveCommand(string commandName)
+        public void UnregisterCommand(string commandName)
         {
             if (string.IsNullOrWhiteSpace(commandName))
             {
@@ -54,7 +54,7 @@ namespace NPCDialogs
             _commandsRegistrations.Remove(commandName);
         }
 
-        public void AddFunction(string functionName, Action<DialogueRunner> registerAction)
+        public void RegisterFunction(string functionName, Action<DialogueRunner> registerAction)
         {
             if (string.IsNullOrWhiteSpace(functionName))
             {
@@ -77,7 +77,7 @@ namespace NPCDialogs
             _functionsRegistrations[functionName] = registerAction;
         }
 
-        public void RemoveFunction(string functionName)
+        public void UnregisterFunction(string functionName)
         {
             if (string.IsNullOrWhiteSpace(functionName))
             {

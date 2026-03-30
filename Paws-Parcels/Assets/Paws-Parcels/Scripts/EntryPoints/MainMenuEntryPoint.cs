@@ -24,6 +24,7 @@ namespace Game.Root
         private MessageToUserService _messageToUserService;
         private GameInputService _gameInputService;
         private CursorService _cursorService;
+        private DiContainer _container;
         
         private IDisposable _disposable;
 
@@ -31,7 +32,7 @@ namespace Game.Root
         private void Construct(MainMenuSignals mainMenuSignals, GameEntryPoint gameEntryPoint,
             UIGameView uiGameView, UIMainMenuRootViewModel uiMainMenuRootViewModel, MainMenuUIManager mainMenuUIManager,
             LoadService loadService, MessageToUserService messageToUserService, GameInputService gameInputService,
-            CursorService cursorService)
+            CursorService cursorService, DiContainer container)
         {
             _mainMenuSignals = mainMenuSignals;
             _gameEntryPoint = gameEntryPoint;
@@ -42,6 +43,7 @@ namespace Game.Root
             _messageToUserService = messageToUserService;
             _gameInputService = gameInputService;
             _cursorService = cursorService;
+            _container = container;
         }
 
         public void Start()
@@ -98,7 +100,8 @@ namespace Game.Root
 
         private void InitUI()
         {
-            var uiSceneRootBinder = Instantiate(_uiMainMenuRootBinderPrefab);
+            var uiSceneRootBinder = _container.InstantiatePrefabForComponent<UIMainMenuRootBinder>(_uiMainMenuRootBinderPrefab);
+            //var uiSceneRootBinder = Instantiate(_uiMainMenuRootBinderPrefab);
             _uiGameView.AttachSceneUI(uiSceneRootBinder.gameObject);
             
             uiSceneRootBinder.Bind(_uiMainMenuRootViewModel);

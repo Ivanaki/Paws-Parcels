@@ -5,6 +5,7 @@ using Paws_Parcels.Scripts;
 using Services;
 using UI.DialogueScreen;
 using UI.Screens.LoadMenu;
+using UI.Screens.Map;
 using UI.Screens.Pause;
 using UI.Screens.Quests;
 using UI.Screens.Settings;
@@ -51,6 +52,28 @@ namespace UI.Core
             _cursorService.SetCursorStateLocked(false);
             _inputsCoreService.StopAllUiOpened();
             Time.timeScale = 1f;
+        }
+        
+        public void OpenScreenMap()
+        {
+            if(_banOpen) return;
+            
+            var viewModel = new ScreenMapViewModel(this);
+            _coreRootViewModel.OpenScreen(viewModel);
+            
+            _cursorService.SetCursorStateLocked(false);
+            _inputsCoreService.NotDisableMovementUiOpened();
+            Time.timeScale = 1f;
+        }
+
+        public void CloseScreenMap()
+        {
+            if(_banOpen) return;
+            
+            if (_coreRootViewModel.OpenedScreen.CurrentValue is ScreenMapViewModel)
+            {
+                TryCloseScreen();
+            }
         }
         
         public void OpenScreenPause()

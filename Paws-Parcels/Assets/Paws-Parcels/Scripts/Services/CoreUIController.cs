@@ -22,8 +22,10 @@ namespace Services
             _putInCarItemsService = putInCarItemsService;
 
             gameInputService.InputSystem.UI.Back.performed += BackUI;
+            gameInputService.InputSystem.UI.CloseMap.performed += CloseMap;
             gameInputService.InputSystem.Gameplay.OpenPause.performed += OpenPause;
             gameInputService.InputSystem.Gameplay.OpenQuests.performed += OpenQuests;
+            gameInputService.InputSystem.Gameplay.OpenMap.performed += OpenMap;
 
             _disposables.Add(showableInterfaceService.CloseAllObservable.Subscribe(_ => _coreUIManager.CloseAll())); 
             _disposables.Add(showableInterfaceService.BanOpenObservable.Subscribe(_ => _coreUIManager.BanOpen()));
@@ -54,11 +56,23 @@ namespace Services
             _coreUIManager.OpenScreenQuests();
         }
         
+        private void OpenMap(InputAction.CallbackContext obj = new())
+        {
+            _coreUIManager.OpenScreenMap();
+        }
+        
+        private void CloseMap(InputAction.CallbackContext obj = new())
+        {
+            _coreUIManager.CloseScreenMap();
+        }
+        
         public void Dispose()
         {
             _gameInputService.InputSystem.UI.Back.performed -= BackUI;
+            _gameInputService.InputSystem.UI.CloseMap.performed -= CloseMap;
             _gameInputService.InputSystem.Gameplay.OpenPause.performed -= OpenPause;
             _gameInputService.InputSystem.Gameplay.OpenQuests.performed -= OpenQuests;
+            _gameInputService.InputSystem.Gameplay.OpenMap.performed -= OpenMap;
             _disposables?.Dispose();
         }
     }

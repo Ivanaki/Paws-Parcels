@@ -37,6 +37,7 @@ namespace Paws_Parcels.Scripts.Player
         public ItemLargeType ItemLargeType => _itemLargeType;
         public override string DestinationId => _destinationId;
         public override string UiShowTypeId => _uiShowTypeId;
+        public override string MapShowTypeId => _mapShowTypeId;
         public override ReadOnlyReactiveProperty<string> UIShowTextCode => _uiShowTextCodeRP;
         public override bool DontShowWithItemInHands => _dontShowWithItemInHands;
         protected override float SelectedActivationDistance => _selectedActivationDistance;
@@ -48,6 +49,7 @@ namespace Paws_Parcels.Scripts.Player
         [Header("Item prefab settings")]
         [SerializeField] private string _itemTypeId;
         [SerializeField] private string _uiShowTypeId = "interact";
+        [SerializeField] private string _mapShowTypeId = "quest";
         [SerializeField] private string _uiShowTextCode;
         [SerializeField] private ItemLargeType _itemLargeType;
         [SerializeField] private List<string> _activeLocations = new(){"None"};

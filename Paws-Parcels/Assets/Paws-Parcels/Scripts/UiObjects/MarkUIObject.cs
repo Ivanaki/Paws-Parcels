@@ -8,7 +8,8 @@ namespace Services
 {
     public class MarkUIObject : UiObject
     {
-        [SerializeField] private Image _image;
+        [SerializeField] private Image _image1;
+        [SerializeField] private Image _image2;
         //[SerializeField] private Image _handShowImage;
 
         private CompositeDisposable _disposable;
@@ -27,7 +28,8 @@ namespace Services
             
             _disposable.Add(markObject.IsQuestSelect.Subscribe(v =>
             {
-                _image.color = v ? Color.yellow : Color.white;
+                _image1.color = v ? Color.yellow : Color.white;
+                _image2.color = v ? Color.yellow : Color.white;
                 //_handShowImage.color = v ? Color.yellow : Color.white;
             }));
             

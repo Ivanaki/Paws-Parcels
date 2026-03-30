@@ -11,8 +11,9 @@ namespace Services
 {
     public class InteractableUIObject : UiObject
     {
-        [SerializeField] private Image _smallCircle;
+        [SerializeField] private Image _smallDot;
         [SerializeField] private Image _bigCircle;
+        [SerializeField] private Image _bigDot;
         
         //[SerializeField] private Image _image;
         [SerializeField] private Image _handShowImage;
@@ -58,6 +59,8 @@ namespace Services
             _disposable.Add(interactableObject.IsQuestActive.Subscribe(v =>
             {
                 _bigCircle.gameObject.SetActive(v);
+                _smallDot.gameObject.SetActive(v);
+                _bigDot.gameObject.SetActive(!v);
                 UpdateColor(interactableObject);
                 //_image.rectTransform.sizeDelta = v ? new Vector2(68, 68) : new Vector2(25, 25);
                 //print(transform.GetFullPath());
@@ -68,7 +71,8 @@ namespace Services
         {
             var activeYellow = interactableObject.IsQuestSelect.CurrentValue &&
                                interactableObject.IsQuestActive.CurrentValue;
-            _smallCircle.color = activeYellow ? Color.yellow : Color.white;
+            _smallDot.color = activeYellow ? Color.yellow : Color.white;
+            _bigDot.color = activeYellow ? Color.yellow : Color.white;
             _bigCircle.color = activeYellow ? Color.yellow : Color.white;
             _handShowImage.color = activeYellow ? Color.yellow : Color.white;
         }

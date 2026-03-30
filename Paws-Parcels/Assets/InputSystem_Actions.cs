@@ -619,15 +619,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             ""id"": ""4a960125-3cd5-4e69-a879-2302314af8b7"",
             ""actions"": [
                 {
-                    ""name"": ""Look"",
-                    ""type"": ""Value"",
-                    ""id"": ""c1a524e0-2c69-4d44-a46c-c518a4465cdc"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""65a4b616-ddf0-4266-81da-4b76bada074a"",
@@ -656,39 +647,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""c3e53c0e-c042-469f-aa62-9aa5197cdf37"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""19e880cf-abdb-4acf-97e7-81f5920a2944"",
-                    ""path"": ""<Pointer>/delta"",
-                    ""interactions"": """",
-                    ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=10,y=10)"",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""42a9bf20-c044-47b3-b2cf-189a99b67668"",
-                    ""path"": ""<Joystick>/{Hatswitch}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""39f28ab9-045e-4182-9380-36d9eae5fea4"",
@@ -822,15 +780,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Look"",
-                    ""type"": ""Value"",
-                    ""id"": ""307300dd-ee08-4b2a-b3fb-7d728772f1f5"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -853,39 +802,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""LookButton"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f8ec1c93-9399-4aca-a07f-4a4dca6b31ac"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""30f1a490-9674-4587-a9a1-4981bcf09f4e"",
-                    ""path"": ""<Pointer>/delta"",
-                    ""interactions"": """",
-                    ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=10,y=10)"",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8788c094-6893-4dde-8528-370880d5b126"",
-                    ""path"": ""<Joystick>/{Hatswitch}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -912,6 +828,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenMap"",
+                    ""type"": ""Button"",
+                    ""id"": ""95c47ee3-3c1b-4bf5-9a93-6a3dc7742428"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -934,6 +859,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""OpenQuests"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9321119-73ce-4b56-a538-63c6e78fd960"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""OpenMap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1037,6 +973,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Back"",
                     ""type"": ""Button"",
                     ""id"": ""00bcd850-c1a1-421d-affb-02a6f7620971"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseMap"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa4435bf-face-4444-97ac-ae7582c575a7"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1483,6 +1428,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b65f428-a7c1-4e39-b303-135dba929bb9"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""CloseMap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1509,6 +1465,56 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Look"",
+            ""id"": ""4bdd01c4-babb-4873-8713-c1889780f8f0"",
+            ""actions"": [
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""43af3762-9bc2-43e1-b314-786aca9cbcd0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""6337c35a-ad70-48f8-8f4c-1a5d22ac89d1"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8d7c8dd-13ce-4655-ae23-00108490034c"",
+                    ""path"": ""<Pointer>/delta"",
+                    ""interactions"": """",
+                    ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=10,y=10)"",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""154471a8-7e43-4cec-84d8-ed1788cc1bbc"",
+                    ""path"": ""<Joystick>/{Hatswitch}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1593,7 +1599,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Car_Throttle = m_Car.FindAction("Throttle", throwIfNotFound: true);
         // PlayerNotMovement
         m_PlayerNotMovement = asset.FindActionMap("PlayerNotMovement", throwIfNotFound: true);
-        m_PlayerNotMovement_Look = m_PlayerNotMovement.FindAction("Look", throwIfNotFound: true);
         m_PlayerNotMovement_Attack = m_PlayerNotMovement.FindAction("Attack", throwIfNotFound: true);
         m_PlayerNotMovement_Interact = m_PlayerNotMovement.FindAction("Interact", throwIfNotFound: true);
         m_PlayerNotMovement_Drop = m_PlayerNotMovement.FindAction("Drop", throwIfNotFound: true);
@@ -1601,11 +1606,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_CarNotMovement = asset.FindActionMap("CarNotMovement", throwIfNotFound: true);
         m_CarNotMovement_Exit = m_CarNotMovement.FindAction("Exit", throwIfNotFound: true);
         m_CarNotMovement_LookButton = m_CarNotMovement.FindAction("LookButton", throwIfNotFound: true);
-        m_CarNotMovement_Look = m_CarNotMovement.FindAction("Look", throwIfNotFound: true);
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_OpenPause = m_Gameplay.FindAction("OpenPause", throwIfNotFound: true);
         m_Gameplay_OpenQuests = m_Gameplay.FindAction("OpenQuests", throwIfNotFound: true);
+        m_Gameplay_OpenMap = m_Gameplay.FindAction("OpenMap", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1619,9 +1624,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_Back = m_UI.FindAction("Back", throwIfNotFound: true);
+        m_UI_CloseMap = m_UI.FindAction("CloseMap", throwIfNotFound: true);
         // Cutscene
         m_Cutscene = asset.FindActionMap("Cutscene", throwIfNotFound: true);
         m_Cutscene_Next = m_Cutscene.FindAction("Next", throwIfNotFound: true);
+        // Look
+        m_Look = asset.FindActionMap("Look", throwIfNotFound: true);
+        m_Look_Look = m_Look.FindAction("Look", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1633,6 +1642,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Gameplay.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, InputSystem_Actions.UI.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Cutscene.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Cutscene.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Look.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Look.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1977,7 +1987,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     // PlayerNotMovement
     private readonly InputActionMap m_PlayerNotMovement;
     private List<IPlayerNotMovementActions> m_PlayerNotMovementActionsCallbackInterfaces = new List<IPlayerNotMovementActions>();
-    private readonly InputAction m_PlayerNotMovement_Look;
     private readonly InputAction m_PlayerNotMovement_Attack;
     private readonly InputAction m_PlayerNotMovement_Interact;
     private readonly InputAction m_PlayerNotMovement_Drop;
@@ -1992,10 +2001,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
         public PlayerNotMovementActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "PlayerNotMovement/Look".
-        /// </summary>
-        public InputAction @Look => m_Wrapper.m_PlayerNotMovement_Look;
         /// <summary>
         /// Provides access to the underlying input action "PlayerNotMovement/Attack".
         /// </summary>
@@ -2034,9 +2039,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerNotMovementActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerNotMovementActionsCallbackInterfaces.Add(instance);
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
@@ -2057,9 +2059,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="PlayerNotMovementActions" />
         private void UnregisterCallbacks(IPlayerNotMovementActions instance)
         {
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
@@ -2108,7 +2107,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private List<ICarNotMovementActions> m_CarNotMovementActionsCallbackInterfaces = new List<ICarNotMovementActions>();
     private readonly InputAction m_CarNotMovement_Exit;
     private readonly InputAction m_CarNotMovement_LookButton;
-    private readonly InputAction m_CarNotMovement_Look;
     /// <summary>
     /// Provides access to input actions defined in input action map "CarNotMovement".
     /// </summary>
@@ -2128,10 +2126,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "CarNotMovement/LookButton".
         /// </summary>
         public InputAction @LookButton => m_Wrapper.m_CarNotMovement_LookButton;
-        /// <summary>
-        /// Provides access to the underlying input action "CarNotMovement/Look".
-        /// </summary>
-        public InputAction @Look => m_Wrapper.m_CarNotMovement_Look;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -2164,9 +2158,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @LookButton.started += instance.OnLookButton;
             @LookButton.performed += instance.OnLookButton;
             @LookButton.canceled += instance.OnLookButton;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
         }
 
         /// <summary>
@@ -2184,9 +2175,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @LookButton.started -= instance.OnLookButton;
             @LookButton.performed -= instance.OnLookButton;
             @LookButton.canceled -= instance.OnLookButton;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
         }
 
         /// <summary>
@@ -2226,6 +2214,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_OpenPause;
     private readonly InputAction m_Gameplay_OpenQuests;
+    private readonly InputAction m_Gameplay_OpenMap;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -2245,6 +2234,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/OpenQuests".
         /// </summary>
         public InputAction @OpenQuests => m_Wrapper.m_Gameplay_OpenQuests;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/OpenMap".
+        /// </summary>
+        public InputAction @OpenMap => m_Wrapper.m_Gameplay_OpenMap;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -2277,6 +2270,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @OpenQuests.started += instance.OnOpenQuests;
             @OpenQuests.performed += instance.OnOpenQuests;
             @OpenQuests.canceled += instance.OnOpenQuests;
+            @OpenMap.started += instance.OnOpenMap;
+            @OpenMap.performed += instance.OnOpenMap;
+            @OpenMap.canceled += instance.OnOpenMap;
         }
 
         /// <summary>
@@ -2294,6 +2290,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @OpenQuests.started -= instance.OnOpenQuests;
             @OpenQuests.performed -= instance.OnOpenQuests;
             @OpenQuests.canceled -= instance.OnOpenQuests;
+            @OpenMap.started -= instance.OnOpenMap;
+            @OpenMap.performed -= instance.OnOpenMap;
+            @OpenMap.canceled -= instance.OnOpenMap;
         }
 
         /// <summary>
@@ -2342,6 +2341,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_Back;
+    private readonly InputAction m_UI_CloseMap;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -2397,6 +2397,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/Back".
         /// </summary>
         public InputAction @Back => m_Wrapper.m_UI_Back;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/CloseMap".
+        /// </summary>
+        public InputAction @CloseMap => m_Wrapper.m_UI_CloseMap;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -2456,6 +2460,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Back.started += instance.OnBack;
             @Back.performed += instance.OnBack;
             @Back.canceled += instance.OnBack;
+            @CloseMap.started += instance.OnCloseMap;
+            @CloseMap.performed += instance.OnCloseMap;
+            @CloseMap.canceled += instance.OnCloseMap;
         }
 
         /// <summary>
@@ -2500,6 +2507,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Back.started -= instance.OnBack;
             @Back.performed -= instance.OnBack;
             @Back.canceled -= instance.OnBack;
+            @CloseMap.started -= instance.OnCloseMap;
+            @CloseMap.performed -= instance.OnCloseMap;
+            @CloseMap.canceled -= instance.OnCloseMap;
         }
 
         /// <summary>
@@ -2629,6 +2639,102 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="CutsceneActions" /> instance referencing this action map.
     /// </summary>
     public CutsceneActions @Cutscene => new CutsceneActions(this);
+
+    // Look
+    private readonly InputActionMap m_Look;
+    private List<ILookActions> m_LookActionsCallbackInterfaces = new List<ILookActions>();
+    private readonly InputAction m_Look_Look;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Look".
+    /// </summary>
+    public struct LookActions
+    {
+        private @InputSystem_Actions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public LookActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Look/Look".
+        /// </summary>
+        public InputAction @Look => m_Wrapper.m_Look_Look;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Look; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="LookActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(LookActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="LookActions" />
+        public void AddCallbacks(ILookActions instance)
+        {
+            if (instance == null || m_Wrapper.m_LookActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_LookActionsCallbackInterfaces.Add(instance);
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="LookActions" />
+        private void UnregisterCallbacks(ILookActions instance)
+        {
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="LookActions.UnregisterCallbacks(ILookActions)" />.
+        /// </summary>
+        /// <seealso cref="LookActions.UnregisterCallbacks(ILookActions)" />
+        public void RemoveCallbacks(ILookActions instance)
+        {
+            if (m_Wrapper.m_LookActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="LookActions.AddCallbacks(ILookActions)" />
+        /// <seealso cref="LookActions.RemoveCallbacks(ILookActions)" />
+        /// <seealso cref="LookActions.UnregisterCallbacks(ILookActions)" />
+        public void SetCallbacks(ILookActions instance)
+        {
+            foreach (var item in m_Wrapper.m_LookActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_LookActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="LookActions" /> instance referencing this action map.
+    /// </summary>
+    public LookActions @Look => new LookActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -2781,13 +2887,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     public interface IPlayerNotMovementActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLook(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -2830,13 +2929,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLookButton(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLook(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Gameplay" which allows adding and removing callbacks.
@@ -2859,6 +2951,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenQuests(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenMap" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenMap(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
@@ -2944,6 +3043,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CloseMap" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCloseMap(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Cutscene" which allows adding and removing callbacks.
@@ -2959,5 +3065,20 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNext(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Look" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="LookActions.AddCallbacks(ILookActions)" />
+    /// <seealso cref="LookActions.RemoveCallbacks(ILookActions)" />
+    public interface ILookActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLook(InputAction.CallbackContext context);
     }
 }

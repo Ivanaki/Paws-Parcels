@@ -9,7 +9,8 @@
         {
             public override string DestinationId => _destinationId;
             public override string UiShowTypeId => _uiShowTypeId;
-            public override ReadOnlyReactiveProperty<bool> IsDestinationShow => _isDestinationShow;
+            public override string MapShowTypeId => _mapShowTypeId;
+            public override ReadOnlyReactiveProperty<bool> IsDestinationShowInUi => _isDestinationShow;
 
             protected override float ActivationDistance => _activationDistance;
             protected override float SelectedActivationDistance => _selectedActivationDistance;
@@ -17,6 +18,7 @@
             [Header("InWorldPointDestination Settings")]
             [SerializeField] private string _destinationId;
             [SerializeField] private string _uiShowTypeId;
+            [SerializeField] private string _mapShowTypeId;
             [SerializeField] private float _activationDistance = 10f;
             [SerializeField] private float _selectedActivationDistance = 20f;
             
