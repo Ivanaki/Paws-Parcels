@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Grass_Interractive 2
+  m_Name: M_Grass_Interractive 3
   m_Shader: {fileID: -6465566751694194690, guid: 27494de7a07f7bd408c9ee8bb8a6b70d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -148,8 +148,8 @@ Material:
     - _FakeLightColor: {r: 0.10362118, g: 0.27044016, b: 0.016158322, a: 0}
     - _FakeShadowColor: {r: 0.12599239, g: 0.49056602, b: 0.10952885, a: 1}
     - _Grass_Dry: {r: 0.58431375, g: 0.38039213, b: 0.23529407, a: 1}
-    - _Grass_HighLight: {r: 0.1960784, g: 0.8039216, b: 0.1960784, a: 1}
-    - _Grass_MidTone: {r: 0, g: 0.3921569, b: 0, a: 1}
+    - _Grass_HighLight: {r: 0, g: 0.15723258, b: 0.031919386, a: 1}
+    - _Grass_MidTone: {r: 0.30911312, g: 0.774, b: 0.30911312, a: 1}
     - _Grass_Shadow: {r: 0.07778564, g: 0.3584906, b: 0.17748542, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

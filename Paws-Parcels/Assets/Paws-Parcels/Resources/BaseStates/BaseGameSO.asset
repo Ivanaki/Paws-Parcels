@@ -22,7 +22,7 @@ MonoBehaviour:
     SucceedQuests: []
     CurrentActiveDestinations: []
     PlayerData:
-      Position: {x: 4.11, y: 0, z: -5.62}
+      Position: {x: 334.2, y: 3.37, z: 998}
       Rotation: {x: -0, y: -0, z: -0, w: 1}
       Speed: 0
       Verticalvelocity: 0
@@ -31,7 +31,7 @@ MonoBehaviour:
       Pitch: 35
       AnimationBlend: 0
     CarData:
-      Position: {x: -3.15, y: 1.93, z: -3.81}
+      Position: {x: 331.9744, y: 5.2999997, z: 990.85645}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}

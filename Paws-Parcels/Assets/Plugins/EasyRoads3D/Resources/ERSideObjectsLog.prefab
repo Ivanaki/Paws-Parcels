@@ -49,10 +49,10 @@ MonoBehaviour:
   roadPresets:
   - roadTypeName: Default Road
     id: 1
-    timestamp: 1771876284.70854
+    timestamp: 1774872249.3022132
     roadWidth: 10
     advancedWidthSettings: 0
-    faceDistance: 2
+    faceDistance: 0.96
     angleTreshold: 45
     uvTiling: 1
     uv4Type: 0
@@ -142,12 +142,12 @@ MonoBehaviour:
     splatIndex: 0
     expandLevel: 0
     smoothLevel: 0
-    splatOpacity: 0
+    splatOpacity: 1
     followTerrainContours: 0
     terrainContoursOffset: 5
-    terrainDeformation: 1
-    defaultIndent: 2
-    defaultSurrounding: 5
+    terrainDeformation: 0
+    defaultIndent: 10
+    defaultSurrounding: 10
     maxRoadheight: 0
     maxTerrainHeightOffset: 0
     minTerrainHeightDistance: 0
