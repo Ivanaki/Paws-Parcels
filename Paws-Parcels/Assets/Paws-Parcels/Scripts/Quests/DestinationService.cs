@@ -117,7 +117,7 @@ namespace Quests
             
             if (_allMarksDict.TryGetValue(destinationId, out var destinationObject))
             {
-                destinationObject.QuestActivated();
+                destinationObject.QuestActivated(_allCurrentShowableMarksDict[destinationId]);
             }
         }
         
@@ -196,7 +196,7 @@ namespace Quests
             {
                 if (_allCurrentShowableMarksDict.ContainsKey(destinationObject.DestinationId))
                 {
-                    destinationObject.QuestActivated();
+                    destinationObject.QuestActivated(_allCurrentShowableMarksDict[destinationObject.DestinationId]);
                     
                     if (_lastSelectedQuest == _allCurrentShowableMarksDict[destinationObject.DestinationId].FirstOrDefault(x => x == _lastSelectedQuest))
                         destinationObject.QuestSelected();

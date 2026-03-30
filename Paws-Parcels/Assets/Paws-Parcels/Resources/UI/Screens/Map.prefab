@@ -261,7 +261,7 @@ MonoBehaviour:
   _worldMin: {x: -150, y: -150}
   _worldMax: {x: 150, y: 150}
   _clampInsideMap: 1
-  _rotateIcons: 1
+  _rotateIcons: 0
 --- !u!1 &3839734888218480731
 GameObject:
   m_ObjectHideFlags: 0

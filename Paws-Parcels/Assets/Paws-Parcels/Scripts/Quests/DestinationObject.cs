@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Map;
 using NaughtyAttributes;
 using R3;
@@ -23,8 +24,9 @@ namespace Quests
         protected virtual float ActivationDistance => 7f;
         
         public abstract ReadOnlyReactiveProperty<bool> IsDestinationShowInUi { get; }
-        //public abstract ReadOnlyReactiveProperty<bool> IsDestinationShowOnMap { get; }
-        
+
+        public Observable<IReadOnlyList<string>> QuestsUseThisDestination => _questsUseThisDestination;
+
         public virtual ReadOnlyReactiveProperty<bool> IsQuestActive => _isQuestActive;
         public virtual ReadOnlyReactiveProperty<bool> IsQuestSelect => _isQuestSelect;
         
@@ -38,14 +40,18 @@ namespace Quests
         [Inject] private DestinationService _destinationService;
         [Inject] protected CanvasUiVisualizer _canvasUiVisualizer;
         [Inject] protected MapUiVisualizer _mapUiVisualizer;
+
+        private BehaviorSubject<IReadOnlyList<string>> _questsUseThisDestination = new(null);
         
-        public virtual void QuestActivated()
+        public virtual void QuestActivated(List<string> questId)
         {
+            _questsUseThisDestination.OnNext(questId);
             _isQuestActive.Value = true;
         }
 
         public virtual void QuestDeactived()
         {
+            _questsUseThisDestination.OnNext(null);
             _isQuestActive.Value = false;
         }
 
@@ -67,6 +73,8 @@ namespace Quests
 
         //TODO проверить на работоспособность других вариантов проверки на null
         public bool IsDestroyed() => this == null;
+        
+        public string GetQuestId() => DestinationId;
         
         protected virtual void OnEnable()
         {

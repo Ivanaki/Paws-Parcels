@@ -63,7 +63,7 @@ namespace UI.Core
             
             _cursorService.SetCursorStateLocked(false);
             _inputsCoreService.NotDisableMovementUiOpened();
-            Time.timeScale = 1f;
+            Time.timeScale = 0f;
         }
 
         public void CloseScreenMap()
@@ -97,7 +97,7 @@ namespace UI.Core
             
             _cursorService.SetCursorStateLocked(false);
             _inputsCoreService.NotDisableMovementUiOpened();
-            Time.timeScale = 1f;
+            Time.timeScale = 0f;
         }
 
         public bool TryCloseScreen()

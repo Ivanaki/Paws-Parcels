@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ObservableCollections;
+using Quests;
 using R3;
 using UnityEngine;
 using Zenject;
@@ -40,6 +41,8 @@ namespace Map
 
         private readonly List<ObjectToShowOnMap> _mapObjects = new();
         private readonly CompositeDisposable _disposable = new();
+        
+        private readonly Dictionary<MapObject, string> _mapObject_questIdDict = new();
 
         [Inject]
         public void Construct(
@@ -145,6 +148,11 @@ namespace Map
                 instance.Construct(showable);
 
                 _mapObjects.Add(new ObjectToShowOnMap(showable, instance));
+
+                if (showable is DestinationObject destinationObject)
+                {
+                    
+                }
             }
             else
             {
