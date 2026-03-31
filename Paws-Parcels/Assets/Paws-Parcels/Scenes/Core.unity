@@ -1811,7 +1811,7 @@ Transform:
   m_GameObject: {fileID: 514521216}
   serializedVersion: 2
   m_LocalRotation: {x: 0.22894657, y: 0.6465215, z: -0.21268374, w: 0.6959591}
-  m_LocalPosition: {x: 1.7636001, y: 2.7182, z: -6.4664}
+  m_LocalPosition: {x: 7.7336006, y: 2.7182, z: -6.4664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3786,11 +3786,12 @@ MonoBehaviour:
     ItemsInWorld: []
     IsItemInHandsNull: 1
     InHandsItemTypeId: 
-    InHandsMarkId: 
+    InHandsDestinationId: 
     ItemsInsideCar: []
     IsPlayerInCar: 0
     IsCarDoorOpen: 0
     Resources: []
+    IsCatInCar: 0
   settingsState:
     MasterVolume: 0
     PlayerSensitivity: 0
@@ -6115,7 +6116,7 @@ Transform:
   m_GameObject: {fileID: 2100911810}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.235097, z: -0, w: 0.971972}
-  m_LocalPosition: {x: 28.2, y: 0.13, z: -35.3}
+  m_LocalPosition: {x: 21.12, y: 0.13, z: -5.21}
   m_LocalScale: {x: 3.538, y: 0.29076, z: 3.4330997}
   m_ConstrainProportionsScale: 0
   m_Children: []
