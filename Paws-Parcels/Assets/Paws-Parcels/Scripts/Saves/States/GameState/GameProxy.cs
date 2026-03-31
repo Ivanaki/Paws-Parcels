@@ -36,7 +36,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public ObservableList<ItemProxy> ItemsInWorld { get; } = new();
         public ReactiveProperty<bool> IsItemInHandsNull { get; }
         public ReactiveProperty<string> InHandsItemTypeId { get; }
-        public string InHandsMarkId { get => Origin.InHandsMarkId; set => Origin.InHandsMarkId = value; }
+        public string InHandsDestinationId { get => Origin.InHandsDestinationId; set => Origin.InHandsDestinationId = value; }
         
         public ObservableList<ItemClearProxy> ItemsInsideCar { get; } = new();
         
@@ -46,6 +46,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public ObservableList<ResourceProxy> Resources { get; } = new();
         
         public ObservableDictionary<string, ItemDestinationProxy> ItemsDestinationsPutters { get; } = new();
+        
+        public ReactiveProperty<bool> IsCatInCar { get; }
 
         public GameProxy(GameState origin)
         {
@@ -76,6 +78,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             IsCarDoorOpen = new ReactiveProperty<bool>(origin.IsCarDoorOpen);
             IsCarDoorOpen.Skip(1).Subscribe(v => origin.IsCarDoorOpen = v);
 
+            IsCatInCar = new ReactiveProperty<bool>(origin.IsCatInCar);
+            IsCatInCar.Skip(1).Subscribe(v => origin.IsCatInCar = v);
+
             InitResources(origin);
             InitItemsDestinations(origin);
         }
@@ -105,13 +110,14 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
 
             IsItemInHandsNull.Value = origin.IsItemInHandsNull;
             InHandsItemTypeId.Value = origin.InHandsItemTypeId;
-            InHandsMarkId = origin.InHandsMarkId;
+            InHandsDestinationId = origin.InHandsDestinationId;
             
             ItemsInsideCar.Clear();
             origin.ItemsInsideCar.ForEach(questData => ItemsInsideCar.Add(new ItemClearProxy(questData)));
 
             IsPlayerInCar.Value = origin.IsPlayerInCar;
             IsCarDoorOpen.Value = origin.IsCarDoorOpen;
+            IsCatInCar.Value = origin.IsCatInCar;
             
             Resources.Clear();
             origin.Resources.ForEach(questData => Resources.Add(new ResourceProxy(questData)));

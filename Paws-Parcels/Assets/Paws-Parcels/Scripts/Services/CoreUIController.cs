@@ -15,7 +15,8 @@ namespace Services
         private CompositeDisposable _disposables = new();
         
         public CoreUIController(GameInputService gameInputService, CoreUIManager coreUIManager, 
-            PutInCarItemsService putInCarItemsService, ShowableInterfaceService showableInterfaceService)
+            PutInCarItemsService putInCarItemsService, ShowableInterfaceService showableInterfaceService,
+            MessageSystem messageSystem)
         {
             _gameInputService = gameInputService;
             _coreUIManager = coreUIManager;
@@ -31,6 +32,11 @@ namespace Services
             _disposables.Add(showableInterfaceService.BanOpenObservable.Subscribe(_ => _coreUIManager.BanOpen()));
             _disposables.Add(showableInterfaceService.UnbanOpenObservable.Subscribe(_ => _coreUIManager.UnbanOpen()));
             _disposables.Add(showableInterfaceService.OpenDialogObservable.Subscribe(_ => _coreUIManager.OpenScreenDialog()));
+            
+            _disposables.Add(messageSystem.AddListenerWithManyMessages("on_open_quests").Subscribe(x =>
+            {
+                OpenQuests();
+            }));
         }
         
         private void BackUI(InputAction.CallbackContext obj = new())

@@ -95,10 +95,18 @@ namespace Paws_Parcels.Scripts.Quests
         //public string ShortPhraseCode;
         //[TextArea(3,5)] public string DescriptionCode;
         
+        public string SendMessageOnStartMission;
+        public string SendMessageOnEndMission;
+        
         [Header("Dialogue")]
         public bool IsThisMissionDialogue;
         [ShowIf(nameof(IsThisMissionDialogue)), AllowNesting]
         public DialogueParent DialogueParent;
+        
+        [Header("Building destination")]
+        public bool HasBuildingDestination = false;
+        [ShowIf(nameof(HasBuildingDestination)), AllowNesting]
+        public string BuildingDestinationId;
         
         [Header("Destination")]
         public bool HasDestination;

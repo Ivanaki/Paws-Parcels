@@ -8,7 +8,7 @@ namespace Paws_Parcels.Scripts.Player
     {
         public override string DestinationId => _destinationId;
         public override string UiShowTypeId => _uiShowTypeId;
-        public override string MapShowTypeId => _mapShowTypeId;
+        //public override string MapShowTypeId => _mapShowTypeId;
         public override ReadOnlyReactiveProperty<string> UIShowTextCode => _uiShowTextCodeRP;
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
         public override bool DontShowWithItemInHands => _dontShowWithItemInHands;
@@ -19,7 +19,7 @@ namespace Paws_Parcels.Scripts.Player
         
         [Header("Base settings")]
         [SerializeField] private string _uiShowTypeId = "interact";
-        [SerializeField] private string _mapShowTypeId = "quest";
+        //[SerializeField] private string _mapShowTypeId = "quest";
         [SerializeField] private string _uiShowTextCode;
         [SerializeField] private string _destinationId;
         [SerializeField] private List<string> _activeLocations = new(){"None"};

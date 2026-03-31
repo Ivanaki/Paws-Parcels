@@ -18,7 +18,7 @@ namespace Quests
         
         public abstract string DestinationId { get; }
         public abstract string UiShowTypeId { get; }
-        public abstract string MapShowTypeId { get; }
+        public virtual string MapShowTypeId => "";
 
         protected virtual float SelectedActivationDistance => 15f;
         protected virtual float ActivationDistance => 7f;
@@ -89,10 +89,10 @@ namespace Quests
             }));
             _disposables.Add(IsQuestActive.Subscribe(show =>
             {
-                if (show)
+                /*if (show)
                     _mapUiVisualizer.Show(this);
                 else
-                    _mapUiVisualizer.Hide(this);
+                    _mapUiVisualizer.Hide(this);*/
             }));
         }
 

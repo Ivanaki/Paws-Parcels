@@ -1,16 +1,19 @@
 using System.Linq;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Saves.States.GameState;
+using Services;
 using UnityEngine;
 
 namespace Destinations
 {
     public class ItemDestinationPutterService
     {
+        private readonly MessageSystem _messageSystem;
         private readonly GameProxy _gameProxy;
         
-        public ItemDestinationPutterService(GameStateProvider gameStateProvider)
+        public ItemDestinationPutterService(GameStateProvider gameStateProvider, MessageSystem messageSystem)
         {
+            _messageSystem = messageSystem;
             _gameProxy = gameStateProvider.GameProxy;
         }
 
@@ -27,7 +30,10 @@ namespace Destinations
                         itemDestinationProxy.Items.Remove(lastItem);
                         _gameProxy.IsItemInHandsNull.Value = false;
                         _gameProxy.InHandsItemTypeId.Value = lastItem.ItemTypeId;
-                        _gameProxy.InHandsMarkId = lastItem.DestinationId;
+                        _gameProxy.InHandsDestinationId = lastItem.DestinationId;
+                        
+                        _messageSystem.SendCompositeMessage(this, itemDestinationPutterId + "-take:" + lastItem.DestinationId);
+                        
                         return true;
                     }
                 }
@@ -51,12 +57,16 @@ namespace Destinations
                 itemDestinationProxy.Items.Add(new(new ()
                 {
                     ItemTypeId = _gameProxy.InHandsItemTypeId.Value,
-                    DestinationId = _gameProxy.InHandsMarkId
+                    DestinationId = _gameProxy.InHandsDestinationId
                 }));
+                
+                _messageSystem.SendCompositeMessage(this, itemDestinationPutterId + "-put:" + _gameProxy.InHandsDestinationId);
                 
                 _gameProxy.IsItemInHandsNull.Value = true;
                 _gameProxy.InHandsItemTypeId.Value = "";
-                _gameProxy.InHandsMarkId = "";
+                _gameProxy.InHandsDestinationId = "";
+                
+                
                 
                 return true;
             }

@@ -1726,7 +1726,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Car.EnterDoor
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
-  _mapShowTypeId: quest
   _uiShowTextCode: enter
   _destinationId: door_left
   _activeLocations:
@@ -2258,7 +2257,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Car_Player.PutUpInteractable
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
-  _mapShowTypeId: quest
   _uiShowTextCode: put_up
   _destinationId: put_up
   _activeLocations:
@@ -2449,7 +2447,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Car_Player.BedInteractable
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
-  _mapShowTypeId: quest
   _uiShowTextCode: bed
   _destinationId: bed
   _activeLocations:
@@ -6297,7 +6294,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Car.EnterDoor
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
-  _mapShowTypeId: quest
   _uiShowTextCode: enter
   _destinationId: door_right
   _activeLocations:
@@ -6316,8 +6312,9 @@ GameObject:
   - component: {fileID: 5421402709900098924}
   - component: {fileID: 103892020607427745}
   - component: {fileID: 3015144158497861096}
+  - component: {fileID: 1304004635646542148}
   m_Layer: 11
-  m_Name: Cube.055
+  m_Name: BadWithCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6331,12 +6328,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4366748539485894454}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 1.9894633, y: -0.6864663, z: -0.03261085}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.50000006, y: 0.4999999, z: 0.50000006, w: 0.4999999}
+  m_LocalPosition: {x: 0.05738902, y: -0.04346621, z: -1.4864638}
+  m_LocalScale: {x: 100.00002, y: 100.00003, z: 100.000015}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3007867695403976448}
+  m_Father: {fileID: 1402239181545854055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &103892020607427745
 MeshFilter:
@@ -6395,6 +6392,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1304004635646542148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4366748539485894454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74b3a92e425487c980e8a8516687e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Car_Player.CatVisualizer
+  _catGameObject: {fileID: 0}
 --- !u!1 &4562013254462684479
 GameObject:
   m_ObjectHideFlags: 0
@@ -8507,7 +8517,6 @@ Transform:
   - {fileID: 4392857278810603994}
   - {fileID: 1894053526798866550}
   - {fileID: 6983288458277152385}
-  - {fileID: 5421402709900098924}
   - {fileID: 6063184319347610050}
   - {fileID: 8580249811200982120}
   - {fileID: 1567465875975703397}
@@ -9952,7 +9961,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Player.Door
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
-  _mapShowTypeId: quest
   _uiShowTextCode: open_doors
   _destinationId: doors
   _activeLocations:
@@ -10195,6 +10203,7 @@ Transform:
   - {fileID: 3630586022619095081}
   - {fileID: 88640270870624212}
   - {fileID: 7901259519175890834}
+  - {fileID: 5421402709900098924}
   m_Father: {fileID: 3270963125141373183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7429004757039739529
@@ -11231,7 +11240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Car_Player.PutInsideInteractable
   _destinationShowUiPosition: {fileID: 0}
   _uiShowTypeId: interact
-  _mapShowTypeId: quest
   _uiShowTextCode: put_inside
   _destinationId: put_inside
   _activeLocations:

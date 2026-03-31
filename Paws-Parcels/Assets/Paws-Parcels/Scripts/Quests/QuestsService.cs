@@ -102,6 +102,8 @@ namespace Paws_Parcels.Scripts.Quests
 
             SubscribeMissionComplete(questDataProxy.CurrentMission.Value);
             
+            
+            
 //Подписка на dialogs
 #region Dialogs
 
@@ -121,6 +123,11 @@ namespace Paws_Parcels.Scripts.Quests
                 {
                     _dialogueQuestIds.Remove(questDataProxy.Id);
                     _dialogueInQuestsService.RemoveQuest(questDataProxy.Id);
+                }
+
+                if (mission.HasBuildingDestination)
+                {
+                    
                 }
             });
 
@@ -208,6 +215,8 @@ namespace Paws_Parcels.Scripts.Quests
             
             void SubscribeMissionComplete(int currentMission)
             {
+                _messageSystem.SendCompositeMessage(this, quest.Missions[currentMission].SendMessageOnStartMission);
+                
                 if(_questId_ReactiveMessage_Dict.TryGetValue(questId, out var disposable)) disposable.Dispose();
                 
                 disposable = new CompositeDisposable();
@@ -229,6 +238,8 @@ namespace Paws_Parcels.Scripts.Quests
                     if ((v >= 1 && mission.Message.HasCount == false) || (v >= mission.Message.MessageCount && mission.Message.HasCount))
                     {
                         disposable.Dispose();
+                        
+                        _messageSystem.SendCompositeMessage(this, quest.Missions[currentMission].SendMessageOnEndMission);
                     
                         if (questDataProxy.CurrentMission.Value + 1 < missionsLenght)
                         {

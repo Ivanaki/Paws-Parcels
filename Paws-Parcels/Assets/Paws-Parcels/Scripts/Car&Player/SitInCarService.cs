@@ -7,13 +7,16 @@ namespace Paws_Parcels.Scripts.Car_Player
 {
     public class SitInCarService
     {
+        private readonly MessageSystem _messageSystem;
         private readonly GameProxy _gameProxy;
         private readonly EditorSettingsSO _editorSettingsSo;
         
         private Rigidbody _carRigidbody;
         
-        public SitInCarService(GameStateProvider gameStateProvider, EditorDataService editorDataService)
+        public SitInCarService(GameStateProvider gameStateProvider, EditorDataService editorDataService,
+            MessageSystem messageSystem)
         {
+            _messageSystem = messageSystem;
             _gameProxy = gameStateProvider.GameProxy;
             _editorSettingsSo = editorDataService.EditorSettings;
         }
@@ -22,6 +25,7 @@ namespace Paws_Parcels.Scripts.Car_Player
         {
             if (_gameProxy.IsPlayerInCar.Value == false && _gameProxy.IsItemInHandsNull.Value)
             {
+                _messageSystem.SendCompositeMessage(this, "in_car");
                 _gameProxy.IsPlayerInCar.Value = true;
                 return true;
             }
@@ -46,6 +50,7 @@ namespace Paws_Parcels.Scripts.Car_Player
             
             if (_gameProxy.IsPlayerInCar.Value)
             {
+                _messageSystem.SendCompositeMessage(this, "out_car");
                 _gameProxy.IsPlayerInCar.Value = false;
                 return true;
             }

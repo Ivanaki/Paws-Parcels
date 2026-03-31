@@ -1811,7 +1811,7 @@ Transform:
   m_GameObject: {fileID: 514521216}
   serializedVersion: 2
   m_LocalRotation: {x: 0.22894657, y: 0.6465215, z: -0.21268374, w: 0.6959591}
-  m_LocalPosition: {x: 7.7336006, y: 2.7182, z: -6.4664}
+  m_LocalPosition: {x: 1.7636001, y: 2.7182, z: -6.4664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6020,6 +6020,7 @@ GameObject:
   - component: {fileID: 2100911812}
   - component: {fileID: 2100911811}
   - component: {fileID: 2100911815}
+  - component: {fileID: 2100911816}
   m_Layer: 2
   m_Name: Cube (10)
   m_TagString: Untagged
@@ -6114,7 +6115,7 @@ Transform:
   m_GameObject: {fileID: 2100911810}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.235097, z: -0, w: 0.971972}
-  m_LocalPosition: {x: 10.8, y: 0.13, z: -4.48}
+  m_LocalPosition: {x: 28.2, y: 0.13, z: -35.3}
   m_LocalScale: {x: 3.538, y: 0.29076, z: 3.4330997}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6139,6 +6140,20 @@ MonoBehaviour:
   _activationDistance: 10
   _selectedActivationDistance: 20
   _itemDestinationPutterId: destination_putter_2
+--- !u!114 &2100911816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100911810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57f69a35cd34e9eb0d3b7ee938a3a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Map.Building
+  _positionOnMap: {fileID: 0}
+  _mapShowTypeId: gas_station
 --- !u!1001 &2108468946
 PrefabInstance:
   m_ObjectHideFlags: 0

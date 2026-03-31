@@ -29,7 +29,7 @@ namespace Items
                 {
                     _gameProxy.IsItemInHandsNull.Value = false;
                     _gameProxy.InHandsItemTypeId.Value = itemProxy.ItemTypeId;
-                    _gameProxy.InHandsMarkId = itemProxy.DestinationId;
+                    _gameProxy.InHandsDestinationId = itemProxy.DestinationId;
                     _messageSystem.SendCompositeMessage(this, "pickup:" + itemProxy.DestinationId);
                     return true;
                 }
@@ -44,18 +44,18 @@ namespace Items
                 _gameProxy.ItemsInWorld.Add(new ItemProxy(new ItemData
                 {
                     ItemTypeId = _gameProxy.InHandsItemTypeId.Value,
-                    DestinationId = _gameProxy.InHandsMarkId,
+                    DestinationId = _gameProxy.InHandsDestinationId,
                     Position = _dropSettings.GetDropPosition(),
                     Rotation = _dropSettings.GetDropRotation(),
                     LinearVelocity = _dropSettings.GetDropLinearVelocity(),
                     AngularVelocity = _dropSettings.GetDropAngularVelocity(),
                 }));
                 
-                _messageSystem.SendCompositeMessage(this, "drop:" + _gameProxy.InHandsMarkId);
+                _messageSystem.SendCompositeMessage(this, "drop:" + _gameProxy.InHandsDestinationId);
                 
                 _gameProxy.IsItemInHandsNull.Value = true;
                 _gameProxy.InHandsItemTypeId.Value = "";
-                _gameProxy.InHandsMarkId = "";
+                _gameProxy.InHandsDestinationId = "";
                 
                 return true;
             }
@@ -71,18 +71,40 @@ namespace Items
                 _gameProxy.ItemsInWorld.Add(new ItemProxy(new ItemData
                 {
                     ItemTypeId = _gameProxy.InHandsItemTypeId.Value,
-                    DestinationId = _gameProxy.InHandsMarkId,
+                    DestinationId = _gameProxy.InHandsDestinationId,
                     Position = _dropSettings.GetDropPosition(),
                     Rotation = _dropSettings.GetDropRotation(),
                     LinearVelocity = velocity,
                     AngularVelocity = Vector3.zero,
                 }));
                 
+                _messageSystem.SendCompositeMessage(this, "throw_up:" + _gameProxy.InHandsDestinationId);
+                
                 _gameProxy.IsItemInHandsNull.Value = true;
                 _gameProxy.InHandsItemTypeId.Value = "";
-                _gameProxy.InHandsMarkId = "";
+                _gameProxy.InHandsDestinationId = "";
                 
                 return true;
+            }
+            return false;
+        }
+
+        public bool TryPutCat()
+        {
+            if (_gameProxy.IsItemInHandsNull.Value == false)
+            {
+                if (_gameProxy.InHandsItemTypeId.Value == "cat")
+                {
+                    _gameProxy.IsItemInHandsNull.Value = true;
+                    _gameProxy.InHandsItemTypeId.Value = "";
+                    _gameProxy.InHandsDestinationId = "";
+                    
+                    _gameProxy.IsCatInCar.Value = true;
+                    
+                    _messageSystem.SendCompositeMessage(this, "put_cat");
+                    
+                    return true;
+                }
             }
             return false;
         }

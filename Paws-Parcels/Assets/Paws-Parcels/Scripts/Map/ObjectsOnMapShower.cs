@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ObservableCollections;
+using Paws_Parcels.Scripts.Saves.States.GameState;
 using Quests;
 using R3;
 using UnityEngine;
@@ -41,8 +42,6 @@ namespace Map
 
         private readonly List<ObjectToShowOnMap> _mapObjects = new();
         private readonly CompositeDisposable _disposable = new();
-        
-        private readonly Dictionary<MapObject, string> _mapObject_questIdDict = new();
 
         [Inject]
         public void Construct(
@@ -151,7 +150,7 @@ namespace Map
 
                 if (showable is DestinationObject destinationObject)
                 {
-                    
+                    //_mapObject_questIdDict.Add();
                 }
             }
             else

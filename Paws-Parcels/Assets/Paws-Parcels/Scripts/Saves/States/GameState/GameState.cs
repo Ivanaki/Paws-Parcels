@@ -93,7 +93,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         //Items in hands
         public bool IsItemInHandsNull = true;
         public string InHandsItemTypeId = "";
-        public string InHandsMarkId = "";
+        public string InHandsDestinationId = "";
         
         //Items in car
         public List<ItemClearData> ItemsInsideCar = new();
@@ -107,6 +107,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         
         //ItemDestinations
         public Dictionary<string, ItemDestinationData> ItemsDestinations = new();
+        
+        //cat
+        public bool IsCatInCar;
         
         public int GetNewSavableEntityID()
         {

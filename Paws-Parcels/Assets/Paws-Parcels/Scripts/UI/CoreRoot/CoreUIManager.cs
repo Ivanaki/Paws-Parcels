@@ -2,6 +2,7 @@ using System;
 using Game.Root;
 using Paws_Parcels.NPCDialogs;
 using Paws_Parcels.Scripts;
+using Quests;
 using Services;
 using UI.DialogueScreen;
 using UI.Screens.LoadMenu;
@@ -24,13 +25,16 @@ namespace UI.Core
         private readonly InputsCoreService _inputsCoreService;
         private readonly EditorDataService _editorDataService;
         private readonly DialogueService _dialogueService;
+        private readonly QuestsServiceForUi _questsServiceForUi;
+        private readonly MessageSystem _messageSystem;
 
         private bool _banOpen = false;
         
         public CoreUIManager(UICoreRootViewModel coreRootViewModel, CoreSignals coreSignals, 
             SettingsService settingsService, LoadService loadService, CursorService cursorService,
             InputsCoreService inputsCoreService, EditorDataService editorDataService,
-            DialogueService dialogueService)
+            DialogueService dialogueService, QuestsServiceForUi questsServiceForUi,
+            MessageSystem messageSystem)
         {
             _coreRootViewModel = coreRootViewModel;
             _coreSignals = coreSignals;
@@ -40,6 +44,8 @@ namespace UI.Core
             _inputsCoreService = inputsCoreService;
             _editorDataService = editorDataService;
             _dialogueService = dialogueService;
+            _questsServiceForUi = questsServiceForUi;
+            _messageSystem = messageSystem;
         }
 
         public void OpenScreenDialog()
@@ -52,6 +58,7 @@ namespace UI.Core
             _cursorService.SetCursorStateLocked(false);
             _inputsCoreService.StopAllUiOpened();
             Time.timeScale = 1f;
+            _messageSystem.SendCompositeMessage(this, "open_screen_dialog");
         }
         
         public void OpenScreenMap()
@@ -64,6 +71,8 @@ namespace UI.Core
             _cursorService.SetCursorStateLocked(false);
             _inputsCoreService.NotDisableMovementUiOpened();
             Time.timeScale = 0f;
+            
+            _messageSystem.SendCompositeMessage(this, "open_screen_map");
         }
 
         public void CloseScreenMap()
@@ -86,18 +95,22 @@ namespace UI.Core
             _cursorService.SetCursorStateLocked(false);
             _inputsCoreService.StopAllUiOpened();
             Time.timeScale = 0f;
+            
+            _messageSystem.SendCompositeMessage(this, "open_screen_pause");
         }
         
         public void OpenScreenQuests()
         {
             if(_banOpen) return;
             
-            var viewModel = new ScreenQuestsViewModel(this);
+            var viewModel = new ScreenQuestsViewModel(this, _questsServiceForUi);
             _coreRootViewModel.OpenScreen(viewModel);
             
             _cursorService.SetCursorStateLocked(false);
             _inputsCoreService.NotDisableMovementUiOpened();
             Time.timeScale = 0f;
+            
+            _messageSystem.SendCompositeMessage(this, "open_screen_quests");
         }
 
         public bool TryCloseScreen()
@@ -122,6 +135,8 @@ namespace UI.Core
             
             var viewModel = new PopupLoadMenuViewModel(_loadService);
             _coreRootViewModel.OpenPopup(viewModel);
+            
+            _messageSystem.SendCompositeMessage(this, "open_popup_load_menu");
         }
         
         public void OpenPopupSettings()
@@ -132,6 +147,8 @@ namespace UI.Core
                 _editorDataService.EditorSettings.MaxSensitivity,
                 _editorDataService.EditorSettings.MaxSensitivityOnSlider);
             _coreRootViewModel.OpenPopup(viewModel);
+            
+            _messageSystem.SendCompositeMessage(this, "open_popup_settings");
         }
 
         public bool TryCloseLastPopup()

@@ -32,7 +32,7 @@ namespace Destinations
                 if (addResult)
                 {
                     item.OnDestroyObserve.Take(1).Subscribe(_ => Remove(item));
-                    print($"Added item: {item.DestinationId}");
+                    //print($"Added item: {item.DestinationId}");
                     //послать сообщение: putterId_put:itemDestinationId
                     _messageSystem.SendCompositeMessage(this, _itemDestinationPutterId + "-put:" + item.DestinationId);
                 }
@@ -52,7 +52,7 @@ namespace Destinations
             var removeResult = _items.Remove(item.DestinationId);
             if (removeResult)
             {
-                print($"Removed item: {item.DestinationId}");
+                //print($"Removed item: {item.DestinationId}");
                 //послать сообщение: putterId_take:itemDestinationId
                 _messageSystem.SendCompositeMessage(this, _itemDestinationPutterId + "-take:" + item.DestinationId);
             }

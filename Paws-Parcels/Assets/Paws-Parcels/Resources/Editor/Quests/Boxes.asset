@@ -24,6 +24,8 @@ MonoBehaviour:
       AfterMainDialogue:
         project: {fileID: 0}
         nodeName: 
+    HasBuildingDestination: 1
+    BuildingDestinationId: gas_station
     HasDestination: 1
     DestinationParent:
       IsMany: 1

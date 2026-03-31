@@ -10,16 +10,18 @@ namespace Services
         private readonly PlayerShowableService _playerShowableService;
         private readonly ShowableInterfaceService _showableInterfaceService;
         private readonly GameInputService _gameInputService;
+        private readonly MessageSystem _messageSystem;
 
         private readonly Dictionary<string, Cutscene> _cutscenesDict = new();
         private bool _cutscenePlaying = false;
 
         public CutsceneService(PlayerShowableService playerShowableService, ShowableInterfaceService showableInterfaceService,
-            GameInputService gameInputService)
+            GameInputService gameInputService, MessageSystem messageSystem)
         {
             _playerShowableService = playerShowableService;
             _showableInterfaceService = showableInterfaceService;
             _gameInputService = gameInputService;
+            _messageSystem = messageSystem;
         }
         
         public Observable<bool> StartCutScene(string cutsceneId)
@@ -53,6 +55,8 @@ namespace Services
             _showableInterfaceService.HideHud();
             
             _cutscenePlaying = true;
+            
+            _messageSystem.SendCompositeMessage(this, "cutscene_started:" + cutsceneId);
 
             var sub = cutscene.Play();
             sub.Subscribe(_ =>
@@ -66,6 +70,8 @@ namespace Services
                 _gameInputService.SetCutsceneInput(false);
                 _showableInterfaceService.UnbanOpen();
                 _showableInterfaceService.ShowHud();
+                _messageSystem.SendCompositeMessage(this, "cutscene_ended:" + cutsceneId);
+
             });
             
             return sub.Select(_ => true);
