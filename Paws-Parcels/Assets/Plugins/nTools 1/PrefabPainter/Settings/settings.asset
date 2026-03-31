@@ -712,10 +712,10 @@ MonoBehaviour:
       customPreviewImage: {fileID: 0}
     - name: tree random
       settings:
-        brushRadius: 0.01
-        brushSpacing: 5
+        brushRadius: 2.1
+        brushSpacing: 0.01
         brushOverlapCheckMode: 1
-        brushOverlapDistance: 2
+        brushOverlapDistance: 5
         brushOverlapCheckObjects: 1
         brushOverlapCheckLayers:
           serializedVersion: 2
@@ -731,7 +731,7 @@ MonoBehaviour:
         scaleTransformMode: 0
         scaleMode: 0
         scaleUniformMin: 0.8
-        scaleUniformMax: 1
+        scaleUniformMax: 1.2
         scalePerAxisMin: {x: 1, y: 1, z: 1}
         scalePerAxisMax: {x: 1, y: 1, z: 1}
         pinFixedRotation: 0
@@ -749,28 +749,28 @@ MonoBehaviour:
         multibrushEnabled: 1
         multibrushSlots:
         - enabled: 1
-          raiting: 1
+          raiting: 0
           position: {x: 0, y: 0, z: 0}
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
           pivotMode: 0
           pivotOffset: {x: 0, y: 0, z: 0}
         - enabled: 1
-          raiting: 1
+          raiting: 0
           position: {x: 0, y: 0, z: 0}
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
           pivotMode: 0
           pivotOffset: {x: 0, y: 0, z: 0}
         - enabled: 1
-          raiting: 1
+          raiting: 0
           position: {x: 0, y: 0, z: 0}
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
           pivotMode: 0
           pivotOffset: {x: 0, y: 0, z: 0}
         - enabled: 1
-          raiting: 0.95238084
+          raiting: 0
           position: {x: 0, y: 0, z: 0}
           rotation: {x: 0, y: 0, z: 0}
           scale: {x: 1, y: 1, z: 1}
@@ -993,6 +993,10 @@ MonoBehaviour:
       - gameObject: {fileID: 3751234345369560025, guid: 3192b6b56d9e1ec4ea4a08e6ac3d0469, type: 3}
       - gameObject: {fileID: 3603867402267447941, guid: d5fdde1c45d382a4094bed694570ff7b, type: 3}
       - gameObject: {fileID: 6369037676802371521, guid: 1ed9fd7f974300c4fa3117c443a42642, type: 3}
+      - gameObject: {fileID: 6293165817991546410, guid: c165cd304183cd344a4154f5ee03303d, type: 3}
+      - gameObject: {fileID: 7437567755667815007, guid: 4fb4cec58313a2e4db28c6ee6e01c982, type: 3}
+      - gameObject: {fileID: 789741270435133381, guid: 673ec6b1918705c418258dedbccca307, type: 3}
+      - gameObject: {fileID: 5700544468433216286, guid: dfedf6b64eff7dc4783dae250e5bd4ec, type: 3}
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
@@ -1017,11 +1021,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      - gameObject: {fileID: 0}
-      selectedSlot: 3
+      selectedSlot: 4
       selected: 1
       colorTag: 0
       customPreviewImage: {fileID: 0}
