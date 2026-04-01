@@ -16,6 +16,38 @@ MonoBehaviour:
   ActiveOnAwake: 1
   Missions:
   - MissionId: 0
+    SendMessageOnStartMission: on_open_quests
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 1
+    DialogueParent:
+      NpcName: bear
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Bear
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: BearEat
+    HasBuildingDestination: 0
+    BuildingDestinationId: 
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: bear
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: dialogue_ended:Bear
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 1
     SendMessageOnStartMission: spawn_cat
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
@@ -42,38 +74,6 @@ MonoBehaviour:
     IsMany: 0
     Message:
       Message: cutscene_ended:test
-      HasCount: 0
-      MessageCount: 0
-      MinusMessage: 
-    ManyMessages:
-      Messages: []
-  - MissionId: 1
-    SendMessageOnStartMission: on_open_quests
-    SendMessageOnEndMission: 
-    IsThisMissionDialogue: 1
-    DialogueParent:
-      NpcName: bear
-      MainDialogue:
-        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
-        nodeName: Bear
-      AfterMainDialogue:
-        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
-        nodeName: BearEat
-    HasBuildingDestination: 0
-    BuildingDestinationId: 
-    HasDestination: 1
-    DestinationParent:
-      IsMany: 0
-      Destination:
-        Id: bear
-        NotHighlightOnAwake: 0
-        OffHighlightMessage: 
-        OnHighlightMessage: 
-      ManyDestinations:
-        Destinations: []
-    IsMany: 0
-    Message:
-      Message: dialogue_ended:bear
       HasCount: 0
       MessageCount: 0
       MinusMessage: 

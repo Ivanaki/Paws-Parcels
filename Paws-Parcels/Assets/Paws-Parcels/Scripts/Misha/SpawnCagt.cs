@@ -1,6 +1,7 @@
 using System;
 using Items;
 using Paws_Parcels.Scripts.Saves.States.GameState;
+using R3;
 using Services;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,16 +12,24 @@ public class SpawnCagt : MonoBehaviour
     [Inject] private GameProxy savings;
     [SerializeField] private GameObject cat;
     [Inject] MessageSystem messageSystem;
+    private CompositeDisposable _disposables = new CompositeDisposable();
     private void Awake()
     {
-        messageSystem.AddListenerWithManyMessages("spawn_cat").Subscribe(_ =>
-        {
-            savings.ItemsInWorld.Add(new ItemProxy(new ItemData()
+        _disposables.Add( messageSystem.AddListenerWithManyMessages("spawn_cat").Subscribe(_ =>
             {
-                Position = cat.transform.position, AngularVelocity = Vector3.zero,
-                DestinationId = "cat_1", ItemTypeId = "cat", LinearVelocity = Vector3.zero, Rotation = Quaternion.identity
+                savings.ItemsInWorld.Add(new ItemProxy(new ItemData()
+                {
+                    Position = cat.transform.position, AngularVelocity = Vector3.zero,
+                    DestinationId = "cat_1", ItemTypeId = "cat", LinearVelocity = Vector3.zero,
+                    Rotation = Quaternion.identity
+                }));
             }));
-        });
 
+        //messageSystem.SendCompositeMessage(this, "spawn_cat");
+    }
+
+    private void OnDestroy()
+    {
+        _disposables.Dispose(); 
     }
 }
