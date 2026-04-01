@@ -18,7 +18,7 @@ MonoBehaviour:
     TrackedMissionID: 0
     IsCompassActive: 0
     ActiveQuests: []
-    SelectedQuest: 
+    SelectedQuest: learning
     SucceedQuests: []
     CurrentActiveDestinations: []
     PlayerData:
