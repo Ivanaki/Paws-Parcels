@@ -90,7 +90,7 @@ namespace Paws_Parcels.Scripts.Quests
     [Serializable]
     public class Mission
     {
-        //public string Id;
+        public string MissionId;
         
         //public string ShortPhraseCode;
         //[TextArea(3,5)] public string DescriptionCode;
@@ -149,13 +149,26 @@ namespace Paws_Parcels.Scripts.Quests
         
         [Space]
         public List<Mission> Missions;
-        
-        [Space]
-        public List<RewardReference> Rewards;
-        
-        
+
+        public int MoneyReward = 0;
+        public Limits Limit = Limits.LimitNone;
+
+        [ShowIf(nameof(Limit), Limits.LimitTime), AllowNesting]
+        public int LimitTimeInSeconds = 60;
+
+        /*[Space]
+        public List<RewardReference> Rewards;*/
+
+
         /*[Space]
         [ShowNonSerializedField] private string _localizationWords = "Name; ;;;;";*/
+    }
+
+    public enum Limits
+    {
+        LimitNone = 0,
+        LimitTime = 1,
+        LimitTemperature = 2
     }
     
     

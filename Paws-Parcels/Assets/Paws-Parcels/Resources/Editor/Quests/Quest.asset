@@ -15,7 +15,8 @@ MonoBehaviour:
   Id: q
   ActiveOnAwake: 1
   Missions:
-  - SendMessageOnStartMission: 
+  - MissionId: 
+    SendMessageOnStartMission: 
     SendMessageOnEndMission: on_open_quests
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -46,4 +47,6 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
-  Rewards: []
+  MoneyReward: 0
+  Limit: 1
+  LimitTimeInSeconds: 60

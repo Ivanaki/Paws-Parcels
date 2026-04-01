@@ -15,7 +15,10 @@ MonoBehaviour:
   Id: boxes
   ActiveOnAwake: 1
   Missions:
-  - IsThisMissionDialogue: 0
+  - MissionId: 1
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
     DialogueParent:
       NpcName: 
       MainDialogue:
@@ -76,4 +79,5 @@ MonoBehaviour:
         destination_putter_2-take:cube_4'
     ManyMessages:
       Messages: []
-  Rewards: []
+  MoneyReward: 34
+  Limit: 1
