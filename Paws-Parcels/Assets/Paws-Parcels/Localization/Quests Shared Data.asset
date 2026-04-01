@@ -19,12 +19,28 @@ MonoBehaviour:
     m_Key: testMissionName
     m_Metadata:
       m_Items: []
-  - m_Id: 8348784801718272
-    m_Key: First:Awake
+  - m_Id: 27577151833235456
+    m_Key: LimitNone
     m_Metadata:
       m_Items: []
-  - m_Id: 8349853971750912
-    m_Key: New Entry
+  - m_Id: 27577219126648832
+    m_Key: LimitTime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27577355412168704
+    m_Key: LimitTemperature
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27577814461964288
+    m_Key: boxes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27577906199781376
+    m_Key: boxes-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27578015268462592
+    m_Key: boxes-1-d
     m_Metadata:
       m_Items: []
   m_Metadata:

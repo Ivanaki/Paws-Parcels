@@ -2001,6 +2001,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &523025800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4366748539485894454, guid: a2917ec6579897d47975508de0954229, type: 3}
+  m_PrefabInstance: {fileID: 1246737055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &562179181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 767283574417663281, guid: a2917ec6579897d47975508de0954229, type: 3}
@@ -3372,6 +3377,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1304004635646542148, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: _catGameObject
+      value: 
+      objectReference: {fileID: 523025800}
     - target: {fileID: 3582412472463973297, guid: a2917ec6579897d47975508de0954229, type: 3}
       propertyPath: m_Name
       value: MyCar

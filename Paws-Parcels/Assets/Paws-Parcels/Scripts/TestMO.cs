@@ -57,7 +57,7 @@ namespace Paws_Parcels.Scripts
             settingsState = _settingsStateProvider.SettingsProxy.SettingsState;
             
             _questsService.ActiveNewQuest("boxes");
-            _questsService.ActiveNewQuest("q");
+            //_questsService.ActiveNewQuest("q");
             //_questsService.ActiveNewQuest("bulka_sova_t");
             
             _gameStateProvider.GameProxy.SelectedQuest.Value = "bulka_sova";

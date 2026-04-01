@@ -2,6 +2,7 @@ using System;
 using Game.Root;
 using Paws_Parcels.NPCDialogs;
 using Paws_Parcels.Scripts;
+using Paws_Parcels.Scripts.Saves.States.GameState;
 using Quests;
 using Services;
 using UI.DialogueScreen;
@@ -27,6 +28,9 @@ namespace UI.Core
         private readonly DialogueService _dialogueService;
         private readonly QuestsServiceForUi _questsServiceForUi;
         private readonly MessageSystem _messageSystem;
+        private readonly LocalizationService _localizationService;
+        private readonly QuestsDatabase _questsDatabase;
+        private readonly GameProxy _gameProxy;
 
         private bool _banOpen = false;
         
@@ -34,7 +38,8 @@ namespace UI.Core
             SettingsService settingsService, LoadService loadService, CursorService cursorService,
             InputsCoreService inputsCoreService, EditorDataService editorDataService,
             DialogueService dialogueService, QuestsServiceForUi questsServiceForUi,
-            MessageSystem messageSystem)
+            MessageSystem messageSystem, LocalizationService localizationService,
+            QuestsDatabase questsDatabase, GameProxy gameProxy)
         {
             _coreRootViewModel = coreRootViewModel;
             _coreSignals = coreSignals;
@@ -46,6 +51,9 @@ namespace UI.Core
             _dialogueService = dialogueService;
             _questsServiceForUi = questsServiceForUi;
             _messageSystem = messageSystem;
+            _localizationService = localizationService;
+            _questsDatabase = questsDatabase;
+            _gameProxy = gameProxy;
         }
 
         public void OpenScreenDialog()
@@ -103,7 +111,7 @@ namespace UI.Core
         {
             if(_banOpen) return;
             
-            var viewModel = new ScreenQuestsViewModel(this, _questsServiceForUi);
+            var viewModel = new ScreenQuestsViewModel(this, _localizationService, _questsDatabase, _gameProxy);
             _coreRootViewModel.OpenScreen(viewModel);
             
             _cursorService.SetCursorStateLocked(false);

@@ -10,6 +10,10 @@ namespace UI.MVVM
 
         private readonly Subject<WindowViewModel> _closeRequested = new();
 
+        
+        /// <summary>
+        /// only for popups
+        /// </summary>
         public void RequestClose()
         {
             _closeRequested.OnNext(this);
