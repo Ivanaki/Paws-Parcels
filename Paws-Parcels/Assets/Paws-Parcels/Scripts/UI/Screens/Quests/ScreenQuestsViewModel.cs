@@ -18,6 +18,7 @@ namespace UI.Screens.Quests
     public class ScreenQuestsViewModel :  WindowViewModel
     {
         private readonly CoreUIManager _coreUIManager;
+        private readonly GameProxy _gameProxy;
         public LocalizationService LocalizationService { get; }
 
         private const string NoneSimbol = "-";
@@ -36,7 +37,7 @@ namespace UI.Screens.Quests
         private IReadOnlyDictionary<string, Quest> QuestsDict { get; }
         private IReadOnlyObservableList<QuestDataProxy> ActiveQuests { get; }
         private IReadOnlyObservableList<string> SucceedQuests { get; }
-        public ReactiveProperty<string> SelectedQuestInData { get; }
+        public ReadOnlyReactiveProperty<string> SelectedQuestInData { get; }
         
 
         //
@@ -52,10 +53,10 @@ namespace UI.Screens.Quests
         
         private readonly ReactiveProperty<string> _currentQuestRewardMoneyText = new(NoneSimbol);
         
-        private readonly ReactiveProperty<string> _currentQuestTitleCode = new();
-        private readonly ReactiveProperty<string> _currentMissionTitleCode = new();
-        private readonly ReactiveProperty<string> _currentMissionDescriptionCode = new();
-        private readonly ReactiveProperty<Limits> _currentMissionLimitCode = new();
+        private readonly BehaviorSubject<string> _currentQuestTitleCode = new("");
+        private readonly BehaviorSubject<string> _currentMissionTitleCode = new("");
+        private readonly BehaviorSubject<string> _currentMissionDescriptionCode = new("");
+        private readonly BehaviorSubject<Limits> _currentMissionLimitCode = new(Limits.LimitNone);
 
 
         private OneQuestViewModel _selectedQuestViewModel = null;
@@ -65,6 +66,7 @@ namespace UI.Screens.Quests
             GameProxy gameProxy)
         {
             _coreUIManager = coreUIManager;
+            _gameProxy = gameProxy;
             LocalizationService = localizationService;
             QuestsDict = questsDatabase.QuestsDict;
             ActiveQuests = gameProxy.ActiveQuests;
@@ -217,32 +219,42 @@ namespace UI.Screens.Quests
             }
         }
 
+        private void ShowSaveUINull()
+        {
+            _currentQuestTitleText.Value = NoneSimbol;
+            _currentMissionTitleText.Value = NoneSimbol;
+            _currentMissionDescriptionText.Value = NoneSimbol;
+            _currentMissionLimitText.Value = NoneSimbol;
+
+            _currentQuestRewardMoneyText.Value = NoneSimbol;
+        }
+
         private void ShowSaveUI(Quest quest)
         {
-            if (quest == null)
+            if (_questsMap[quest.Id].IsCompleted)
             {
-                _currentQuestTitleText.Value = NoneSimbol;
-                _currentMissionTitleText.Value = NoneSimbol;
+                _currentQuestRewardMoneyText.Value = quest.MoneyReward.ToString();
+                _currentQuestTitleCode.OnNext(quest.Id);
+                _currentMissionLimitCode.OnNext(quest.Limit);
+                
+                //_currentMissionTitleText.Value = LocalizationService.GetCurrentLanguageStringOrDefault("");
                 _currentMissionDescriptionText.Value = NoneSimbol;
-                _currentMissionLimitText.Value = NoneSimbol;
-
-                _currentQuestRewardMoneyText.Value = NoneSimbol;
             }
             else
             {
                 _currentQuestRewardMoneyText.Value = quest.MoneyReward.ToString();
-                _currentQuestTitleCode.Value = quest.Id;
-                _currentMissionTitleCode.Value = quest.Id + "-" + quest
-                    .Missions[ActiveQuests.FirstOrDefault(x => x.Id == quest.Id).CurrentMission.Value].MissionId;
-                _currentMissionDescriptionCode.Value = quest.Id + "-" + quest
-                    .Missions[ActiveQuests.FirstOrDefault(x => x.Id == quest.Id).CurrentMission.Value].MissionId+"-d"; 
-                _currentMissionLimitCode.Value = quest.Limit;
+                _currentQuestTitleCode.OnNext(quest.Id);
+                _currentMissionTitleCode.OnNext(quest.Id + "-" + quest
+                    .Missions[ActiveQuests.FirstOrDefault(x => x.Id == quest.Id).CurrentMission.Value].MissionId);
+                _currentMissionDescriptionCode.OnNext(quest.Id + "-" + quest
+                    .Missions[ActiveQuests.FirstOrDefault(x => x.Id == quest.Id).CurrentMission.Value].MissionId + "-d");
+                _currentMissionLimitCode.OnNext(quest.Limit);
             }
         }
 
         private void SelectLastSaveViewModel()
         {
-            RequestOneSaveClicked(_oneQuestViewModels.Count > 0 ? _oneQuestViewModels[^1].QuestId : "");
+            RequestOneSaveClicked(_oneQuestViewModels.Count > 0 ? _oneQuestViewModels[0].QuestId : "");
         }
 
         public override void Dispose()
@@ -260,10 +272,7 @@ namespace UI.Screens.Quests
         
         public void RequestSelectInData()
         {
-            if (string.IsNullOrEmpty(_selectedQuestId) == false)
-            {
-                SelectedQuestInData.Value = _selectedQuestId;
-            }
+            _gameProxy.TrySelectQuestInData(_selectedQuestId);
         }
 
         public void RequestOneSaveClicked(string questId)
@@ -272,7 +281,7 @@ namespace UI.Screens.Quests
 
             if (string.IsNullOrEmpty(questId))
             {
-                ShowSaveUI(null);
+                ShowSaveUINull();
                 return;
             }
             

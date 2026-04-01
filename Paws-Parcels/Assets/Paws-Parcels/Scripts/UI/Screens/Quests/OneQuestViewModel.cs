@@ -21,6 +21,7 @@ namespace UI.Screens.Quests
         private readonly ReactiveProperty<string> _textToShow = new("test");
         
         private CompositeDisposable _disposables = new();
+        
 
         public OneQuestViewModel(ScreenQuestsViewModel viewModelMain, string questId, bool isCompleted)
         {

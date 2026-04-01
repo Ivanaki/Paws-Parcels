@@ -12,7 +12,7 @@ namespace Dialogue
     {
         private readonly Dictionary<string, INPC> _npcOnSceneDict = new();
 
-        private ReactiveProperty<string> _selectedQuest { get; }
+        private ReadOnlyReactiveProperty<string> _selectedQuest { get; }
         
         public DialogueInQuestsService(GameStateProvider gameStateProvider)
         {

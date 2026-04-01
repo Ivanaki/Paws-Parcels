@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f00c5bbf8c444b782a82c671cd1c25b, type: 3}
   m_Name: Quest
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Quests.Quest
-  Id: q
+  Id: qqqqqqqq
   ActiveOnAwake: 1
   Missions:
   - MissionId: 
     SendMessageOnStartMission: 
     SendMessageOnEndMission: on_open_quests
-    IsThisMissionDialogue: 0
+    IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: 
       MainDialogue:
@@ -48,5 +48,5 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   MoneyReward: 0
-  Limit: 1
+  Limit: 0
   LimitTimeInSeconds: 60

@@ -8,6 +8,7 @@ using NPCDialogs;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Player;
 using R3;
+using Services;
 using Unity.Cinemachine;
 using UnityEngine;
 using Yarn.Unity;
@@ -44,7 +45,7 @@ namespace Paws_Parcels.NPCDialogs
         [Header("NPC Settings")]
         [SerializeField] private string _npcNameCode;
         [SerializeField] DialogueReference _startNpcDialog = new();
-        [SerializeField] private NpcHeadLookAt _npcHeadLookAt;
+        //[SerializeField] private NpcHeadLookAt _npcHeadLookAt;
         [SerializeField] private CinemachineCamera _cinemachineCamera;
         [SerializeField] private float _rotationDuration = 1f;
         [SerializeField] private Transform _npcTransform;
@@ -54,6 +55,7 @@ namespace Paws_Parcels.NPCDialogs
 
         [Inject] private DialogueService _dialogueService;
         [Inject] private DialogueInQuestsService _dialogueInQuestsService;
+        [Inject] private PlayerService _playerService;
 
         private float _baseYRot;
         private Tween _rotateTween;
@@ -96,7 +98,8 @@ namespace Paws_Parcels.NPCDialogs
                 if (isRunning && _dialogueService.CurrentNpcDialog == _npcNameCode)
                 {
                     _rotateTween?.Kill();
-                    var yRot = Utils.VectorToGlobalYRotation(_npcHeadLookAt.Target - _npcHeadLookAt.Origin);
+                    var yRot = Utils.VectorToGlobalYRotation(_playerService.PlayerTransform.position
+                                                             - _npcTransform.position);
                     _rotateTween = _npcTransform.DORotate(new Vector3(0, yRot, 0), _rotationDuration);
                     _cinemachineCamera.Priority.Value = 100;
                 }

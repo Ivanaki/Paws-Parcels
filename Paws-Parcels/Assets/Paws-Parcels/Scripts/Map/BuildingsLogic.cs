@@ -123,7 +123,7 @@ namespace Map
                 }
             }
 
-            var selectedQuest = _gameProxy.SelectedQuest.Value; 
+            var selectedQuest = _gameProxy.SelectedQuest.CurrentValue; 
             
             if (string.IsNullOrEmpty(selectedQuest) == false)
             {
