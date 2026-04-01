@@ -235,6 +235,76 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 8918303326992072950
+  - m_Id: 18970028245172224
+    m_Key: line:60c2cd30
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723301
+  - m_Id: 18970707525287936
+    m_Key: line:0000
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723302
+  - m_Id: 18970802056511488
+    m_Key: line:00001
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723303
+  - m_Id: 18970802056511489
+    m_Key: line:00002
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723304
+  - m_Id: 18970802056511490
+    m_Key: line:00003
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723305
+  - m_Id: 18970802056511491
+    m_Key: line:00004
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723306
+  - m_Id: 18970802056511492
+    m_Key: line:00005
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723307
+  - m_Id: 18970802056511493
+    m_Key: line:00006
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723308
+  - m_Id: 18970802056511494
+    m_Key: line:00007
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723309
+  - m_Id: 18970802056511495
+    m_Key: line:00008
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723310
+  - m_Id: 18970802056511496
+    m_Key: line:00009
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723311
+  - m_Id: 18970802056511497
+    m_Key: line:000010
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723312
+  - m_Id: 18970802056511498
+    m_Key: line:000011
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723313
+  - m_Id: 18970938996342784
+    m_Key: line:000000000
+    m_Metadata:
+      m_Items:
+      - rid: 8394464131068723314
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -246,6 +316,77 @@ MonoBehaviour:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1770452196476
+    - rid: 8394464131068723301
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear
+        tags: []
+    - rid: 8394464131068723302
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear
+        tags: []
+    - rid: 8394464131068723303
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear
+        tags: []
+    - rid: 8394464131068723304
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear
+        tags: []
+    - rid: 8394464131068723305
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear
+        tags: []
+    - rid: 8394464131068723306
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear
+        tags:
+        - lastline
+    - rid: 8394464131068723307
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear
+        tags: []
+    - rid: 8394464131068723308
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear
+        tags: []
+    - rid: 8394464131068723309
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear
+        tags: []
+    - rid: 8394464131068723310
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear
+        tags: []
+    - rid: 8394464131068723311
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: BearEat
+        tags: []
+    - rid: 8394464131068723312
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear2
+        tags: []
+    - rid: 8394464131068723313
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Bear22End
+        tags: []
+    - rid: 8394464131068723314
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: BearEat
+        tags: []
     - rid: 8918302973206987034
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:

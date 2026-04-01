@@ -265,6 +265,74 @@ MonoBehaviour:
     m_Localized: "\u0422\u0435\u0434: \u043E\u043A\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430"
     m_Metadata:
       m_Items: []
+  - m_Id: 18970028245172224
+    m_Localized: This is an example of a Yarn Spinner script. Write your dialogue
+      here!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970707525287936
+    m_Localized: "\u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A: \u041F\u0440\u0438\u0432\u0435\u0442.
+      [b]\u042F \u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A.[/b]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511488
+    m_Localized: "\u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A: \u041F\u0440\u0438\u0432\u0435\u0442.
+      [b]\u042F \u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A.[/b]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511489
+    m_Localized: "\u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A: \u041A\u0430\u043A
+      \u0442\u0432\u043E\u0438 \u0434\u0435\u043B\u0430? [b]\u041A\u0430\u043A \u0441\u0435\u0431\u044F
+      \u0447\u0443\u0432\u0441\u0442\u0432\u0443\u0435\u0448\u044C, \u043E\u0449\u0443\u0448\u0430\u0435\u0448\u044C?[/b]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511490
+    m_Localized: "\u0418\u0433\u0440\u043E\u043A: \u041D\u0430\u0439\u0441"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511491
+    m_Localized: "\u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A: \u0425\u043E\u0447\u0435\u0448\u044C
+      \u0448\u0430\u0443\u0440\u043C\u0443?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511492
+    m_Localized: "\u0418\u0433\u0440\u043E\u043A: \u0414\u0430\u0432\u0430\u0439
+      (\u0423 \u0442\u0435\u0431\u044F {0}/10 \u043C\u043E\u043D\u0435\u0442)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511493
+    m_Localized: "\u0418\u0433\u0440\u043E\u043A: \u041D\u0435, \u043F\u0430\u0441\u0438\u0431"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511494
+    m_Localized: "\u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A: \u0423\u0434\u0430\u0447\u0438
+      \u0442\u043E\u0433\u0434\u0430"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511495
+    m_Localized: "\u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A: \u042D\u0442\u043E\u0442
+      \u0442\u0435\u043A\u0441\u0442 \u043F\u043E\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F
+      \u0442\u043E\u043B\u044C\u043A\u043E \u0435\u0441\u043B\u0438 \u0431\u043E\u043B\u044C\u0448\u0435
+      6 \u043C\u043E\u043D\u0435\u0442"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511496
+    m_Localized: "\u0418\u0433\u0440\u043E\u043A: \u041A\u0430\u043A\u0430\u044F
+      \u0432\u043A\u0443\u0441\u043D\u0430\u044F \u0448\u0430\u0432\u0443\u0445\u0430"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511497
+    m_Localized: "\u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A: \u0431\u043E\u0436\u0443\u0440\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432\u0432"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511498
+    m_Localized: "\u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A: \u043E\u043A\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970938996342784
+    m_Localized: "\u0418\u0433\u0440\u043E\u043A: \u043C\u043C\u043C\u043C\u043C\u043C\u043C\u043C"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

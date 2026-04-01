@@ -22,6 +22,10 @@ MonoBehaviour:
     m_Localized: Ted
     m_Metadata:
       m_Items: []
+  - m_Id: 3028839805403136
+    m_Localized: Bear
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
