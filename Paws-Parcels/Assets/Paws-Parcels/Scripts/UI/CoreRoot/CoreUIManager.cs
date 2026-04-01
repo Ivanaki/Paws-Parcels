@@ -26,7 +26,7 @@ namespace UI.Core
         private readonly InputsCoreService _inputsCoreService;
         private readonly EditorDataService _editorDataService;
         private readonly DialogueService _dialogueService;
-        private readonly QuestsServiceForUi _questsServiceForUi;
+        //private readonly QuestsServiceForUi _questsServiceForUi;
         private readonly MessageSystem _messageSystem;
         private readonly LocalizationService _localizationService;
         private readonly QuestsDatabase _questsDatabase;
@@ -37,7 +37,7 @@ namespace UI.Core
         public CoreUIManager(UICoreRootViewModel coreRootViewModel, CoreSignals coreSignals, 
             SettingsService settingsService, LoadService loadService, CursorService cursorService,
             InputsCoreService inputsCoreService, EditorDataService editorDataService,
-            DialogueService dialogueService, QuestsServiceForUi questsServiceForUi,
+            DialogueService dialogueService,
             MessageSystem messageSystem, LocalizationService localizationService,
             QuestsDatabase questsDatabase, GameProxy gameProxy)
         {
@@ -49,7 +49,6 @@ namespace UI.Core
             _inputsCoreService = inputsCoreService;
             _editorDataService = editorDataService;
             _dialogueService = dialogueService;
-            _questsServiceForUi = questsServiceForUi;
             _messageSystem = messageSystem;
             _localizationService = localizationService;
             _questsDatabase = questsDatabase;

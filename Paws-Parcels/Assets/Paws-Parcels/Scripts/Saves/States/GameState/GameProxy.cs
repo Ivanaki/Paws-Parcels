@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Items;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Quests;
@@ -15,7 +16,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public Guid SaveId => Origin.SaveId;
         public ReactiveProperty<int> TrackedMissionID { get; }
         public ReactiveProperty<bool> IsCompassActive { get; }
-        public ReactiveProperty<string> SelectedQuest { get; }
+        public ReadOnlyReactiveProperty<string> SelectedQuest => _selectedQuest;
+        
+        private ReactiveProperty<string> _selectedQuest;
 
         public ObservableList<QuestDataProxy> ActiveQuests { get; } = new();
         public ObservableList<string> SucceedQuests { get; } = new();
@@ -56,11 +59,11 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             TrackedMissionID = new ReactiveProperty<int>(origin.TrackedMissionID);
             IsCompassActive = new ReactiveProperty<bool>(origin.IsCompassActive);
-            SelectedQuest = new ReactiveProperty<string>(origin.SelectedQuest);
+            _selectedQuest = new ReactiveProperty<string>(origin.SelectedQuest);
             
             TrackedMissionID.Skip(1).Subscribe(v => origin.TrackedMissionID = v);
             IsCompassActive.Skip(1).Subscribe(v => origin.IsCompassActive = v);
-            SelectedQuest.Skip(1).Subscribe(v => origin.SelectedQuest = v);
+            _selectedQuest.Skip(1).Subscribe(v => origin.SelectedQuest = v);
             
             InitQuests(origin);
             
@@ -91,7 +94,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             TrackedMissionID.Value = origin.TrackedMissionID;
             IsCompassActive.Value = origin.IsCompassActive;
-            SelectedQuest.Value = origin.SelectedQuest;
+            _selectedQuest.Value = origin.SelectedQuest;
             
             ActiveQuests.Clear();
             origin.ActiveQuests.ForEach(questData => ActiveQuests.Add(new QuestDataProxy(questData)));
@@ -132,6 +135,19 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             TrackedMissionID.Value = gameProxy.TrackedMissionID.Value;
             IsCompassActive.Value = gameProxy.IsCompassActive.Value;
         }*/
+
+        public bool TrySelectQuestInData(string questId)
+        {
+            if (string.IsNullOrEmpty(questId) == false)
+            {
+                if (ActiveQuests.Any(x => x.Id == questId))
+                {
+                    _selectedQuest.Value = questId;
+                }
+            }
+
+            return false;
+        }
         
         public int GetNewSavableEntityID()
         {

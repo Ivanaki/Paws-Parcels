@@ -19,7 +19,8 @@ MonoBehaviour:
     IsCompassActive: 0
     ActiveQuests: []
     SelectedQuest: 
-    SucceedQuests: []
+    SucceedQuests:
+    - qqqqqqqq
     CurrentActiveDestinations: []
     PlayerData:
       Position: {x: 4.11, y: 0, z: -5.62}

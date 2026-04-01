@@ -31,6 +31,8 @@ namespace Paws_Parcels.Scripts.Quests
         private readonly MessageSystem _messageSystem;
 
         private readonly DialogueInQuestsService _dialogueInQuestsService;
+
+        private readonly GameProxy _gameProxy;
         //private readonly DestinationService _destinationService;
 
         private IReadOnlyDictionary<string, Quest> _questsDict { get; }
@@ -38,7 +40,7 @@ namespace Paws_Parcels.Scripts.Quests
         private ObservableList<QuestDataProxy> ActiveQuests { get; }
         private ObservableList<string> SucceedQuests { get; }
         private ObservableList<string> CurrentActiveDestinations { get; }
-        private ReactiveProperty<string> SelectedQuest { get; }
+        private ReadOnlyReactiveProperty<string> SelectedQuest { get; }
         
         private CompositeDisposable _compositeDisposable = new();
 
@@ -52,7 +54,7 @@ namespace Paws_Parcels.Scripts.Quests
         private readonly HashSet<string> _dialogueQuestIds = new();
         
         public QuestsService(RewardService rewardService, MessageSystem messageSystem, GameStateProvider gameStateProvider,
-            QuestsDatabase questsDatabase, DialogueInQuestsService dialogueInQuestsService)
+            QuestsDatabase questsDatabase, DialogueInQuestsService dialogueInQuestsService, GameProxy gameProxy)
         {
             _questsDict = questsDatabase.QuestsDict;
             ActiveQuests = gameStateProvider.GameProxy.ActiveQuests;
@@ -63,6 +65,7 @@ namespace Paws_Parcels.Scripts.Quests
             _rewardService = rewardService;
             _messageSystem = messageSystem;
             _dialogueInQuestsService = dialogueInQuestsService;
+            _gameProxy = gameProxy;
 
             ActiveQuests.ForEach(NewQuestAdded);
 
@@ -286,7 +289,7 @@ namespace Paws_Parcels.Scripts.Quests
 
             if (qdp.Id == SelectedQuest.CurrentValue)
             {
-                SelectedQuest.Value = ActiveQuests.Count > 0 ? ActiveQuests.First().Id : "";
+                _gameProxy.TrySelectQuestInData(ActiveQuests.Count > 0 ? ActiveQuests.First().Id : "");
             }
         }
 
@@ -303,8 +306,6 @@ namespace Paws_Parcels.Scripts.Quests
             
             foreach (var dialogueQuestId in _dialogueQuestIds) _dialogueInQuestsService.RemoveQuest(dialogueQuestId);
             _dialogueQuestIds.Clear();
-
-            SelectedQuest.Value = "";
         }
 
         public void ActiveNewQuest(string questID)

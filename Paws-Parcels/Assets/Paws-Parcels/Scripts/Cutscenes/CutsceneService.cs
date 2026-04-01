@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Paws_Parcels.Scripts.Player;
 using R3;
@@ -13,6 +14,7 @@ namespace Services
         private readonly MessageSystem _messageSystem;
 
         private readonly Dictionary<string, Cutscene> _cutscenesDict = new();
+        private readonly Dictionary<string, IDisposable> _cutscenesSubscriptionsDict = new();
         private bool _cutscenePlaying = false;
 
         public CutsceneService(PlayerShowableService playerShowableService, ShowableInterfaceService showableInterfaceService,
@@ -87,6 +89,8 @@ namespace Services
                 return;
             }
             
+            _cutscenesSubscriptionsDict[cutscene.CutsceneId] = 
+                _messageSystem.AddListenerWithManyMessages("start_cutscene-" + cutscene.CutsceneId);
             _cutscenesDict.Add(cutscene.CutsceneId, cutscene);
         }
 
@@ -98,6 +102,8 @@ namespace Services
                 return;
             }
             
+            _cutscenesSubscriptionsDict[cutscene.CutsceneId].Dispose();
+            _cutscenesSubscriptionsDict.Remove(cutscene.CutsceneId);
             _cutscenesDict.Remove(cutscene.CutsceneId);
         }
     }

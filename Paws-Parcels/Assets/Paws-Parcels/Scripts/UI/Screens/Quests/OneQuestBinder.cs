@@ -39,7 +39,10 @@ namespace UI.Screens.Quests
                 _selectedInDataGameObject.SetActive(v);
             }));
             _disposables.Add(_button.OnClickAsObservable().Subscribe(_ => viewModel.RequestClicked()));
-            _disposables.Add(viewModel.TextToShow.Subscribe(v => _nameText.text = v));
+            _disposables.Add(viewModel.TextToShow.Subscribe(v =>
+            {
+                _nameText.text = viewModel.IsCompleted ? "<s>" + v : v;
+            }));
             _disposables.Add(viewModel.IsSelected.Subscribe(v =>
             {
                 if (v) SetImageColor(_selectedColor);

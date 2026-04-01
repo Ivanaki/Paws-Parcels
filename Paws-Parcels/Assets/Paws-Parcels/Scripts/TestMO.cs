@@ -40,11 +40,11 @@ namespace Paws_Parcels.Scripts
             
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                _gameStateProvider.GameProxy.SelectedQuest.Value = "boxes";
+                _gameStateProvider.GameProxy.TrySelectQuestInData("boxes");
             }
             if (Input.GetKeyDown(KeyCode.X))
             {
-                _gameStateProvider.GameProxy.SelectedQuest.Value = "bulka_sova";
+                _gameStateProvider.GameProxy.TrySelectQuestInData("bulka_sova");
             }
         }
 
@@ -60,7 +60,7 @@ namespace Paws_Parcels.Scripts
             //_questsService.ActiveNewQuest("q");
             //_questsService.ActiveNewQuest("bulka_sova_t");
             
-            _gameStateProvider.GameProxy.SelectedQuest.Value = "bulka_sova";
+            _gameStateProvider.GameProxy.TrySelectQuestInData("bulka_sova");
         }
         
     }
