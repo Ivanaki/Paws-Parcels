@@ -26,8 +26,8 @@ MonoBehaviour:
     SucceedQuests: []
     CurrentActiveDestinations: []
     PlayerData:
-      Position: {x: 397.9, y: 4.87, z: 1021.9}
-      Rotation: {x: -0, y: 0.04096683, z: -0, w: -0.9991605}
+      Position: {x: 397.54, y: 5.038, z: 1021.14}
+      Rotation: {x: -0, y: -0, z: -0, w: 1}
       Speed: 0
       Verticalvelocity: 0
       TargetRotation: 0
