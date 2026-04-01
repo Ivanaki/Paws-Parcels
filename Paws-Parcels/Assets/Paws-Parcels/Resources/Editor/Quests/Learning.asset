@@ -16,7 +16,7 @@ MonoBehaviour:
   ActiveOnAwake: 1
   Missions:
   - MissionId: 0
-    SendMessageOnStartMission: start_cutscene-test
+    SendMessageOnStartMission: spawn_cat
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -138,6 +138,52 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 3
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+    HasBuildingDestination: 0
+    BuildingDestinationId: gas_station
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: 
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: cat
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: bed
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: put_cat
+      HasCount: 0
+      MessageCount: 4
+      MinusMessage: 'take_item_from_car_up:cube_1/
+
+        take_item_from_car_up:cube_2/
+
+        take_item_from_car_up:cube_3/
+
+        take_item_from_car_up:cube_4'
+    ManyMessages:
+      Messages: []
+  - MissionId: 4
     SendMessageOnStartMission: 
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
