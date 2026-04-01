@@ -17,7 +17,11 @@ MonoBehaviour:
     NextNonSavableEntityID: 0
     TrackedMissionID: 0
     IsCompassActive: 0
-    ActiveQuests: []
+    ActiveQuests:
+    - Id: learning
+      CurrentMission: 0
+      ActiveDestinations: []
+      MessageProgress: 0
     SelectedQuest: learning
     SucceedQuests: []
     CurrentActiveDestinations: []

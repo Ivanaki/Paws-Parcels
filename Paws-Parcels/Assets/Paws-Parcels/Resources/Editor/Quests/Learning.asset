@@ -16,7 +16,7 @@ MonoBehaviour:
   ActiveOnAwake: 1
   Missions:
   - MissionId: 0
-    SendMessageOnStartMission: cutscene_started:test
+    SendMessageOnStartMission: start_cutscene-test
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -52,7 +52,7 @@ MonoBehaviour:
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
     DialogueParent:
-      NpcName: Bear
+      NpcName: bear
       MainDialogue:
         project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
         nodeName: Bear
@@ -73,7 +73,7 @@ MonoBehaviour:
         Destinations: []
     IsMany: 0
     Message:
-      Message: dialogue_ended:Bear
+      Message: dialogue_ended:bear
       HasCount: 0
       MessageCount: 0
       MinusMessage: 
@@ -119,7 +119,7 @@ MonoBehaviour:
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: destination_putter_2
+        - Id: put_up
           NotHighlightOnAwake: 1
           OffHighlightMessage: drop
           OnHighlightMessage: pickup
@@ -133,6 +133,46 @@ MonoBehaviour:
 
         throw_up_end:cube_4'
       HasCount: 1
+      MessageCount: 4
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 3
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+    HasBuildingDestination: 0
+    BuildingDestinationId: gas_station
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: 
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: cat
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: bed
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: put_cat
+      HasCount: 0
       MessageCount: 4
       MinusMessage: 'take_item_from_car_up:cube_1/
 
