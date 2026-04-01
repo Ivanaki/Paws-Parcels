@@ -18,7 +18,7 @@ MonoBehaviour:
   - MissionId: 
     SendMessageOnStartMission: 
     SendMessageOnEndMission: on_open_quests
-    IsThisMissionDialogue: 0
+    IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: 
       MainDialogue:
