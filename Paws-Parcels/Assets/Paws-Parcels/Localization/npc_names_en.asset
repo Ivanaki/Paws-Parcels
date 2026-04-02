@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: Bear
     m_Metadata:
       m_Items: []
+  - m_Id: 3710452545609728
+    m_Localized: Cat
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

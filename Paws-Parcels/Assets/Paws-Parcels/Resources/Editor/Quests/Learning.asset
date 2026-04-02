@@ -107,7 +107,7 @@ MonoBehaviour:
       Messages: []
   - MissionId: 3
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: spawn_cat
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: cat
@@ -190,6 +190,70 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 5
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+    HasBuildingDestination: 1
+    BuildingDestinationId: school
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: 
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: cube_1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: cube_2
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: cube_3
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: cube_4
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: destination_putter_los
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: 'destination_putter_los-put:cube_1/
+
+        destination_putter_los-put:cube_2/
+
+        destination_putter_los-put:cube_3/
+
+        destination_putter_los-put:cube_4'
+      HasCount: 1
+      MessageCount: 4
+      MinusMessage: 'destination_putter_los-take:cube_1/
+
+        destination_putter_los-take:cube_2/
+
+        destination_putter_los-take:cube_3/
+
+        destination_putter_los-take:cube_4'
+    ManyMessages:
+      Messages: []
+  - MissionId: 6
     SendMessageOnStartMission: start_cutscene-ferst
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
@@ -215,7 +279,7 @@ MonoBehaviour:
         Destinations: []
     IsMany: 0
     Message:
-      Message: cutscene_ended:ferst
+      Message: 'cutscene_ended:ferst '
       HasCount: 0
       MessageCount: 0
       MinusMessage: 

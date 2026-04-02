@@ -15,8 +15,10 @@ public class SpawnCagt : MonoBehaviour
     private CompositeDisposable _disposables = new CompositeDisposable();
     private void Awake()
     {
+            
         _disposables.Add( messageSystem.AddListenerWithManyMessages("spawn_cat").Subscribe(_ =>
             {
+                cat.SetActive(false);
                 savings.ItemsInWorld.Add(new ItemProxy(new ItemData()
                 {
                     Position = cat.transform.position, AngularVelocity = Vector3.zero,
@@ -24,7 +26,7 @@ public class SpawnCagt : MonoBehaviour
                     Rotation = Quaternion.identity
                 }));
             }));
-
+        
         //messageSystem.SendCompositeMessage(this, "spawn_cat");
     }
 

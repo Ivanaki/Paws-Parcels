@@ -8,4 +8,82 @@ AvatarMask:
   m_PrefabAsset: {fileID: 0}
   m_Name: GrabMask
   m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
-  m_Elements: []
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Dog_idle
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone
+    m_Weight: 0
+  - m_Path: Dog_idle/Bone/Bone.001.L
+    m_Weight: 0
+  - m_Path: Dog_idle/Bone/Bone.001.L/Bone.002.L
+    m_Weight: 0
+  - m_Path: Dog_idle/Bone/Bone.001.L/Bone.002.L/Bone.002.L_end
+    m_Weight: 0
+  - m_Path: Dog_idle/Bone/Bone.001.R
+    m_Weight: 0
+  - m_Path: Dog_idle/Bone/Bone.001.R/Bone.002.R
+    m_Weight: 0
+  - m_Path: Dog_idle/Bone/Bone.001.R/Bone.002.R/Bone.002.R_end
+    m_Weight: 0
+  - m_Path: Dog_idle/Bone/Bone.003
+    m_Weight: 0
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.004
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.004/Bone.005
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.004/Bone.005/Bone.005_end
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.006.L
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.006.L/Bone.007.L
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.006.L/Bone.007.L/Bone.008.L
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.006.L/Bone.007.L/Bone.008.L/Bone.008.L_end
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.006.R
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.006.R/Bone.007.R
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.006.R/Bone.007.R/Bone.008.R
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone/Bone.003/Bone.006.R/Bone.007.R/Bone.008.R/Bone.008.R_end
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.009.L
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.009.L/Bone.009.L_end
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.009.R
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.009.R/Bone.009.R_end
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.010.L
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.010.L/Bone.010.L_end
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.010.R
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.010.R/Bone.010.R_end
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.011.L
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.011.L/Bone.011.L_end
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.011.R
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.011.R/Bone.011.R_end
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.012.L
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.012.L/Bone.012.L_end
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.012.R
+    m_Weight: 1
+  - m_Path: Dog_idle/Bone.012.R/Bone.012.R_end
+    m_Weight: 1
+  - m_Path: lp.005
+    m_Weight: 1
+  - m_Path: lp.006
+    m_Weight: 1
