@@ -15,8 +15,10 @@ MonoBehaviour:
   Id: learning
   ActiveOnAwake: 1
   Missions:
-  - MissionId: 0
-    SendMessageOnStartMission: on_open_quests
+  - MissionId: 1
+    SendMessageOnStartMission: 'on_open_quests/
+
+      start_cutscene-ferst'
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
     DialogueParent:
@@ -107,7 +109,7 @@ MonoBehaviour:
       Messages: []
   - MissionId: 3
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: spawn_cat
+    SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: cat
@@ -144,7 +146,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 4
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: spawn_cat
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:

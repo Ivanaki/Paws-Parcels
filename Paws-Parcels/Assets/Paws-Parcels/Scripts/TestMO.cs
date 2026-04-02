@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Extentions;
 using Items;
 using NaughtyAttributes;
 using ObservableCollections;
@@ -62,6 +63,8 @@ namespace Paws_Parcels.Scripts
             //_questsService.ActiveNewQuest("bulka_sova_t");
             
             _gameStateProvider.GameProxy.TrySelectQuestInData("bulka_sova");
+            
+            print(transform.GetFullPath());
         }
         
     }

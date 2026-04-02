@@ -20,13 +20,14 @@ MonoBehaviour:
     ActiveQuests:
     - Id: learning
       CurrentMission: 0
-      ActiveDestinations: []
+      ActiveDestinations:
+      - cat_1
       MessageProgress: 0
     SelectedQuest: learning
     SucceedQuests: []
     CurrentActiveDestinations: []
     PlayerData:
-      Position: {x: 397.54, y: 5.038, z: 1021.14}
+      Position: {x: 402.76, y: 5.038, z: 1022.92}
       Rotation: {x: -0, y: -0, z: -0, w: 1}
       Speed: 0
       Verticalvelocity: 0

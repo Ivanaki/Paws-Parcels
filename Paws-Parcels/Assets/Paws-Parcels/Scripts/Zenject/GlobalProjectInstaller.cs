@@ -63,11 +63,8 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<JsonFileSerializer>().AsSingle();
             Container.Bind<ScreenshotSaver>().AsSingle();
             Container.Bind<LoadService>().AsSingle();
-            Container.Bind<SettingsStateProvider>().AsSingle();
             Container.Bind<SettingsService>().AsSingle();
-            Container.Bind<QuestsService>().AsSingle();
             Container.Bind<RewardService>().AsSingle();
-            Container.Bind<DestinationService>().AsSingle();
             Container.Bind<MessageToUserService>().AsSingle();
             Container.Bind<CursorService>().AsSingle();
             Container.Bind<InteractablesLocationsService>().AsSingle();
@@ -102,6 +99,12 @@ namespace MotorHome.Scripts.Installers
             
             //NonLazy
             Container.Bind<BaseDialogueRegistrations>().AsSingle().NonLazy();
+            Container.Bind<QuestsService>().AsSingle().NonLazy();
+            Container.Bind<SettingsStateProvider>().AsSingle().NonLazy();
+            Container.Bind<DestinationService>().AsSingle().NonLazy();
+
+
+
             
             //в global bindings нет смысла биндить интерфейсы IDisposable
             Container.BindInterfacesAndSelfTo<ApplyInFixUpdate>().AsSingle();
