@@ -19,8 +19,7 @@ MonoBehaviour:
     IsCompassActive: 0
     ActiveQuests: []
     SelectedQuest: 
-    SucceedQuests:
-    - qqqqqqqq
+    SucceedQuests: []
     CurrentActiveDestinations: []
     PlayerData:
       Position: {x: 4.11, y: 0, z: -5.62}
@@ -57,7 +56,7 @@ MonoBehaviour:
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: cube
       DestinationId: cube_2
-      Position: {x: 4.7970495, y: 0.28999996, z: -0.97393}
+      Position: {x: -3.48595, y: 4.88985, z: -3.71993}
       Rotation: {x: -0, y: -0, z: -0, w: 1}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
@@ -81,7 +80,7 @@ MonoBehaviour:
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: cube
       DestinationId: cube_1
-      Position: {x: 4.5660496, y: 0.28999996, z: -0.49592984}
+      Position: {x: -3.71695, y: 4.88985, z: -3.24193}
       Rotation: {x: -0, y: -0, z: -0, w: 1}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}

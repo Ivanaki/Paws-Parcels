@@ -6,6 +6,7 @@ using ObservableCollections;
 using Paws_Parcels.Scripts.Quests;
 using Paws_Parcels.Scripts.Saves.States.GameResources;
 using R3;
+using UnityEngine;
 
 namespace Paws_Parcels.Scripts.Saves.States.GameState
 {
@@ -143,9 +144,11 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                 if (ActiveQuests.Any(x => x.Id == questId))
                 {
                     _selectedQuest.Value = questId;
+                    return true;
                 }
             }
 
+            Debug.LogError($"Quest {questId} dont selected");
             return false;
         }
         

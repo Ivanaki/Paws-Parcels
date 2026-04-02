@@ -2131,15 +2131,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1633841944505019485, guid: 49ef23cfc4878dc44973ce6fe6388854, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.8339996
+      value: -1.4489999
       objectReference: {fileID: 0}
     - target: {fileID: 1633841944505019485, guid: 49ef23cfc4878dc44973ce6fe6388854, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8998501
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 1633841944505019485, guid: 49ef23cfc4878dc44973ce6fe6388854, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.4280001
+      value: -1.3179998
       objectReference: {fileID: 0}
     - target: {fileID: 1633841944505019485, guid: 49ef23cfc4878dc44973ce6fe6388854, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2358,7 +2358,6 @@ MonoBehaviour:
   _startNpcDialog:
     project: {fileID: 0}
     nodeName: 
-  _npcHeadLookAt: {fileID: 748677560}
   _cinemachineCamera: {fileID: 515027810}
   _rotationDuration: 1
   _npcTransform: {fileID: 748677562}
@@ -6182,15 +6181,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1633841944505019485, guid: 49ef23cfc4878dc44973ce6fe6388854, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.6029997
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 1633841944505019485, guid: 49ef23cfc4878dc44973ce6fe6388854, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8998501
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 1633841944505019485, guid: 49ef23cfc4878dc44973ce6fe6388854, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.9060003
+      value: -0.84
       objectReference: {fileID: 0}
     - target: {fileID: 1633841944505019485, guid: 49ef23cfc4878dc44973ce6fe6388854, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7745,7 +7744,6 @@ MonoBehaviour:
   _startNpcDialog:
     project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
     nodeName: TedNone
-  _npcHeadLookAt: {fileID: 7592478630955418732}
   _cinemachineCamera: {fileID: 486618638}
   _rotationDuration: 1
   _npcTransform: {fileID: 7592478630955418731}

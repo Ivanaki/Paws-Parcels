@@ -15,10 +15,10 @@ MonoBehaviour:
   Id: qqqqqqqq
   ActiveOnAwake: 1
   Missions:
-  - MissionId: 
+  - MissionId: 1
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: on_open_quests
-    IsThisMissionDialogue: 1
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
     DialogueParent:
       NpcName: 
       MainDialogue:
@@ -45,6 +45,54 @@ MonoBehaviour:
       HasCount: 0
       MessageCount: 0
       MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 2
+    SendMessageOnStartMission: update_items_up_message
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 1
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+    HasBuildingDestination: 0
+    BuildingDestinationId: 
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: 
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: cube_1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: cube_2
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: put_up
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: 'item_on_roof:cube_1/
+
+        item_on_roof:cube_2'
+      HasCount: 1
+      MessageCount: 2
+      MinusMessage: 'item_down_roof:cube_1/
+
+        item_down_roof:cube_2'
     ManyMessages:
       Messages: []
   MoneyReward: 0

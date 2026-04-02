@@ -8,12 +8,13 @@ namespace Car_Player
 {
     public class CarUpService
     {
-        [Inject] private MessageSystem _messageSystem;
+        private readonly MessageSystem _messageSystem;
 
         private readonly HashSet<Item> _destinations = new();
         
-        public CarUpService()
+        public CarUpService(MessageSystem messageSystem)
         {
+            _messageSystem = messageSystem;
             _messageSystem.AddListenerWithManyMessages("update_items_up_message").Subscribe(_ =>
             {
                 foreach (var item in _destinations)

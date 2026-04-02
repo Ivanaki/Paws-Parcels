@@ -69,8 +69,8 @@ namespace Services
             public List<ListenerInfo> ListenerInfos = new();
         }
 
-        
-        private readonly bool allowReceiveSameFrameAdded = false;
+
+        private readonly bool allowReceiveSameFrameAdded = true;
         private readonly bool debug = false;
         private readonly bool _allowExceptions = false;
         
