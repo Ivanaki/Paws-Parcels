@@ -47,38 +47,6 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
-  - MissionId: 1
-    SendMessageOnStartMission: spawn_cat
-    SendMessageOnEndMission: 
-    IsThisMissionDialogue: 0
-    DialogueParent:
-      NpcName: Bear
-      MainDialogue:
-        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
-        nodeName: Bear
-      AfterMainDialogue:
-        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
-        nodeName: BearEat
-    HasBuildingDestination: 0
-    BuildingDestinationId: 
-    HasDestination: 0
-    DestinationParent:
-      IsMany: 0
-      Destination:
-        Id: Bear
-        NotHighlightOnAwake: 0
-        OffHighlightMessage: 
-        OnHighlightMessage: 
-      ManyDestinations:
-        Destinations: []
-    IsMany: 0
-    Message:
-      Message: cutscene_ended:test
-      HasCount: 0
-      MessageCount: 0
-      MinusMessage: 
-    ManyMessages:
-      Messages: []
   - MissionId: 2
     SendMessageOnStartMission: 
     SendMessageOnEndMission: 
@@ -140,38 +108,30 @@ MonoBehaviour:
   - MissionId: 3
     SendMessageOnStartMission: 
     SendMessageOnEndMission: 
-    IsThisMissionDialogue: 0
+    IsThisMissionDialogue: 1
     DialogueParent:
-      NpcName: 
+      NpcName: cat
       MainDialogue:
-        project: {fileID: 0}
-        nodeName: 
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Cat
       AfterMainDialogue:
-        project: {fileID: 0}
-        nodeName: 
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Cat_0_a
     HasBuildingDestination: 0
     BuildingDestinationId: gas_station
     HasDestination: 1
     DestinationParent:
       IsMany: 0
       Destination:
-        Id: 
+        Id: cat
         NotHighlightOnAwake: 0
         OffHighlightMessage: 
         OnHighlightMessage: 
       ManyDestinations:
-        Destinations:
-        - Id: cat
-          NotHighlightOnAwake: 0
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
-        - Id: bed
-          NotHighlightOnAwake: 1
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+        Destinations: []
     IsMany: 0
     Message:
-      Message: put_cat
+      Message: dialogue_ended:Cat
       HasCount: 0
       MessageCount: 4
       MinusMessage: 'take_item_from_car_up:cube_1/
@@ -207,7 +167,7 @@ MonoBehaviour:
         OnHighlightMessage: 
       ManyDestinations:
         Destinations:
-        - Id: cat
+        - Id: cat_1
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
@@ -227,6 +187,38 @@ MonoBehaviour:
         take_item_from_car_up:cube_3/
 
         take_item_from_car_up:cube_4'
+    ManyMessages:
+      Messages: []
+  - MissionId: 5
+    SendMessageOnStartMission: start_cutscene-ferst
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: Bear
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Bear
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: BearEat
+    HasBuildingDestination: 0
+    BuildingDestinationId: 
+    HasDestination: 0
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: Bear
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: cutscene_ended:ferst
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
     ManyMessages:
       Messages: []
   MoneyReward: 0

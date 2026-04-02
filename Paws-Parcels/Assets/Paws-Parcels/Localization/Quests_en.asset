@@ -78,6 +78,18 @@ MonoBehaviour:
     m_Localized: '-'
     m_Metadata:
       m_Items: []
+  - m_Id: 27742852720091136
+    m_Localized: '-'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27968963672457216
+    m_Localized: '-'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27969032329019392
+    m_Localized: '-'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

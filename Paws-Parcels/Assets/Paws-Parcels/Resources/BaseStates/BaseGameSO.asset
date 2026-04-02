@@ -40,18 +40,6 @@ MonoBehaviour:
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     ItemsInWorld:
-    - ItemTypeId: book
-      DestinationId: 
-      Position: {x: 403.43707, y: 5.200001, z: 1032.0262}
-      Rotation: {x: -0, y: -0.99981403, z: -0, w: -0.019286158}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: book_1
-      DestinationId: 
-      Position: {x: 396.59702, y: 5.200001, z: 1039.1562}
-      Rotation: {x: -0, y: -0.99981403, z: -0, w: -0.019286158}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: cube
       DestinationId: cube_4
       Position: {x: 396.34302, y: 5.3570004, z: 1024.3713}
