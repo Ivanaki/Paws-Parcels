@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Paws-Parcels/Scenes/MainMenu.unity
     guid: c970fb37b39090341b9f4b8938fdf67a
   - enabled: 1
-    path: Assets/Paws-Parcels/Scenes/Core.unity
+    path: Assets/MotorHome/Scenes/Core.unity
+    guid: 2564b08d08fb44d4c8e17344d2f09ac5
+  - enabled: 0
+    path: Assets/Paws-Parcels/Scenes/CoreTest.unity
     guid: 929e00e4d24f2d34ca2244b657416f89
+  - enabled: 0
+    path: Assets/MotorHome/Scenes/CoreOld.unity
+    guid: 1ca404af4ebd8be479e41e292977ce54
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: d45b1c84ea10a264b8f20b6dc80eb599, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

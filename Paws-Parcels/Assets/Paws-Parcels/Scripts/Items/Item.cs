@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Car_Player;
 using Items;
 using R3;
 using Services;
@@ -73,12 +72,10 @@ namespace Paws_Parcels.Scripts.Player
         private bool _isItemInCarUp = false;
         private HashSet<object> _highlightInitiators = new();
         private ShowOnCanvasCircle _showOnCanvasCircle;
-        private CarUpService _carUpService;
 
         private IDisposable _disposable;
         
-        public void ConstructItem(ApplyInFixUpdate applyInFixUpdate, ItemProxy itemProxy, 
-            ItemsInWorldVisualizer itemsInWorldVisualizer, CarUpService carUpService)
+        public void ConstructItem(ApplyInFixUpdate applyInFixUpdate, ItemProxy itemProxy, ItemsInWorldVisualizer itemsInWorldVisualizer)
         {
             _uiShowTextCodeRP.Value = _uiShowTextCode;
             
@@ -87,7 +84,6 @@ namespace Paws_Parcels.Scripts.Player
             
             _itemProxy = itemProxy;
             _itemsInWorldVisualizer = itemsInWorldVisualizer;
-            _carUpService =  carUpService;
             
             _destinationId = itemProxy.DestinationId;
             
@@ -104,8 +100,6 @@ namespace Paws_Parcels.Scripts.Player
                 _rigidbody.linearVelocity = itemProxy.LinearVelocity;
                 _rigidbody.angularVelocity = itemProxy.AngularVelocity;
             });
-            
-            
         }
         
         
@@ -131,6 +125,8 @@ namespace Paws_Parcels.Scripts.Player
                 _rigidbody = GetComponent<Rigidbody>();
             }
         }
+
+        
 
         public override void Interact()
         {
@@ -173,7 +169,6 @@ namespace Paws_Parcels.Scripts.Player
             if (other.gameObject.CompareTag("CarUp"))
             {
                 _isItemInCarUp = true;
-                _carUpService.AddItem(this);
             }
         }
 
@@ -182,7 +177,6 @@ namespace Paws_Parcels.Scripts.Player
             if (other.gameObject.CompareTag("CarUp"))
             {
                 _isItemInCarUp = false;
-                _carUpService.RemoveItem(this);
             }
         }
 

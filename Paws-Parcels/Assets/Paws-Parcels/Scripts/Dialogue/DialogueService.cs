@@ -143,8 +143,9 @@ namespace Paws_Parcels.NPCDialogs
             
                 _currentNpcDialog = "";
                 _isDialogRunning.Value = false;
-                
-                _messageSystem.SendCompositeMessage(this, "dialogue_ended:" + dialogueReference.nodeName);
+
+                var message = "dialogue_ended:" + dialogueReference.nodeName;
+                _messageSystem.SendCompositeMessage(this, message);
             });
             
             return endOfDialog.Select(x => true);

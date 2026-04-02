@@ -69,9 +69,9 @@ namespace Services
             public List<ListenerInfo> ListenerInfos = new();
         }
 
-
-        private readonly bool allowReceiveSameFrameAdded = true;
-        private readonly bool debug = false;
+        
+        private readonly bool allowReceiveSameFrameAdded = false;
+        private readonly bool debug = true;
         private readonly bool _allowExceptions = false;
         
         private readonly HashSet<GameObject> _sendersToLog = new();
@@ -452,6 +452,12 @@ namespace Services
                 x.listener == listener &&
                 x.message == message &&
                 (x.parameter == parameter || string.IsNullOrEmpty(x.parameter));
+        }
+
+        public void SendManyCompositeMessages(object sender, string messages)
+        {
+            var messagesList = PartMessages(messages);
+            messagesList.ForEach(x => SendCompositeMessage(sender, x));
         }
         
         public void SendCompositeMessage(object sender, string message)

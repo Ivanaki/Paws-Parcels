@@ -19,6 +19,14 @@ MonoBehaviour:
     m_Key: ted
     m_Metadata:
       m_Items: []
+  - m_Id: 3028839805403136
+    m_Key: bear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3710452545609728
+    m_Key: cat
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

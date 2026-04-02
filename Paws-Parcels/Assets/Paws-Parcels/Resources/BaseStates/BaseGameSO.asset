@@ -17,12 +17,17 @@ MonoBehaviour:
     NextNonSavableEntityID: 0
     TrackedMissionID: 0
     IsCompassActive: 0
-    ActiveQuests: []
-    SelectedQuest: 
+    ActiveQuests:
+    - Id: learning
+      CurrentMission: 0
+      ActiveDestinations:
+      - cat_1
+      MessageProgress: 0
+    SelectedQuest: learning
     SucceedQuests: []
     CurrentActiveDestinations: []
     PlayerData:
-      Position: {x: 4.11, y: 0, z: -5.62}
+      Position: {x: 402.76, y: 5.038, z: 1022.92}
       Rotation: {x: -0, y: -0, z: -0, w: 1}
       Speed: 0
       Verticalvelocity: 0
@@ -31,63 +36,33 @@ MonoBehaviour:
       Pitch: 35
       AnimationBlend: 0
     CarData:
-      Position: {x: -3.15, y: 1.93, z: -3.81}
-      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      Position: {x: 400.53, y: 5.67, z: 1021.52}
+      Rotation: {x: -0, y: -0.99981403, z: -0, w: -0.019286158}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     ItemsInWorld:
     - ItemTypeId: cube
-      DestinationId: 
-      Position: {x: -3.523, y: 4.046, z: -4.65}
-      Rotation: {x: -0, y: -0, z: -0, w: 1}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: cube
-      DestinationId: 
-      Position: {x: -2.807, y: 4.046, z: -3.518}
-      Rotation: {x: -0, y: -0, z: -0, w: 1}
+      DestinationId: cube_4
+      Position: {x: 396.34302, y: 5.3570004, z: 1024.3713}
+      Rotation: {x: -0, y: -0.99981403, z: -0, w: -0.019286158}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: cube
       DestinationId: cube_3
-      Position: {x: 5.1630497, y: 0.28999996, z: -0.5019301}
-      Rotation: {x: -0, y: -0, z: -0, w: 1}
+      Position: {x: 396.0781, y: 4.9000006, z: 1024.209}
+      Rotation: {x: -0, y: -0.99981403, z: -0, w: -0.019286158}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: cube
       DestinationId: cube_2
-      Position: {x: -3.48595, y: 4.88985, z: -3.71993}
-      Rotation: {x: -0, y: -0, z: -0, w: 1}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: cube
-      DestinationId: 
-      Position: {x: -3.623, y: 4.046, z: -2.681}
-      Rotation: {x: -0, y: -0, z: -0, w: 1}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: cube
-      DestinationId: 
-      Position: {x: -2.73, y: 4.046, z: -4.912}
-      Rotation: {x: -0, y: -0, z: -0, w: 1}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: cube
-      DestinationId: cube_4
-      Position: {x: 4.89205, y: 0.747, z: -0.6539298}
-      Rotation: {x: -0, y: -0, z: -0, w: 1}
+      Position: {x: 396.4256, y: 4.9000006, z: 1024.6948}
+      Rotation: {x: -0, y: -0.99981403, z: -0, w: -0.019286158}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: cube
       DestinationId: cube_1
-      Position: {x: -3.71695, y: 4.88985, z: -3.24193}
-      Rotation: {x: -0, y: -0, z: -0, w: 1}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: book
-      DestinationId: 
-      Position: {x: -0.5793065, y: 0.028518677, z: -1.6635349}
-      Rotation: {x: -0, y: -0, z: -0, w: 1}
+      Position: {x: 396.67487, y: 4.9000006, z: 1024.2261}
+      Rotation: {x: -0, y: -0.99981403, z: -0, w: -0.019286158}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     IsItemInHandsNull: 1

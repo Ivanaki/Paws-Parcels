@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Car_Player;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Saves.States.GameState;
@@ -15,7 +14,6 @@ namespace Items
         private readonly ApplyInFixUpdate _applyInFixUpdate;
         private readonly ItemsSystem _itemsSystem;
         private readonly DiContainer _container;
-        private readonly CarUpService _carUpService;
         private readonly ObservableList<ItemProxy> _itemsInWorld;
         private readonly IReadOnlyDictionary<string, Item> _itemsTypeDict;
         private readonly CompositeDisposable _disposable = new();
@@ -24,12 +22,11 @@ namespace Items
         private readonly Dictionary<ItemProxy, Item> _itemsDict = new();
         
         public ItemsInWorldVisualizer(GameStateProvider gameStateProvider, ItemsDatabase itemsDatabase, 
-            ApplyInFixUpdate applyInFixUpdate, ItemsSystem itemsSystem, DiContainer container, CarUpService carUpService)
+            ApplyInFixUpdate applyInFixUpdate, ItemsSystem itemsSystem, DiContainer container)
         {
             _applyInFixUpdate = applyInFixUpdate;
             _itemsSystem = itemsSystem;
             _container = container;
-            _carUpService = carUpService;
             _itemsInWorld = gameStateProvider.GameProxy.ItemsInWorld;
             _itemsTypeDict = itemsDatabase.ItemsTypeInWorldDict;
             _collectDataBeforeSave = gameStateProvider.CollectDataBeforeSave;
@@ -71,7 +68,7 @@ namespace Items
             
             var spawned = _container.InstantiatePrefabForComponent<Item>(_itemsTypeDict[itemProxy.ItemTypeId]);
             
-            spawned.ConstructItem(_applyInFixUpdate, itemProxy, this, _carUpService);
+            spawned.ConstructItem(_applyInFixUpdate, itemProxy, this);
             spawned.gameObject.SetActive(true);
             _itemsDict[itemProxy] = spawned;
         }

@@ -79,7 +79,6 @@ namespace Items
                 }));
                 
                 _messageSystem.SendCompositeMessage(this, "throw_up:" + _gameProxy.InHandsDestinationId);
-                _messageSystem.SendCompositeMessage(this, "drop:" + _gameProxy.InHandsDestinationId);
                 
                 _gameProxy.IsItemInHandsNull.Value = true;
                 _gameProxy.InHandsItemTypeId.Value = "";

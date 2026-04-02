@@ -1,0 +1,292 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f00c5bbf8c444b782a82c671cd1c25b, type: 3}
+  m_Name: Learning
+  m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Quests.Quest
+  Id: learning
+  ActiveOnAwake: 1
+  Missions:
+  - MissionId: 1
+    SendMessageOnStartMission: 'on_open_quests/
+
+      start_cutscene-ferst'
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 1
+    DialogueParent:
+      NpcName: bear
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Bear
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: BearEat
+    HasBuildingDestination: 0
+    BuildingDestinationId: 
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: bear
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: dialogue_ended:Bear
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 2
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+    HasBuildingDestination: 0
+    BuildingDestinationId: gas_station
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: 
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: cube_1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: cube_2
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: cube_3
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: cube_4
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: put_up
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: 'throw_up_end:cube_1/
+
+        throw_up_end:cube_2/
+
+        throw_up_end:cube_3/
+
+        throw_up_end:cube_4'
+      HasCount: 1
+      MessageCount: 4
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 3
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 1
+    DialogueParent:
+      NpcName: cat
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Cat
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Cat_0_a
+    HasBuildingDestination: 0
+    BuildingDestinationId: gas_station
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: cat
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: dialogue_ended:Cat
+      HasCount: 0
+      MessageCount: 4
+      MinusMessage: 'take_item_from_car_up:cube_1/
+
+        take_item_from_car_up:cube_2/
+
+        take_item_from_car_up:cube_3/
+
+        take_item_from_car_up:cube_4'
+    ManyMessages:
+      Messages: []
+  - MissionId: 4
+    SendMessageOnStartMission: spawn_cat
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+    HasBuildingDestination: 0
+    BuildingDestinationId: gas_station
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: 
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: cat_1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: bed
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: put_cat
+      HasCount: 0
+      MessageCount: 4
+      MinusMessage: 'take_item_from_car_up:cube_1/
+
+        take_item_from_car_up:cube_2/
+
+        take_item_from_car_up:cube_3/
+
+        take_item_from_car_up:cube_4'
+    ManyMessages:
+      Messages: []
+  - MissionId: 5
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+    HasBuildingDestination: 1
+    BuildingDestinationId: school
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: 
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: cube_1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: cube_2
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: cube_3
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: cube_4
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: destination_putter_los
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: 'destination_putter_los-put:cube_1/
+
+        destination_putter_los-put:cube_2/
+
+        destination_putter_los-put:cube_3/
+
+        destination_putter_los-put:cube_4'
+      HasCount: 1
+      MessageCount: 4
+      MinusMessage: 'destination_putter_los-take:cube_1/
+
+        destination_putter_los-take:cube_2/
+
+        destination_putter_los-take:cube_3/
+
+        destination_putter_los-take:cube_4'
+    ManyMessages:
+      Messages: []
+  - MissionId: 6
+    SendMessageOnStartMission: start_cutscene-ferst
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: Bear
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Bear
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: BearEat
+    HasBuildingDestination: 0
+    BuildingDestinationId: 
+    HasDestination: 0
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: Bear
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: 'cutscene_ended:ferst '
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  MoneyReward: 0
+  Limit: 0
+  LimitTimeInSeconds: 60

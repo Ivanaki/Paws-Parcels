@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Extentions;
 using Items;
 using NaughtyAttributes;
 using ObservableCollections;
@@ -45,7 +46,7 @@ namespace Paws_Parcels.Scripts
             }
             if (Input.GetKeyDown(KeyCode.X))
             {
-                _gameStateProvider.GameProxy.TrySelectQuestInData("qqqqqqqq");
+                _gameStateProvider.GameProxy.TrySelectQuestInData("bulka_sova");
             }
         }
 
@@ -58,11 +59,12 @@ namespace Paws_Parcels.Scripts
             settingsState = _settingsStateProvider.SettingsProxy.SettingsState;
             
             _questsService.ActiveNewQuest("boxes");
-            _questsService.ActiveNewQuest("qqqqqqqq");
             //_questsService.ActiveNewQuest("q");
             //_questsService.ActiveNewQuest("bulka_sova_t");
             
             _gameStateProvider.GameProxy.TrySelectQuestInData("bulka_sova");
+            
+            print(transform.GetFullPath());
         }
         
     }

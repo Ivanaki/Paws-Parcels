@@ -94,8 +94,9 @@ namespace Paws_Parcels.Scripts.Quests
         
         //public string ShortPhraseCode;
         //[TextArea(3,5)] public string DescriptionCode;
-        
+        [TextArea(1, 10)]
         public string SendMessageOnStartMission;
+        [TextArea(1, 10)]
         public string SendMessageOnEndMission;
         
         [Header("Dialogue")]

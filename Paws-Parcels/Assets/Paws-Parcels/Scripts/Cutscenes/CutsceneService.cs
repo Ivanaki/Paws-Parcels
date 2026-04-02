@@ -90,7 +90,10 @@ namespace Services
             }
             
             _cutscenesSubscriptionsDict[cutscene.CutsceneId] = 
-                _messageSystem.AddListenerWithManyMessages("start_cutscene-" + cutscene.CutsceneId);
+                _messageSystem.AddListenerWithManyMessages("start_cutscene-" + cutscene.CutsceneId).Subscribe(_ =>
+                {
+                    StartCutScene(cutscene.CutsceneId);
+                });
             _cutscenesDict.Add(cutscene.CutsceneId, cutscene);
         }
 
