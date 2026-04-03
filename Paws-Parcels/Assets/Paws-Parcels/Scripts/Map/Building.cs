@@ -36,13 +36,13 @@ namespace Map
 
         private void OnEnable()
         {
-            _buildingsLogic.Register(this);
+            //_buildingsLogic.Register(this);
             _mapUiVisualizer.Show(this);
         }
 
         private void OnDisable()
         {
-            _buildingsLogic.Unregister(this);
+            //_buildingsLogic.Unregister(this);
             _mapUiVisualizer.Hide(this);
         }
     }

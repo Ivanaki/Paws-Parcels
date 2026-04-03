@@ -13,12 +13,16 @@ namespace Map
 {
     public class BuildingsLogic
     {
-        private readonly Dictionary<string, Building> _buildings = new();
+        //private readonly Dictionary<string, Building> _buildings = new();
+        
+        public readonly ReactiveProperty<string> Selected = new();
+        public readonly Subject<Unit> Deselected = new();
 
         private readonly GameProxy _gameProxy;
         private readonly QuestsDatabase _questsDatabase;
-        
-        public void Register(Building building)
+        private readonly MapSetMarked _mapSetMarked;
+
+        /*public void Register(Building building)
         {
             if (building == null)
             {
@@ -96,17 +100,17 @@ namespace Map
             //Debug.Log($"[BuildingsLogic] Unregistered building. Id: {building.MapShowTypeId}");
             
             UpdateUi();
-        }
-        
-        private string _currentShowingBuildingId = null;
+        }*/
         
         private CompositeDisposable _disposables;
 
-        public BuildingsLogic(GameProxy gameProxy, QuestsDatabase questsDatabase)
+        public BuildingsLogic(GameProxy gameProxy, QuestsDatabase questsDatabase, MapSetMarked mapSetMarked)
         {
             _gameProxy = gameProxy;
             _questsDatabase = questsDatabase;
+            _mapSetMarked = mapSetMarked;
             gameProxy.SelectedQuest.Subscribe(_ => UpdateUi());
+            gameProxy.ActiveQuests.ObserveChanged().Subscribe(_ => UpdateUi());
             //gameProxy.ActiveQuests.ObserveChanged().Subscribe(_ => UpdateUi());
         }
         
@@ -114,15 +118,9 @@ namespace Map
         {
             _disposables?.Dispose();
             _disposables = new CompositeDisposable();
-            
-            if (string.IsNullOrEmpty(_currentShowingBuildingId) == false)
-            {
-                if(_buildings.TryGetValue(_currentShowingBuildingId, out var building))
-                {
-                    building.SetSelected(false);
-                }
-            }
 
+            Deselected.OnNext(Unit.Default);
+            
             var selectedQuest = _gameProxy.SelectedQuest.CurrentValue; 
             
             if (string.IsNullOrEmpty(selectedQuest) == false)
@@ -140,15 +138,13 @@ namespace Map
                         {
                             var newShowingBuildingId = quest.Missions[selectedQuestMission].BuildingDestinationId;
                             
-                            if(_buildings.TryGetValue(newShowingBuildingId, out var building))
-                            {
-                                building.SetSelected(true);
-                                _currentShowingBuildingId = newShowingBuildingId;
-                            }
+                            Selected.OnNext(newShowingBuildingId);
+                            return;
                         }
                     }
                 }
             }
+            Selected.OnNext(null);
         }
     }
 }

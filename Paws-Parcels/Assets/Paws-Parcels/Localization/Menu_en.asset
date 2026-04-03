@@ -98,6 +98,26 @@ MonoBehaviour:
     m_Localized: Back
     m_Metadata:
       m_Items: []
+  - m_Id: 28815010045091840
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28815332142473216
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28815875648774144
+    m_Localized: Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28816079693275136
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28816234496647168
+    m_Localized: Back to main menu
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

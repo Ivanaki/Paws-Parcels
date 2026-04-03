@@ -78891,7 +78891,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8600000, guid: 9d79d6069b3484b4fa531e59674e0b01, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 99cf14ab9fb4f414091cfc0452357c12, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -142295,7 +142295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2055097040}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: minus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142310,7 +142310,7 @@ Transform:
   m_GameObject: {fileID: 2055097039}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -146.77, y: -1.8818599, z: -146.2}
+  m_LocalPosition: {x: 222.6, y: -1.8818599, z: -324.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
