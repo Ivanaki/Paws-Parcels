@@ -218,7 +218,7 @@ namespace Paws_Parcels.Scripts.Quests
             
             void SubscribeMissionComplete(int currentMission)
             {
-                _messageSystem.SendManyCompositeMessages(this, quest.Missions[currentMission].SendMessageOnStartMission);
+                
                 
                 if(_questId_ReactiveMessage_Dict.TryGetValue(questId, out var disposable)) disposable.Dispose();
                 
@@ -261,6 +261,8 @@ namespace Paws_Parcels.Scripts.Quests
                         }
                     }
                 }));
+                
+                _messageSystem.SendManyCompositeMessages(this, quest.Missions[currentMission].SendMessageOnStartMission);
             }
         }
 
