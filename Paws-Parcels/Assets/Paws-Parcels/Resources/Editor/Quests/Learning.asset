@@ -220,19 +220,19 @@ MonoBehaviour:
       ManyDestinations:
         Destinations:
         - Id: cube_1
-          NotHighlightOnAwake: 0
+          NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: cube_2
-          NotHighlightOnAwake: 0
+          NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: cube_3
-          NotHighlightOnAwake: 0
+          NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: cube_4
-          NotHighlightOnAwake: 0
+          NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: destination_putter_los
