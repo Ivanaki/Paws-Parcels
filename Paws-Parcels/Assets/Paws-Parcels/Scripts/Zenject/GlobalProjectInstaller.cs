@@ -92,6 +92,7 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<MapUiVisualizer>().AsSingle();
             Container.Bind<MapObjectsDatabase>().AsSingle();
             Container.Bind<BuildingsLogic>().AsSingle();
+            Container.Bind<CarUpService>().AsSingle();
             
             //
             Container.Bind<GameStateProvider>().AsSingle();

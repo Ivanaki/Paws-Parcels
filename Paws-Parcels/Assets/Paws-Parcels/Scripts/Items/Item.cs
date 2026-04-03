@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Car_Player;
 using Items;
 using R3;
 using Services;
@@ -68,6 +69,7 @@ namespace Paws_Parcels.Scripts.Player
         
         private bool _isInstantiated = false;
         private Rigidbody _rigidbody = null;
+        private CarUpService _carUpService = null;
 
         private bool _isItemInCarUp = false;
         private HashSet<object> _highlightInitiators = new();
@@ -75,8 +77,11 @@ namespace Paws_Parcels.Scripts.Player
 
         private IDisposable _disposable;
         
-        public void ConstructItem(ApplyInFixUpdate applyInFixUpdate, ItemProxy itemProxy, ItemsInWorldVisualizer itemsInWorldVisualizer)
+        public void ConstructItem(ApplyInFixUpdate applyInFixUpdate, ItemProxy itemProxy, 
+            ItemsInWorldVisualizer itemsInWorldVisualizer, CarUpService carUpService)
         {
+            _carUpService = carUpService;
+            
             _uiShowTextCodeRP.Value = _uiShowTextCode;
             
             _isInstantiated = true;
@@ -169,6 +174,7 @@ namespace Paws_Parcels.Scripts.Player
             if (other.gameObject.CompareTag("CarUp"))
             {
                 _isItemInCarUp = true;
+                _carUpService.AddItem(this);
             }
         }
 
@@ -177,6 +183,7 @@ namespace Paws_Parcels.Scripts.Player
             if (other.gameObject.CompareTag("CarUp"))
             {
                 _isItemInCarUp = false;
+                _carUpService.RemoveItem(this);
             }
         }
 

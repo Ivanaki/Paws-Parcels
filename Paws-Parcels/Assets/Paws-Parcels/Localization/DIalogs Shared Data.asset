@@ -365,6 +365,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 8124284885166719101
+  - m_Id: 19952715076386816
+    m_Key: line:3da23cb3
+    m_Metadata:
+      m_Items:
+      - rid: 6926092101290033258
+  - m_Id: 19952715101552640
+    m_Key: line:acbf8323
+    m_Metadata:
+      m_Items:
+      - rid: 6926092101290033259
+  - m_Id: 19952715101552641
+    m_Key: line:e99208c5
+    m_Metadata:
+      m_Items:
+      - rid: 6926092101290033260
+  - m_Id: 19952715101552642
+    m_Key: line:670711e5
+    m_Metadata:
+      m_Items:
+      - rid: 6926092101290033261
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -392,6 +412,26 @@ MonoBehaviour:
         nodeName: Cat_0_a
         tags: []
     - rid: 6926092064964739159
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Cat_0_a
+        tags: []
+    - rid: 6926092101290033258
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Cat
+        tags: []
+    - rid: 6926092101290033259
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Cat
+        tags: []
+    - rid: 6926092101290033260
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Cat_0_a
+        tags: []
+    - rid: 6926092101290033261
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: Cat_0_a

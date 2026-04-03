@@ -70,7 +70,7 @@ namespace Services
         }
 
         
-        private readonly bool allowReceiveSameFrameAdded = false;
+        private readonly bool allowReceiveSameFrameAdded = true;
         private readonly bool debug = true;
         private readonly bool _allowExceptions = false;
         
