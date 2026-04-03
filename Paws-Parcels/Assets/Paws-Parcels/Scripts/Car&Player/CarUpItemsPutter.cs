@@ -1,4 +1,5 @@
 using System;
+using Extentions;
 using Paws_Parcels.Extentions;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Player;
@@ -92,7 +93,7 @@ namespace Car_Player
                     if (hit.collider.gameObject.layer == LayerMask.NameToLayer("CarUp") 
                         ||
                         hit.collider.gameObject.layer == LayerMask.NameToLayer("Items") &&
-                        ColliderRedirector.TryGet(hit.collider.gameObject, out Item item) &&
+                        hit.collider.TryGetComponentMy(out Item item) &&
                         item.IsItemInCarUp)
                     {
                         _hintEnable.Value = true;
@@ -111,7 +112,7 @@ namespace Car_Player
                 if (CheckRaycast(out var hit))
                 {
                     if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Items") &&
-                        ColliderRedirector.TryGet(hit.collider.gameObject, out Item item) &&
+                        hit.collider.TryGetComponentMy(out Item item) &&
                         item.IsItemInCarUp)
                     {
                         item.HighlightItem(this);
@@ -174,7 +175,7 @@ namespace Car_Player
                     if (hit.collider.gameObject.layer == LayerMask.NameToLayer("CarUp") 
                         ||
                         hit.collider.gameObject.layer == LayerMask.NameToLayer("Items") &&
-                        ColliderRedirector.TryGet(hit.collider.gameObject, out Item item) &&
+                        hit.collider.TryGetComponentMy(out Item item) &&
                         item.IsItemInCarUp)
                     {
                         _putInCarItemsService.PutPositionClicked(hit.point, _yOffsetWhenDrop, _waitTimeWhenObjectFlyInPut);
@@ -186,7 +187,7 @@ namespace Car_Player
                 if (CheckRaycast(out var hit))
                 {
                     if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Items") &&
-                        ColliderRedirector.TryGet(hit.collider.gameObject, out Item item) &&
+                        hit.collider.TryGetComponentMy(out Item item) &&
                         item.IsItemInCarUp)
                     {
                         _putInCarItemsService.TakeItem(item);

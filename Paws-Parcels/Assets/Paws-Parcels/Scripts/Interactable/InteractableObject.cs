@@ -44,16 +44,21 @@ namespace Paws_Parcels.Scripts.Player
                         <= _currentNeedDistance)
                     {
                         _isDestinationShow.Value = true;
+                        /*if (DestinationId == "bear")
+                        { }*/
                         return;
                     }
                 }
 
-                _isDestinationShow.Value = false;
+                /*if (DestinationId == "bear")
+                { }*/
+                
+                //_isDestinationShow.Value = false;
             }
-            else
-            {
-                _isDestinationShow.Value = _highlighted.Value;
-            }
+            
+                /*if (DestinationId == "bear")
+                { }*/
+            _isDestinationShow.Value = _highlighted.Value;
         }
         
 

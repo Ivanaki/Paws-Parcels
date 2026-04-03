@@ -15,7 +15,7 @@ namespace Quests
     public class DestinationService
     {
         //словарь имя-destination
-        private readonly Dictionary<string, DestinationObject> _allMarksDict = new();
+        private readonly Dictionary<string, DestinationObject> _allDestinationsDict = new();
         
         private readonly Dictionary<string, CompositeDisposable> _questSubscriptionsDict = new();
         private readonly Dictionary<string, List<string>> _allCurrentShowableMarksDict = new();
@@ -99,10 +99,21 @@ namespace Quests
                     else
                         UnSelectMark(value.Value);
                 }));
-                disposable.Add(qdp.ActiveDestinations.ObserveRemove().Subscribe(value => 
-                    HideMarkableObject(questId, value.Value)));
-                disposable.Add(qdp.ActiveDestinations.ObserveClear().Subscribe(_ => 
-                    HideAllQuestMarkables(questId)));
+                disposable.Add(qdp.ActiveDestinations.ObserveRemove().Subscribe(value =>
+                {
+                    HideMarkableObject(questId, value.Value);
+                    
+                    UnSelectMark(value.Value);
+                }));
+                disposable.Add(qdp.ActiveDestinations.ObserveClear().Subscribe(_ =>
+                {
+                    HideAllQuestMarkables(questId);
+
+                    foreach (var keyValuePair in _allDestinationsDict)
+                    {
+                        UnSelectMark(keyValuePair.Value.DestinationId);
+                    }
+                }));
 
                 _questSubscriptionsDict[questId] = disposable;
             }
@@ -115,7 +126,7 @@ namespace Quests
             if (_allCurrentShowableMarksDict.TryAdd(destinationId, new List<string>(){questId}) == false)
                 _allCurrentShowableMarksDict[destinationId].Add(questId);
             
-            if (_allMarksDict.TryGetValue(destinationId, out var destinationObject))
+            if (_allDestinationsDict.TryGetValue(destinationId, out var destinationObject))
             {
                 destinationObject.QuestActivated(_allCurrentShowableMarksDict[destinationId]);
             }
@@ -130,7 +141,7 @@ namespace Quests
                 if (_allCurrentShowableMarksDict[destinationId].Count == 0)
                 {
                     _allCurrentShowableMarksDict.Remove(destinationId);
-                    if (_allMarksDict.TryGetValue(destinationId, out var markObject))
+                    if (_allDestinationsDict.TryGetValue(destinationId, out var markObject))
                     {
                         markObject.QuestDeactived();
                     }
@@ -158,7 +169,7 @@ namespace Quests
         {
             foreach (var value in _allCurrentShowableMarksDict.Keys)
             {
-                if (_allMarksDict.TryGetValue(value, out var markObject))
+                if (_allDestinationsDict.TryGetValue(value, out var markObject))
                 {
                     markObject.QuestDeactived();
                 }
@@ -170,7 +181,7 @@ namespace Quests
         {
             _selectedDestinations.Add(destinationId);
             
-            if (_allMarksDict.TryGetValue(destinationId, out var markObject))
+            if (_allDestinationsDict.TryGetValue(destinationId, out var markObject))
             {
                 markObject.QuestSelected();
             }
@@ -178,7 +189,7 @@ namespace Quests
 
         private void UnSelectMark(string destinationId)
         {
-            if (_allMarksDict.TryGetValue(destinationId, out var markObject))
+            if (_allDestinationsDict.TryGetValue(destinationId, out var markObject))
             {
                 markObject.QuestUnselected();
             }
@@ -190,7 +201,7 @@ namespace Quests
             if(destinationObject.gameObject == null) return;
             if(string.IsNullOrEmpty(destinationObject.DestinationId)) return;
             
-            var result = _allMarksDict.TryAdd(destinationObject.DestinationId, destinationObject);
+            var result = _allDestinationsDict.TryAdd(destinationObject.DestinationId, destinationObject);
             
             if (result)
             {
@@ -216,7 +227,7 @@ namespace Quests
             if(destinationObject.gameObject == null) return;
             if(string.IsNullOrEmpty(destinationObject.DestinationId)) return;
             
-            _allMarksDict.Remove(destinationObject.DestinationId);
+            _allDestinationsDict.Remove(destinationObject.DestinationId);
             destinationObject.QuestDeactived();
         }
     }
