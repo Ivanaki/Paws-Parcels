@@ -1,4 +1,5 @@
 using ObservableCollections;
+using R3;
 using UnityEngine;
 
 namespace Map
@@ -26,5 +27,10 @@ namespace Map
         {
             _objectsToShow.Remove(obj);
         }
+    }
+
+    public class MapSetMarked
+    {
+        public readonly Subject<string> Marked = new();
     }
 }

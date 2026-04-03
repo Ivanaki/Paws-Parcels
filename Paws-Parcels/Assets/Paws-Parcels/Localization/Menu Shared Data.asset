@@ -95,6 +95,30 @@ MonoBehaviour:
     m_Key: LanguageName
     m_Metadata:
       m_Items: []
+  - m_Id: 28814786731958272
+    m_Key: pause_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28815010045091840
+    m_Key: pause_name_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28815332142473216
+    m_Key: pause_save_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28815875648774144
+    m_Key: pause_load_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28816079693275136
+    m_Key: pause_settings_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28816234496647168
+    m_Key: pause_back_button
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
