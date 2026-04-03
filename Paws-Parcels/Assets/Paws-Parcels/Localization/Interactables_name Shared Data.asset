@@ -71,6 +71,10 @@ MonoBehaviour:
     m_Key: box
     m_Metadata:
       m_Items: []
+  - m_Id: 8415750682230784
+    m_Key: elk
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

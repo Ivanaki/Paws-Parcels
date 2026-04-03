@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: cat
     m_Metadata:
       m_Items: []
+  - m_Id: 4181986938634240
+    m_Key: elk
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
