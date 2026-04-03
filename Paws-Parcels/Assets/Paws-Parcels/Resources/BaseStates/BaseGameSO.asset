@@ -21,7 +21,7 @@ MonoBehaviour:
     - Id: learning
       CurrentMission: 0
       ActiveDestinations:
-      - cat_1
+      - bear
       MessageProgress: 0
     SelectedQuest: learning
     SucceedQuests: []
