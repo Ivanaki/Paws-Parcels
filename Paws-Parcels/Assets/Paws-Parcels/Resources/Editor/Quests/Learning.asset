@@ -16,9 +16,7 @@ MonoBehaviour:
   ActiveOnAwake: 1
   Missions:
   - MissionId: 1
-    SendMessageOnStartMission: 'on_open_quests/
-
-      start_cutscene-ferst'
+    SendMessageOnStartMission: start_cutscene-ferst
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
     DialogueParent:
@@ -50,7 +48,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 2
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: update_items_up_message
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -95,16 +93,22 @@ MonoBehaviour:
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'throw_up_end:cube_1/
+      Message: 'item_on_roof:cube_1/
 
-        throw_up_end:cube_2/
+        item_on_roof:cube_2/
 
-        throw_up_end:cube_3/
+        item_on_roof:cube_3/
 
-        throw_up_end:cube_4'
+        item_on_roof:cube_4'
       HasCount: 1
       MessageCount: 4
-      MinusMessage: 
+      MinusMessage: 'item_down_roof:cube_1/
+
+        item_down_roof:cube_2/
+
+        item_down_roof:cube_3/
+
+        item_down_roof:cube_4'
     ManyMessages:
       Messages: []
   - MissionId: 3
