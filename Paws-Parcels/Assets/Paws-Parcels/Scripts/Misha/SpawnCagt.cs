@@ -13,6 +13,7 @@ public class SpawnCagt : MonoBehaviour
     [SerializeField] private GameObject cat;
     [Inject] MessageSystem messageSystem;
     private CompositeDisposable _disposables = new CompositeDisposable();
+    public Quaternion rot;
     private void Awake()
     {
             
@@ -23,7 +24,7 @@ public class SpawnCagt : MonoBehaviour
                 {
                     Position = cat.transform.position, AngularVelocity = Vector3.zero,
                     DestinationId = "cat_1", ItemTypeId = "cat", LinearVelocity = Vector3.zero,
-                    Rotation = Quaternion.identity
+                    Rotation = rot
                 }));
             }));
         

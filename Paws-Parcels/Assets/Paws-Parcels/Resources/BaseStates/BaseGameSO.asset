@@ -43,8 +43,20 @@ MonoBehaviour:
     ItemsInWorld:
     - ItemTypeId: box
       DestinationId: box_1
-      Position: {x: 396.13727, y: 4.6740007, z: 1026.1498}
-      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
+      Position: {x: 396.556, y: 5.821, z: 1026.134}
+      Rotation: {x: 0.01363737, y: 0.7069752, z: 0.70697534, w: -0.013637368}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: box
+      DestinationId: box_3
+      Position: {x: 396.989, y: 5.017, z: 1026.573}
+      Rotation: {x: 0.01363737, y: 0.7069752, z: 0.70697534, w: -0.013637368}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: box
+      DestinationId: box_2
+      Position: {x: 397.08, y: 5.017, z: 1025.718}
+      Rotation: {x: 0.01363737, y: 0.7069752, z: 0.70697534, w: -0.013637368}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: cube
@@ -69,6 +81,12 @@ MonoBehaviour:
       DestinationId: cube_1
       Position: {x: 396.67487, y: 4.9000006, z: 1024.2261}
       Rotation: {x: -0, y: -0.99981403, z: -0, w: -0.019286158}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: box
+      DestinationId: box_cat
+      Position: {x: 396.13727, y: 4.940925, z: 1026.1498}
+      Rotation: {x: -0.7071069, y: -0.0000000037252903, z: -0.0000000037252903, w: 0.70710677}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     IsItemInHandsNull: 1

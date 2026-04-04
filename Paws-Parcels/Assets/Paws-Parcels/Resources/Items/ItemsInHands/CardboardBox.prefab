@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5460422005163846321
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 56.57784, y: 56.57784, z: 56.57784}
+  m_LocalScale: {x: 55.11496, y: 55.11496, z: 55.11496}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7168654628847357548}
@@ -115,9 +115,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684894085613378507}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.226, y: -0.597, z: 0.206}
-  m_LocalScale: {x: 0.57574, y: 0.57574, z: 0.57574}
+  m_LocalScale: {x: 0.7088752, y: 0.7088752, z: 0.7088752}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5460422005163846321}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInHands
   _itemTypeId: box
-  _localPosition: {x: -0.226, y: -0.597, z: 0.206}
+  _localPosition: {x: -0, y: -0.571, z: 0.247}
   _localRotation: {x: -0, y: -0, z: -0, w: 1}
 --- !u!1 &6208424323717387544
 GameObject:
@@ -157,7 +157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8922836173233317436
 Transform:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 84.86675, y: 84.86675, z: 84.86675}
+  m_LocalScale: {x: 55.11496, y: 55.11496, z: 55.11496}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7168654628847357548}

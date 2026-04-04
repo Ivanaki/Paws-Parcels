@@ -15,8 +15,40 @@ MonoBehaviour:
   Id: learning
   ActiveOnAwake: 1
   Missions:
-  - MissionId: 1
+  - MissionId: 0
     SendMessageOnStartMission: start_cutscene-ferst
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: Bear
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Bear
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: BearEat
+    HasBuildingDestination: 0
+    BuildingDestinationId: 
+    HasDestination: 0
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: Bear
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: 'cutscene_ended:ferst '
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 1
+    SendMessageOnStartMission: on_open_quests
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
     DialogueParent:
@@ -71,19 +103,15 @@ MonoBehaviour:
         OnHighlightMessage: 
       ManyDestinations:
         Destinations:
-        - Id: cube_1
+        - Id: box_1
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: cube_2
+        - Id: box_2
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: cube_3
-          NotHighlightOnAwake: 0
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
-        - Id: cube_4
+        - Id: box_3
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
@@ -93,25 +121,53 @@ MonoBehaviour:
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'item_on_roof:cube_1/
+      Message: 'item_on_roof:box_1/
 
-        item_on_roof:cube_2/
+        item_on_roof:box_2/
 
-        item_on_roof:cube_3/
-
-        item_on_roof:cube_4'
+        item_on_roof:box_3'
       HasCount: 1
-      MessageCount: 4
-      MinusMessage: 'item_down_roof:cube_1/
+      MessageCount: 3
+      MinusMessage: 'item_down_roof:box_1/
 
-        item_down_roof:cube_2/
+        item_down_roof:box_2/
 
-        item_down_roof:cube_3/
-
-        item_down_roof:cube_4'
+        item_down_roof:box_3'
     ManyMessages:
       Messages: []
   - MissionId: 3
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: Bear
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Bear
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: BearEat
+    HasBuildingDestination: 0
+    BuildingDestinationId: 
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: box_cat
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: pickup
+        OnHighlightMessage: drop
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: pickup:box_cat
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 4
     SendMessageOnStartMission: 
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
@@ -149,7 +205,7 @@ MonoBehaviour:
         take_item_from_car_up:cube_4'
     ManyMessages:
       Messages: []
-  - MissionId: 4
+  - MissionId: 5
     SendMessageOnStartMission: spawn_cat
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
@@ -195,8 +251,8 @@ MonoBehaviour:
         take_item_from_car_up:cube_4'
     ManyMessages:
       Messages: []
-  - MissionId: 5
-    SendMessageOnStartMission: 
+  - MissionId: 6
+    SendMessageOnStartMission: open_screen_map
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -219,19 +275,15 @@ MonoBehaviour:
         OnHighlightMessage: 
       ManyDestinations:
         Destinations:
-        - Id: cube_1
+        - Id: box_1
           NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: cube_2
+        - Id: box_2
           NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: cube_3
-          NotHighlightOnAwake: 1
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
-        - Id: cube_4
+        - Id: box_3
           NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
@@ -241,25 +293,21 @@ MonoBehaviour:
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'destination_putter_los-put:cube_1/
+      Message: 'destination_putter_los-put:box_1/
 
-        destination_putter_los-put:cube_2/
+        destination_putter_los-put:box_2/
 
-        destination_putter_los-put:cube_3/
-
-        destination_putter_los-put:cube_4'
+        destination_putter_los-put:box_3'
       HasCount: 1
-      MessageCount: 4
-      MinusMessage: 'destination_putter_los-take:cube_1/
+      MessageCount: 3
+      MinusMessage: 'destination_putter_los-take:box_1/
 
-        destination_putter_los-take:cube_2/
+        destination_putter_los-take:box_2/
 
-        destination_putter_los-take:cube_3/
-
-        destination_putter_los-take:cube_4'
+        destination_putter_los-take:box_3'
     ManyMessages:
       Messages: []
-  - MissionId: 6
+  - MissionId: 7
     SendMessageOnStartMission: start_cutscene-ferst
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
