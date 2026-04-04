@@ -137,7 +137,7 @@ MonoBehaviour:
 
         destination_putter_deer-put:ice_2'
       HasCount: 1
-      MessageCount: 3
+      MessageCount: 2
       MinusMessage: 'destination_putter_deer-taked:ice_1/
 
         destination_putter_deer-taked:ice_2'

@@ -15,3 +15,11 @@ MonoBehaviour:
   _quests:
   - {fileID: 11400000, guid: e98bf1c4914f4d9488b18ef7610d15b4, type: 2}
   - {fileID: 11400000, guid: e5e27fa30e2479a45b33b18638edbb6c, type: 2}
+  - {fileID: 11400000, guid: 9ae3fce023ea09a47b436332b4c8912e, type: 2}
+  - {fileID: 11400000, guid: 029d112d66d33504693b5c742c75ee58, type: 2}
+  - {fileID: 11400000, guid: 692f1037536d7ef4fab786d84dbd1025, type: 2}
+  - {fileID: 11400000, guid: 05237e0481aa9d5429976fd39b95151d, type: 2}
+  - {fileID: 11400000, guid: df798e1ad113f7448afb7c0bb3a6c6dd, type: 2}
+  - {fileID: 11400000, guid: 348499de3ef78e149a0ce2e30809e417, type: 2}
+  - {fileID: 11400000, guid: da5b41e5a5d2bdc44b3ceed6e25ee457, type: 2}
+  - {fileID: 11400000, guid: 15775dcb29647974da452da7aed21a34, type: 2}

@@ -79,10 +79,6 @@ MonoBehaviour:
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: box_3
-          NotHighlightOnAwake: 0
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
         - Id: put_up
           NotHighlightOnAwake: 1
           OffHighlightMessage: drop
@@ -91,16 +87,12 @@ MonoBehaviour:
     Message:
       Message: 'item_on_roof:box_1/
 
-        item_on_roof:box_2/
-
-        item_on_roof:box_3'
+        item_on_roof:box_2'
       HasCount: 1
-      MessageCount: 3
+      MessageCount: 2
       MinusMessage: 'item_down_roof:box_1/
 
-        item_down_roof:box_2/
-
-        item_down_roof:box_3'
+        item_down_roof:box_2'
     ManyMessages:
       Messages: []
   - MissionId: 3
@@ -289,10 +281,6 @@ MonoBehaviour:
           NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: box_3
-          NotHighlightOnAwake: 1
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
         - Id: destination_putter_elk
           NotHighlightOnAwake: 0
           OffHighlightMessage: drop
@@ -301,16 +289,12 @@ MonoBehaviour:
     Message:
       Message: 'destination_putter_elk-put:box_1/
 
-        destination_putter_elk-put:box_2/
-
-        destination_putter_elk-put:box_3'
+        destination_putter_elk-put:box_2'
       HasCount: 1
-      MessageCount: 3
+      MessageCount: 2
       MinusMessage: 'destination_putter_elk-take:box_1/
 
-        destination_putter_elk-take:box_2/
-
-        destination_putter_elk-take:box_3'
+        destination_putter_elk-take:box_2'
     ManyMessages:
       Messages: []
   MoneyReward: 0

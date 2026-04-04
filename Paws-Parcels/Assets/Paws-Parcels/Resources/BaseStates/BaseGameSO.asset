@@ -60,20 +60,14 @@ MonoBehaviour:
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: box
-      DestinationId: box_2
+      DestinationId: box_1
       Position: {x: 397.08, y: 5.017, z: 1025.718}
       Rotation: {x: 0.013637371, y: 0.7069752, z: 0.70697534, w: -0.013637369}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: box
-      DestinationId: box_3
+      DestinationId: box_2
       Position: {x: 396.989, y: 5.017, z: 1026.573}
-      Rotation: {x: 0.013637371, y: 0.7069752, z: 0.70697534, w: -0.013637369}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: box
-      DestinationId: box_1
-      Position: {x: 396.556, y: 5.821, z: 1026.134}
       Rotation: {x: 0.013637371, y: 0.7069752, z: 0.70697534, w: -0.013637369}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
@@ -152,6 +146,24 @@ MonoBehaviour:
     - ItemTypeId: ice
       DestinationId: ice_2
       Position: {x: 660.28674, y: 39.134, z: 951.598}
+      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: generator
+      DestinationId: generator_1
+      Position: {x: 432.58252, y: 3.336001, z: 1212.4028}
+      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: fence
+      DestinationId: fence_1
+      Position: {x: 407.05, y: 4.95, z: 1025.87}
+      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
+      LinearVelocity: {x: 0, y: 0, z: 0}
+      AngularVelocity: {x: 0, y: 0, z: 0}
+    - ItemTypeId: ball
+      DestinationId: ball_1
+      Position: {x: 407.3836, y: 5.279, z: 1024.9316}
       Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}

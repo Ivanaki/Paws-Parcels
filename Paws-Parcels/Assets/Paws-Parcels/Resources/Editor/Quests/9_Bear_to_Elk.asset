@@ -60,7 +60,7 @@ MonoBehaviour:
         project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
         nodeName: Elk_1_a
     HasBuildingDestination: 1
-    BuildingDestinationId: gas_station
+    BuildingDestinationId: school
     HasDestination: 1
     DestinationParent:
       IsMany: 1
@@ -71,7 +71,11 @@ MonoBehaviour:
         OnHighlightMessage: 
       ManyDestinations:
         Destinations:
-        - Id: football_1
+        - Id: fence_1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: ball_1
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
@@ -102,7 +106,7 @@ MonoBehaviour:
         project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
         nodeName: Elk_1_a
     HasBuildingDestination: 1
-    BuildingDestinationId: gas_station
+    BuildingDestinationId: school
     HasDestination: 1
     DestinationParent:
       IsMany: 1
@@ -113,7 +117,11 @@ MonoBehaviour:
         OnHighlightMessage: 
       ManyDestinations:
         Destinations:
-        - Id: generator_1
+        - Id: fence_1
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: ball_1
           NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
@@ -123,12 +131,14 @@ MonoBehaviour:
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: destination_putter_deer-put:generator_1
-      HasCount: 0
-      MessageCount: 3
-      MinusMessage: 'destination_putter_deer-taked:ice_1/
+      Message: 'destination_putter_bear-put:fence_1/
 
-        destination_putter_deer-taked:ice_2'
+        destination_putter_bear-put:ball_1'
+      HasCount: 1
+      MessageCount: 2
+      MinusMessage: 'destination_putter_bear-taked:fence_1/
+
+        destination_putter_bear-taked:ball_1'
     ManyMessages:
       Messages: []
   MoneyReward: 0
