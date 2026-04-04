@@ -7,7 +7,12 @@ namespace Paws_Parcels.Scripts
         public static Texture2D CreateWhiteTexture()
         {
             var tex = new Texture2D(1, 1);
-            tex.SetPixel(0, 0, Color.white);
+            
+            var color = Color.white;
+
+            ColorUtility.TryParseHtmlString("#D65349", out color);
+                
+            tex.SetPixel(0, 0, color);
             tex.Apply();
             return tex;
         }

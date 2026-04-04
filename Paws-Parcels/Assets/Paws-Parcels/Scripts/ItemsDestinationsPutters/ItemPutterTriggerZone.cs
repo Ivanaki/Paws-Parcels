@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Extentions;
 using Paws_Parcels.Extentions;
 using Paws_Parcels.Scripts.Player;
 using Quests;
@@ -26,7 +27,7 @@ namespace Destinations
 
         private void OnTriggerEnter(Collider other)
         {
-            if (ColliderRedirector.TryGet(other.gameObject, out Item item))
+            if (other.TryGetComponentMy(out Item item))
             {
                 var addResult = _items.Add(item.DestinationId);
                 if (addResult)
@@ -41,7 +42,7 @@ namespace Destinations
         
         private void OnTriggerExit(Collider other)
         {
-            if (ColliderRedirector.TryGet(other.gameObject, out Item item))
+            if (other.TryGetComponentMy(out Item item))
             {
                 Remove(item);
             }

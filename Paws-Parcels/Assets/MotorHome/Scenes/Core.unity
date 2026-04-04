@@ -63712,6 +63712,11 @@ MonoBehaviour:
   markerStartUVY: 0.34750366
   customPoints: []
   handleObject: {fileID: 0}
+--- !u!4 &916457479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 11582717284404645, guid: a2917ec6579897d47975508de0954229, type: 3}
+  m_PrefabInstance: {fileID: 1699262836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &918464305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117023,6 +117028,14 @@ PrefabInstance:
       propertyPath: _catGameObject
       value: 
       objectReference: {fileID: 994433324}
+    - target: {fileID: 3432206816689420586, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7215538
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432206816689420586, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: m_Center.y
+      value: -0.1392231
+      objectReference: {fileID: 0}
     - target: {fileID: 3582412472463973297, guid: a2917ec6579897d47975508de0954229, type: 3}
       propertyPath: m_Name
       value: MyCar
@@ -117090,7 +117103,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5421402709900098924, guid: a2917ec6579897d47975508de0954229, type: 3}
       insertIndex: -1
       addedObject: {fileID: 994433325}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7314307249332257685, guid: a2917ec6579897d47975508de0954229, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1699262840}
   m_SourcePrefab: {fileID: 100100000, guid: a2917ec6579897d47975508de0954229, type: 3}
 --- !u!1 &1699262837 stripped
 GameObject:
@@ -117102,6 +117118,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 767283574417663281, guid: a2917ec6579897d47975508de0954229, type: 3}
   m_PrefabInstance: {fileID: 1699262836}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1699262839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7314307249332257685, guid: a2917ec6579897d47975508de0954229, type: 3}
+  m_PrefabInstance: {fileID: 1699262836}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1699262840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699262839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cdd2cfde18747babba1cf415caa01a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Car_Player.UpChildTrigger
+  _gridTransform: {fileID: 916457479}
 --- !u!1001 &1702213282
 PrefabInstance:
   m_ObjectHideFlags: 0

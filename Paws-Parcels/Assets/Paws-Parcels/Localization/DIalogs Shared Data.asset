@@ -405,6 +405,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6926092111908176018
+  - m_Id: 20147816130142208
+    m_Key: line:6740619f
+    m_Metadata:
+      m_Items:
+      - rid: 8124284909881917440
+  - m_Id: 20147816159502336
+    m_Key: line:dd116806
+    m_Metadata:
+      m_Items:
+      - rid: 8124284909881917441
+  - m_Id: 20147816159502337
+    m_Key: line:38ff717a
+    m_Metadata:
+      m_Items:
+      - rid: 8124284909881917442
+  - m_Id: 20147816159502338
+    m_Key: line:9b6a15e4
+    m_Metadata:
+      m_Items:
+      - rid: 8124284909881917443
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -515,6 +535,26 @@ MonoBehaviour:
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: Cat_0_a
+        tags: []
+    - rid: 8124284909881917440
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Elk
+        tags: []
+    - rid: 8124284909881917441
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Elk
+        tags: []
+    - rid: 8124284909881917442
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Elk_1_a
+        tags: []
+    - rid: 8124284909881917443
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Elk_1_a
         tags: []
     - rid: 8394464131068723301
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}

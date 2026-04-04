@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Extentions;
 using Paws_Parcels.Car;
 using Paws_Parcels.Extentions;
 using Paws_Parcels.Scripts.Saves.States.GameState;
@@ -78,7 +79,7 @@ namespace Paws_Parcels.Scripts.Player
             var size = Physics.OverlapSphereNonAlloc(_interactCenterOfSphere.position, _interactRadius, _hitCollidersInteract, _interactLayerMask);
             for (var i = 0; i < size; i++)
             {
-                if(ColliderRedirector.TryGet(_hitCollidersInteract[i].gameObject, out InteractableObject interactableObject))
+                if(_hitCollidersInteract[i].TryGetComponentMy(out InteractableObject interactableObject))
                 {
                     _interactables.Add(interactableObject);
                     _interactColliders.Add(interactableObject, _hitCollidersInteract[i]);
@@ -130,7 +131,7 @@ namespace Paws_Parcels.Scripts.Player
             var size = Physics.OverlapSphereNonAlloc(_interactCenterOfSphere.position, _highlightRadius, _hitCollidersHighlight, _interactLayerMask);
             for (var i = 0; i < size; i++)
             {
-                if(ColliderRedirector.TryGet(_hitCollidersHighlight[i].gameObject, out InteractableObject interactableObject))
+                if(_hitCollidersHighlight[i].TryGetComponentMy(out InteractableObject interactableObject))
                 {
                     if (interactableObject.ActivateLocations.Any(location =>
                             _interactablesLocationsService.CurrentLocation == location 

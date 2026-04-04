@@ -23,24 +23,6 @@ namespace Paws_Parcels.Extentions
                 return transform.parent.TryGetComponent(out mainScript);
         }
 
-        public static T Get<T>(GameObject gameObjectToTry) where T : MonoBehaviour
-        {
-            var interactableObject = gameObjectToTry.GetComponent<T>();
-            if (interactableObject == null)
-            {
-                if (gameObjectToTry.TryGetComponent(out ColliderRedirector colliderRedirector))
-                {
-                    colliderRedirector.TryGetComponentBase(out interactableObject);
-                }
-            }
-
-            return interactableObject;
-        }
-
-        public static bool TryGet<T>(GameObject gameObjectToTry, out T mainScript) where T : MonoBehaviour
-        {
-            mainScript = Get<T>(gameObjectToTry);
-            return mainScript != null;
-        }
+        
     }
 }

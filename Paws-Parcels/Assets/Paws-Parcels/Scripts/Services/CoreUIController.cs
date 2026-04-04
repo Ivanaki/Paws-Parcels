@@ -37,6 +37,10 @@ namespace Services
             {
                 OpenQuests();
             }));
+            _disposables.Add(messageSystem.AddListenerWithManyMessages("on_open_map").Subscribe(x =>
+            {
+                OpenMap();
+            }));
         }
         
         private void BackUI(InputAction.CallbackContext obj = new())
