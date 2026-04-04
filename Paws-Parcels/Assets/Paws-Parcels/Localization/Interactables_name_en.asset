@@ -90,6 +90,26 @@ MonoBehaviour:
     m_Localized: Talk to Puma
     m_Metadata:
       m_Items: []
+  - m_Id: 8783717567741952
+    m_Localized: Milk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8786916559208448
+    m_Localized: Tier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8794501509201920
+    m_Localized: Buns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8794658053210112
+    m_Localized: Ice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8794771483967488
+    m_Localized: Generator
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
