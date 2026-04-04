@@ -1,0 +1,212 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f00c5bbf8c444b782a82c671cd1c25b, type: 3}
+  m_Name: 2_Owl_to_Puma+Puma_to_deer+Deer_to_Puma
+  m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Quests.Quest
+  Id: 2_Owl_to_Puma
+  ActiveOnAwake: 1
+  Missions:
+  - MissionId: 1
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 1
+    DialogueParent:
+      NpcName: owl
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Owl
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Owl_1_a
+    HasBuildingDestination: 0
+    BuildingDestinationId: 
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: owl
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: dialogue_ended:Owl
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 2
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 1
+    DialogueParent:
+      NpcName: puma
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Puma
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Puma_1_a
+    HasBuildingDestination: 1
+    BuildingDestinationId: bakery
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: puma
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: dialogue_ended:Puma
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 3
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 1
+    DialogueParent:
+      NpcName: deer
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Deer
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Deer_1_a
+    HasBuildingDestination: 1
+    BuildingDestinationId: farm
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: puma
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: dialogue_ended:Deer
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 4
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: deer
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Deer
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Deer_1_a
+    HasBuildingDestination: 1
+    BuildingDestinationId: bakery
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: milk_1
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: pickup
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: milk_1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: milk_2
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: put_inside
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: 'put_inside_car:milk_1/
+
+        put_inside_car:milk_2'
+      HasCount: 1
+      MessageCount: 2
+      MinusMessage: 'take_inside_car:milk_1/
+
+        take_inside_car:milk_2'
+    ManyMessages:
+      Messages: []
+  - MissionId: 5
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: deer
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Deer
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Deer_1_a
+    HasBuildingDestination: 1
+    BuildingDestinationId: bakery
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: milk_1
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: pickup
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: milk_1
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: milk_2
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: destination_putter_puma
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: 'put_inside_car:milk_1/
+
+        put_inside_car:milk_2'
+      HasCount: 1
+      MessageCount: 2
+      MinusMessage: 'take_inside_car:milk_1/
+
+        take_inside_car:milk_2'
+    ManyMessages:
+      Messages: []
+  MoneyReward: 0
+  Limit: 0
+  LimitTimeInSeconds: 60

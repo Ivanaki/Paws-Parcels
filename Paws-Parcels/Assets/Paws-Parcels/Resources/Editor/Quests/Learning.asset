@@ -15,41 +15,9 @@ MonoBehaviour:
   Id: learning
   ActiveOnAwake: 1
   Missions:
-  - MissionId: 0
-    SendMessageOnStartMission: start_cutscene-ferst
-    SendMessageOnEndMission: 
-    IsThisMissionDialogue: 0
-    DialogueParent:
-      NpcName: Bear
-      MainDialogue:
-        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
-        nodeName: Bear
-      AfterMainDialogue:
-        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
-        nodeName: BearEat
-    HasBuildingDestination: 0
-    BuildingDestinationId: 
-    HasDestination: 0
-    DestinationParent:
-      IsMany: 0
-      Destination:
-        Id: Bear
-        NotHighlightOnAwake: 0
-        OffHighlightMessage: 
-        OnHighlightMessage: 
-      ManyDestinations:
-        Destinations: []
-    IsMany: 0
-    Message:
-      Message: 'cutscene_ended:ferst '
-      HasCount: 0
-      MessageCount: 0
-      MinusMessage: 
-    ManyMessages:
-      Messages: []
   - MissionId: 1
-    SendMessageOnStartMission: on_open_quests
-    SendMessageOnEndMission: 
+    SendMessageOnStartMission: start_cutscene-ferst
+    SendMessageOnEndMission: on_open_quests
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: bear
@@ -59,7 +27,7 @@ MonoBehaviour:
       AfterMainDialogue:
         project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
         nodeName: BearEat
-    HasBuildingDestination: 1
+    HasBuildingDestination: 0
     BuildingDestinationId: school
     HasDestination: 1
     DestinationParent:
@@ -161,7 +129,9 @@ MonoBehaviour:
         Destinations: []
     IsMany: 0
     Message:
-      Message: pickup:box_cat
+      Message: 'pickup:box_cat/
+
+        dialogue_started:Cat'
       HasCount: 0
       MessageCount: 0
       MinusMessage: 
@@ -252,7 +222,43 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 6
-    SendMessageOnStartMission: open_screen_map
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: on_open_map
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+    HasBuildingDestination: 1
+    BuildingDestinationId: school
+    HasDestination: 0
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: 
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: in_car
+      HasCount: 0
+      MessageCount: 3
+      MinusMessage: 'destination_putter_los-take:box_1/
+
+        destination_putter_los-take:box_2/
+
+        destination_putter_los-take:box_3'
+    ManyMessages:
+      Messages: []
+  - MissionId: 7
+    SendMessageOnStartMission: 
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -287,56 +293,24 @@ MonoBehaviour:
           NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: destination_putter_los
+        - Id: destination_putter_elk
           NotHighlightOnAwake: 0
           OffHighlightMessage: drop
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'destination_putter_los-put:box_1/
+      Message: 'destination_putter_elk-put:box_1/
 
-        destination_putter_los-put:box_2/
+        destination_putter_elk-put:box_2/
 
-        destination_putter_los-put:box_3'
+        destination_putter_elk-put:box_3'
       HasCount: 1
       MessageCount: 3
-      MinusMessage: 'destination_putter_los-take:box_1/
+      MinusMessage: 'destination_putter_elk-take:box_1/
 
-        destination_putter_los-take:box_2/
+        destination_putter_elk-take:box_2/
 
-        destination_putter_los-take:box_3'
-    ManyMessages:
-      Messages: []
-  - MissionId: 7
-    SendMessageOnStartMission: start_cutscene-ferst
-    SendMessageOnEndMission: 
-    IsThisMissionDialogue: 0
-    DialogueParent:
-      NpcName: Bear
-      MainDialogue:
-        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
-        nodeName: Bear
-      AfterMainDialogue:
-        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
-        nodeName: BearEat
-    HasBuildingDestination: 0
-    BuildingDestinationId: 
-    HasDestination: 0
-    DestinationParent:
-      IsMany: 0
-      Destination:
-        Id: Bear
-        NotHighlightOnAwake: 0
-        OffHighlightMessage: 
-        OnHighlightMessage: 
-      ManyDestinations:
-        Destinations: []
-    IsMany: 0
-    Message:
-      Message: 'cutscene_ended:ferst '
-      HasCount: 0
-      MessageCount: 0
-      MinusMessage: 
+        destination_putter_elk-take:box_3'
     ManyMessages:
       Messages: []
   MoneyReward: 0

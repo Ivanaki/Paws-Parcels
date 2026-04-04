@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f00c5bbf8c444b782a82c671cd1c25b, type: 3}
   m_Name: 1_Elk_to_Sova
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Quests.Quest
-  Id: 
+  Id: 1_elk_to_sova
   ActiveOnAwake: 1
   Missions:
   - MissionId: 1
@@ -45,6 +45,118 @@ MonoBehaviour:
       HasCount: 0
       MessageCount: 0
       MinusMessage: 
+    ManyMessages:
+      Messages: []
+  - MissionId: 2
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: elk
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Elk
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Elk_1_a
+    HasBuildingDestination: 0
+    BuildingDestinationId: 
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: elk
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: book_1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: book_2
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: book_3
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: put_inside
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: 'put_inside_car:book_1/
+
+        put_inside_car:book_2/
+
+        put_inside_car:book_3'
+      HasCount: 1
+      MessageCount: 3
+      MinusMessage: 'take_inside_car:book_1/
+
+        take_inside_car:book_2/
+
+        take_inside_car:book_3'
+    ManyMessages:
+      Messages: []
+  - MissionId: 2
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: 
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: elk
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Elk
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Elk_1_a
+    HasBuildingDestination: 1
+    BuildingDestinationId: home_of_owl
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 1
+      Destination:
+        Id: elk
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: book_1
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: book_2
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: book_3
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: destination_putter_owl
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: drop
+          OnHighlightMessage: pickup
+    IsMany: 0
+    Message:
+      Message: 'destination_putter_sova-put:book_1/
+
+        destination_putter_sova-put:book_2/
+
+        destination_putter_sova-put:book_3'
+      HasCount: 1
+      MessageCount: 3
+      MinusMessage: 'destination_putter_sova-take:book_1/
+
+        destination_putter_sova-take:book_2/
+
+        destination_putter_sova-taked:book_3'
     ManyMessages:
       Messages: []
   MoneyReward: 0

@@ -78,6 +78,18 @@ MonoBehaviour:
     m_Localized: Talk to Elk
     m_Metadata:
       m_Items: []
+  - m_Id: 8698567123189760
+    m_Localized: Talk to Owl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8698629928697856
+    m_Localized: Talk to Deer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8698692478353408
+    m_Localized: Talk to Puma
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

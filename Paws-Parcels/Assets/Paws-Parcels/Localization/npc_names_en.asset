@@ -34,6 +34,18 @@ MonoBehaviour:
     m_Localized: Elk
     m_Metadata:
       m_Items: []
+  - m_Id: 4464923177304064
+    m_Localized: Owl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4464974947598336
+    m_Localized: Deer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4465043826458624
+    m_Localized: Puma
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
