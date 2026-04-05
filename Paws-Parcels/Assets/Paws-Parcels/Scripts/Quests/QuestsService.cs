@@ -77,7 +77,7 @@ namespace Paws_Parcels.Scripts.Quests
             
             foreach (var quest in _questsDict.Values)
             {
-                _messageSystem.AddListener($"ActivateQuest:{quest.Id}").Subscribe(_ =>
+                _messageSystem.AddListener($"activate_quest:{quest.Id}").Subscribe(_ =>
                 {
                     ActiveNewQuest(quest.Id);
                     /*if (_questsDict.TryGetValue(quest.Id, out var quest))

@@ -77,13 +77,24 @@ namespace Paws_Parcels.Scripts.Player
                 };
             }));
             
-            _disposable.Add(_gameStateProvider.GameProxy.IsPlayerInCar.Subscribe(value =>
+            _disposable.Add(_gameStateProvider.GameProxy.IsPlayerInCar.Subscribe(inCar =>
             {
                 /*_thirdPersonController.enabled = !value;
                 _characterController.enabled = !value;
                 _playerInteractable.enabled = !value;
                 _modelToHide.SetActive(!value);*/
-                if (value == false)
+
+                if (inCar)
+                {
+                    transform.SetParent(_spawnPositionOutCar);
+                    transform.localPosition = Vector3.zero;
+                }
+                else
+                {
+                    transform.SetParent(null);
+                }
+                
+                if (inCar == false)
                 {
                     GetSpawnPosition();
                     if (_spawnPositionOutCar != null)

@@ -3,8 +3,16 @@ using Zenject;
 
 namespace Paws_Parcels.Scripts.Car_Player.Respawn
 {
-    public class RespawnPoint : MonoBehaviour
+    public interface IRespawnPoint
     {
+        public Vector3 GetPosition();
+        public Quaternion GetRotation();
+    }
+    
+    public class RespawnPoint : MonoBehaviour, IRespawnPoint
+    {
+        [SerializeField] private Vector3 _offset = new(0, 1.45f, 0);
+        
         private RespawnService _respawnService;
 
         [Inject]
@@ -31,5 +39,11 @@ namespace Paws_Parcels.Scripts.Car_Player.Respawn
             Gizmos.DrawLine(transform.position, transform.position + transform.forward * 1.5f);
         }
 #endif
+        public Vector3 GetPosition()
+        {
+            return transform.position + _offset;
+        }
+
+        public Quaternion GetRotation() => transform.rotation;
     }
 }

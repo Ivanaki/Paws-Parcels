@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using Car_Player;
 using ObservableCollections;
+using Paws_Parcels.Scripts.Car_Player.Respawn;
 using Paws_Parcels.Scripts.Player;
+using Paws_Parcels.Scripts.Saves.States.EditorSettings;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
+using Services;
 using UnityEngine;
 using Zenject;
 
@@ -16,21 +19,25 @@ namespace Items
         private readonly ItemsSystem _itemsSystem;
         private readonly DiContainer _container;
         private readonly CarUpService _carUpService;
+        private readonly RespawnService _respawnService;
+        private readonly EditorSettingsSO _editorSettings;
         private readonly ObservableList<ItemProxy> _itemsInWorld;
         private readonly IReadOnlyDictionary<string, Item> _itemsTypeDict;
         private readonly CompositeDisposable _disposable = new();
         private readonly Observable<Unit> _collectDataBeforeSave;
-        
+
         private readonly Dictionary<ItemProxy, Item> _itemsDict = new();
-        
-        public ItemsInWorldVisualizer(GameStateProvider gameStateProvider, ItemsDatabase itemsDatabase, 
+
+        public ItemsInWorldVisualizer(GameStateProvider gameStateProvider, ItemsDatabase itemsDatabase,
             ApplyInFixUpdate applyInFixUpdate, ItemsSystem itemsSystem, DiContainer container,
-            CarUpService carUpService)
+            CarUpService carUpService, RespawnService respawnService, EditorDataService editorDataService)
         {
             _applyInFixUpdate = applyInFixUpdate;
             _itemsSystem = itemsSystem;
             _container = container;
             _carUpService = carUpService;
+            _respawnService = respawnService;
+            _editorSettings = editorDataService.EditorSettings;
             _itemsInWorld = gameStateProvider.GameProxy.ItemsInWorld;
             _itemsTypeDict = itemsDatabase.ItemsTypeInWorldDict;
             _collectDataBeforeSave = gameStateProvider.CollectDataBeforeSave;
@@ -72,7 +79,7 @@ namespace Items
             
             var spawned = _container.InstantiatePrefabForComponent<Item>(_itemsTypeDict[itemProxy.ItemTypeId]);
             
-            spawned.ConstructItem(_applyInFixUpdate, itemProxy, this, _carUpService);
+            spawned.ConstructItem(_applyInFixUpdate, itemProxy, this, _carUpService, _respawnService, _editorSettings);
             spawned.gameObject.SetActive(true);
             _itemsDict[itemProxy] = spawned;
         }

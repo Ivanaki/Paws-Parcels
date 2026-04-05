@@ -20,6 +20,7 @@ namespace Services
         Transform Transform { get; }
     }*/
     
+    [DefaultExecutionOrder(1000)]
     public class DestinationsOnCanvasShower : MonoBehaviour
     {
         private class ObjectToShowOnUi

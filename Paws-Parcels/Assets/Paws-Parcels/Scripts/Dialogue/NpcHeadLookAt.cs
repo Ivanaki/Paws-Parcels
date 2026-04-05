@@ -34,11 +34,9 @@ namespace DefaultNamespace
         [SerializeField] private float lookMoveSpeed = 4.5f;
         [SerializeField] private float maxTurnSpeed = 180f;
 
-        [Header("IK Weights")]
-        [SerializeField, Range(0f, 1f)] private float bodyWeight = 0.15f;
-        [SerializeField, Range(0f, 1f)] private float headWeight = 0.95f;
-        [SerializeField, Range(0f, 1f)] private float eyesWeight = 1f;
-        [SerializeField, Range(0f, 1f)] private float clampWeight = 0.55f;
+        [Header("Head Bone")]
+        [SerializeField] private Transform headBone;
+        [SerializeField, Range(0f, 90f)] private float maxHeadAngle = 70f;
 
         [Header("Behavior")]
         [SerializeField] private bool requireLineOfSight = true;
@@ -304,13 +302,23 @@ namespace DefaultNamespace
             _smoothedLookPosition = origin + _currentLookDirection * DefaultIdleDistance;
         }
 
-        private void OnAnimatorIK(int layerIndex)
+        private void LateUpdate()
         {
-            if (_animator == null)
+            if (headBone == null || _currentWeight < 0.001f)
                 return;
 
-            _animator.SetLookAtWeight(_currentWeight, bodyWeight, headWeight, eyesWeight, clampWeight);
-            _animator.SetLookAtPosition(_smoothedLookPosition);
+            Vector3 lookDir = _smoothedLookPosition - headBone.position;
+            if (lookDir.sqrMagnitude < MinDirectionSqr)
+                return;
+
+            Quaternion targetRot = Quaternion.LookRotation(lookDir, transform.up);
+            Quaternion desiredRot = Quaternion.Slerp(headBone.rotation, targetRot, _currentWeight);
+
+            float angle = Quaternion.Angle(headBone.rotation, desiredRot);
+            if (angle > maxHeadAngle)
+                desiredRot = Quaternion.RotateTowards(headBone.rotation, desiredRot, maxHeadAngle);
+
+            headBone.rotation = desiredRot;
         }
         
         private void OnDrawGizmosSelected()

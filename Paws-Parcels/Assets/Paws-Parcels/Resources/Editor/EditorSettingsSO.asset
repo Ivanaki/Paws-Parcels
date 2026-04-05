@@ -18,3 +18,8 @@ MonoBehaviour:
   <MaxItemsInCar>k__BackingField: 6
   <MaxCarSpeedWhenPlayerCanExit>k__BackingField: 6.2
   <FadeDuration>k__BackingField: 0.4
+  <RespawnItemDropHeight>k__BackingField: 2
+  <ItemMinHeight>k__BackingField: 0.4
+  <Hints>k__BackingField:
+  - Name: test
+    Image: {fileID: -245170646, guid: 021e78f28dd50d243b7f75a52d11e3f4, type: 3}

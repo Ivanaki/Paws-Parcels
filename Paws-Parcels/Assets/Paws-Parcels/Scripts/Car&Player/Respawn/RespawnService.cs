@@ -8,7 +8,7 @@ namespace Paws_Parcels.Scripts.Car_Player.Respawn
 {
     public class RespawnService
     {
-        private readonly List<RespawnPoint> _points = new();
+        private readonly List<IRespawnPoint> _points = new();
         private readonly ScreenFade _screenFade;
         private readonly SitInCarService _sitInCarService;
         private readonly GameProxy _gameProxy;
@@ -67,6 +67,8 @@ namespace Paws_Parcels.Scripts.Car_Player.Respawn
                         ItemTypeId = _gameProxy.InHandsItemTypeId.Value,
                         Position = carPosition + new Vector3(0, _editorDataService.EditorSettings.RespawnItemDropHeight, 0)
                     }));
+                    
+                    _gameProxy.IsItemInHandsNull.Value = true;
                 }
                 
                 _sitInCarService.TrySit();
@@ -84,11 +86,11 @@ namespace Paws_Parcels.Scripts.Car_Player.Respawn
             }
 
             float minDist = float.MaxValue;
-            RespawnPoint nearest = _points[0];
+            IRespawnPoint nearest = _points[0];
 
             foreach (var point in _points)
             {
-                float dist = Vector3.Distance(position, point.transform.position);
+                float dist = Vector3.Distance(position, point.GetPosition());
                 if (dist < minDist)
                 {
                     minDist = dist;
@@ -96,8 +98,8 @@ namespace Paws_Parcels.Scripts.Car_Player.Respawn
                 }
             }
 
-            respawnPosition = nearest.transform.position;
-            respawnRotation = nearest.transform.rotation;
+            respawnPosition = nearest.GetPosition();
+            respawnRotation = nearest.GetRotation();
             return true;
         }
     }

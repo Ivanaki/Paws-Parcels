@@ -71,7 +71,6 @@ namespace Quests
         public Quaternion GetGlobalRotationShowablePoint() => 
             _destinationShowUiPosition == null ? transform.rotation : _destinationShowUiPosition.rotation;
 
-        //TODO проверить на работоспособность других вариантов проверки на null
         public bool IsDestroyed() => this == null;
         
         public string GetQuestId() => DestinationId;

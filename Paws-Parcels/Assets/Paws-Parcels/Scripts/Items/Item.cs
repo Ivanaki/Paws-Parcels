@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Car_Player;
 using Items;
+using Paws_Parcels.Scripts.Car_Player.Respawn;
+using Paws_Parcels.Scripts.Saves.States.EditorSettings;
 using R3;
 using Services;
 using UnityEngine;
@@ -76,12 +78,20 @@ namespace Paws_Parcels.Scripts.Player
         private ShowOnCanvasCircle _showOnCanvasCircle;
 
         private IDisposable _disposable;
-        
-        public void ConstructItem(ApplyInFixUpdate applyInFixUpdate, ItemProxy itemProxy, 
-            ItemsInWorldVisualizer itemsInWorldVisualizer, CarUpService carUpService)
+
+        private RespawnService _respawnService;
+        private float _minHeight;
+        private float _respawnItemDropHeight;
+
+        public void ConstructItem(ApplyInFixUpdate applyInFixUpdate, ItemProxy itemProxy,
+            ItemsInWorldVisualizer itemsInWorldVisualizer, CarUpService carUpService,
+            RespawnService respawnService, EditorSettingsSO editorSettings)
         {
             _carUpService = carUpService;
-            
+            _respawnService = respawnService;
+            _minHeight = editorSettings.ItemMinHeight;
+            _respawnItemDropHeight = editorSettings.RespawnItemDropHeight;
+
             _uiShowTextCodeRP.Value = _uiShowTextCode;
             
             _isInstantiated = true;
@@ -132,6 +142,21 @@ namespace Paws_Parcels.Scripts.Player
         }
 
         
+
+        private void Update()
+        {
+            if (transform.position.y < _minHeight)
+            {
+                if (_respawnService != null &&
+                    _respawnService.TryGetNearestPoint(transform.position, out var respawnPos, out _))
+                {
+                    var newPos = respawnPos + new Vector3(0, _respawnItemDropHeight, 0);
+                    _rigidbody.linearVelocity = Vector3.zero;
+                    _rigidbody.angularVelocity = Vector3.zero;
+                    transform.position = newPos;
+                }
+            }
+        }
 
         public override void Interact()
         {

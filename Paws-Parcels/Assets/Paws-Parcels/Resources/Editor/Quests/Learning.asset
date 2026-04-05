@@ -16,8 +16,12 @@ MonoBehaviour:
   ActiveOnAwake: 1
   Missions:
   - MissionId: 1
-    SendMessageOnStartMission: start_cutscene-ferst
-    SendMessageOnEndMission: on_open_quests
+    SendMessageOnStartMission: 'start_cutscene-ferst/
+
+      show_hint:test'
+    SendMessageOnEndMission: 'on_open_quests/
+
+      hide_hint'
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: bear
@@ -227,7 +231,7 @@ MonoBehaviour:
         nodeName: 
     HasBuildingDestination: 1
     BuildingDestinationId: school
-    HasDestination: 0
+    HasDestination: 1
     DestinationParent:
       IsMany: 1
       Destination:
@@ -236,7 +240,15 @@ MonoBehaviour:
         OffHighlightMessage: 
         OnHighlightMessage: 
       ManyDestinations:
-        Destinations: []
+        Destinations:
+        - Id: door_left
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 
+          OnHighlightMessage: 
+        - Id: door_right
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 
+          OnHighlightMessage: 
     IsMany: 0
     Message:
       Message: in_car
