@@ -71,15 +71,11 @@ MonoBehaviour:
         OnHighlightMessage: 
       ManyDestinations:
         Destinations:
-        - Id: wheel_1
+        - Id: holst_1
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: wheel_2
-          NotHighlightOnAwake: 0
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
-        - Id: wheel_3
+        - Id: holst_2
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
@@ -89,18 +85,14 @@ MonoBehaviour:
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'item_on_roof:wheel_1/
+      Message: 'item_on_roof:holst_1/
 
-        item_on_roof:wheel_2/
-
-        item_on_roof:wheel_3'
+        item_on_roof:holst_2'
       HasCount: 1
-      MessageCount: 3
-      MinusMessage: 'item_down_roof:wheel_1/
+      MessageCount: 2
+      MinusMessage: 'item_down_roof:holst_1/
 
-        item_down_roof:wheel_2/
-
-        item_down_roof:wheel_3'
+        item_down_roof:holst_2'
     ManyMessages:
       Messages: []
   - MissionId: 3
@@ -127,15 +119,7 @@ MonoBehaviour:
         OnHighlightMessage: 
       ManyDestinations:
         Destinations:
-        - Id: wheel_1
-          NotHighlightOnAwake: 1
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
-        - Id: wheel_2
-          NotHighlightOnAwake: 1
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
-        - Id: wheel_3
+        - Id: holst_1
           NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
@@ -145,18 +129,14 @@ MonoBehaviour:
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'destination_putter_puma-put:wheel_1/
+      Message: 'destination_putter_puma-put:holst_1/
 
-        destination_putter_puma-put:wheel_2/
-
-        destination_putter_puma-put:wheel_3'
+        destination_putter_puma-put:holst_2'
       HasCount: 1
-      MessageCount: 3
-      MinusMessage: 'destination_putter_puma-taked:wheel_1/
+      MessageCount: 2
+      MinusMessage: 'destination_putter_puma-taked:holst_1/
 
-        destination_putter_puma-taked:wheel_2/
-
-        destination_putter_puma-taked:wheel_3'
+        destination_putter_puma-taked:holst_2'
     ManyMessages:
       Messages: []
   MoneyReward: 0
