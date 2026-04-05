@@ -39,16 +39,10 @@ namespace Paws_Parcels.Scripts.Car_Player.Respawn
         {
             if (_respawnService.TryGetNearestPoint(transform.position, out var pos, out var rot))
             {
+                _rigidbody.linearVelocity = Vector3.zero;
+                _rigidbody.angularVelocity = Vector3.zero;
                 transform.position = pos;
                 transform.rotation = rot;
-
-                _applyInFixUpdate.ObserveApply().Take(1).Subscribe(_ =>
-                {
-                    transform.position = pos;
-                    transform.rotation = rot;
-                    _rigidbody.linearVelocity = Vector3.zero;
-                    _rigidbody.angularVelocity = Vector3.zero;
-                });
             }
         }
     }

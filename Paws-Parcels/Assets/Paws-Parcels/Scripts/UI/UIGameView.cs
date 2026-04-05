@@ -6,6 +6,9 @@ namespace UI
     {
         [SerializeField] private GameObject _loadingScreen;
         [SerializeField] private Transform _uiSceneContainer;
+        [SerializeField] private ScreenFade _screenFade;
+
+        public ScreenFade ScreenFade => _screenFade;
         
         /*[SerializeField] private SettingsUI _settingsUI;
         [SerializeField] private MessageGameUI _messageGameUI;

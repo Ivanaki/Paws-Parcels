@@ -46,10 +46,9 @@ namespace Paws_Parcels.Scripts.Car_Player.Respawn
         {
             if (_respawnService.TryGetNearestPoint(transform.position, out var pos, out _))
             {
-                _applyInFixUpdate.ObserveApply().Take(1).Subscribe(_ =>
-                {
-                    _characterController.transform.position = pos;
-                });
+                _characterController.enabled = false;
+                transform.position = pos;
+                _characterController.enabled = true;
             }
         }
     }
