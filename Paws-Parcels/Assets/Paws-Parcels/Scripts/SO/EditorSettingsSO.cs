@@ -11,6 +11,8 @@ namespace Paws_Parcels.Scripts.Saves.States.EditorSettings
         [field: SerializeField] public float MaxSensitivityOnSlider { get; private set; } = 1f;
         [field: SerializeField] public int MaxItemsInCar { get; private set; } = 6;
         [field: SerializeField] public float MaxCarSpeedWhenPlayerCanExit { get; private set; } = 1.5f;
+        [field: SerializeField] public float FadeDuration { get; private set; } = 0.4f;
+        [field: SerializeField] public float RespawnItemDropHeight { get; private set; } = 2f;
         
         /*public IReadOnlyList<string> Locations => _locations;
         

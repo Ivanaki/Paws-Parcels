@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 997925350026699121}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.86971045, z: -0.4935624, w: 0}
-  m_LocalPosition: {x: 0, y: 6.7750454, z: 3.2254646}
+  m_LocalPosition: {x: 402.76, y: 11.582979, z: 1026.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 5985402351895529857}
   - component: {fileID: 1044848858596468910}
   - component: {fileID: 3731635021461875093}
+  - component: {fileID: 1667889540677686855}
   m_Layer: 10
   m_Name: PlayerArmature
   m_TagString: Player
@@ -319,7 +320,7 @@ Transform:
   m_GameObject: {fileID: 6168173317745742414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 402.76, y: 5.038, z: 1022.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -561,6 +562,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c22054891444f6abbd22f54175d46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerTransformSetter
+--- !u!114 &1667889540677686855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168173317745742414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175b2cebb7519904ea4d424a62c9e40e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Car_Player.Respawn.PlayerRespawnChecker
+  _minHeight: 0.4156723
 --- !u!1 &6776699614683619619
 GameObject:
   m_ObjectHideFlags: 0

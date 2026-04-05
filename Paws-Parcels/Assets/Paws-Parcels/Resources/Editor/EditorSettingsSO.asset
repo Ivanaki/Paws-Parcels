@@ -17,3 +17,4 @@ MonoBehaviour:
   <MaxSensitivityOnSlider>k__BackingField: 2
   <MaxItemsInCar>k__BackingField: 6
   <MaxCarSpeedWhenPlayerCanExit>k__BackingField: 6.2
+  <FadeDuration>k__BackingField: 0.4

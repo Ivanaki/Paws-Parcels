@@ -8,6 +8,7 @@ using NPCDialogs;
 using Paws_Parcels.NPCDialogs;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Car_Player;
+using Paws_Parcels.Scripts.Car_Player.Respawn;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Quests;
 using Paws_Parcels.Scripts.Saves.States;
@@ -93,6 +94,7 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<MapObjectsDatabase>().AsSingle();
             Container.Bind<BuildingsLogic>().AsSingle();
             Container.Bind<CarUpService>().AsSingle();
+            Container.Bind<RespawnService>().AsSingle();
             Container.Bind<MapSetMarked>().AsSingle();
             
             //
