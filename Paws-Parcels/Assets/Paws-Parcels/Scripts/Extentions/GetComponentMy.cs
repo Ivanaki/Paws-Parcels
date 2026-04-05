@@ -1,7 +1,7 @@
 using Paws_Parcels.Extentions;
 using UnityEngine;
 
-namespace Extentions
+namespace Paws_Parcels.Extentions
 {
     public static class GetComponentMy
     {
