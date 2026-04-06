@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Paws_Parcels.Extentions;
 using Paws_Parcels.Scripts.Player;
@@ -13,6 +14,7 @@ namespace Car_Player
         [SerializeField] private Transform _ejectPoint;
         [SerializeField] private float _ejectForce = 5f;
         [SerializeField] private float _ejectUpForce = 2f;
+        [SerializeField] private float _seconds = 1.25f;
 
         [Inject] private GameStateProvider _gameStateProvider;
 
@@ -25,7 +27,7 @@ namespace Car_Player
             _disposable.Add(_gameStateProvider.GameProxy.IsPlayerInCar.Subscribe(value =>
             {
                 if (value)
-                    EjectAllItems();
+                    Observable.Timer(TimeSpan.FromSeconds(_seconds)).Subscribe(_ => EjectAllItems()).AddTo(this);
             }));
         }
 
