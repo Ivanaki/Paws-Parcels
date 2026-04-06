@@ -123,15 +123,16 @@ namespace UI.Core
         public bool TryCloseScreen()
         {
             if(_banOpen) return false;
-            
+
             var closeRes = _coreRootViewModel.TryCloseScreen();
-            
+
             if(closeRes == false) return false;
-            
+
             _cursorService.SetCursorStateLocked(true);
             _inputsCoreService.StopAllUiClosed();
             _inputsCoreService.NotDisableMovementUiClosed();
             Time.timeScale = 1f;
+            _messageSystem.SendCompositeMessage(this, "close_screen");
             return true;
         }
         
