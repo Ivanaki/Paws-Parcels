@@ -51,7 +51,9 @@ MonoBehaviour:
     SendMessageOnStartMission: show_hint:test
     SendMessageOnEndMission: 'on_open_quests/
 
-      hide_hint'
+      hide_hint/
+
+      alabuga'
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: bear

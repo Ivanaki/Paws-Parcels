@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Car_Player;
 using Items;
+using NaughtyAttributes;
 using Paws_Parcels.Scripts.Car_Player.Respawn;
 using Paws_Parcels.Scripts.Saves.States.EditorSettings;
 using R3;
@@ -48,6 +49,9 @@ namespace Paws_Parcels.Scripts.Player
         public override IReadOnlyList<string> ActivateLocations => _activeLocations;
 
         public Observable<Unit> OnDestroyObserve => _onDestroySubject;
+        
+        public bool IsSpawnForMessage => isSpawnForMessage;
+        public string Message => _message;
 
         [Header("Item prefab settings")]
         [SerializeField] private string _itemTypeId;
@@ -61,6 +65,10 @@ namespace Paws_Parcels.Scripts.Player
         
         [Header("Item in scene changes")]
         [SerializeField] private string _destinationId;
+        [SerializeField] private bool isSpawnForMessage;
+        [ShowIf(nameof(isSpawnForMessage))]
+        [SerializeField] private string _message;
+        
         
         private readonly Subject<Unit> _onDestroySubject = new();
         
