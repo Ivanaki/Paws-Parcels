@@ -83,6 +83,10 @@ MonoBehaviour:
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
+        - Id: destination_putter_on_elk
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
         - Id: put_inside
           NotHighlightOnAwake: 1
           OffHighlightMessage: drop
@@ -137,6 +141,10 @@ MonoBehaviour:
           OnHighlightMessage: drop
         - Id: book_3
           NotHighlightOnAwake: 1
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: put_inside
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: destination_putter_owl

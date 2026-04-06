@@ -43,52 +43,10 @@ MonoBehaviour:
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     ItemsInWorld:
-    - ItemTypeId: wheel
-      DestinationId: wheel_1
-      Position: {x: 226.32993, y: 3.151484, z: 1039.7063}
-      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: wheel
-      DestinationId: wheel_2
-      Position: {x: 226.32993, y: 3.495, z: 1039.7063}
-      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: wheel
-      DestinationId: wheel_3
-      Position: {x: 226.32993, y: 3.836, z: 1039.7063}
-      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: pie
-      DestinationId: pie_1
-      Position: {x: 302.26843, y: 4.5390005, z: 880.8557}
-      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: book
-      DestinationId: book_1
-      Position: {x: 223.94495, y: 3.716, z: 1038.701}
-      Rotation: {x: -2.524355e-29, y: -0, z: -4.235165e-22, w: 1.0000001}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: book
-      DestinationId: book_3
-      Position: {x: 224.41695, y: 3.6560001, z: 1039.346}
-      Rotation: {x: 1.2744536e-22, y: 0.30092204, z: -4.03886e-22, w: 0.9536488}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: book
-      DestinationId: book_2
-      Position: {x: 223.82793, y: 3.6560001, z: 1039.668}
-      Rotation: {x: 3.552758e-22, y: 0.8388713, z: -2.3053277e-22, w: 0.54432994}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: box
-      DestinationId: box_2
-      Position: {x: 396.98953, y: 5.017, z: 1026.471}
-      Rotation: {x: 0.013637371, y: 0.7069752, z: 0.70697534, w: -0.013637369}
+    - ItemTypeId: milk
+      DestinationId: milk_2
+      Position: {x: 433.12012, y: 3.176, z: 1214.4315}
+      Rotation: {x: 0, y: 0.7071068, z: -0, w: 0.7071068}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: box
@@ -98,33 +56,9 @@ MonoBehaviour:
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: box
-      DestinationId: box_cat
-      Position: {x: 396.04144, y: 4.940925, z: 1025.7548}
-      Rotation: {x: -0.7071069, y: -0.0000000037252903, z: -0.0000000037252903, w: 0.70710677}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: holst
-      DestinationId: holst_1
-      Position: {x: 406.80103, y: 5.9440007, z: 1027.4664}
-      Rotation: {x: 0.0045487816, y: 0.0057274885, z: 0.12309137, w: -0.9923684}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: ice
-      DestinationId: ice_1
-      Position: {x: 660.28674, y: 39.134, z: 952.53723}
-      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: ice
-      DestinationId: ice_2
-      Position: {x: 660.28674, y: 39.134, z: 951.598}
-      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: generator
-      DestinationId: generator_1
-      Position: {x: 432.58252, y: 3.336001, z: 1212.4028}
-      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
+      DestinationId: box_2
+      Position: {x: 396.98953, y: 5.017, z: 1026.471}
+      Rotation: {x: 0.013637371, y: 0.7069752, z: 0.70697534, w: -0.013637369}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: milk
@@ -133,16 +67,10 @@ MonoBehaviour:
       Rotation: {x: 0, y: 0.7071068, z: -0, w: 0.7071068}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: milk
-      DestinationId: milk_2
-      Position: {x: 433.12012, y: 3.176, z: 1214.4315}
-      Rotation: {x: 0, y: 0.7071068, z: -0, w: 0.7071068}
-      LinearVelocity: {x: 0, y: 0, z: 0}
-      AngularVelocity: {x: 0, y: 0, z: 0}
-    - ItemTypeId: bun
-      DestinationId: 
-      Position: {x: 302.33325, y: 4.5630007, z: 879.9094}
-      Rotation: {x: 0, y: -0, z: -0, w: 1.0000001}
+    - ItemTypeId: box
+      DestinationId: box_cat
+      Position: {x: 396.04144, y: 4.940925, z: 1025.7548}
+      Rotation: {x: -0.7071069, y: -0.0000000037252903, z: -0.0000000037252903, w: 0.70710677}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     IsItemInHandsNull: 1

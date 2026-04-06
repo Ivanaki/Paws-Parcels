@@ -314,11 +314,11 @@ MonoBehaviour:
       ManyDestinations:
         Destinations:
         - Id: box_1
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: box_2
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: destination_putter_elk

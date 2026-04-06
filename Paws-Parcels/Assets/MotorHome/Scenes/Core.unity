@@ -81622,6 +81622,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254535432}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1254597792 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2455425151414371202, guid: a2917ec6579897d47975508de0954229, type: 3}
+  m_PrefabInstance: {fileID: 1699262836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1254676403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94679,6 +94684,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9145160378802305644, guid: 92ba8f1692a15834ea54b902dc0d0ffa, type: 3}
   m_PrefabInstance: {fileID: 1400545657}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1401076832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2795656838794210503, guid: a2917ec6579897d47975508de0954229, type: 3}
+  m_PrefabInstance: {fileID: 1699262836}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1404634503
 PrefabInstance:
@@ -108034,6 +108044,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2297079555776101416, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: _itemPositions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297079555776101416, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: '_itemPositions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1254597792}
+    - target: {fileID: 2297079555776101416, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: '_itemPositions.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1401076832}
+    - target: {fileID: 2297079555776101416, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: '_itemPositions.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1401076832}
     - target: {fileID: 2455425151414371202, guid: a2917ec6579897d47975508de0954229, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.7219782
