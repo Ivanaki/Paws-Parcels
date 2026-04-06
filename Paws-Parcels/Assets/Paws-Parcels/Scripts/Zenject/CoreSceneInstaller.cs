@@ -1,5 +1,6 @@
 using Game.Root;
 using Items;
+using Items.MessageSpawnItems;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Player;
 using Services;
@@ -33,6 +34,7 @@ namespace MotorHome.Scripts.Installers
             
             //визуализация предметов в мире
             Container.BindInterfacesAndSelfTo<ItemsInWorldVisualizer>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<MessageSpawnItemsService>().AsSingle().NonLazy();
             
         }
     }

@@ -5,11 +5,19 @@ using ObservableCollections;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
+using Services;
 using UnityEngine;
 using Zenject;
 
 namespace Destinations
 {
+    [System.Serializable]
+    public class ItemClearDataWithMessage
+    {
+        public string Message;
+        public ItemClearData ItemData;
+    }
+    
     public class ItemDestinationPutter : InteractableObject
     {
         public override string DestinationId => _destinationId;
@@ -36,13 +44,15 @@ namespace Destinations
         [SerializeField] private List<string> _avalibleItemsTypes;
         
         [Header("Items for start")] 
-        [SerializeField] private List<ItemClearData> _itemsOnAwake;
+        [SerializeField] private List<ItemClearDataWithMessage> _itemsClearDatas;
 
         [Inject] private GameProxy _gameProxy;
         [Inject] private ItemDestinationPutterService _itemDestinationPutterService;
         [Inject] private ItemsDatabase _itemsDatabase;
+        [Inject] private MessageSystem _messageSystem;
         
         private List<GameObject> _itemsCurrentActive = new();
+        private readonly CompositeDisposable _disposables = new();
         private IDisposable _subscription;
         
         private ReactiveProperty<string> _uiShowTextCodeRP = new("Bug");
@@ -57,6 +67,15 @@ namespace Destinations
                 {
                     Destroy(child.gameObject);
                 }
+            });
+            
+            _itemsClearDatas.ForEach(x =>
+            {
+                _disposables.Add(_messageSystem.AddListenerWithManyMessages(x.Message).Subscribe(_ =>
+                {
+                    _itemDestinationPutterService.AddItemInDestinationPutter(_itemDestinationPutterId, 
+                        _itemsPositions.Count, _avalibleItemsTypes, x.ItemData.ItemTypeId, x.ItemData.DestinationId);
+                }));
             });
         }
         
@@ -76,15 +95,6 @@ namespace Destinations
                 UpdateSubscription();
                 UpdateItems();
             }));
-        }
-
-        protected override void Start()
-        {
-            _itemsOnAwake.ForEach(x =>
-            {
-                _itemDestinationPutterService.AddItemInDestinationPutter(_itemDestinationPutterId,
-                    _itemsPositions.Count, _avalibleItemsTypes, x.ItemTypeId, x.DestinationId);
-            });
         }
 
         protected override void OnDisable()

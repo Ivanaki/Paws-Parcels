@@ -1064,6 +1064,8 @@ MonoBehaviour:
   _itemDestinationPutterId: destination_putter_on_elk
   _itemsPositions:
   - {fileID: 1912420801}
+  _avalibleItemsTypes: []
+  _itemsClearDatas: []
 --- !u!1001 &11581195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23089,6 +23091,7 @@ MonoBehaviour:
   _ejectPoint: {fileID: 419528979}
   _ejectForce: 5
   _ejectUpForce: 2
+  _seconds: 1.25
 --- !u!1001 &295240645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29635,6 +29638,8 @@ MonoBehaviour:
     _prefab: Assets/Paws-Parcels/Prefabs/Player.prefab
   - _gameObject: {fileID: 925236027}
     _prefab: Assets/MotorHome/Animations/Dog/dog_ALL_anim.fbx
+  - _gameObject: {fileID: 925236026}
+    _prefab: Assets/Paws-Parcels/Prefabs/Player.prefab
   - _gameObject: {fileID: 1699262837}
     _prefab: Assets/Paws-Parcels/Prefabs/Car/MyCar.prefab
   - _gameObject: {fileID: 1699262838}
@@ -70832,6 +70837,8 @@ MonoBehaviour:
   _itemDestinationPutterId: destination_putter_food_puma
   _itemsPositions:
   - {fileID: 1656829554}
+  _avalibleItemsTypes: []
+  _itemsClearDatas: []
 --- !u!1001 &1069152630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76082,8 +76089,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 2126400589}
     m_Modifications:
     - target: {fileID: 559612164635482445, guid: 7254c2a2d263a8147a41e4e0ff3bf469, type: 3}
+      propertyPath: _message
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 559612164635482445, guid: 7254c2a2d263a8147a41e4e0ff3bf469, type: 3}
       propertyPath: _destinationId
       value: fence_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 559612164635482445, guid: 7254c2a2d263a8147a41e4e0ff3bf469, type: 3}
+      propertyPath: isSpawnForMessage
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8124378497266538103, guid: 7254c2a2d263a8147a41e4e0ff3bf469, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82300,6 +82315,8 @@ MonoBehaviour:
   _itemDestinationPutterId: destination_putter_holst_puma
   _itemsPositions:
   - {fileID: 1912420801}
+  _avalibleItemsTypes: []
+  _itemsClearDatas: []
 --- !u!4 &1300816587
 Transform:
   m_ObjectHideFlags: 0
@@ -98193,6 +98210,13 @@ MonoBehaviour:
   - {fileID: 372639120}
   - {fileID: 948248974}
   - {fileID: 871239877}
+  _avalibleItemsTypes:
+  - cube
+  _itemsClearDatas:
+  - Message: alabuga
+    ItemData:
+      ItemTypeId: cube
+      DestinationId: 55555555
 --- !u!1001 &1500101995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -290499,6 +290523,8 @@ MonoBehaviour:
   _itemDestinationPutterId: destination_putter_holst_bear
   _itemsPositions:
   - {fileID: 1885247109}
+  _avalibleItemsTypes: []
+  _itemsClearDatas: []
 --- !u!1 &7513860930646202868
 GameObject:
   m_ObjectHideFlags: 0

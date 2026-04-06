@@ -98,7 +98,13 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             _selectedQuest.Value = origin.SelectedQuest;
             
             ActiveQuests.Clear();
-            origin.ActiveQuests.ForEach(questData => ActiveQuests.Add(new QuestDataProxy(questData)));
+            origin.ActiveQuests.ForEach(questData => ActiveQuests.Add(new QuestDataProxy(new QuestData
+            {
+                Id = questData.Id,
+                CurrentMission = questData.CurrentMission,
+                ActiveDestinations = new List<string>(questData.ActiveDestinations),
+                MessageProgress = questData.MessageProgress
+            })));
             
             SucceedQuests.Clear();
             origin.SucceedQuests.ForEach(questData => SucceedQuests.Add(questData));

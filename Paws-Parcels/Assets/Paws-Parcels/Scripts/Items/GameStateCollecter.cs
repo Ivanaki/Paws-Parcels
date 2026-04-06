@@ -1,8 +1,8 @@
 #if UNITY_EDITOR
+using Items.MessageSpawnItems;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using UnityEditor;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 namespace Paws_Parcels.Scripts
@@ -46,6 +46,7 @@ namespace Paws_Parcels.Scripts
             
             //items
             var items = GameObject.FindGameObjectsWithTag("Item");
+            var messageSpawnItemSO = Resources.Load<MessageSpawnItemsSO>("Editor/MessageSpawnItems");
             if (items != null && items.Length > 0)
             {
                 so.GameState.ItemsInWorld.Clear();
@@ -54,22 +55,42 @@ namespace Paws_Parcels.Scripts
                     if(itemGameObject == null || itemGameObject.activeInHierarchy == false) continue;
                     
                     var item = itemGameObject.GetComponent<Item>();
-                    so.GameState.ItemsInWorld.Add(new ItemData()
+
+                    if (item.IsSpawnForMessage)
                     {
-                        ItemTypeId = item.ItemTypeId,
-                        DestinationId = item.DestinationId,
-                        Position = itemGameObject.transform.position,
-                        Rotation = itemGameObject.transform.rotation,
-                        AngularVelocity = Vector3.zero,
-                        LinearVelocity = Vector3.zero,
-                    });
+                        messageSpawnItemSO.ItemDataWithMessages.Add(new()
+                        {
+                            Message = item.Message,
+                            ItemData = new()
+                            {
+                                ItemTypeId = item.ItemTypeId,
+                                DestinationId = item.DestinationId,
+                                Position = itemGameObject.transform.position,
+                                Rotation = itemGameObject.transform.rotation,
+                                AngularVelocity = Vector3.zero,
+                                LinearVelocity = Vector3.zero
+                            }
+                        });
+                    }
+                    else
+                    {
+                        so.GameState.ItemsInWorld.Add(new ItemData()
+                        {
+                            ItemTypeId = item.ItemTypeId,
+                            DestinationId = item.DestinationId,
+                            Position = itemGameObject.transform.position,
+                            Rotation = itemGameObject.transform.rotation,
+                            AngularVelocity = Vector3.zero,
+                            LinearVelocity = Vector3.zero,
+                        });
+                    }
                 }
-#if UNITY_EDITOR
+
                 EditorUtility.SetDirty(so);
                 // Дополнительно: сохраняем изменения в файл
                 AssetDatabase.SaveAssetIfDirty(so);
                 AssetDatabase.Refresh();
-#endif
+
             }
             else
             {

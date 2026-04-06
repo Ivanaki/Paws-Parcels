@@ -74,7 +74,7 @@ namespace Destinations
 
             if (availableItemsTypes.Contains(itemTypeId) == false)
             {
-                Debug.Log("Cant add item to " + itemTypeId);
+                Debug.LogError("Cant add item to " + itemTypeId);
                 return false;
             }
 
