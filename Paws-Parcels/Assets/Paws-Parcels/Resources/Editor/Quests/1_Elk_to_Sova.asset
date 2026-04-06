@@ -85,12 +85,24 @@ MonoBehaviour:
           OnHighlightMessage: drop
         - Id: destination_putter_on_elk
           NotHighlightOnAwake: 0
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
+          OffHighlightMessage: 'destination_putter_on_elk-take/
+
+            take_inside_car'
+          OnHighlightMessage: 'destination_putter_on_elk-put/
+
+            put_inside_car'
         - Id: put_inside
           NotHighlightOnAwake: 1
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+          OffHighlightMessage: 'put_inside_car/
+
+            destination_putter_on_elk-put/
+
+            drop'
+          OnHighlightMessage: 'take_inside_car/
+
+            destination_putter_on_elk-take/
+
+            pickup'
     IsMany: 0
     Message:
       Message: 'put_inside_car:book_1/
@@ -132,39 +144,51 @@ MonoBehaviour:
       ManyDestinations:
         Destinations:
         - Id: book_1
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: book_2
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: book_3
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: put_inside
-          NotHighlightOnAwake: 0
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: 'put_inside_car/
+
+            destination_putter_on_elk-put/
+
+            drop'
+          OnHighlightMessage: 'take_inside_car/
+
+            destination_putter_on_elk-take/
+
+            pickup'
         - Id: destination_putter_owl
           NotHighlightOnAwake: 0
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+          OffHighlightMessage: 'destination_putter_on_elk-take/
+
+            take_inside_car'
+          OnHighlightMessage: 'destination_putter_on_elk-put/
+
+            put_inside_car'
     IsMany: 0
     Message:
-      Message: 'destination_putter_sova-put:book_1/
+      Message: 'destination_putter_owl-put:book_1/
 
-        destination_putter_sova-put:book_2/
+        destination_putter_owl-put:book_2/
 
-        destination_putter_sova-put:book_3'
+        destination_putter_owl-put:book_3'
       HasCount: 1
       MessageCount: 3
-      MinusMessage: 'destination_putter_sova-taked:book_1/
+      MinusMessage: 'destination_putter_owl-taked:book_1/
 
-        destination_putter_sova-taked:book_2/
+        destination_putter_owl-taked:book_2/
 
-        destination_putter_sova-taked:book_3'
+        destination_putter_owl-taked:book_3'
     ManyMessages:
       Messages: []
   MoneyReward: 0
