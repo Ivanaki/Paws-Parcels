@@ -33,6 +33,10 @@ namespace Destinations
         [Header("ItemDestination Settings")]
         [SerializeField] private string _itemDestinationPutterId;
         [SerializeField] private List<Transform> _itemsPositions;
+        [SerializeField] private List<string> _avalibleItemsTypes;
+        
+        [Header("Items for start")] 
+        [SerializeField] private List<ItemClearData> _itemsOnAwake;
 
         [Inject] private GameProxy _gameProxy;
         [Inject] private ItemDestinationPutterService _itemDestinationPutterService;
@@ -66,11 +70,21 @@ namespace Destinations
             _disposables.Add(_gameProxy.IsItemInHandsNull.Subscribe(isNull => 
                 _uiShowTextCodeRP.Value = isNull ? _uiShowTextCodeWithoutItem : _uiShowTextCodeWithItem));
             
-            _disposables.Add(_gameProxy.ItemsDestinationsPutters.ObserveChanged().Subscribe(e =>
+            _disposables.Add(_gameProxy.ItemsDestinationsPutters.ObserveChanged()
+                .Subscribe(e =>
             {
                 UpdateSubscription();
                 UpdateItems();
             }));
+        }
+
+        protected override void Start()
+        {
+            _itemsOnAwake.ForEach(x =>
+            {
+                _itemDestinationPutterService.AddItemInDestinationPutter(_itemDestinationPutterId,
+                    _itemsPositions.Count, _avalibleItemsTypes, x.ItemTypeId, x.DestinationId);
+            });
         }
 
         protected override void OnDisable()
@@ -82,7 +96,7 @@ namespace Destinations
         public override void Interact()
         {
             _itemDestinationPutterService.TryPutOrTakeItemInDestination(_itemDestinationPutterId,
-                _itemsPositions.Count);
+                _itemsPositions.Count, _avalibleItemsTypes);
         }
 
         private void UpdateSubscription()
@@ -111,7 +125,8 @@ namespace Destinations
                 {
                     var item = itemDestinationsPutter.Items[i];
 
-                    if (_itemsDatabase.ItemsTypeInsideCarPrefabsDict.TryGetValue(item.ItemTypeId, out var itemPrefab))
+                    if (_itemsDatabase.ItemsTypeInsideCarPrefabsDict.TryGetValue(item.ItemTypeId, 
+                            out var itemPrefab))
                     {
                         var spawned = Instantiate(itemPrefab, _itemsPositions[i]);
                         spawned.transform.localPosition = itemPrefab.LocalPosition;

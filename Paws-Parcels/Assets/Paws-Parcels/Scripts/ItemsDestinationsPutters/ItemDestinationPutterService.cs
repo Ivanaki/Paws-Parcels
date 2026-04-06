@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Linq;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using Services;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Destinations
@@ -17,7 +19,8 @@ namespace Destinations
             _gameProxy = gameStateProvider.GameProxy;
         }
 
-        public bool TryPutOrTakeItemInDestination(string itemDestinationPutterId, int maxItems)
+        public bool TryPutOrTakeItemInDestination(string itemDestinationPutterId, int maxItems, 
+            List<string> availableItemsTypes)
         {
             if (_gameProxy.IsItemInHandsNull.Value)
             {
@@ -32,7 +35,8 @@ namespace Destinations
                         _gameProxy.InHandsItemTypeId.Value = lastItem.ItemTypeId;
                         _gameProxy.InHandsDestinationId = lastItem.DestinationId;
                         
-                        _messageSystem.SendCompositeMessage(this, itemDestinationPutterId + "-take:" + lastItem.DestinationId);
+                        _messageSystem.SendCompositeMessage(this, 
+                            itemDestinationPutterId + "-take:" + lastItem.DestinationId);
                         
                         return true;
                     }
@@ -40,38 +44,57 @@ namespace Destinations
             }
             else //что-то есть
             {
-                if (string.IsNullOrEmpty(_gameProxy.InHandsItemTypeId.Value))
-                {
-                    Debug.LogError("InHandsItemTypeId is null or empty");
-                    return false;
-                }
-
-                if (_gameProxy.ItemsDestinationsPutters.ContainsKey(itemDestinationPutterId) == false) 
-                    _gameProxy.ItemsDestinationsPutters.Add(itemDestinationPutterId,
-                        new ItemDestinationProxy(new ItemDestinationData()));
-                
-                var itemDestinationProxy = _gameProxy.ItemsDestinationsPutters[itemDestinationPutterId];
-                
-                if(itemDestinationProxy.Items.Count == maxItems) return false;
-                
-                itemDestinationProxy.Items.Add(new(new ()
-                {
-                    ItemTypeId = _gameProxy.InHandsItemTypeId.Value,
-                    DestinationId = _gameProxy.InHandsDestinationId
-                }));
-                
-                _messageSystem.SendCompositeMessage(this, itemDestinationPutterId + "-put:" + _gameProxy.InHandsDestinationId);
+                var result = AddItem(itemDestinationPutterId, maxItems, availableItemsTypes,
+                    _gameProxy.InHandsItemTypeId.Value, _gameProxy.InHandsDestinationId);
                 
                 _gameProxy.IsItemInHandsNull.Value = true;
                 _gameProxy.InHandsItemTypeId.Value = "";
                 _gameProxy.InHandsDestinationId = "";
                 
-                
-                
-                return true;
+                return result;
             }
 
             return false;
+        }
+
+        public bool AddItemInDestinationPutter(string itemDestinationPutterId, int maxItems, 
+            List<string> availableItemsTypes, string itemTypeId, string itemDestinationId)
+        {
+            return AddItem(itemDestinationPutterId, maxItems, availableItemsTypes, itemTypeId, itemDestinationId);
+        }
+
+        private bool AddItem(string itemDestinationPutterId, int maxItems, 
+            List<string> availableItemsTypes, string itemTypeId, string itemDestinationId)
+        {
+            if (string.IsNullOrEmpty(itemTypeId))
+            {
+                Debug.LogError("InHandsItemTypeId is null or empty");
+                return false;
+            }
+
+            if (availableItemsTypes.Contains(itemTypeId) == false)
+            {
+                Debug.Log("Cant add item to " + itemTypeId);
+                return false;
+            }
+
+            if (_gameProxy.ItemsDestinationsPutters.ContainsKey(itemDestinationPutterId) == false) 
+                _gameProxy.ItemsDestinationsPutters.Add(itemDestinationPutterId,
+                    new ItemDestinationProxy(new ItemDestinationData()));
+                
+            var itemDestinationProxy = _gameProxy.ItemsDestinationsPutters[itemDestinationPutterId];
+                
+            if(itemDestinationProxy.Items.Count == maxItems) return false;
+                
+            itemDestinationProxy.Items.Add(new(new ()
+            {
+                ItemTypeId = itemTypeId,
+                DestinationId = itemDestinationId
+            }));
+                
+            _messageSystem.SendCompositeMessage(this, 
+                itemDestinationPutterId + "-put:" + _gameProxy.InHandsDestinationId);
+            return true;
         }
     }
 }

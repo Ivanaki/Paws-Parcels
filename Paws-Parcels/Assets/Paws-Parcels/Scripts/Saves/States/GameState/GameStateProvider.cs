@@ -184,7 +184,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                 SaveId = newID,
                 SaveName = saveName,
                 SaveDataTimeUtc = dateTime,
-                TrackedQuestCode = /*_questsService.GetQuestCode(GameProxy.TrackedMissionID.Value)*/"dddddddd",
+                TrackedQuestCode = GameProxy.SelectedQuest.CurrentValue,
                 CurrentLocationCode = _interactablesLocationsService.GetCurrentLocationCode(),
                 IsAutoSave = isAutoSave,
                 GameVersion = GameVersion,

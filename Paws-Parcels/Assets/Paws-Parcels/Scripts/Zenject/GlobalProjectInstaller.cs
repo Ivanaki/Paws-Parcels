@@ -114,7 +114,7 @@ namespace MotorHome.Scripts.Installers
             //в global bindings нет смысла биндить интерфейсы IDisposable
             Container.BindInterfacesAndSelfTo<ApplyInFixUpdate>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameInputService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<PutInCarItemsService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PutInCarItemsService>().AsSingle().NonLazy();
             
             //Old bindings
             
