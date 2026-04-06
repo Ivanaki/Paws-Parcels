@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b0214fdecfa074a8710d6facd4e857, type: 3}
+  m_Name: Weasel
+  m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.NPCDialogs.CharacterPortraitData
+  localizedNames:
+  - "\u0411\u0443\u043B\u043E\u0447\u043D\u0438\u0446\u0430"
+  - Puma
+  isPlayer: 0
+  emotions:
+  - emotionName: idle
+    mouthClosed: {fileID: 21300000, guid: d2211228e4f39c841a337cfd278c5c2b, type: 3}
+    mouthOpen: {fileID: 21300000, guid: 9299b96cdba99b3439a0a98e3c35bcaf, type: 3}
+  - emotionName: sad
+    mouthClosed: {fileID: 21300000, guid: 6cb5a3fb29cb2f54aac7b582d714e874, type: 3}
+    mouthOpen: {fileID: 21300000, guid: 84b56853e1334834798632b79f151443, type: 3}
+  - emotionName: smile
+    mouthClosed: {fileID: 21300000, guid: edb614fb13d1c7244b9808b07a6755c8, type: 3}
+    mouthOpen: {fileID: 21300000, guid: 23e60a6fd827a0942bf399839660423e, type: 3}
+  - emotionName: surprise
+    mouthClosed: {fileID: 21300000, guid: f5b156cd8d78239499d87a2d828423d5, type: 3}
+    mouthOpen: {fileID: 21300000, guid: 929ad4da460072b46804caeb1ac733a6, type: 3}

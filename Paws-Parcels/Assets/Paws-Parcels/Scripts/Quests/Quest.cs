@@ -40,7 +40,9 @@ namespace Paws_Parcels.Scripts.Quests
         [AllowNesting, MinValue(0)]
         public float ActivationDistance = 10f;*/
         public bool NotHighlightOnAwake;
+        [TextArea(1, 10)]
         public string OffHighlightMessage;
+        [TextArea(1, 10)]
         public string OnHighlightMessage;
     }
     

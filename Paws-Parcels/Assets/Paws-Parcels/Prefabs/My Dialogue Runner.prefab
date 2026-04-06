@@ -192,7 +192,8 @@ MonoBehaviour:
   typewriterStyle: 1
   lettersPerSecond: 60
   wordsPerSecond: 10
-  customTypewriter: {fileID: 0}
+  customTypewriter:
+    targetObject: {fileID: 0}
   eventHandlers:
   - {fileID: 6105166713004162010}
 --- !u!1 &2695035736982122696

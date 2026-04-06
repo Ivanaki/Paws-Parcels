@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b0214fdecfa074a8710d6facd4e857, type: 3}
+  m_Name: Cat
+  m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.NPCDialogs.CharacterPortraitData
+  localizedNames:
+  - "\u041A\u043E\u0442\u0438\u043A"
+  - Cat
+  isPlayer: 0
+  emotions:
+  - emotionName: idle
+    mouthClosed: {fileID: 21300000, guid: 4640be22f3432a74aa057d48c3968022, type: 3}
+    mouthOpen: {fileID: 21300000, guid: 90a05214c2b302644a9d5e6248166cd0, type: 3}
+  - emotionName: sad
+    mouthClosed: {fileID: 21300000, guid: e24955309a3302048a08d596e32af9c1, type: 3}
+    mouthOpen: {fileID: 21300000, guid: fa80c191b3643194598a625ddb7f59ac, type: 3}
+  - emotionName: smile
+    mouthClosed: {fileID: 21300000, guid: f67af3c2e37f53a4bbc410565a8364ab, type: 3}
+    mouthOpen: {fileID: 21300000, guid: 24e22c32273b2e64586724121ffa7131, type: 3}
+  - emotionName: surprise
+    mouthClosed: {fileID: 21300000, guid: 6974288383ee2c440a4f300dbd0f0445, type: 3}
+    mouthOpen: {fileID: 21300000, guid: 10c2d47d5988be74b9b37f989946a53a, type: 3}
