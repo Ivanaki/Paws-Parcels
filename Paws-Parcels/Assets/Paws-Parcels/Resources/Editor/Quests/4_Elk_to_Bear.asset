@@ -17,7 +17,9 @@ MonoBehaviour:
   Missions:
   - MissionId: 1
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: 'spawn_podholst/
+
+      spawn_holst'
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: elk

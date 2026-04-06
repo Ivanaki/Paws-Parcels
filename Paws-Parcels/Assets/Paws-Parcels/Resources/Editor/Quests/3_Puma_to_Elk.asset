@@ -92,7 +92,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 3
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: spawn_wheel
     SendMessageOnEndMission: activate_quest:4_Elk_to_Bear
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -119,13 +119,13 @@ MonoBehaviour:
           NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: destination_putter_elk
+        - Id: destination_putter_on_elk
           NotHighlightOnAwake: 0
           OffHighlightMessage: drop
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: destination_putter_elk-put:pie_1
+      Message: destination_putter_on_elk-put:pie_1
       HasCount: 0
       MessageCount: 3
       MinusMessage: 'destination_putter_elk-take:book_1/

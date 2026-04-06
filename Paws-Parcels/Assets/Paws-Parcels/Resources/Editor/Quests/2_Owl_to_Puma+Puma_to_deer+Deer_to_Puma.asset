@@ -17,7 +17,7 @@ MonoBehaviour:
   Missions:
   - MissionId: 1
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: despawn_putter_elk
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: owl
@@ -81,7 +81,7 @@ MonoBehaviour:
       Messages: []
   - MissionId: 3
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: spawn_pie
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: deer
@@ -197,14 +197,14 @@ MonoBehaviour:
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'put_inside_car:milk_1/
+      Message: 'destination_putter_puma-put:milk_1/
 
-        put_inside_car:milk_2'
+        destination_putter_puma-put:milk_2'
       HasCount: 1
       MessageCount: 2
-      MinusMessage: 'take_inside_car:milk_1/
+      MinusMessage: 'destination_putter_puma-taked:milk_1/
 
-        take_inside_car:milk_2'
+        destination_putter_puma-taked:milk_2'
     ManyMessages:
       Messages: []
   MoneyReward: 0

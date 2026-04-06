@@ -17,7 +17,7 @@ MonoBehaviour:
   Missions:
   - MissionId: 1
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: spawn_ice
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: puma
@@ -92,7 +92,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 3
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: spawn_putter_deer
     SendMessageOnEndMission: activate_quest:7_Owl_to_Deer
     IsThisMissionDialogue: 0
     DialogueParent:

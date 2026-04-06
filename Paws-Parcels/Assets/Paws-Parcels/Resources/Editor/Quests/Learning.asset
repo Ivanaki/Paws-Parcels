@@ -49,11 +49,7 @@ MonoBehaviour:
       Messages: []
   - MissionId: 1
     SendMessageOnStartMission: show_hint:test
-    SendMessageOnEndMission: 'on_open_quests/
-
-      hide_hint/
-
-      alabuga'
+    SendMessageOnEndMission: hide_hint
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: bear
@@ -294,7 +290,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 7
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: spawn_book
     SendMessageOnEndMission: activate_quest:1_elk_to_sova
     IsThisMissionDialogue: 0
     DialogueParent:

@@ -152,9 +152,9 @@ MonoBehaviour:
         destination_putter_sova-put:book_3'
       HasCount: 1
       MessageCount: 3
-      MinusMessage: 'destination_putter_sova-take:book_1/
+      MinusMessage: 'destination_putter_sova-taked:book_1/
 
-        destination_putter_sova-take:book_2/
+        destination_putter_sova-taked:book_2/
 
         destination_putter_sova-taked:book_3'
     ManyMessages:

@@ -17,7 +17,7 @@ MonoBehaviour:
   Missions:
   - MissionId: 1
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: spawn_generator
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: owl

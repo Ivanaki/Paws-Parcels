@@ -385,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2349141763175433749}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.69882244, z: -0, w: 0.7152952}
+  m_LocalRotation: {x: -0, y: -0.6988211, z: 0, w: -0.7152965}
   m_LocalPosition: {x: 0.031, y: -0.647, z: 0.073}
   m_LocalScale: {x: 0.5803337, y: 0.5803339, z: 0.5803337}
   m_ConstrainProportionsScale: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInsideCar
   _itemTypeId: bun
-  _localPosition: {x: 0.031, y: -0.647, z: 0.073}
+  _localPosition: {x: 0.098, y: 0, z: 0.002}
   _localRotation: {x: -0, y: 0.69882244, z: -0, w: 0.7152952}
 --- !u!1 &2464926002732602691
 GameObject:

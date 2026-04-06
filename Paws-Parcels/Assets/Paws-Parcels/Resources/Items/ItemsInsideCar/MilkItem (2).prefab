@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInsideCar
   _itemTypeId: milk
-  _localPosition: {x: 0.028, y: -0.015, z: 0.056}
+  _localPosition: {x: 0.028, y: -0.001, z: 0.056}
   _localRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
 --- !u!1 &8555960407489963340
 GameObject:

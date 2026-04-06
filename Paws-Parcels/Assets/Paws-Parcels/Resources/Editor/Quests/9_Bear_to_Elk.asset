@@ -75,20 +75,14 @@ MonoBehaviour:
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: ball_1
-          NotHighlightOnAwake: 0
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
         - Id: put_up
           NotHighlightOnAwake: 1
           OffHighlightMessage: drop
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'item_on_roof:fence_1/
-
-        item_on_roof:ball_1'
-      HasCount: 1
+      Message: item_on_roof:fence_1
+      HasCount: 0
       MessageCount: 2
       MinusMessage: 'item_down_roof:fence_1/
 
@@ -123,20 +117,14 @@ MonoBehaviour:
           NotHighlightOnAwake: 1
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: ball_1
-          NotHighlightOnAwake: 1
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
-        - Id: destination_putter_bear
+        - Id: destination_putter_fence
           NotHighlightOnAwake: 0
           OffHighlightMessage: drop
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'destination_putter_bear-put:fence_1/
-
-        destination_putter_bear-put:ball_1'
-      HasCount: 1
+      Message: destination_putter_fence-put:fence_1
+      HasCount: 0
       MessageCount: 2
       MinusMessage: 'destination_putter_bear-taked:fence_1/
 
