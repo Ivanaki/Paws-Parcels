@@ -11,25 +11,26 @@ namespace Car_Player
     public class HintData
     {
         public string Name;
-        public Sprite Image;
+        public GameObject Prefab;
 
-        public HintData(string name, Sprite image)
+        public HintData(string name, GameObject prefab)
         {
             Name = name;
-            Image = image;
+            Prefab = prefab;
         }
     }
 
     public class Hint : MonoBehaviour, IShowableInUI
     {
-        public ReadOnlyReactiveProperty<Sprite> Image { get; private set; }
+        public ReadOnlyReactiveProperty<GameObject> Prefab { get; private set; }
         public string UiShowTypeId => "hint";
+        
         public Vector3 GetGlobalPositionShowablePoint() => transform.position;
         public bool IsDestroyed() => this == null;
 
-        public void SetReactive(ReactiveProperty<Sprite> im)
+        public void SetReactive(ReactiveProperty<GameObject> im)
         {
-            Image = im;
+            Prefab = im;
         }
     }
     
@@ -39,7 +40,7 @@ namespace Car_Player
         private PlayerHint _playerHint;
         private CarHint _carHint;
 
-        private readonly ReactiveProperty<Sprite> _hintImage = new(null);
+        private readonly ReactiveProperty<GameObject> _prefabImage = new(null);
         
         private readonly ReactiveProperty<Transform> _currentHintPosition = new(null);
 
@@ -50,7 +51,7 @@ namespace Car_Player
             gameProxy.IsPlayerInCar.Subscribe(_ => UpdateHint());
 
             var t = new GameObject("Hint").AddComponent<Hint>();
-            t.SetReactive(_hintImage);
+            t.SetReactive(_prefabImage);
             
             _currentHintPosition.Subscribe(hintTransform =>
             {
@@ -60,7 +61,7 @@ namespace Car_Player
                 t.transform.localRotation = Quaternion.identity;
             });
 
-            _hintImage.Subscribe(image =>
+            _prefabImage.Subscribe(image =>
             {
                 if (image == null) canvasUiVisualizer.HideOnCanvas(t);
                 else canvasUiVisualizer.ShowOnCanvas(t);
@@ -68,13 +69,13 @@ namespace Car_Player
 
             messageSystem.AddListenerWithManyMessages("show_hint").Subscribe(mes =>
             {
-                var image = editor.EditorSettings.Hints.FirstOrDefault(x => x.Name == mes.parameter)?.Image;
-                _hintImage.Value = image;
+                var prefab = editor.EditorSettings.Hints.FirstOrDefault(x => x.Name == mes.parameter)?.Prefab;
+                _prefabImage.Value = prefab;
             });
 
             messageSystem.AddListenerWithManyMessages("hide_hint").Subscribe(_ =>
             {
-                _hintImage.Value = null;
+                _prefabImage.Value = null;
             });
         }
 

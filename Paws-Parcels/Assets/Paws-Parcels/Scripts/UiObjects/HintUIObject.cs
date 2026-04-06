@@ -8,9 +8,10 @@ namespace Services
 {
     public class HintUIObject : UiObject
     {
-        [SerializeField] private Image _image;
+        [SerializeField] private Transform _grid;
         
-        private CompositeDisposable _disposable;
+        private CompositeDisposable _disposables;
+        private GameObject _currentHint;
         
         public override void Construct(IShowableInUI showableInUIObject)
         {
@@ -22,18 +23,24 @@ namespace Services
                 return;
             }
 
-            _disposable = new CompositeDisposable();
+            _disposables = new CompositeDisposable();
             
-            _disposable.Add(hint.Image.Subscribe(v =>
+            _disposables.Add(hint.Prefab.Subscribe(prefab =>
             {
-                if(v != null)
-                    _image.sprite = v;
+                if(prefab == null) return;
+                
+                if(_currentHint != null) 
+                    Destroy(_currentHint);
+                
+                _currentHint = Instantiate(prefab, _grid);
+                _currentHint.transform.localPosition = Vector3.zero;
+                _currentHint.transform.localRotation = Quaternion.identity;
             }));
         }
         
         private void OnDestroy()
         {
-            _disposable?.Dispose();
+            _disposables?.Dispose();
         }
     }
 }
