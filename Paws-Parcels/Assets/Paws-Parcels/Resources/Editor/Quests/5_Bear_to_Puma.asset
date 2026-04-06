@@ -48,7 +48,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 2
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: update_items_up_message
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -85,10 +85,8 @@ MonoBehaviour:
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'item_on_roof:holst_1/
-
-        item_on_roof:holst_2'
-      HasCount: 1
+      Message: item_on_roof:holst_1
+      HasCount: 0
       MessageCount: 2
       MinusMessage: 'item_down_roof:holst_1/
 
@@ -97,7 +95,7 @@ MonoBehaviour:
       Messages: []
   - MissionId: 3
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: activate_quest:6_Puma_to_Owl
     IsThisMissionDialogue: 0
     DialogueParent:
       NpcName: elk
@@ -129,10 +127,8 @@ MonoBehaviour:
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: 'destination_putter_puma-put:holst_1/
-
-        destination_putter_puma-put:holst_2'
-      HasCount: 1
+      Message: destination_putter_puma-put:holst_1
+      HasCount: 0
       MessageCount: 2
       MinusMessage: 'destination_putter_puma-taked:holst_1/
 

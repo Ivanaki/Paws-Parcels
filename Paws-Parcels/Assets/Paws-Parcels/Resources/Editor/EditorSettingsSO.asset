@@ -21,5 +21,5 @@ MonoBehaviour:
   <RespawnItemDropHeight>k__BackingField: 2
   <ItemMinHeight>k__BackingField: 0.4
   <Hints>k__BackingField:
-  - Name: test
-    Image: {fileID: -245170646, guid: 021e78f28dd50d243b7f75a52d11e3f4, type: 3}
+  - Name: put
+    Image: {fileID: 21300000, guid: e454b69ae03536f40858eabe432e5a80, type: 3}

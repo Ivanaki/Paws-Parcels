@@ -48,7 +48,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 2
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: update_items_inside_message
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -105,7 +105,7 @@ MonoBehaviour:
       Messages: []
   - MissionId: 2
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: activate_quest:2_Owl_to_Puma
     IsThisMissionDialogue: 0
     DialogueParent:
       NpcName: elk

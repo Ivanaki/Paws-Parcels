@@ -48,7 +48,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 2
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: update_items_up_message
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:

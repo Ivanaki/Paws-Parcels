@@ -15,10 +15,40 @@ MonoBehaviour:
   Id: learning
   ActiveOnAwake: 1
   Missions:
+  - MissionId: 0
+    SendMessageOnStartMission: start_cutscene-ferst
+    SendMessageOnEndMission: on_open_quests
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: bear
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Bear
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: BearEat
+    HasBuildingDestination: 0
+    BuildingDestinationId: school
+    HasDestination: 0
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: bear
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations: []
+    IsMany: 0
+    Message:
+      Message: cutscene_ended:ferst
+      HasCount: 0
+      MessageCount: 0
+      MinusMessage: 
+    ManyMessages:
+      Messages: []
   - MissionId: 1
-    SendMessageOnStartMission: 'start_cutscene-ferst/
-
-      show_hint:test'
+    SendMessageOnStartMission: show_hint:test
     SendMessageOnEndMission: 'on_open_quests/
 
       hide_hint'
@@ -263,7 +293,7 @@ MonoBehaviour:
       Messages: []
   - MissionId: 7
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: activate_quest:1_elk_to_sova
     IsThisMissionDialogue: 0
     DialogueParent:
       NpcName: 
@@ -295,8 +325,8 @@ MonoBehaviour:
           OnHighlightMessage: drop
         - Id: destination_putter_elk
           NotHighlightOnAwake: 0
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+          OffHighlightMessage: 
+          OnHighlightMessage: 
     IsMany: 0
     Message:
       Message: 'destination_putter_elk-put:box_1/

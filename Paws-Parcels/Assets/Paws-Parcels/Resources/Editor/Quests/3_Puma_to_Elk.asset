@@ -48,7 +48,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 2
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: update_items_inside_message
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -93,7 +93,7 @@ MonoBehaviour:
       Messages: []
   - MissionId: 3
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: activate_quest:4_Elk_to_Bear
     IsThisMissionDialogue: 0
     DialogueParent:
       NpcName: elk
