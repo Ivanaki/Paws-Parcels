@@ -118,6 +118,26 @@ MonoBehaviour:
     m_Localized: Back to main menu
     m_Metadata:
       m_Items: []
+  - m_Id: 29753348310687744
+    m_Localized: 'Quests:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29756368545112064
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29757060139704320
+    m_Localized: 'Reward:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29757317128904704
+    m_Localized: 'Limit:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29760242886631424
+    m_Localized: Close journal
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

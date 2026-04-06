@@ -62,7 +62,7 @@ namespace Paws_Parcels.Scripts.Player
         }
         
 
-        protected void Start()
+        protected virtual void Start()
         {
             if (TryGetComponent(out SphereCollider colliderS))
                 if (colliderS.center != Vector3.zero)

@@ -119,6 +119,26 @@ MonoBehaviour:
     m_Key: pause_back_button
     m_Metadata:
       m_Items: []
+  - m_Id: 29753348310687744
+    m_Key: n
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29756368545112064
+    m_Key: quets_select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29757060139704320
+    m_Key: reward_quests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29757317128904704
+    m_Key: limit_quests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29760242886631424
+    m_Key: Close_quests_ui
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

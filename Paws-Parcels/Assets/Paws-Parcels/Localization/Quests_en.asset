@@ -39,11 +39,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 27577906199781376
-    m_Localized: '-'
+    m_Localized: Deliver boxes
     m_Metadata:
       m_Items: []
   - m_Id: 27578015268462592
-    m_Localized: --
+    m_Localized: Deliver boxes to the destination
     m_Metadata:
       m_Items: []
   - m_Id: 27717338789830656
@@ -51,11 +51,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 27717627030790144
-    m_Localized: '-'
+    m_Localized: Talk to the Gas Station Attendant
     m_Metadata:
       m_Items: []
   - m_Id: 27717987690602496
-    m_Localized: '-'
+    m_Localized: Talk to the Gas Station Attendant
     m_Metadata:
       m_Items: []
   - m_Id: 27718567909646336
@@ -63,31 +63,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 27724618209943552
-    m_Localized: '-'
+    m_Localized: Load boxes
     m_Metadata:
       m_Items: []
   - m_Id: 27718738638790656
-    m_Localized: '-'
+    m_Localized: The beginning of our story
     m_Metadata:
       m_Items: []
   - m_Id: 27724677420933120
-    m_Localized: '-'
+    m_Localized: Throw boxes onto the roof
     m_Metadata:
       m_Items: []
   - m_Id: 27742786651414528
-    m_Localized: '-'
+    m_Localized: Who is that?
     m_Metadata:
       m_Items: []
   - m_Id: 27742852720091136
-    m_Localized: '-'
+    m_Localized: Talk to the Cat
     m_Metadata:
       m_Items: []
   - m_Id: 27968963672457216
-    m_Localized: '-'
+    m_Localized: Pick up the Cat
     m_Metadata:
       m_Items: []
   - m_Id: 27969032329019392
-    m_Localized: '-'
+    m_Localized: Carry the Cat to the car and put it on the bed
     m_Metadata:
       m_Items: []
   references:
