@@ -36,6 +36,13 @@ namespace UI.DialogueScreen
 
         [Header("Mouth Animation")]
         [SerializeField] private float mouthToggleInterval = 0.08f;
+        [SerializeField] private float mouthInertiaTime = 0.3f;
+
+        [Header("Portrait Sway")]
+        [SerializeField] private float swayAngle = 3f;
+        [SerializeField] private float swaySpeed = 5f;
+        [SerializeField] private float pulseAmount = 0.05f;
+        [SerializeField] private float pulseSpeed = 4f;
 
         [Header("Fade")]
         [SerializeField] private bool useFadeEffect = true;
@@ -80,19 +87,35 @@ namespace UI.DialogueScreen
 
         private void Update()
         {
-            if (!_isTyping || _currentCharacter == null || _activePanel?.portrait == null) return;
+            if (_activePanel?.portrait == null) return;
 
-            _mouthTimer += Time.deltaTime;
-            if (_mouthTimer >= mouthToggleInterval)
+            if (_isTyping && _currentCharacter != null)
             {
-                _mouthTimer = 0f;
-                _mouthOpen = !_mouthOpen;
-
-                var emotion = GetCurrentEmotion();
-                if (emotion != null)
+                _mouthTimer += Time.deltaTime;
+                if (_mouthTimer >= mouthToggleInterval)
                 {
-                    _activePanel.portrait.sprite = _mouthOpen ? emotion.mouthOpen : emotion.mouthClosed;
+                    _mouthTimer = 0f;
+                    _mouthOpen = !_mouthOpen;
+
+                    var emotion = GetCurrentEmotion();
+                    if (emotion != null)
+                    {
+                        _activePanel.portrait.sprite = _mouthOpen ? emotion.mouthOpen : emotion.mouthClosed;
+                    }
                 }
+
+                float z = Mathf.Sin(Time.time * swaySpeed) * swayAngle;
+                _activePanel.portrait.rectTransform.localRotation = Quaternion.Euler(0f, 0f, z);
+
+                float scale = 1f + (Mathf.Sin(Time.time * pulseSpeed) * 0.5f + 0.5f) * pulseAmount;
+                _activePanel.portrait.rectTransform.localScale = new Vector3(scale, scale, 1f);
+            }
+            else
+            {
+                var rt = _activePanel.portrait.rectTransform;
+                float t = Time.deltaTime * swaySpeed;
+                rt.localRotation = Quaternion.Lerp(rt.localRotation, Quaternion.identity, t);
+                rt.localScale = Vector3.Lerp(rt.localScale, Vector3.one, t);
             }
         }
 
@@ -145,8 +168,11 @@ namespace UI.DialogueScreen
             _mouthTimer = 0f;
             _mouthOpen = false;
             await Typewriter.RunTypewriter(text, token.HurryUpToken).SuppressCancellationThrow();
-            _isTyping = false;
 
+            if (mouthInertiaTime > 0f)
+                await YarnTask.Delay((int)(mouthInertiaTime * 1000), token.HurryUpToken).SuppressCancellationThrow();
+
+            _isTyping = false;
             SetMouthClosed();
 
             if (autoAdvance)

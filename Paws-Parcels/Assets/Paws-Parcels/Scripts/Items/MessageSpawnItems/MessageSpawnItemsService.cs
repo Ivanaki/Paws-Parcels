@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
 using Services;
@@ -27,7 +28,34 @@ namespace Items.MessageSpawnItems
             {
                 _disposables.Add(_messageSystem.AddListenerWithManyMessages(x.Message).Subscribe(_ =>
                 {
-                    _gameProxy.ItemsInWorld.Add(new(x.ItemData));
+                    _gameProxy.ItemsInWorld.Add(new(new ItemData
+                    {
+                        ItemTypeId = x.ItemData.ItemTypeId,
+                        DestinationId = x.ItemData.DestinationId,
+                        Position = x.ItemData.Position,
+                        Rotation = x.ItemData.Rotation,
+                        LinearVelocity = x.ItemData.LinearVelocity,
+                        AngularVelocity = x.ItemData.AngularVelocity
+                    }));
+                }));
+            });
+
+            messageSpawnItemSO.ItemRemoveWithMessages.ForEach(x =>
+            {
+                _disposables.Add(_messageSystem.AddListenerWithManyMessages(x.Message).Subscribe(_ =>
+                {
+                    var destinationId = x.DestinationId;
+
+                    var item = _gameProxy.ItemsInWorld.FirstOrDefault(i => i.DestinationId == destinationId);
+                    if (item != null)
+                        _gameProxy.ItemsInWorld.Remove(item);
+
+                    foreach (var putter in _gameProxy.ItemsDestinationsPutters)
+                    {
+                        var putterItem = putter.Value.Items.FirstOrDefault(i => i.DestinationId == destinationId);
+                        if (putterItem != null)
+                            putter.Value.Items.Remove(putterItem);
+                    }
                 }));
             });
         }

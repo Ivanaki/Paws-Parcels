@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9418ce34aff443f1a2bdfa4f21698876, type: 3}
   m_Name: MessageSpawnItems
   m_EditorClassIdentifier: Assembly-CSharp::Items.MessageSpawnItems.MessageSpawnItemsSO
+  ItemDataWithMessages: []
+  ItemRemoveWithMessages:
+  - Message: 
+    DestinationId: 

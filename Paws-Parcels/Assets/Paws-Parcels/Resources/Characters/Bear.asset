@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.NPCDialogs.CharacterPortraitData
   localizedNames:
   - "\u0417\u0430\u043F\u0440\u0430\u0432\u0449\u0438\u043A"
-  isLeftSide: 0
+  - Bear
+  isPlayer: 0
   emotions:
   - emotionName: idle
     mouthClosed: {fileID: 21300000, guid: ef59c7c847efc8b4f8d857c134594df5, type: 3}

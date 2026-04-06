@@ -823,7 +823,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Character Name
+  m_text: "\u0418\u0433\u0440\u043E\u043A\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 51d0e33010c0de543a0cf4fd07ff96ad, type: 2}
   m_sharedMaterial: {fileID: -7351509072765805219, guid: 51d0e33010c0de543a0cf4fd07ff96ad, type: 2}
@@ -850,14 +850,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.4
+  m_fontSize: 57.8
   m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 31.4
+  m_fontSizeMax: 57.8
   m_fontStyle: 2
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1490,11 +1490,21 @@ MonoBehaviour:
   canvasGroup: {fileID: 4840525480982217751}
   characters:
   - {fileID: 11400000, guid: cfd81fcd67658e4408d66ac713f9b8b0, type: 2}
+  - {fileID: 11400000, guid: 82ab02fe54c4c0b40a536f10a6505eb4, type: 2}
+  - {fileID: 11400000, guid: 141463cc81b8367409359cfe861e6160, type: 2}
+  - {fileID: 11400000, guid: 142573a7f381b2043bcb23f999228063, type: 2}
+  - {fileID: 11400000, guid: 3e409318cd0ac1943b527d1d99715feb, type: 2}
   - {fileID: 11400000, guid: 16b85fcd5fa2707438e793386b5d692c, type: 2}
-  lettersPerSecond: 43
+  - {fileID: 11400000, guid: 69f0e105665af9b489307d42f61dd7a4, type: 2}
+  lettersPerSecond: 35
   eventHandlers:
   - {fileID: 5171970096682759842}
-  mouthToggleInterval: 0.18
+  mouthToggleInterval: 0.12
+  mouthInertiaTime: 1
+  swayAngle: 3
+  swaySpeed: 5
+  pulseAmount: 0.05
+  pulseSpeed: 4
   useFadeEffect: 0
   fadeUpDuration: 0.25
   fadeDownDuration: 0.1
@@ -1797,9 +1807,9 @@ MonoBehaviour:
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 31.4
+  m_fontSizeMax: 57.8
   m_fontStyle: 2
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

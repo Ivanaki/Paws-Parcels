@@ -11,9 +11,17 @@ namespace Items.MessageSpawnItems
         public ItemData ItemData;
     }
     
+    [System.Serializable]
+    public class ItemRemoveWithMessage
+    {
+        public string Message;
+        public string DestinationId;
+    }
+
     [CreateAssetMenu(fileName = "MessageSpawnItems", menuName = "Paws_parcels/Message Spawn Items")]
     public class MessageSpawnItemsSO : ScriptableObject
     {
         public List<ItemDataWithMessage> ItemDataWithMessages;
+        public List<ItemRemoveWithMessage> ItemRemoveWithMessages;
     }
 }
