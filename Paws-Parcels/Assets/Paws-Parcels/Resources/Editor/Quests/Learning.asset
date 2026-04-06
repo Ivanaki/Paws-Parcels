@@ -16,7 +16,9 @@ MonoBehaviour:
   ActiveOnAwake: 1
   Missions:
   - MissionId: 0
-    SendMessageOnStartMission: start_cutscene-ferst
+    SendMessageOnStartMission: 'start_cutscene-ferst/
+
+      show_hint:put'
     SendMessageOnEndMission: on_open_quests
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -48,7 +50,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
   - MissionId: 1
-    SendMessageOnStartMission: show_hint:test
+    SendMessageOnStartMission: 
     SendMessageOnEndMission: hide_hint
     IsThisMissionDialogue: 1
     DialogueParent:
