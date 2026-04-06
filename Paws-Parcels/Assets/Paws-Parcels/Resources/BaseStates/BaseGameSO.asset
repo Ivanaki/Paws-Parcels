@@ -19,12 +19,12 @@ MonoBehaviour:
     IsCompassActive: 0
     ActiveQuests:
     - Id: learning
-      CurrentMission: 7
+      CurrentMission: 1
       ActiveDestinations:
       - destination_putter_elk
       - box_1
       - box_2
-      MessageProgress: 2
+      MessageProgress: 0
     SelectedQuest: learning
     SucceedQuests: []
     CurrentActiveDestinations: []
