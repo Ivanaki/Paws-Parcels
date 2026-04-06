@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 936, y: -266.32825}
-  m_SizeDelta: {x: 1053.7188, y: 310.3741}
+  m_AnchoredPosition: {x: 936, y: -274.3594}
+  m_SizeDelta: {x: 1053.7188, y: 294.3118}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5723216094589245155
 CanvasRenderer:
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 43.6
+  m_fontSizeMax: 58.23
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -1423,7 +1423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3728611839288015176}
   - component: {fileID: 4840525480982217751}
-  - component: {fileID: 6328387702321746323}
+  - component: {fileID: 7503012821937963530}
   m_Layer: 5
   m_Name: Line Presenter
   m_TagString: Untagged
@@ -1465,7 +1465,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &6328387702321746323
+--- !u!114 &7503012821937963530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1474,26 +1474,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 3718774999159039732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dd50f871a60b4bbe88a71d308b2613f, type: 3}
+  m_Script: {fileID: 11500000, guid: 224401470d36afb48a083377e2b8d638, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.DialogueScreen.CustomLinePresenter
+  playerPanel:
+    root: {fileID: 3148481709292313574}
+    characterNameText: {fileID: 8015669463121520678}
+    lineText: {fileID: 7377004648994194866}
+    portrait: {fileID: 1216042425222157388}
+  npcPanel:
+    root: {fileID: 3255007416961275534}
+    characterNameText: {fileID: 9218594578938939195}
+    lineText: {fileID: 3846543729050543970}
+    portrait: {fileID: 1107774783075080104}
   canvasGroup: {fileID: 4840525480982217751}
-  lineText: {fileID: 7377004648994194866}
-  showCharacterNameInLine: 1
-  characterNameText: {fileID: 8015669463121520678}
-  characterNameContainer: {fileID: 0}
-  useFadeEffect: 1
+  characters:
+  - {fileID: 11400000, guid: cfd81fcd67658e4408d66ac713f9b8b0, type: 2}
+  - {fileID: 11400000, guid: 16b85fcd5fa2707438e793386b5d692c, type: 2}
+  lettersPerSecond: 43
+  eventHandlers:
+  - {fileID: 5171970096682759842}
+  mouthToggleInterval: 0.18
+  useFadeEffect: 0
   fadeUpDuration: 0.25
   fadeDownDuration: 0.1
   autoAdvance: 0
   autoAdvanceDelay: 1
-  typewriterStyle: 1
-  lettersPerSecond: 60
-  wordsPerSecond: 10
-  customTypewriter:
-    targetObject: {fileID: 0}
-  eventHandlers:
-  - {fileID: 5171970096682759842}
 --- !u!1 &3838023233872908413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,7 +1682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runner: {fileID: 8712218125901470501}
-  presenter: {fileID: 6328387702321746323}
+  presenter: {fileID: 7503012821937963530}
   separateHurryUpAndAdvanceControls: 0
   multiAdvanceIsCancel: 0
   advanceRequestsBeforeCancellingLine: 2
@@ -2104,8 +2110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 585.85925, y: -266.32825}
-  m_SizeDelta: {x: 1053.7188, y: 310.3741}
+  m_AnchoredPosition: {x: 585.85925, y: -274.3594}
+  m_SizeDelta: {x: 1053.7188, y: 294.3118}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2986294573718434757
 CanvasRenderer:
@@ -2162,12 +2168,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.6
+  m_fontSize: 58.23
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 43.6
+  m_fontSizeMax: 58.23
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -2304,7 +2310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   palette: {fileID: 11400000, guid: 6df01bf68e01943908f9e625c3b0bbc6, type: 2}
-  lineProvider: {fileID: 0}
+  lineProvider: {fileID: 6698634436097440942}
 --- !u!114 &707057116816659070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,7 +2323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0901fdc59460943b682c5c4000c44a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineProvider: {fileID: 0}
+  lineProvider: {fileID: 6698634436097440942}
 --- !u!1 &6797684262782508312
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,7 +3060,7 @@ MonoBehaviour:
   lineProvider: {fileID: 6698634436097440942}
   saliencyStrategy: 0
   dialoguePresenters:
-  - {fileID: 6328387702321746323}
+  - {fileID: 7503012821937963530}
   - {fileID: 2372696605826953407}
   - {fileID: 1277290291974947257}
   verboseLogging: 0

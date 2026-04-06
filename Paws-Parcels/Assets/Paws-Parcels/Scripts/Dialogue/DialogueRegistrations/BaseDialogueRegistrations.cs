@@ -1,5 +1,7 @@
+using System.Linq;
 using Paws_Parcels.Scripts.Saves.States.GameResources;
 using Services;
+using UI.DialogueScreen;
 using Yarn.Unity;
 
 namespace NPCDialogs
@@ -14,6 +16,13 @@ namespace NPCDialogs
             dialogueRegistrations.RegisterCommand("add_money", runner => runner?.AddCommandHandler<int>("add_money", AddMoney));
             dialogueRegistrations.RegisterCommand("spend_money", runner => runner?.AddCommandHandler<int>("spend_money", SpendMoney));
             dialogueRegistrations.RegisterFunction("get_money", runner => runner?.AddFunction("get_money", GetMoney));
+            dialogueRegistrations.RegisterCommand("set_emotion", runner => runner?.AddCommandHandler<string>("set_emotion", emotion =>
+            {
+                var presenter = runner.DialoguePresenters
+                    .OfType<CustomLinePresenter>()
+                    .FirstOrDefault();
+                presenter?.SetEmotion(emotion);
+            }));
 
             //_resourcesService.ObserveResource(ResourcesType.Money).Subscribe(v => Debug.Log(v));
         }
