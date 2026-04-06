@@ -41,23 +41,23 @@ namespace Car_Player
             _messageSystem = messageSystem;
             _gameProxy = gameStateProvider.GameProxy;
             
+            _disposables.Add(messageSystem.AddListenerWithManyMessages("update_items_inside_message").Subscribe(_ =>
+            {
+                _gameProxy.ItemsInsideCar.ForEach(x =>
+                {
+                    _messageSystem.SendCompositeMessage(this, "put_inside_car:" + x.DestinationId);
+                });
+            }));
+            
             _disposables.Add(_putState.Subscribe(state =>
             {
                 if (state is PutItemState.Take or PutItemState.Put)
                 {
                     playerService.StopMouseAndInteract(this);
-                    //playerService.StopMovement(this);
-                    
-                    /*if(_car == null) FindCar();
-                    
-                    playerService.StartLookAt(_car, 1f);*/
                 }
                 else
                 {
-                    //playerService.StopLookAt();
-                    
                     playerService.StartMouseAndInteract(this);
-                    //playerService.StartMovement(this);
                 }
 
                 if (state is PutItemState.Null)
@@ -76,11 +76,6 @@ namespace Car_Player
                 }
             }));
         }
-
-        /*private void FindCar()
-        {
-            _car = GameObject.FindGameObjectWithTag("Car").transform;
-        }*/
 
         public bool TryCancel()
         {

@@ -54,6 +54,7 @@ namespace Car_Player
             
             _currentHintPosition.Subscribe(hintTransform =>
             {
+                if (t == null) return;
                 t.transform.SetParent(hintTransform);
                 t.transform.localPosition = Vector3.zero;
                 t.transform.localRotation = Quaternion.identity;
@@ -79,14 +80,16 @@ namespace Car_Player
 
         private void UpdateHint()
         {
-            _currentHintPosition.Value = _gameProxy.IsPlayerInCar.Value ? _carHint?.transform : _playerHint?.transform;
+            _currentHintPosition.Value = _gameProxy.IsPlayerInCar.Value
+                ? (_carHint != null ? _carHint.transform : null)
+                : (_playerHint != null ? _playerHint.transform : null);
         }
         
         public void SetPlayerHint(PlayerHint playerHint)
         {
             _playerHint = playerHint;
             UpdateHint();
-            if (_currentHintPosition.Value == null)
+            if (_currentHintPosition.Value == null && _playerHint != null)
                 _currentHintPosition.Value = _playerHint.transform;
         }
 
@@ -94,7 +97,7 @@ namespace Car_Player
         {
             _carHint = carHint;
             UpdateHint();
-            if (_currentHintPosition.Value == null)
+            if (_currentHintPosition.Value == null && _carHint != null)
                 _currentHintPosition.Value = _carHint.transform;
         }
     }
