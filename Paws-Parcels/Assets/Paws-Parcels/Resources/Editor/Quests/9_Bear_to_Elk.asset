@@ -85,17 +85,19 @@ MonoBehaviour:
           OnHighlightMessage: pickup
     IsMany: 0
     Message:
-      Message: item_on_roof:generator_1
-      HasCount: 0
-      MessageCount: 2
-      MinusMessage: 'item_down_roof:ice_1/
+      Message: 'item_on_roof:fence_1/
 
-        item_down_roof:ice_2'
+        item_on_roof:ball_1'
+      HasCount: 1
+      MessageCount: 2
+      MinusMessage: 'item_down_roof:fence_1/
+
+        item_down_roof:ball_1'
     ManyMessages:
       Messages: []
   - MissionId: 3
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: 
+    SendMessageOnEndMission: spawn_fence
     IsThisMissionDialogue: 0
     DialogueParent:
       NpcName: elk
