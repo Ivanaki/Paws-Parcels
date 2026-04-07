@@ -9,13 +9,14 @@ namespace UI
     {
         private CanvasScaler _canvasScaler;
         
-        private void Awake()
+        private void OnRectTransformDimensionsChange()
         {
-            _canvasScaler = GetComponent<CanvasScaler>();
+            Start();
         }
 
         private void Start()
         {
+            _canvasScaler = GetComponent<CanvasScaler>();
             var sizeFulHd = 1920f/1080f;
             var size = (float)Screen.width/Screen.height;
             _canvasScaler.matchWidthOrHeight = size >= sizeFulHd ? 1f : 0f;
