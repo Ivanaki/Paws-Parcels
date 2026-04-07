@@ -16,7 +16,7 @@ MonoBehaviour:
   ActiveOnAwake: 1
   Missions:
   - MissionId: 1
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: remove_books
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
     DialogueParent:
@@ -75,10 +75,26 @@ MonoBehaviour:
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
+        - Id: destination_putter_puma
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: 'destination_putter_puma-take/
+
+            take_inside_car'
+          OnHighlightMessage: 'destination_putter_puma-put/
+
+            put_inside_car'
         - Id: put_inside
           NotHighlightOnAwake: 1
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+          OffHighlightMessage: 'put_inside_car/
+
+            destination_putter_puma-put/
+
+            drop'
+          OnHighlightMessage: 'take_inside_car/
+
+            destination_putter_puma-take/
+
+            pickup'
     IsMany: 0
     Message:
       Message: put_inside_car:pie_1
@@ -116,14 +132,32 @@ MonoBehaviour:
       ManyDestinations:
         Destinations:
         - Id: pie_1
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: destination_putter_on_elk
           NotHighlightOnAwake: 0
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
-    IsMany: 0
+          OffHighlightMessage: 'destination_putter_on_elk-put/
+
+            put_inside_car/
+
+            drop'
+          OnHighlightMessage: 'destination_putter_on_elk-take/
+
+            take_inside_car/
+
+            pickup'
+        - Id: put_inside
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: 'take_inside_car/
+
+            destination_putter_on_elk-take
+
+'
+          OnHighlightMessage: 'put_inside_car/
+
+            destination_putter_on_elk-put'
+    IsMany: 1
     Message:
       Message: destination_putter_on_elk-put:pie_1
       HasCount: 0

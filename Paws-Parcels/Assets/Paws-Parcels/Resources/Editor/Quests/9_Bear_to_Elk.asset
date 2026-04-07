@@ -114,13 +114,17 @@ MonoBehaviour:
       ManyDestinations:
         Destinations:
         - Id: fence_1
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: destination_putter_fence
           NotHighlightOnAwake: 0
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+          OffHighlightMessage: 'drop/
+
+            destination_putter_fence-put'
+          OnHighlightMessage: 'pickup/
+
+            destination_putter_fence-take'
     IsMany: 0
     Message:
       Message: destination_putter_fence-put:fence_1

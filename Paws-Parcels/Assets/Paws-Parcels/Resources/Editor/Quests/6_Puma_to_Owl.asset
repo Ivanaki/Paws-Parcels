@@ -75,10 +75,26 @@ MonoBehaviour:
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
+        - Id: destination_putter_puma
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 'destination_putter_puma-take/
+
+            take_inside_car'
+          OnHighlightMessage: 'destination_putter_puma-put/
+
+            put_inside_car'
         - Id: put_inside
           NotHighlightOnAwake: 1
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+          OffHighlightMessage: 'put_inside_car/
+
+            destination_putter_puma-put/
+
+            drop'
+          OnHighlightMessage: 'take_inside_car/
+
+            destination_putter_puma-take/
+
+            pickup'
     IsMany: 0
     Message:
       Message: put_inside_car:bun_1
@@ -121,8 +137,26 @@ MonoBehaviour:
           OnHighlightMessage: drop
         - Id: destination_putter_owl
           NotHighlightOnAwake: 0
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+          OffHighlightMessage: 'destination_putter_owl-put/
+
+            put_inside_car/
+
+            drop'
+          OnHighlightMessage: 'destination_putter_owl-take/
+
+            take_inside_car/
+
+            pickup'
+        - Id: put_inside
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 'take_inside_car/
+
+            destination_putter_owl-take
+
+'
+          OnHighlightMessage: 'put_inside_car/
+
+            destination_putter_owl-put'
     IsMany: 0
     Message:
       Message: destination_putter_owl-put:bun_1

@@ -155,26 +155,28 @@ MonoBehaviour:
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
-        - Id: put_inside
-          NotHighlightOnAwake: 1
-          OffHighlightMessage: 'put_inside_car/
-
-            destination_putter_on_elk-put/
-
-            drop'
-          OnHighlightMessage: 'take_inside_car/
-
-            destination_putter_on_elk-take/
-
-            pickup'
         - Id: destination_putter_owl
           NotHighlightOnAwake: 0
-          OffHighlightMessage: 'destination_putter_on_elk-take/
+          OffHighlightMessage: 'destination_putter_owl-put/
 
-            take_inside_car'
-          OnHighlightMessage: 'destination_putter_on_elk-put/
+            put_inside_car/
 
-            put_inside_car'
+            drop'
+          OnHighlightMessage: 'destination_putter_owl-take/
+
+            take_inside_car/
+
+            pickup'
+        - Id: put_inside
+          NotHighlightOnAwake: 1
+          OffHighlightMessage: 'take_inside_car/
+
+            destination_putter_owl-take
+
+'
+          OnHighlightMessage: 'put_inside_car/
+
+            destination_putter_owl-put'
     IsMany: 0
     Message:
       Message: 'destination_putter_owl-put:book_1/

@@ -16,7 +16,7 @@ MonoBehaviour:
   ActiveOnAwake: 1
   Missions:
   - MissionId: 1
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: remove_milk
     SendMessageOnEndMission: 'spawn_podholst/
 
       spawn_holst'
@@ -130,21 +130,21 @@ MonoBehaviour:
       ManyDestinations:
         Destinations:
         - Id: wheel_1
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: wheel_2
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: wheel_3
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: destination_putter_bear
           NotHighlightOnAwake: 0
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+          OffHighlightMessage: 
+          OnHighlightMessage: 
     IsMany: 0
     Message:
       Message: 'destination_putter_bear-put:wheel_1/
@@ -154,11 +154,11 @@ MonoBehaviour:
         destination_putter_bear-put:wheel_3'
       HasCount: 1
       MessageCount: 3
-      MinusMessage: 'destination_putter_bear-taked:wheel_1/
+      MinusMessage: 'destination_putter_bear-take:wheel_1/
 
-        destination_putter_bear-taked:wheel_2/
+        destination_putter_bear-take:wheel_2/
 
-        destination_putter_bear-taked:wheel_3'
+        destination_putter_bear-take:wheel_3'
     ManyMessages:
       Messages: []
   MoneyReward: 0

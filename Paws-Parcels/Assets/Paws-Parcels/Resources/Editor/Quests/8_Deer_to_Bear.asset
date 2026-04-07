@@ -114,7 +114,7 @@ MonoBehaviour:
       ManyDestinations:
         Destinations:
         - Id: generator_1
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: destination_putter_bear
