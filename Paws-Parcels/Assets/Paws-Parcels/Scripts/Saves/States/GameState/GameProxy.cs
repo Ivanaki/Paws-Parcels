@@ -52,6 +52,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public ObservableDictionary<string, ItemDestinationProxy> ItemsDestinationsPutters { get; } = new();
         
         public ReactiveProperty<bool> IsCatInCar { get; }
+        
+        public ReactiveProperty<bool> StopCar { get; }
 
         public GameProxy(GameState origin)
         {
@@ -84,6 +86,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
 
             IsCatInCar = new ReactiveProperty<bool>(origin.IsCatInCar);
             IsCatInCar.Skip(1).Subscribe(v => origin.IsCatInCar = v);
+
+            StopCar = new ReactiveProperty<bool>(origin.StopCar);
+            StopCar.Skip(1).Subscribe(v => origin.StopCar = v);
 
             InitResources(origin);
             InitItemsDestinations(origin);
@@ -128,6 +133,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             IsPlayerInCar.Value = origin.IsPlayerInCar;
             IsCarDoorOpen.Value = origin.IsCarDoorOpen;
             IsCatInCar.Value = origin.IsCatInCar;
+            StopCar.Value = origin.StopCar;
             
             Resources.Clear();
             origin.Resources.ForEach(questData => Resources.Add(new ResourceProxy(questData)));

@@ -138,6 +138,10 @@ MonoBehaviour:
     m_Localized: Close journal
     m_Metadata:
       m_Items: []
+  - m_Id: 30176019414507520
+    m_Localized: I'm stuck
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

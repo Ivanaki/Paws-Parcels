@@ -41,15 +41,5 @@ namespace Paws_Parcels.Scripts.Car_Player.Respawn
                 _respawnService.Respawn();
             }
         }
-
-        public void Respawn()
-        {
-            if (_respawnService.TryGetNearestPoint(transform.position, out var pos, out _))
-            {
-                _characterController.enabled = false;
-                transform.position = pos;
-                _characterController.enabled = true;
-            }
-        }
     }
 }

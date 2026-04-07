@@ -29,6 +29,11 @@ namespace UI.Screens.Pause
             _loadService.SaveGame();
         }
 
+        public void RequestStuck()
+        {
+            _loadService.Stuck();
+        }
+
         public void RequestOpenLoadMenu()
         {
             _coreUIManager.OpenPopupLoadMenu();

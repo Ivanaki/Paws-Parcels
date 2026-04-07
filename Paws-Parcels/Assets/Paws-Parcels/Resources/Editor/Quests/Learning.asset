@@ -18,7 +18,9 @@ MonoBehaviour:
   - MissionId: 0
     SendMessageOnStartMission: 'start_cutscene-ferst/
 
-      show_hint:put'
+      show_hint:put/
+
+      stop_car'
     SendMessageOnEndMission: on_open_quests
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -51,7 +53,9 @@ MonoBehaviour:
       Messages: []
   - MissionId: 1
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: hide_hint
+    SendMessageOnEndMission: 'hide_hint/
+
+      start_car'
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: bear

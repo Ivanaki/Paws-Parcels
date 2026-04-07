@@ -111,6 +111,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         //cat
         public bool IsCatInCar;
         
+        //stopCar
+        public bool StopCar;
+        
         public int GetNewSavableEntityID()
         {
             return NextSavableEntityID++;

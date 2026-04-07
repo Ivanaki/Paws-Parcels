@@ -139,6 +139,10 @@ MonoBehaviour:
     m_Key: Close_quests_ui
     m_Metadata:
       m_Items: []
+  - m_Id: 30176019414507520
+    m_Key: Zastril_pause
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

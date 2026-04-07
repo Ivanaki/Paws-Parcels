@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using System.Linq;
 using ObservableCollections;
+using Paws_Parcels.Scripts.Car_Player.Respawn;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
 using Services;
@@ -19,11 +20,14 @@ namespace Paws_Parcels.Scripts
         private readonly Subject<Guid> _loadCoreSceneWithSaveIdSubject = new();
         private readonly GameStateProvider _gameStateProvider;
         private readonly LocalizationService _localizationService;
+        private readonly RespawnService _respawnService;
 
-        public LoadService(GameStateProvider gameStateProvider, LocalizationService localizationService)
+        public LoadService(GameStateProvider gameStateProvider, LocalizationService localizationService, 
+            RespawnService respawnService)
         {
             _gameStateProvider = gameStateProvider;
             _localizationService = localizationService;
+            _respawnService = respawnService;
 
             MetasMap = gameStateProvider.MetaMap;
 
@@ -44,6 +48,11 @@ namespace Paws_Parcels.Scripts
         public void SaveGame()
         {
             _gameStateProvider.SaveGameState(false);
+        }
+
+        public void Stuck()
+        {
+            _respawnService.Respawn();
         }
 
         public void UpdateDataInFolderOfSave()
