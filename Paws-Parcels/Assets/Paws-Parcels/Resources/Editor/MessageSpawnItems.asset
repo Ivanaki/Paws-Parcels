@@ -14,5 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items.MessageSpawnItems.MessageSpawnItemsSO
   ItemDataWithMessages: []
   ItemRemoveWithMessages:
-  - Message: 
-    DestinationId: 
+  - Message: remove_box
+    DestinationId: box_1
+  - Message: remove_box
+    DestinationId: box_2
+  - Message: remove_box
+    DestinationId: box_3
+  - Message: remove_books
+    DestinationId: book_1
+  - Message: remove_books
+    DestinationId: book_2
+  - Message: remove_books
+    DestinationId: book_3
+  - Message: remove_milk
+    DestinationId: milk_1
+  - Message: remove_milk
+    DestinationId: milk_2
+  - Message: remove_pie
+    DestinationId: pie_1
+  - Message: remove_wheel
+    DestinationId: wheel_1
+  - Message: remove_wheel
+    DestinationId: wheel_2
+  - Message: remove_wheel
+    DestinationId: wheel_3

@@ -16,7 +16,7 @@ MonoBehaviour:
   ActiveOnAwake: 1
   Missions:
   - MissionId: 1
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: remove_pie
     SendMessageOnEndMission: spawn_bun
     IsThisMissionDialogue: 1
     DialogueParent:
@@ -75,10 +75,18 @@ MonoBehaviour:
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
+        - Id: destination_putter_holst_bear
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: destination_putter_holst_bear-take
+          OnHighlightMessage: destination_putter_holst_bear-put
         - Id: put_up
           NotHighlightOnAwake: 1
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+          OffHighlightMessage: 'drop/
+
+            destination_putter_holst_bear-put'
+          OnHighlightMessage: 'pickup/
+
+            destination_putter_holst_bear-take'
     IsMany: 0
     Message:
       Message: item_on_roof:holst_1
@@ -114,13 +122,17 @@ MonoBehaviour:
       ManyDestinations:
         Destinations:
         - Id: holst_1
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: destination_putter_holst_puma
           NotHighlightOnAwake: 0
-          OffHighlightMessage: drop
-          OnHighlightMessage: pickup
+          OffHighlightMessage: 'drop/
+
+            destination_putter_holst_puma-put'
+          OnHighlightMessage: 'pickup/
+
+            destination_putter_holst_puma-take'
     IsMany: 0
     Message:
       Message: destination_putter_holst_puma-put:holst_1

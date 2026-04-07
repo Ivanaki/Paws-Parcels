@@ -16,7 +16,7 @@ MonoBehaviour:
   ActiveOnAwake: 1
   Missions:
   - MissionId: 1
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: remove_wheel
     SendMessageOnEndMission: spawn_generator
     IsThisMissionDialogue: 1
     DialogueParent:
@@ -120,11 +120,11 @@ MonoBehaviour:
       ManyDestinations:
         Destinations:
         - Id: ice_1
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: ice_2
-          NotHighlightOnAwake: 1
+          NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop
         - Id: destination_putter_deer
@@ -138,9 +138,9 @@ MonoBehaviour:
         destination_putter_deer-put:ice_2'
       HasCount: 1
       MessageCount: 2
-      MinusMessage: 'destination_putter_deer-taked:ice_1/
+      MinusMessage: 'destination_putter_deer-take:ice_1/
 
-        destination_putter_deer-taked:ice_2'
+        destination_putter_deer-take:ice_2'
     ManyMessages:
       Messages: []
   MoneyReward: 0
