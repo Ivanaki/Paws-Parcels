@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Items.ItemInHands
   _itemTypeId: box
-  _localPosition: {x: -0, y: -0.571, z: 0.247}
+  _localPosition: {x: 0, y: -0.34, z: 0.247}
   _localRotation: {x: -0, y: -0, z: -0, w: 1}
 --- !u!1 &6208424323717387544
 GameObject:

@@ -81,6 +81,9 @@ namespace Paws_Parcels.Scripts.Player
 
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
+
+        [SerializeField] private ParticleSystem _landParticalSystem;
+        [SerializeField] private ParticleSystem _runParticalSystem;
         
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -202,6 +205,9 @@ namespace Paws_Parcels.Scripts.Player
             {
                 UpdateLookAt();
             }
+
+            var em = _runParticalSystem.emission;
+            em.rateOverDistanceMultiplier = Grounded && _input.sprint ? 1f : 0f;
         }
 
         private void LateUpdate()
@@ -504,6 +510,8 @@ namespace Paws_Parcels.Scripts.Player
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center),
                     LandAudioVolume * _masterVolume.CurrentValue);
             }
+
+            _landParticalSystem.Play();
         }
     }
 }
