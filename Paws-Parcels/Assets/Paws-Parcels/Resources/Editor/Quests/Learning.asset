@@ -88,7 +88,7 @@ MonoBehaviour:
     ManyMessages:
       Messages: []
     Limit: 1
-    LimitTimeInSeconds: 20
+    LimitTimeInSeconds: 5
   - MissionId: 2
     SendMessageOnStartMission: update_items_up_message
     SendMessageOnEndMission: 

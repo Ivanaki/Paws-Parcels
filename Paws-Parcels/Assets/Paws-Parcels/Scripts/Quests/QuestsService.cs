@@ -501,7 +501,7 @@ namespace Paws_Parcels.Scripts.Quests
             }
 
             _gameProxy.StopCar.Value = true;
-            _messageSystem.SendCompositeMessage(this, "open_popup_load_menu_forced");
+            _messageSystem.SendCompositeMessage(this, "open_screen_loose_forced");
         }
     }
 }

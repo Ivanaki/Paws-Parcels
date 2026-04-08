@@ -102,8 +102,13 @@ namespace Game.Root
             var restartEnter = new CoreEnterParams(Scenes.CORE, LoadType.Continue, Guid.Empty);
             var exitParamsRestart = new CoreExitParams(Scenes.CORE, restartEnter);
             var exitRestartSubject = _coreSignals.RestartSignal.Select(_ => exitParamsRestart);
+
+            var newGameEnter = new CoreEnterParams(Scenes.CORE, LoadType.New, Guid.Empty);
+            var exitParamsNewGame = new CoreExitParams(Scenes.CORE, newGameEnter);
+            var exitNewGameSubject = _coreSignals.NewGameSignal.Select(_ => exitParamsNewGame);
             
-            var exitSignal = exitMainMenuSubject.Merge(exitRestartSubject).Merge(loadGameSignalSubject);
+            var exitSignal = exitMainMenuSubject.Merge(exitRestartSubject).Merge(exitNewGameSubject)
+                .Merge(loadGameSignalSubject);
 
             _disposable = exitSignal.Subscribe(coreExitParams =>
             {

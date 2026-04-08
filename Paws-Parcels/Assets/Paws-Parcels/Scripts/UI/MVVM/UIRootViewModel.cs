@@ -35,6 +35,11 @@ namespace UI.MVVM
 
         public bool TryCloseScreen()
         {
+            if (_openedScreen.Value != null && _openedScreen.Value.CanClose == false)
+            {
+                return false;
+            }
+
             _openedScreen.Value?.Dispose();
             _openedScreen.Value = null;
             return true;

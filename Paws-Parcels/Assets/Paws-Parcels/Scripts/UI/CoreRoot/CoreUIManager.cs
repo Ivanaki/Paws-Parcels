@@ -9,6 +9,7 @@ using Quests;
 using Services;
 using UI.DialogueScreen;
 using UI.Screens.LoadMenu;
+using UI.Screens.Loose;
 using UI.Screens.Map;
 using UI.Screens.Pause;
 using UI.Screens.Quests;
@@ -107,6 +108,26 @@ namespace UI.Core
             
             _messageSystem.SendCompositeMessage(this, "open_screen_pause");
         }
+
+        public void OpenScreenLoose()
+        {
+            if (_coreRootViewModel.OpenedScreen.CurrentValue is ScreenLooseViewModel)
+            {
+                return;
+            }
+
+            _coreRootViewModel.CloseAllPopups();
+            _coreRootViewModel.OpenScreen(new ScreenLooseViewModel(this, _coreSignals.MainMenuSignal,
+                _coreSignals.NewGameSignal));
+
+            _cursorService.SetCursorStateLocked(false);
+            _inputsCoreService.StopAllUiOpened();
+            _inputsCoreService.NotDisableMovementUiClosed();
+            Time.timeScale = 0f;
+            _banOpen = true;
+
+            _messageSystem.SendCompositeMessage(this, "open_screen_loose");
+        }
         
         public void OpenScreenQuests()
         {
@@ -139,38 +160,14 @@ namespace UI.Core
         }
         
 
-        public void OpenPopupLoadMenu()
+        public void OpenPopupLoadMenu(bool ignoreBan = false)
         {
-            if(_banOpen) return;
+            if(_banOpen && ignoreBan == false) return;
             
             var viewModel = new PopupLoadMenuViewModel(_loadService);
             _coreRootViewModel.OpenPopup(viewModel);
             
             _messageSystem.SendCompositeMessage(this, "open_popup_load_menu");
-        }
-
-        public void OpenForcedPopupLoadMenu()
-        {
-            if (_coreRootViewModel.OpenedPopups.Any(popup => popup.Id == "LoadMenu" && popup.CanClose == false))
-            {
-                return;
-            }
-
-            _coreRootViewModel.CloseAllPopups();
-            _coreRootViewModel.TryCloseScreen();
-            _cursorService.SetCursorStateLocked(true);
-            _inputsCoreService.StopAllUiClosed();
-            _inputsCoreService.NotDisableMovementUiClosed();
-            Time.timeScale = 1f;
-
-            var viewModel = new PopupLoadMenuViewModel(_loadService, false);
-            _coreRootViewModel.OpenPopup(viewModel);
-
-            _cursorService.SetCursorStateLocked(false);
-            _inputsCoreService.StopAllUiOpened();
-            _inputsCoreService.NotDisableMovementUiClosed();
-            Time.timeScale = 0f;
-            _banOpen = true;
         }
         
         public void OpenPopupSettings()
@@ -209,6 +206,11 @@ namespace UI.Core
 
         public void UnbanOpen()
         {
+            if (_coreRootViewModel.OpenedScreen.CurrentValue != null && _coreRootViewModel.OpenedScreen.CurrentValue.CanClose == false)
+            {
+                return;
+            }
+
             if (_coreRootViewModel.OpenedPopups.Any(popup => popup.CanClose == false))
             {
                 return;
