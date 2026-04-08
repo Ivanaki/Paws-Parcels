@@ -12,6 +12,7 @@ namespace Paws_Parcels.Scripts.Quests
         public int MessageProgress;
         public bool HasMissionTimer;
         public float MissionTimerSeconds;
+        public float MissionTimerTotalSeconds;
         //public List<string> MessagesProgres = new();
     }
 }

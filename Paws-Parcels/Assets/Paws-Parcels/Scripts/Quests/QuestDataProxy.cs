@@ -16,6 +16,7 @@ namespace Paws_Parcels.Scripts.Quests
         public ReactiveProperty<int> MessageProgress { get; }
         public ReactiveProperty<bool> HasMissionTimer { get; }
         public ReactiveProperty<float> MissionTimerSeconds { get; }
+        public ReactiveProperty<float> MissionTimerTotalSeconds { get; }
         //public readonly ReactiveProperty<bool> IsActiveDestination;
 
         /*public bool IsManyMessages
@@ -36,12 +37,14 @@ namespace Paws_Parcels.Scripts.Quests
             MessageProgress = new ReactiveProperty<int>(questData.MessageProgress);
             HasMissionTimer = new ReactiveProperty<bool>(questData.HasMissionTimer);
             MissionTimerSeconds = new ReactiveProperty<float>(questData.MissionTimerSeconds);
+            MissionTimerTotalSeconds = new ReactiveProperty<float>(questData.MissionTimerTotalSeconds);
             //IsActiveDestination = new ReactiveProperty<bool>(questData.IsActiveDestination);
             
             CurrentMission.Skip(1).Subscribe(v => questData.CurrentMission = v);
             MessageProgress.Skip(1).Subscribe(v => questData.MessageProgress = v);
             HasMissionTimer.Skip(1).Subscribe(v => questData.HasMissionTimer = v);
             MissionTimerSeconds.Skip(1).Subscribe(v => questData.MissionTimerSeconds = v);
+            MissionTimerTotalSeconds.Skip(1).Subscribe(v => questData.MissionTimerTotalSeconds = v);
             //IsActiveDestination.Skip(1).Subscribe(v => questData.IsActiveDestination = v);
 
             /*Message = new MessageToCompleteProgressProxy(questData.Message);

@@ -3,37 +3,35 @@ using R3;
 using Services;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI.HUD
 {
     public class HUDBinder : MonoBehaviour
     {
         //[SerializeField] private DestinationsOnCanvasShower _destinationsOnCanvasShower;
-        [SerializeField] private GameObject _compassGameObject;
         [SerializeField] private GameObject _parentAllHud;
         [SerializeField] private TMP_Text _moneyText;
+        [SerializeField] private Image _timerImage;
         
         private readonly CompositeDisposable _disposables = new();
-        
+
         public void Bind(HUDViewModel viewModel)
         {
-            _disposables.Add(viewModel.IsCompassActive.Subscribe(active =>
+            _disposables.Add(viewModel.ActiveHud.Subscribe(value => { _parentAllHud.SetActive(value); }));
+
+            _disposables.Add(viewModel.Money.Subscribe(value => { _moneyText.text = value.ToString(); }));
+
+            _disposables.Add(viewModel.GameProxy.HasMissionTimer.Subscribe(hasTimer =>
             {
-                _compassGameObject.SetActive(active);
+                _timerImage.gameObject.SetActive(hasTimer);
             }));
-            
-            _disposables.Add(viewModel.ActiveHud.Subscribe(value =>
+
+            _disposables.Add(viewModel.GameProxy.MissionTimerSeconds.Subscribe(seconds =>
             {
-                //спрятать весь hud
-                _parentAllHud.SetActive(value);
+                _timerImage.fillAmount = seconds / viewModel.GameProxy.MissionTimerTotalSeconds.CurrentValue;
             }));
-            
-            _disposables.Add(viewModel.Money.Subscribe(value =>
-            {
-                _moneyText.text = value.ToString();
-            }));
-            //_destinationsOnCanvasShower.Construct(viewModel.ObjectsToShow, viewModel.ObjectsPrefabsDict);
-        }
+    }
 
         private void OnDestroy()
         {

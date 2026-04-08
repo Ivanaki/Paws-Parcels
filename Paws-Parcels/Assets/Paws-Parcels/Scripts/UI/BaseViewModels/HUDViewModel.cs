@@ -1,3 +1,4 @@
+using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
 using Services;
 
@@ -12,15 +13,16 @@ namespace UI.HUD
         
         public ReadOnlyReactiveProperty<int> Money { get; }
         
-        public HUDViewModel(HUDService hudService, ShowableInterfaceService showableInterfaceService/*,
-            ObservableHashSet<ShowableInUIBehaviour> objectsToShow,
-            IReadOnlyDictionary<string, UiObject> objectsPrefabsDict */)
+        public GameProxy GameProxy { get; }
+        
+        public HUDViewModel(HUDService hudService, ShowableInterfaceService showableInterfaceService, GameProxy gameProxy)
         {
             //ObjectsToShow = objectsToShow;
             //ObjectsPrefabsDict = objectsPrefabsDict;
             ActiveHud = showableInterfaceService.HudActive;
             IsCompassActive = hudService.IsCompassActive;
             Money = hudService.Money;
+            GameProxy = gameProxy;
         }
     }
 }

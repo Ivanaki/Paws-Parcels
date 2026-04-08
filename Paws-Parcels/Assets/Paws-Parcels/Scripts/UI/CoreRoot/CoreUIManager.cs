@@ -151,6 +151,11 @@ namespace UI.Core
 
         public void OpenForcedPopupLoadMenu()
         {
+            if (_coreRootViewModel.OpenedPopups.Any(popup => popup.Id == "LoadMenu" && popup.CanClose == false))
+            {
+                return;
+            }
+
             _coreRootViewModel.CloseAllPopups();
             _coreRootViewModel.TryCloseScreen();
             _cursorService.SetCursorStateLocked(true);
@@ -166,8 +171,6 @@ namespace UI.Core
             _inputsCoreService.NotDisableMovementUiClosed();
             Time.timeScale = 0f;
             _banOpen = true;
-
-            _messageSystem.SendCompositeMessage(this, "open_popup_load_menu_forced");
         }
         
         public void OpenPopupSettings()

@@ -415,10 +415,12 @@ namespace Paws_Parcels.Scripts.Quests
             {
                 questDataProxy.HasMissionTimer.Value = false;
                 questDataProxy.MissionTimerSeconds.Value = 0f;
+                questDataProxy.MissionTimerTotalSeconds.Value = 0f;
                 return;
             }
 
             var timerSeconds = Mathf.Max(1, mission.LimitTimeInSeconds);
+            questDataProxy.MissionTimerTotalSeconds.Value = timerSeconds;
 
             if (restartTimer || questDataProxy.HasMissionTimer.CurrentValue == false || questDataProxy.MissionTimerSeconds.CurrentValue <= 0f)
             {
@@ -449,6 +451,7 @@ namespace Paws_Parcels.Scripts.Quests
             {
                 questDataProxy.HasMissionTimer.Value = false;
                 questDataProxy.MissionTimerSeconds.Value = 0f;
+                questDataProxy.MissionTimerTotalSeconds.Value = 0f;
             }
         }
 
@@ -489,6 +492,7 @@ namespace Paws_Parcels.Scripts.Quests
             _missionTimerFailureTriggered = true;
             questDataProxy.HasMissionTimer.Value = false;
             questDataProxy.MissionTimerSeconds.Value = 0f;
+            questDataProxy.MissionTimerTotalSeconds.Value = 0f;
 
             if (_questId_ReactiveMessage_Dict.TryGetValue(questDataProxy.Id, out var questDisposable))
             {

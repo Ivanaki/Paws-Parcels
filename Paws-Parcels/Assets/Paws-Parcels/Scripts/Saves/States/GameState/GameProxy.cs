@@ -20,10 +20,12 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public ReadOnlyReactiveProperty<string> SelectedQuest => _selectedQuest;
         public ReadOnlyReactiveProperty<bool> HasMissionTimer => _hasMissionTimer;
         public ReadOnlyReactiveProperty<float> MissionTimerSeconds => _missionTimerSeconds;
+        public ReadOnlyReactiveProperty<float> MissionTimerTotalSeconds => _missionTimerTotalSeconds;
         
         private ReactiveProperty<string> _selectedQuest;
         private readonly ReactiveProperty<bool> _hasMissionTimer;
         private readonly ReactiveProperty<float> _missionTimerSeconds;
+        private readonly ReactiveProperty<float> _missionTimerTotalSeconds;
         private readonly Dictionary<QuestDataProxy, CompositeDisposable> _questTimerSubscriptions = new();
 
         public ObservableList<QuestDataProxy> ActiveQuests { get; } = new();
@@ -70,6 +72,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             _selectedQuest = new ReactiveProperty<string>(origin.SelectedQuest);
             _hasMissionTimer = new ReactiveProperty<bool>(false);
             _missionTimerSeconds = new ReactiveProperty<float>(0f);
+            _missionTimerTotalSeconds = new ReactiveProperty<float>(0f);
             
             TrackedMissionID.Skip(1).Subscribe(v => origin.TrackedMissionID = v);
             IsCompassActive.Skip(1).Subscribe(v => origin.IsCompassActive = v);
@@ -118,7 +121,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                 ActiveDestinations = new List<string>(questData.ActiveDestinations),
                 MessageProgress = questData.MessageProgress,
                 HasMissionTimer = questData.HasMissionTimer,
-                MissionTimerSeconds = questData.MissionTimerSeconds
+                MissionTimerSeconds = questData.MissionTimerSeconds,
+                MissionTimerTotalSeconds = questData.MissionTimerTotalSeconds
             })));
             
             SucceedQuests.Clear();
@@ -344,6 +348,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             var disposable = new CompositeDisposable();
             disposable.Add(questDataProxy.HasMissionTimer.Subscribe(_ => UpdateAggregateMissionTimer()));
             disposable.Add(questDataProxy.MissionTimerSeconds.Subscribe(_ => UpdateAggregateMissionTimer()));
+            disposable.Add(questDataProxy.MissionTimerTotalSeconds.Subscribe(_ => UpdateAggregateMissionTimer()));
 
             _questTimerSubscriptions.Add(questDataProxy, disposable);
         }
@@ -361,6 +366,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         {
             var hasMissionTimer = false;
             var minTimeLeft = float.MaxValue;
+            var totalTime = 0f;
 
             foreach (var activeQuest in ActiveQuests)
             {
@@ -370,11 +376,18 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                 }
 
                 hasMissionTimer = true;
-                minTimeLeft = Mathf.Min(minTimeLeft, Mathf.Max(0f, activeQuest.MissionTimerSeconds.CurrentValue));
+                var timeLeft = Mathf.Max(0f, activeQuest.MissionTimerSeconds.CurrentValue);
+
+                if (timeLeft < minTimeLeft)
+                {
+                    minTimeLeft = timeLeft;
+                    totalTime = Mathf.Max(0f, activeQuest.MissionTimerTotalSeconds.CurrentValue);
+                }
             }
 
             _hasMissionTimer.Value = hasMissionTimer;
             _missionTimerSeconds.Value = hasMissionTimer ? minTimeLeft : 0f;
+            _missionTimerTotalSeconds.Value = hasMissionTimer ? totalTime : 0f;
         }
     }
 }
