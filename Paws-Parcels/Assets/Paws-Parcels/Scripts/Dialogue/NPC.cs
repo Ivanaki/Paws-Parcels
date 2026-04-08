@@ -50,6 +50,7 @@ namespace Paws_Parcels.NPCDialogs
         [SerializeField] private float _rotationDuration = 1f;
         [SerializeField] private Transform _npcTransform;
         [SerializeField] private GameObject _mark;
+        [SerializeField] private bool _saveAfterDialogue;
         
         private ReactiveProperty<string> _uiShowTextCodeRP = new("Bug");
 
@@ -79,7 +80,8 @@ namespace Paws_Parcels.NPCDialogs
         {
             if (_currentDialogue != null)
             {
-                _dialogueService.TryStartDialogue(_currentDialogue, _npcNameCode, _npcTransform, _rotationDuration);
+                _dialogueService.TryStartDialogue(_currentDialogue, _npcNameCode, _npcTransform, _rotationDuration,
+                    _saveAfterDialogue);
             }
             else
             {

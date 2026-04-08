@@ -24,7 +24,7 @@ public class SpawnCagt : MonoBehaviour
                 savings.ItemsInWorld.Add(new ItemProxy(new ItemData()
                 {
                     Position = cat.transform.position, AngularVelocity = Vector3.zero,
-                    DestinationId = "cat_1", ItemTypeId = "cat", LinearVelocity = Vector3.zero,
+                    DestinationId = "cat_3", ItemTypeId = "cat", LinearVelocity = Vector3.zero,
                     Rotation = rot
                 }));
             }));

@@ -3,6 +3,7 @@ using Extentions;
 using Messages;
 using NPCDialogs;
 using ObservableCollections;
+using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Saves.States.GameResources;
 using R3;
 using Services;
@@ -16,6 +17,7 @@ namespace Paws_Parcels.NPCDialogs
         private readonly ShowableInterfaceService _showableInterfaceService;
         private readonly PlayerService _playerService;
         private readonly GameInputService _gameInputService;
+        private readonly LoadService _loadService;
         private readonly MessageSystem _messageSystem;
 
         private readonly IReadOnlyObservableDictionary<string, Action<DialogueRunner>> _commandsRegistrations;
@@ -29,12 +31,13 @@ namespace Paws_Parcels.NPCDialogs
         private DialogueRunner _currentRunner = null;
 
         public DialogueService(ShowableInterfaceService showableInterfaceService, PlayerService playerService,
-            GameInputService gameInputService, DialogueRegistrations dialogueRegistrations,
+            GameInputService gameInputService, LoadService loadService, DialogueRegistrations dialogueRegistrations,
             MessageSystem messageSystem)
         {
             _showableInterfaceService = showableInterfaceService;
             _playerService = playerService;
             _gameInputService = gameInputService;
+            _loadService = loadService;
             _messageSystem = messageSystem;
 
             _commandsRegistrations = dialogueRegistrations.CommandsRegistrations;
@@ -76,7 +79,7 @@ namespace Paws_Parcels.NPCDialogs
         }
         
         public async YarnTask<Observable<bool>> TryStartDialogue(DialogueReference dialogueReference, string npcNameCode,
-            Transform npc, float duration)
+            Transform npc, float duration, bool saveAfterDialogue = false)
         {
             if (_isDialogRunning.Value)
             {
@@ -147,6 +150,11 @@ namespace Paws_Parcels.NPCDialogs
 
                 var message = "dialogue_ended:" + dialogueReference.nodeName;
                 _messageSystem.SendCompositeMessage(this, message);
+
+                if (saveAfterDialogue)
+                {
+                    _loadService.SaveGame();
+                }
             });
             
             return endOfDialog.Select(x => true);

@@ -180,7 +180,7 @@ MonoBehaviour:
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
     DialogueParent:
-      NpcName: cat
+      NpcName: cat_npc
       MainDialogue:
         project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
         nodeName: Cat
@@ -193,7 +193,7 @@ MonoBehaviour:
     DestinationParent:
       IsMany: 0
       Destination:
-        Id: cat
+        Id: cat_npc
         NotHighlightOnAwake: 0
         OffHighlightMessage: 
         OnHighlightMessage: 
@@ -239,7 +239,7 @@ MonoBehaviour:
         OnHighlightMessage: 
       ManyDestinations:
         Destinations:
-        - Id: cat_1
+        - Id: cat_3
           NotHighlightOnAwake: 0
           OffHighlightMessage: pickup
           OnHighlightMessage: drop

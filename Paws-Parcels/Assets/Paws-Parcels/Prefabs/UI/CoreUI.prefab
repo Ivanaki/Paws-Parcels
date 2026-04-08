@@ -745,6 +745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI.HUD.HUDBinder
   _parentAllHud: {fileID: 3967341580859770592}
   _moneyText: {fileID: 5579382634157018639}
+  _currentQuestTitleText: {fileID: 4735210953620186963}
+  _currentMissionTitleText: {fileID: 7237118265460983781}
   _timerImage: {fileID: 6865851996133892039}
 --- !u!1 &5977931940955448915
 GameObject:

@@ -24,7 +24,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3710452545609728
-    m_Key: cat
+    m_Key: 'cat_npc
+
+'
     m_Metadata:
       m_Items: []
   - m_Id: 4181986938634240

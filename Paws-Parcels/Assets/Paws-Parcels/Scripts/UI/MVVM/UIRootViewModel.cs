@@ -17,7 +17,7 @@ namespace UI.MVVM
         private readonly ObservableList<WindowViewModel> _openedPopups = new();
         private readonly Dictionary<WindowViewModel, IDisposable> _popupSubscriptions = new();
         
-        public void Dispose()
+        public virtual void Dispose()
         {
             for (var i = _openedPopups.Count - 1; i >= 0; i--)
             {

@@ -11,10 +11,15 @@ namespace Car_Player
         protected override void OnEnable()
         {
             base.OnEnable();
-            _gameProxy.IsCatInCar.Subscribe(v =>
+            _disposable.Add(_gameProxy.IsCatInCar.Subscribe(v =>
             {
+                if (_catGameObject == null)
+                {
+                    return;
+                }
+
                 _catGameObject.SetActive(v);
-            });
+            }));
         }
     }
 }

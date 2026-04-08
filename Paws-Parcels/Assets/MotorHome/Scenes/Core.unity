@@ -15890,6 +15890,7 @@ MonoBehaviour:
     IsCarDoorOpen: 0
     Resources: []
     IsCatInCar: 0
+    StopCar: 0
 --- !u!1001 &166432933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17559,6 +17560,7 @@ MonoBehaviour:
   _rotationDuration: 1
   _npcTransform: {fileID: 188569935}
   _mark: {fileID: 1718298716}
+  _saveAfterDialogue: 0
 --- !u!114 &188569939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18711,6 +18713,7 @@ MonoBehaviour:
   _rotationDuration: 1
   _npcTransform: {fileID: 206478044}
   _mark: {fileID: 1302102692}
+  _saveAfterDialogue: 0
 --- !u!114 &206478047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19022,6 +19025,7 @@ MonoBehaviour:
   _rotationDuration: 1
   _npcTransform: {fileID: 209435855}
   _mark: {fileID: 546256963}
+  _saveAfterDialogue: 1
 --- !u!114 &209435859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96723,6 +96727,7 @@ MonoBehaviour:
   _rotationDuration: 1
   _npcTransform: {fileID: 1431853126}
   _mark: {fileID: 2028287368}
+  _saveAfterDialogue: 1
 --- !u!114 &1431853130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126341,6 +126346,7 @@ MonoBehaviour:
   _rotationDuration: 1
   _npcTransform: {fileID: 1952589045}
   _mark: {fileID: 1125901535}
+  _saveAfterDialogue: 1
 --- !u!114 &1952589049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158708,6 +158714,7 @@ MonoBehaviour:
   _rotationDuration: 1
   _npcTransform: {fileID: 912246299649461257}
   _mark: {fileID: 1302102692}
+  _saveAfterDialogue: 1
 --- !u!114 &912246299649461260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186169,6 +186176,7 @@ MonoBehaviour:
   _rotationDuration: 1
   _npcTransform: {fileID: 2728018021443166939}
   _mark: {fileID: 1137155213}
+  _saveAfterDialogue: 1
 --- !u!4 &3359660380504828729
 Transform:
   m_ObjectHideFlags: 0
@@ -205204,7 +205212,7 @@ MonoBehaviour:
   _activeLocations:
   - None
   _selectedActivationDistance: 20
-  _npcNameCode: cat
+  _npcNameCode: cat_npc
   _startNpcDialog:
     project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
     nodeName: Cat
@@ -205212,6 +205220,7 @@ MonoBehaviour:
   _rotationDuration: 1
   _npcTransform: {fileID: 1722711499}
   _mark: {fileID: 1822006190}
+  _saveAfterDialogue: 0
 --- !u!65 &5205544232637748314
 BoxCollider:
   m_ObjectHideFlags: 0
