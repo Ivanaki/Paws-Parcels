@@ -142,6 +142,26 @@ MonoBehaviour:
     m_Localized: I'm stuck
     m_Metadata:
       m_Items: []
+  - m_Id: 30517584741736448
+    m_Localized: Overall Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30520870962143232
+    m_Localized: Music Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30521185283284992
+    m_Localized: Mouse Sensitivity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30521824994336768
+    m_Localized: Sensitivity or the car camera
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30522191077384192
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
