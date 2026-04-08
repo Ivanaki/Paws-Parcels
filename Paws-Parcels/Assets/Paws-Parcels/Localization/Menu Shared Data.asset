@@ -143,12 +143,24 @@ MonoBehaviour:
     m_Key: Zastril_pause
     m_Metadata:
       m_Items: []
-  - m_Id: 30529753613066240
-    m_Key: lossssss
+  - m_Id: 30517584741736448
+    m_Key: MasterVolume
     m_Metadata:
       m_Items: []
-  - m_Id: 30530208783130624
-    m_Key: "\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430"
+  - m_Id: 30520870962143232
+    m_Key: MusicVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30521185283284992
+    m_Key: SensitivityMan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30521824994336768
+    m_Key: SensitivityCar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30522191077384192
+    m_Key: Language
     m_Metadata:
       m_Items: []
   m_Metadata:
