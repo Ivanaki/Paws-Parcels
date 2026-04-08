@@ -19,7 +19,11 @@ namespace UI.MVVM
         
         public void Dispose()
         {
-            CloseAllPopups();
+            for (var i = _openedPopups.Count - 1; i >= 0; i--)
+            {
+                ClosePopup(_openedPopups[i]);
+            }
+
             _openedScreen.Value?.Dispose();
         }
 
@@ -69,8 +73,15 @@ namespace UI.MVVM
 
         public void CloseAllPopups()
         {
-            foreach (var openedPopup in _openedPopups)
+            for (var i = _openedPopups.Count - 1; i >= 0; i--)
             {
+                var openedPopup = _openedPopups[i];
+
+                if (openedPopup.CanClose == false)
+                {
+                    continue;
+                }
+
                 ClosePopup(openedPopup);
             }
         }
@@ -80,6 +91,11 @@ namespace UI.MVVM
             if (_openedPopups.Count > 0)
             {
                 var lastPopupViewModel = _openedPopups.Last();
+
+                if (lastPopupViewModel.CanClose == false)
+                {
+                    return true;
+                }
                 
                 ClosePopup(lastPopupViewModel);
                 return true;

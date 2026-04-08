@@ -17,6 +17,7 @@ namespace UI.Screens.LoadMenu
         private static readonly Texture2D NoneTexture = Utils.CreateWhiteTexture();
         
         public override string Id => "LoadMenu";
+        public override bool CanClose => _canClose;
         
         public IObservableCollection<OneSaveViewModel> OneSaveViewModels => _oneSaveViewModels;
 
@@ -32,6 +33,7 @@ namespace UI.Screens.LoadMenu
         
         private readonly LoadService _loadService;
         private readonly IReadOnlyObservableDictionary<Guid, GameMeta> _metasMap;
+        private readonly bool _canClose;
 
         //
         private readonly ObservableList<OneSaveViewModel> _oneSaveViewModels = new();
@@ -57,9 +59,10 @@ namespace UI.Screens.LoadMenu
         private OneSaveViewModel _selectedSaveViewModel = null;
         private Guid _selectedSaveId = Guid.Empty;
         
-        public PopupLoadMenuViewModel(LoadService loadService)
+        public PopupLoadMenuViewModel(LoadService loadService, bool canClose = true)
         {
             _loadService = loadService;
+            _canClose = canClose;
             CurrentCultureInfo = loadService.CurrentCultureInfo;
             
             _disposables.Add(_dateTimeUtc.Skip(1).Subscribe(dateTime =>

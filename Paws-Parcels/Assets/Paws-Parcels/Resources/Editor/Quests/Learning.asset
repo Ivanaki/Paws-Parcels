@@ -51,6 +51,8 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 1
     SendMessageOnStartMission: 
     SendMessageOnEndMission: 'hide_hint/
@@ -85,6 +87,8 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
+    Limit: 1
+    LimitTimeInSeconds: 20
   - MissionId: 2
     SendMessageOnStartMission: update_items_up_message
     SendMessageOnEndMission: 
@@ -133,6 +137,8 @@ MonoBehaviour:
         item_down_roof:box_2'
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 3
     SendMessageOnStartMission: 
     SendMessageOnEndMission: 
@@ -167,6 +173,8 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 4
     SendMessageOnStartMission: 
     SendMessageOnEndMission: 
@@ -205,6 +213,8 @@ MonoBehaviour:
         take_item_from_car_up:cube_4'
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 5
     SendMessageOnStartMission: spawn_cat
     SendMessageOnEndMission: 
@@ -251,6 +261,8 @@ MonoBehaviour:
         take_item_from_car_up:cube_4'
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 6
     SendMessageOnStartMission: 
     SendMessageOnEndMission: on_open_map
@@ -295,6 +307,8 @@ MonoBehaviour:
         destination_putter_los-take:box_3'
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 7
     SendMessageOnStartMission: spawn_book
     SendMessageOnEndMission: activate_quest:1_elk_to_sova
@@ -343,6 +357,6 @@ MonoBehaviour:
         destination_putter_elk-take:box_2'
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   MoneyReward: 0
-  Limit: 0
-  LimitTimeInSeconds: 60

@@ -235,20 +235,22 @@ namespace UI.Screens.Quests
             {
                 _currentQuestRewardMoneyText.Value = quest.MoneyReward.ToString();
                 _currentQuestTitleCode.OnNext(quest.Id);
-                _currentMissionLimitCode.OnNext(quest.Limit);
+                _currentMissionLimitText.Value = NoneSimbol;
                 
                 //_currentMissionTitleText.Value = LocalizationService.GetCurrentLanguageStringOrDefault("");
                 _currentMissionDescriptionText.Value = NoneSimbol;
             }
             else
             {
+                var currentMission = quest.Missions[ActiveQuests.FirstOrDefault(x => x.Id == quest.Id).CurrentMission.Value];
+
                 _currentQuestRewardMoneyText.Value = quest.MoneyReward.ToString();
                 _currentQuestTitleCode.OnNext(quest.Id);
                 _currentMissionTitleCode.OnNext(quest.Id + "-" + quest
                     .Missions[ActiveQuests.FirstOrDefault(x => x.Id == quest.Id).CurrentMission.Value].MissionId);
                 _currentMissionDescriptionCode.OnNext(quest.Id + "-" + quest
                     .Missions[ActiveQuests.FirstOrDefault(x => x.Id == quest.Id).CurrentMission.Value].MissionId + "-d");
-                _currentMissionLimitCode.OnNext(quest.Limit);
+                _currentMissionLimitCode.OnNext(currentMission.Limit);
             }
         }
 

@@ -1,9 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Root;
 using Dialogue;
 using Messages;
-using NUnit.Framework;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using Quests;
@@ -32,6 +33,7 @@ namespace Paws_Parcels.Scripts.Quests
         private readonly MessageSystem _messageSystem;
 
         private readonly DialogueInQuestsService _dialogueInQuestsService;
+        private readonly Coroutines _coroutines;
 
         private readonly GameProxy _gameProxy;
         //private readonly DestinationService _destinationService;
@@ -50,12 +52,15 @@ namespace Paws_Parcels.Scripts.Quests
         private readonly Dictionary<string, CompositeDisposable> _onOffHighLightDisposablesDict = new();
        
         private readonly Dictionary<string, IDisposable> _questSubscriptionsDict = new();
+        private readonly Dictionary<string, Coroutine> _missionTimersDict = new();
         
         //private readonly Dictionary<string, CompositeDisposable> _dialogueMissionDisposablesDict = new();
         private readonly HashSet<string> _dialogueQuestIds = new();
+        private bool _missionTimerFailureTriggered;
         
         public QuestsService(RewardService rewardService, MessageSystem messageSystem, GameStateProvider gameStateProvider,
-            QuestsDatabase questsDatabase, DialogueInQuestsService dialogueInQuestsService, GameProxy gameProxy)
+            QuestsDatabase questsDatabase, DialogueInQuestsService dialogueInQuestsService, GameProxy gameProxy,
+            Coroutines coroutines)
         {
             _questsDict = questsDatabase.QuestsDict;
             ActiveQuests = gameStateProvider.GameProxy.ActiveQuests;
@@ -67,6 +72,7 @@ namespace Paws_Parcels.Scripts.Quests
             _messageSystem = messageSystem;
             _dialogueInQuestsService = dialogueInQuestsService;
             _gameProxy = gameProxy;
+            _coroutines = coroutines;
 
             ActiveQuests.ForEach(NewQuestAdded);
 
@@ -104,7 +110,7 @@ namespace Paws_Parcels.Scripts.Quests
             //var rm = new ReactiveMessage();
             //_questId_ReactiveMessage_Dict[questId] = rm;
 
-            SubscribeMissionComplete(questDataProxy.CurrentMission.Value);
+            SubscribeMissionComplete(questDataProxy.CurrentMission.Value, false);
             
             
             
@@ -217,16 +223,16 @@ namespace Paws_Parcels.Scripts.Quests
 #endregion
             return;
             
-            void SubscribeMissionComplete(int currentMission)
+            void SubscribeMissionComplete(int currentMission, bool restartTimer)
             {
-                
-                
                 if(_questId_ReactiveMessage_Dict.TryGetValue(questId, out var disposable)) disposable.Dispose();
                 
                 disposable = new CompositeDisposable();
                 _questId_ReactiveMessage_Dict[questId] = disposable;
                 
                 var mission = quest.Missions[currentMission];
+
+                ConfigureMissionTimer(questDataProxy, mission, restartTimer);
                 
                 disposable.Add(_messageSystem.AddListenerWithManyMessages(mission.Message.Message).Subscribe(_ =>
                 {
@@ -242,6 +248,7 @@ namespace Paws_Parcels.Scripts.Quests
                     if ((v >= 1 && mission.Message.HasCount == false) || (v >= mission.Message.MessageCount && mission.Message.HasCount))
                     {
                         disposable.Dispose();
+                        StopMissionTimer(questDataProxy, true);
                         
                         _messageSystem.SendManyCompositeMessages(this, quest.Missions[currentMission].SendMessageOnEndMission);
                     
@@ -253,7 +260,7 @@ namespace Paws_Parcels.Scripts.Quests
                         
                             //questDataProxy.IsActiveDestination.Value = 
                             //    !quest.Missions[questDataProxy.CurrentMission.Value].DestinationParent.Destination.NotHighlightOnAwake;
-                            SubscribeMissionComplete(currentMission + 1);
+                            SubscribeMissionComplete(currentMission + 1, true);
                         }
                         else
                         {
@@ -269,6 +276,8 @@ namespace Paws_Parcels.Scripts.Quests
 
         private void QuestRemove(QuestDataProxy qdp)
         {
+            StopMissionTimer(qdp, false);
+
             if (_onOffHighLightDisposablesDict.TryGetValue(qdp.Id, out var disposable1))
             {
                 disposable1.Dispose();
@@ -298,6 +307,8 @@ namespace Paws_Parcels.Scripts.Quests
 
         private void ClearQuests()
         {
+            _missionTimerFailureTriggered = false;
+
             foreach (var dis in _onOffHighLightDisposablesDict.Values) dis?.Dispose();
             _onOffHighLightDisposablesDict.Clear();
             
@@ -306,6 +317,15 @@ namespace Paws_Parcels.Scripts.Quests
             
             foreach (var dis in _questId_ReactiveMessage_Dict.Values) dis?.Dispose();
             _questId_ReactiveMessage_Dict.Clear();
+
+            foreach (var timerCoroutine in _missionTimersDict.Values)
+            {
+                if (timerCoroutine != null)
+                {
+                    _coroutines.StopCoroutine(timerCoroutine);
+                }
+            }
+            _missionTimersDict.Clear();
             
             foreach (var dialogueQuestId in _dialogueQuestIds) _dialogueInQuestsService.RemoveQuest(dialogueQuestId);
             _dialogueQuestIds.Clear();
@@ -385,6 +405,99 @@ namespace Paws_Parcels.Scripts.Quests
         public void Dispose()
         {
             _compositeDisposable.Dispose();
+        }
+
+        private void ConfigureMissionTimer(QuestDataProxy questDataProxy, Mission mission, bool restartTimer)
+        {
+            StopMissionTimer(questDataProxy, false);
+
+            if (mission.Limit != Limits.LimitTime)
+            {
+                questDataProxy.HasMissionTimer.Value = false;
+                questDataProxy.MissionTimerSeconds.Value = 0f;
+                return;
+            }
+
+            var timerSeconds = Mathf.Max(1, mission.LimitTimeInSeconds);
+
+            if (restartTimer || questDataProxy.HasMissionTimer.CurrentValue == false || questDataProxy.MissionTimerSeconds.CurrentValue <= 0f)
+            {
+                questDataProxy.MissionTimerSeconds.Value = timerSeconds;
+            }
+            else
+            {
+                questDataProxy.MissionTimerSeconds.Value = Mathf.Min(questDataProxy.MissionTimerSeconds.CurrentValue, timerSeconds);
+            }
+
+            questDataProxy.HasMissionTimer.Value = true;
+            _missionTimersDict[questDataProxy.Id] = _coroutines.StartCoroutine(MissionTimerCoroutine(questDataProxy));
+        }
+
+        private void StopMissionTimer(QuestDataProxy questDataProxy, bool clearState)
+        {
+            if (_missionTimersDict.TryGetValue(questDataProxy.Id, out var timerCoroutine))
+            {
+                if (timerCoroutine != null)
+                {
+                    _coroutines.StopCoroutine(timerCoroutine);
+                }
+
+                _missionTimersDict.Remove(questDataProxy.Id);
+            }
+
+            if (clearState)
+            {
+                questDataProxy.HasMissionTimer.Value = false;
+                questDataProxy.MissionTimerSeconds.Value = 0f;
+            }
+        }
+
+        private IEnumerator MissionTimerCoroutine(QuestDataProxy questDataProxy)
+        {
+            while (questDataProxy.HasMissionTimer.CurrentValue)
+            {
+                yield return null;
+
+                if (questDataProxy.HasMissionTimer.CurrentValue == false)
+                {
+                    yield break;
+                }
+
+                var nextValue = Mathf.Max(0f, questDataProxy.MissionTimerSeconds.CurrentValue - Time.deltaTime);
+                questDataProxy.MissionTimerSeconds.Value = nextValue;
+
+                if (nextValue > 0f)
+                {
+                    continue;
+                }
+
+                _missionTimersDict.Remove(questDataProxy.Id);
+                HandleMissionTimerExpired(questDataProxy);
+                yield break;
+            }
+
+            _missionTimersDict.Remove(questDataProxy.Id);
+        }
+
+        private void HandleMissionTimerExpired(QuestDataProxy questDataProxy)
+        {
+            if (_missionTimerFailureTriggered)
+            {
+                return;
+            }
+
+            _missionTimerFailureTriggered = true;
+            questDataProxy.HasMissionTimer.Value = false;
+            questDataProxy.MissionTimerSeconds.Value = 0f;
+
+            if (_questId_ReactiveMessage_Dict.TryGetValue(questDataProxy.Id, out var questDisposable))
+            {
+                questDisposable.Dispose();
+                _questId_ReactiveMessage_Dict.Remove(questDataProxy.Id);
+            }
+
+            _gameProxy.StopCar.Value = true;
+            _messageSystem.SendCompositeMessage(this, "open_popup_load_menu_forced");
         }
     }
 }

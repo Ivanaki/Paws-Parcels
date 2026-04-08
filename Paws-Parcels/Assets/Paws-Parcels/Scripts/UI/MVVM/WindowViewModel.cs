@@ -7,6 +7,7 @@ namespace UI.MVVM
     {
         public Observable<WindowViewModel> CloseRequested => _closeRequested;
         public abstract string Id { get; }
+        public virtual bool CanClose => true;
 
         private readonly Subject<WindowViewModel> _closeRequested = new();
 
@@ -16,6 +17,11 @@ namespace UI.MVVM
         /// </summary>
         public void RequestClose()
         {
+            if (CanClose == false)
+            {
+                return;
+            }
+
             _closeRequested.OnNext(this);
         }
 

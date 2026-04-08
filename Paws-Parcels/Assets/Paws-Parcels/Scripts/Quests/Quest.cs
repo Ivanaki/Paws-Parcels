@@ -126,6 +126,12 @@ namespace Paws_Parcels.Scripts.Quests
         [ShowIf(nameof(IsMany)), AllowNesting] 
         public ManyMessages ManyMessages;
 
+        [Header("Limits")]
+        public Limits Limit = Limits.LimitNone;
+
+        [ShowIf(nameof(Limit), Limits.LimitTime), AllowNesting]
+        public int LimitTimeInSeconds = 60;
+
         
     }
     
@@ -154,10 +160,6 @@ namespace Paws_Parcels.Scripts.Quests
         public List<Mission> Missions;
 
         public int MoneyReward = 0;
-        public Limits Limit = Limits.LimitNone;
-
-        [ShowIf(nameof(Limit), Limits.LimitTime), AllowNesting]
-        public int LimitTimeInSeconds = 60;
 
         /*[Space]
         public List<RewardReference> Rewards;*/

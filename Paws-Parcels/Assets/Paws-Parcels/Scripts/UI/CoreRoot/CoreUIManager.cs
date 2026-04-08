@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Game.Root;
 using Messages;
 using Paws_Parcels.NPCDialogs;
@@ -147,6 +148,27 @@ namespace UI.Core
             
             _messageSystem.SendCompositeMessage(this, "open_popup_load_menu");
         }
+
+        public void OpenForcedPopupLoadMenu()
+        {
+            _coreRootViewModel.CloseAllPopups();
+            _coreRootViewModel.TryCloseScreen();
+            _cursorService.SetCursorStateLocked(true);
+            _inputsCoreService.StopAllUiClosed();
+            _inputsCoreService.NotDisableMovementUiClosed();
+            Time.timeScale = 1f;
+
+            var viewModel = new PopupLoadMenuViewModel(_loadService, false);
+            _coreRootViewModel.OpenPopup(viewModel);
+
+            _cursorService.SetCursorStateLocked(false);
+            _inputsCoreService.StopAllUiOpened();
+            _inputsCoreService.NotDisableMovementUiClosed();
+            Time.timeScale = 0f;
+            _banOpen = true;
+
+            _messageSystem.SendCompositeMessage(this, "open_popup_load_menu_forced");
+        }
         
         public void OpenPopupSettings()
         {
@@ -168,6 +190,12 @@ namespace UI.Core
         public void CloseAll()
         {
             _coreRootViewModel.CloseAllPopups();
+
+            if (_coreRootViewModel.OpenedPopups.Any())
+            {
+                return;
+            }
+
             TryCloseScreen();
         }
 
@@ -178,6 +206,11 @@ namespace UI.Core
 
         public void UnbanOpen()
         {
+            if (_coreRootViewModel.OpenedPopups.Any(popup => popup.CanClose == false))
+            {
+                return;
+            }
+
             _banOpen = false;
         }
     }

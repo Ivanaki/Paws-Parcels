@@ -18,8 +18,13 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public ReactiveProperty<int> TrackedMissionID { get; }
         public ReactiveProperty<bool> IsCompassActive { get; }
         public ReadOnlyReactiveProperty<string> SelectedQuest => _selectedQuest;
+        public ReadOnlyReactiveProperty<bool> HasMissionTimer => _hasMissionTimer;
+        public ReadOnlyReactiveProperty<float> MissionTimerSeconds => _missionTimerSeconds;
         
         private ReactiveProperty<string> _selectedQuest;
+        private readonly ReactiveProperty<bool> _hasMissionTimer;
+        private readonly ReactiveProperty<float> _missionTimerSeconds;
+        private readonly Dictionary<QuestDataProxy, CompositeDisposable> _questTimerSubscriptions = new();
 
         public ObservableList<QuestDataProxy> ActiveQuests { get; } = new();
         public ObservableList<string> SucceedQuests { get; } = new();
@@ -63,12 +68,15 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             TrackedMissionID = new ReactiveProperty<int>(origin.TrackedMissionID);
             IsCompassActive = new ReactiveProperty<bool>(origin.IsCompassActive);
             _selectedQuest = new ReactiveProperty<string>(origin.SelectedQuest);
+            _hasMissionTimer = new ReactiveProperty<bool>(false);
+            _missionTimerSeconds = new ReactiveProperty<float>(0f);
             
             TrackedMissionID.Skip(1).Subscribe(v => origin.TrackedMissionID = v);
             IsCompassActive.Skip(1).Subscribe(v => origin.IsCompassActive = v);
             _selectedQuest.Skip(1).Subscribe(v => origin.SelectedQuest = v);
             
             InitQuests(origin);
+            InitMissionTimerAggregation();
             
             InitItems(origin);
 
@@ -108,7 +116,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
                 Id = questData.Id,
                 CurrentMission = questData.CurrentMission,
                 ActiveDestinations = new List<string>(questData.ActiveDestinations),
-                MessageProgress = questData.MessageProgress
+                MessageProgress = questData.MessageProgress,
+                HasMissionTimer = questData.HasMissionTimer,
+                MissionTimerSeconds = questData.MissionTimerSeconds
             })));
             
             SucceedQuests.Clear();
@@ -141,6 +151,8 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             ItemsDestinationsPutters.Clear();
             foreach (var originItemsDestination in origin.ItemsDestinations)
                 ItemsDestinationsPutters.Add(originItemsDestination.Key, new ItemDestinationProxy(originItemsDestination.Value));
+
+            UpdateAggregateMissionTimer();
         }
         
         /*public void Change(GameProxy gameProxy)
@@ -287,6 +299,82 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             ItemsDestinationsPutters.ObserveClear().Subscribe(e =>
                 origin.ItemsDestinations.Clear());
+        }
+
+        private void InitMissionTimerAggregation()
+        {
+            foreach (var activeQuest in ActiveQuests)
+            {
+                SubscribeQuestTimer(activeQuest);
+            }
+
+            ActiveQuests.ObserveAdd().Subscribe(e =>
+            {
+                SubscribeQuestTimer(e.Value);
+                UpdateAggregateMissionTimer();
+            });
+
+            ActiveQuests.ObserveRemove().Subscribe(e =>
+            {
+                UnsubscribeQuestTimer(e.Value);
+                UpdateAggregateMissionTimer();
+            });
+
+            ActiveQuests.ObserveClear().Subscribe(_ =>
+            {
+                foreach (var timerSubscription in _questTimerSubscriptions.Values)
+                {
+                    timerSubscription.Dispose();
+                }
+
+                _questTimerSubscriptions.Clear();
+                UpdateAggregateMissionTimer();
+            });
+
+            UpdateAggregateMissionTimer();
+        }
+
+        private void SubscribeQuestTimer(QuestDataProxy questDataProxy)
+        {
+            if (_questTimerSubscriptions.ContainsKey(questDataProxy))
+            {
+                return;
+            }
+
+            var disposable = new CompositeDisposable();
+            disposable.Add(questDataProxy.HasMissionTimer.Subscribe(_ => UpdateAggregateMissionTimer()));
+            disposable.Add(questDataProxy.MissionTimerSeconds.Subscribe(_ => UpdateAggregateMissionTimer()));
+
+            _questTimerSubscriptions.Add(questDataProxy, disposable);
+        }
+
+        private void UnsubscribeQuestTimer(QuestDataProxy questDataProxy)
+        {
+            if (_questTimerSubscriptions.TryGetValue(questDataProxy, out var disposable))
+            {
+                disposable.Dispose();
+                _questTimerSubscriptions.Remove(questDataProxy);
+            }
+        }
+
+        private void UpdateAggregateMissionTimer()
+        {
+            var hasMissionTimer = false;
+            var minTimeLeft = float.MaxValue;
+
+            foreach (var activeQuest in ActiveQuests)
+            {
+                if (activeQuest.HasMissionTimer.CurrentValue == false)
+                {
+                    continue;
+                }
+
+                hasMissionTimer = true;
+                minTimeLeft = Mathf.Min(minTimeLeft, Mathf.Max(0f, activeQuest.MissionTimerSeconds.CurrentValue));
+            }
+
+            _hasMissionTimer.Value = hasMissionTimer;
+            _missionTimerSeconds.Value = hasMissionTimer ? minTimeLeft : 0f;
         }
     }
 }

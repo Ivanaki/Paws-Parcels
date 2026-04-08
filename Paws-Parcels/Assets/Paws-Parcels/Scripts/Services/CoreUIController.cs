@@ -42,6 +42,10 @@ namespace Services
             {
                 OpenMap();
             }));
+            _disposables.Add(messageSystem.AddListenerWithManyMessages("open_popup_load_menu_forced").Subscribe(_ =>
+            {
+                _coreUIManager.OpenForcedPopupLoadMenu();
+            }));
         }
         
         private void BackUI(InputAction.CallbackContext obj = new())
