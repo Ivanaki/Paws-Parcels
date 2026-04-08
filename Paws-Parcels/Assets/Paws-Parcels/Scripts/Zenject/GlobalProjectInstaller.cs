@@ -4,6 +4,7 @@ using Dialogue;
 using Game.Root;
 using Items;
 using Map;
+using Messages;
 using NPCDialogs;
 using Paws_Parcels.NPCDialogs;
 using Paws_Parcels.Scripts;

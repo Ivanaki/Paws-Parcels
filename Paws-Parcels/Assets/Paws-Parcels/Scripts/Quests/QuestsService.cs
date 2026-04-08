@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Dialogue;
+using Messages;
 using NUnit.Framework;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Saves.States.GameState;

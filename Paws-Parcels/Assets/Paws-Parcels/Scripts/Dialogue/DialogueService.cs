@@ -1,5 +1,6 @@
 using System;
 using Extentions;
+using Messages;
 using NPCDialogs;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Saves.States.GameResources;

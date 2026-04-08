@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Quests
+namespace Messages
 {
     [Serializable]
     public struct MessageArgs

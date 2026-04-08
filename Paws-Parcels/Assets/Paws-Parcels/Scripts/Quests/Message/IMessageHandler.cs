@@ -1,4 +1,4 @@
-namespace Quests
+namespace Messages
 {
     public interface IMessageHandler
     {

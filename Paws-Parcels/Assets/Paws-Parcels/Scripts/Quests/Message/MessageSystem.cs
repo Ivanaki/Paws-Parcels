@@ -7,7 +7,7 @@ using Quests.Message;
 using R3;
 using UnityEngine;
 
-namespace Services
+namespace Messages
 {
     public class MessageSystem
     {

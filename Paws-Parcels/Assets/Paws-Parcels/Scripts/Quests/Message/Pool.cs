@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Quests
+namespace Messages
 {
     public class Pool<T> where T : new()
     {

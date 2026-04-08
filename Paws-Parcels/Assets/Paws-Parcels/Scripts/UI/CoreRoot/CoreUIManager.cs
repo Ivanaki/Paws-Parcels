@@ -1,5 +1,6 @@
 using System;
 using Game.Root;
+using Messages;
 using Paws_Parcels.NPCDialogs;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Saves.States.GameState;

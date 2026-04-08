@@ -1,10 +1,9 @@
-﻿// Copyright (c) Pixel Crushers. All rights reserved.
-
+﻿
 using Services;
 using UnityEngine;
 using Zenject;
 
-namespace Quests
+namespace Messages
 {
     public class MessageSystemLogger : MonoBehaviour
     {
