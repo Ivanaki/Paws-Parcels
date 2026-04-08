@@ -7,6 +7,7 @@ namespace Paws_Parcels.Scripts.Saves.States
         public readonly SettingsState SettingsState;
         
         public ReactiveProperty<float> MasterVolume { get; }
+        public ReactiveProperty<float> MusicVolume { get; }
         public ReactiveProperty<float> PlayerSensitivity { get; }
         public ReactiveProperty<float> CarSensitivity { get; }
         public ReactiveProperty<string> LanguageCode { get; }
@@ -16,11 +17,13 @@ namespace Paws_Parcels.Scripts.Saves.States
             SettingsState = settingsState;
             
             MasterVolume = new ReactiveProperty<float>(settingsState.MasterVolume);
+            MusicVolume = new ReactiveProperty<float>(settingsState.MusicVolume);
             PlayerSensitivity = new ReactiveProperty<float>(settingsState.PlayerSensitivity);
             CarSensitivity = new ReactiveProperty<float>(settingsState.CarSensitivity);
             LanguageCode = new ReactiveProperty<string>(settingsState.LanguageCode);
             
             MasterVolume.Skip(1).Subscribe(value => settingsState.MasterVolume = value);
+            MusicVolume.Skip(1).Subscribe(value => settingsState.MusicVolume = value);
             PlayerSensitivity.Skip(1).Subscribe(value => settingsState.PlayerSensitivity = value);
             CarSensitivity.Skip(1).Subscribe(value => settingsState.CarSensitivity = value);
             LanguageCode.Skip(1).Subscribe(value => settingsState.LanguageCode = value);
@@ -29,6 +32,7 @@ namespace Paws_Parcels.Scripts.Saves.States
         public void Change(SettingsState settingsState)
         {
             MasterVolume.Value = settingsState.MasterVolume;
+            MusicVolume.Value = settingsState.MusicVolume;
             PlayerSensitivity.Value = settingsState.PlayerSensitivity;
             CarSensitivity.Value = settingsState.CarSensitivity;
             LanguageCode.Value = settingsState.LanguageCode;

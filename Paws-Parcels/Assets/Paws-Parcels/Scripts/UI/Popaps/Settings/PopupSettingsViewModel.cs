@@ -16,6 +16,7 @@ namespace UI.Screens.Settings
         
         public ReadOnlyReactiveProperty<bool> HasChanges => _hasChanges;
         public ReadOnlyReactiveProperty<float> MasterVolume => _masterVolume;
+        public ReadOnlyReactiveProperty<float> MusicVolume => _musicVolume;
         public ReadOnlyReactiveProperty<float> SensitivityPlayer => _sensitivityPlayer;
         public ReadOnlyReactiveProperty<float> SensitivityPlayer01 => _sensitivityPlayer01;
         public ReadOnlyReactiveProperty<float> SensitivityCar => _sensitivityCar;
@@ -26,6 +27,7 @@ namespace UI.Screens.Settings
 
         private readonly ReactiveProperty<bool> _hasChanges = new(false);
         private readonly ReactiveProperty<float> _masterVolume = new();
+        private readonly ReactiveProperty<float> _musicVolume = new();
         private readonly ReactiveProperty<float> _sensitivityPlayer = new();
         private readonly ReactiveProperty<float> _sensitivityPlayer01 = new();
         private readonly ReactiveProperty<float> _sensitivityCar = new();
@@ -44,6 +46,7 @@ namespace UI.Screens.Settings
             _maxSensitivityOnSlider = Mathf.Max(maxSensitivityOnSlider, 1f);
 
             settingsService.MasterVolume.Subscribe(value => _masterVolume.Value = value);
+            settingsService.MusicVolume.Subscribe(value => _musicVolume.Value = value);
             settingsService.SensitivityPlayer.Subscribe(value => _sensitivityPlayer.Value = value);
             settingsService.SensitivityPlayer.Subscribe(value => _sensitivityPlayer01.Value = value/_maxSensitivityOnSlider);
             settingsService.SensitivityCar.Subscribe(value => _sensitivityCar.Value = value);
@@ -66,6 +69,22 @@ namespace UI.Screens.Settings
             {
                 v = Mathf.Clamp01(v);
                 _masterVolume.Value = v;
+            }
+        }
+
+        public void RequestSetMusicVolumeBySlider(float volume)
+        {
+            _hasChanges.Value = true;
+            _musicVolume.Value = volume;
+        }
+
+        public void RequestSetMusicVolumeByInputField(string volume)
+        {
+            _hasChanges.Value = true;
+            if (float.TryParse(volume, out float v))
+            {
+                v = Mathf.Clamp01(v);
+                _musicVolume.Value = v;
             }
         }
         
@@ -118,6 +137,7 @@ namespace UI.Screens.Settings
                 _settingsService.SaveSettings(new SettingsState()
                 {
                     MasterVolume = _masterVolume.Value,
+                    MusicVolume = _musicVolume.Value,
                     LanguageCode = _languageCode.Value,
                     PlayerSensitivity = _sensitivityPlayer.Value,
                     CarSensitivity = _sensitivityCar.Value,
@@ -131,6 +151,7 @@ namespace UI.Screens.Settings
             _settingsService.ResetSettings();
             
             _masterVolume.Value = _settingsService.MasterVolume.CurrentValue;
+            _musicVolume.Value = _settingsService.MusicVolume.CurrentValue;
             _sensitivityPlayer.Value = _settingsService.SensitivityPlayer.CurrentValue;
             _sensitivityPlayer01.Value = _settingsService.SensitivityPlayer.CurrentValue/_maxSensitivityOnSlider;
             _sensitivityCar.Value = _settingsService.SensitivityCar.CurrentValue;

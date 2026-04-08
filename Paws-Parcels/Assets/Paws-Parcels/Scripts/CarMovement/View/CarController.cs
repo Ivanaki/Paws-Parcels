@@ -28,6 +28,7 @@ namespace Paws_Parcels.Car.View
             m_SteerAction = gameInputService.InputSystem.Car.Steer;
             m_ThrottleAction = gameInputService.InputSystem.Car.Throttle;
             m_HandbrakeAction = gameInputService.InputSystem.Car.HandBrake;
+            _gameProxy = gameProxy;
         }
 
         private void Awake()

@@ -20,6 +20,9 @@ namespace UI.Screens.Settings
 
         [SerializeField] private Slider _masterVolumeSlider;
         [SerializeField] private TMP_InputField _masterVolumeInputField;
+
+        [SerializeField] private Slider _musicVolumeSlider;
+        [SerializeField] private TMP_InputField _musicVolumeInputField;
         
         [SerializeField] private Slider _sensivityPlayerSlider;
         [SerializeField] private TMP_InputField _sensivityPlayerInputField;
@@ -54,15 +57,12 @@ namespace UI.Screens.Settings
             _disposables.Add(_resetButton.OnClickAsObservable().Subscribe(_ => viewModel.RequestReset()));
 
             //master volume
-            _disposables.Add(viewModel.MasterVolume.Subscribe(v => _masterVolumeSlider.value = v));
-            _disposables.Add(viewModel.MasterVolume.Subscribe(v => _masterVolumeInputField.text = v.ToString("F3")));
-            _disposables.Add(_masterVolumeSlider.onValueChanged.AsObservable()
-                .Subscribe(viewModel.RequestSetMasterVolumeBySlider));
-            _disposables.Add(_masterVolumeInputField.onEndEdit.AsObservable().Subscribe(v =>
-            {
-                viewModel.RequestSetMasterVolumeByInputField(v);
-                _masterVolumeInputField.text = viewModel.MasterVolume.CurrentValue.ToString("F3");
-            }));
+            BindVolumeControl(viewModel.MasterVolume, _masterVolumeSlider, _masterVolumeInputField,
+                viewModel.RequestSetMasterVolumeBySlider, viewModel.RequestSetMasterVolumeByInputField);
+
+            //music volume
+            BindVolumeControl(viewModel.MusicVolume, _musicVolumeSlider, _musicVolumeInputField,
+                viewModel.RequestSetMusicVolumeBySlider, viewModel.RequestSetMusicVolumeByInputField);
             
             //sensitivity player
             _disposables.Add(viewModel.SensitivityPlayer01.Subscribe(v => _sensivityPlayerSlider.SetValueWithoutNotify(v)));
@@ -97,6 +97,26 @@ namespace UI.Screens.Settings
             _disposables.Add(viewModel.HasChanges.Subscribe(v => _saveText.color = v
                 ? new Color(_saveText.color.r, _saveText.color.g, _saveText.color.b, (float)_colorStrangeWhenCanSave/255)
                 : new Color(_saveText.color.r, _saveText.color.g, _saveText.color.b, (float)_colorStrangeWhenCouldntSave/255)));
+        }
+
+        private void BindVolumeControl(ReadOnlyReactiveProperty<float> volumeProperty, Slider slider,
+            TMP_InputField inputField, Action<float> onSliderChanged, Action<string> onInputFieldChanged)
+        {
+            if (slider != null)
+            {
+                _disposables.Add(volumeProperty.Subscribe(v => slider.SetValueWithoutNotify(v)));
+                _disposables.Add(slider.onValueChanged.AsObservable().Subscribe(onSliderChanged));
+            }
+
+            if (inputField != null)
+            {
+                _disposables.Add(volumeProperty.Subscribe(v => inputField.SetTextWithoutNotify(v.ToString("F3"))));
+                _disposables.Add(inputField.onEndEdit.AsObservable().Subscribe(v =>
+                {
+                    onInputFieldChanged(v);
+                    inputField.SetTextWithoutNotify(volumeProperty.CurrentValue.ToString("F3"));
+                }));
+            }
         }
 
         private void OnDestroy()
