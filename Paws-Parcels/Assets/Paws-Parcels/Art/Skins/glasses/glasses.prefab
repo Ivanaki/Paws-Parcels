@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: glasses
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: caabd98d3bc32f843883e3d74f644da1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7339356831882890532, guid: caabd98d3bc32f843883e3d74f644da1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

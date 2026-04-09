@@ -27,8 +27,7 @@ MonoBehaviour:
       MissionTimerSeconds: 0
       MissionTimerTotalSeconds: 0
     SelectedQuest: learning
-    SucceedQuests:
-    - 1_elk_to_sova
+    SucceedQuests: []
     CurrentActiveDestinations: []
     DiaryPages: []
     PurchasedSkins: []

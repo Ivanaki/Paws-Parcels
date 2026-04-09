@@ -51,54 +51,6 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  - MissionId: 1
-    SendMessageOnStartMission: monologue_started:Player
-    SendMessageOnEndMission: on_open_quests
-    IsThisMissionDialogue: 0
-    DialogueParent:
-      NpcName: 
-      MainDialogue:
-        project: {fileID: 0}
-        nodeName: 
-      AfterMainDialogue:
-        project: {fileID: 0}
-        nodeName: 
-    HasBuildingDestination: 0
-    BuildingDestinationId: school
-    HasDestination: 0
-    DestinationParent:
-      IsMany: 0
-      Destination:
-        Id: 
-        NotHighlightOnAwake: 0
-        OffHighlightMessage: 
-        OnHighlightMessage: 
-      ManyDestinations:
-        Destinations:
-        - Id: box_1
-          NotHighlightOnAwake: 0
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
-        - Id: box_2
-          NotHighlightOnAwake: 0
-          OffHighlightMessage: pickup
-          OnHighlightMessage: drop
-        - Id: destination_putter_elk
-          NotHighlightOnAwake: 0
-          OffHighlightMessage: 
-          OnHighlightMessage: 
-    IsMany: 0
-    Message:
-      Message: monologue_ended:Player
-      HasCount: 0
-      MessageCount: 2
-      MinusMessage: 'destination_putter_elk-take:box_1/
-
-        destination_putter_elk-take:box_2'
-    ManyMessages:
-      Messages: []
-    Limit: 0
-    LimitTimeInSeconds: 60
   - MissionId: 2
     SendMessageOnStartMission: 
     SendMessageOnEndMission: start_car
