@@ -18,10 +18,8 @@ MonoBehaviour:
   - MissionId: 0
     SendMessageOnStartMission: 'start_cutscene-ferst/
 
-      show_hint:put/
-
       stop_car'
-    SendMessageOnEndMission: on_open_quests
+    SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
     DialogueParent:
       NpcName: bear
@@ -54,10 +52,56 @@ MonoBehaviour:
     Limit: 0
     LimitTimeInSeconds: 60
   - MissionId: 1
-    SendMessageOnStartMission: 
-    SendMessageOnEndMission: 'hide_hint/
+    SendMessageOnStartMission: monologue_started:Player
+    SendMessageOnEndMission: on_open_quests
+    IsThisMissionDialogue: 0
+    DialogueParent:
+      NpcName: 
+      MainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+      AfterMainDialogue:
+        project: {fileID: 0}
+        nodeName: 
+    HasBuildingDestination: 0
+    BuildingDestinationId: school
+    HasDestination: 0
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: 
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: box_1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: box_2
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: destination_putter_elk
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 
+          OnHighlightMessage: 
+    IsMany: 0
+    Message:
+      Message: monologue_ended:Player
+      HasCount: 0
+      MessageCount: 2
+      MinusMessage: 'destination_putter_elk-take:box_1/
 
-      start_car'
+        destination_putter_elk-take:box_2'
+    ManyMessages:
+      Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
+  - MissionId: 2
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: start_car
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: bear
@@ -66,7 +110,7 @@ MonoBehaviour:
         nodeName: Bear
       AfterMainDialogue:
         project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
-        nodeName: BearEat
+        nodeName: Bear_a
     HasBuildingDestination: 0
     BuildingDestinationId: school
     HasDestination: 1
@@ -89,9 +133,11 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 5
-  - MissionId: 2
-    SendMessageOnStartMission: update_items_up_message
-    SendMessageOnEndMission: 
+  - MissionId: 3
+    SendMessageOnStartMission: 'update_items_up_message/
+
+      show_hint:put'
+    SendMessageOnEndMission: hide_hint
     IsThisMissionDialogue: 0
     DialogueParent:
       NpcName: 
@@ -139,7 +185,7 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  - MissionId: 3
+  - MissionId: 4
     SendMessageOnStartMission: 
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
@@ -175,7 +221,7 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  - MissionId: 4
+  - MissionId: 5
     SendMessageOnStartMission: 
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
@@ -215,7 +261,7 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  - MissionId: 5
+  - MissionId: 6
     SendMessageOnStartMission: spawn_cat
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 0
@@ -263,7 +309,7 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  - MissionId: 6
+  - MissionId: 7
     SendMessageOnStartMission: 
     SendMessageOnEndMission: on_open_map
     IsThisMissionDialogue: 0
@@ -309,7 +355,7 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  - MissionId: 7
+  - MissionId: 8
     SendMessageOnStartMission: spawn_book
     SendMessageOnEndMission: activate_quest:1_elk_to_sova
     IsThisMissionDialogue: 0

@@ -123,7 +123,7 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  - MissionId: 2
+  - MissionId: 3
     SendMessageOnStartMission: 
     SendMessageOnEndMission: activate_quest:2_Owl_to_Puma
     IsThisMissionDialogue: 0
@@ -190,13 +190,13 @@ MonoBehaviour:
         destination_putter_owl-put:book_3'
       HasCount: 1
       MessageCount: 3
-      MinusMessage: 'destination_putter_owl-taked:book_1/
+      MinusMessage: 'destination_putter_owl-take:book_1/
 
-        destination_putter_owl-taked:book_2/
+        destination_putter_owl-take:book_2/
 
-        destination_putter_owl-taked:book_3'
+        destination_putter_owl-take:book_3'
     ManyMessages:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  MoneyReward: 100
+  MoneyReward: 50
