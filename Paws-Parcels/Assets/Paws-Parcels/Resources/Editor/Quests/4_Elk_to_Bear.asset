@@ -167,4 +167,4 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  MoneyReward: 100
+  MoneyReward: 150

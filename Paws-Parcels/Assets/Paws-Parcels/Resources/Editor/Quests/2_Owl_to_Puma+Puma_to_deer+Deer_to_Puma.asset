@@ -219,12 +219,12 @@ MonoBehaviour:
           NotHighlightOnAwake: 1
           OffHighlightMessage: 'take_inside_car/
 
-            destination_putter_owl-take
+            destination_putter_puma-take
 
 '
           OnHighlightMessage: 'put_inside_car/
 
-            destination_putter_owl-put'
+            destination_putter_puma-put'
     IsMany: 0
     Message:
       Message: 'destination_putter_puma-put:milk_1/
@@ -237,6 +237,6 @@ MonoBehaviour:
         destination_putter_puma-taked:milk_2'
     ManyMessages:
       Messages: []
-    Limit: 0
-    LimitTimeInSeconds: 60
+    Limit: 1
+    LimitTimeInSeconds: 250
   MoneyReward: 100
