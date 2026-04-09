@@ -33,3 +33,7 @@ MonoBehaviour:
   <Hints>k__BackingField:
   - Name: put
     Prefab: {fileID: 7577921397173675123, guid: 73ef96ee258ab8d4d8cfbf6d269efcb7, type: 3}
+  - Name: drift
+    Prefab: {fileID: 7577921397173675123, guid: 837ccc800def57f4c8cb684c38227f52, type: 3}
+  - Name: open door
+    Prefab: {fileID: 7577921397173675123, guid: 45df6739bc2482543bd02725fee14d41, type: 3}
