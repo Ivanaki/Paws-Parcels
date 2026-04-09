@@ -6300,6 +6300,61 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 8124285036619890862
+  - m_Id: 22201442730237952
+    m_Key: line:97bc8117
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842624
+  - m_Id: 22201442763792384
+    m_Key: line:018c8660
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842625
+  - m_Id: 22201442763792385
+    m_Key: line:a219e2fe
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842626
+  - m_Id: 22201442763792386
+    m_Key: line:3429e589
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842627
+  - m_Id: 22201442763792387
+    m_Key: line:8e78ec10
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842628
+  - m_Id: 22201442763792388
+    m_Key: line:1848eb67
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842629
+  - m_Id: 22201442763792389
+    m_Key: line:895554f7
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842630
+  - m_Id: 22201442763792390
+    m_Key: line:1f655380
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842631
+  - m_Id: 22201442763792391
+    m_Key: line:788ea2d2
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842632
+  - m_Id: 22201442763792392
+    m_Key: line:eebea5a5
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842633
+  - m_Id: 22201442763792393
+    m_Key: line:54efac3c
+    m_Metadata:
+      m_Items:
+      - rid: 8124285038210842634
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
@@ -12302,6 +12357,61 @@ MonoBehaviour:
         nodeName: Owl
         tags: []
     - rid: 8124285036619890862
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842624
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842625
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842626
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842627
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842628
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842629
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842630
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842631
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842632
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842633
+      type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
+      data:
+        nodeName: Owl
+        tags: []
+    - rid: 8124285038210842634
       type: {class: LineMetadata, ns: Yarn.Unity.UnityLocalization, asm: YarnSpinner.Unity}
       data:
         nodeName: Owl
