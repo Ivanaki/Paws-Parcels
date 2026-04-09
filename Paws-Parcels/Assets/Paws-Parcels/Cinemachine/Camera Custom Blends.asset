@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: Camera Custom Blends
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBlenderSettings
   CustomBlends:
-  - From: '**ANY CAMERA**'
-    To: CarInsideCinemachineCamera
+  - From: CinemachineCamera mounts
+    To: CinemachineCamera grass
     Blend:
-      Style: 1
-      Time: 1.2
+      Style: 0
+      Time: 0
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 4
-  - From: CarInsideCinemachineCamera
-    To: '**ANY CAMERA**'
+  - From: CinemachineCamera grass
+    To: CinemachineCamera
     Blend:
-      Style: 1
-      Time: 1.2
+      Style: 0
+      Time: 0
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -38,8 +38,8 @@ MonoBehaviour:
   - From: '**ANY CAMERA**'
     To: CarOutsideCinemachineCamera
     Blend:
-      Style: 1
-      Time: 1.6
+      Style: 2
+      Time: 1.5
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -49,8 +49,8 @@ MonoBehaviour:
   - From: CarOutsideCinemachineCamera
     To: '**ANY CAMERA**'
     Blend:
-      Style: 1
-      Time: 1.6
+      Style: 2
+      Time: 1.5
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
