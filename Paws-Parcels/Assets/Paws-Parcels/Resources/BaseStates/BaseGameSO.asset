@@ -43,8 +43,8 @@ MonoBehaviour:
       Pitch: 35
       AnimationBlend: 0
     CarData:
-      Position: {x: 474.68, y: 4.82, z: 1016.26}
-      Rotation: {x: -0, y: -0.49408066, z: -0, w: 0.8694161}
+      Position: {x: 401.59, y: 6.04, z: 1022.38}
+      Rotation: {x: -0, y: -0.9997066, z: -0, w: -0.024221107}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     ItemsInWorld:
