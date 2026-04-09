@@ -52,7 +52,7 @@ MonoBehaviour:
     Limit: 0
     LimitTimeInSeconds: 60
   - MissionId: 1
-    SendMessageOnStartMission: monologue_started:Player
+    SendMessageOnStartMission: dialogue_started::Player
     SendMessageOnEndMission: on_open_quests
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -89,7 +89,7 @@ MonoBehaviour:
           OnHighlightMessage: 
     IsMany: 0
     Message:
-      Message: monologue_ended:Player
+      Message: dialogue_ended:Player
       HasCount: 0
       MessageCount: 2
       MinusMessage: 'destination_putter_elk-take:box_1/
