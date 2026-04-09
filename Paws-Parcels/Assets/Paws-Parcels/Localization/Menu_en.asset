@@ -178,6 +178,30 @@ MonoBehaviour:
     m_Localized: Buy
     m_Metadata:
       m_Items: []
+  - m_Id: 30833404435521536
+    m_Localized: School
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30833820581781504
+    m_Localized: Farm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30834579453009920
+    m_Localized: Farm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30834668032516096
+    m_Localized: Gas station
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30834761305448448
+    m_Localized: Bakery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30834913462214656
+    m_Localized: Home of owl
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
