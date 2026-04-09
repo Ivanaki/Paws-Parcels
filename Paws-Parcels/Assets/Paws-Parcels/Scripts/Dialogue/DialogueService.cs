@@ -76,6 +76,11 @@ namespace Paws_Parcels.NPCDialogs
                     _currentRunner.RemoveFunction(e.Value.Key);
                 }
             });
+
+            _messageSystem.AddListenerWithManyMessages("start_monologue").Subscribe(mes =>
+            {
+                TryStartMonologue(mes.parameter);
+            });
         }
         
         public async YarnTask<Observable<bool>> TryStartDialogue(DialogueReference dialogueReference, string npcNameCode,
@@ -159,9 +164,8 @@ namespace Paws_Parcels.NPCDialogs
             
             return endOfDialog.Select(x => true);
         }
-        
 
-        public async YarnTask<Observable<bool>> TryStartMonologue(DialogueReference dialogueReference)
+        public async YarnTask<Observable<bool>> TryStartMonologue(string nodeName)
         {
             if (_isDialogRunning.Value)
             {
@@ -169,13 +173,7 @@ namespace Paws_Parcels.NPCDialogs
                 return Observable.Return(false);
             }
 
-            if (dialogueReference == null)
-            {
-                Debug.LogWarning("Dialogue reference is null");
-                return Observable.Return(false);
-            }
-
-            if (string.IsNullOrEmpty(dialogueReference.nodeName))
+            if (string.IsNullOrEmpty(nodeName))
             {
                 Debug.LogWarning("Dialogue reference node is null");
                 return Observable.Return(false);
@@ -205,13 +203,13 @@ namespace Paws_Parcels.NPCDialogs
             _isDialogRunning.Value = true;
             
             await YarnTask.Yield();
-            await _currentRunner.StartDialogue(dialogueReference.nodeName);
+            await _currentRunner.StartDialogue(nodeName);
 
             var endOfDialog = new Subject<Unit>();
             _currentRunner.onDialogueComplete.AsObservable().Take(1).Subscribe(x => 
                 endOfDialog.OnNextAndDispose(Unit.Default));
             
-            _messageSystem.SendCompositeMessage(this, "monologue_started:" + dialogueReference.nodeName);
+            _messageSystem.SendCompositeMessage(this, "monologue_started:" + nodeName);
             
             endOfDialog.Subscribe(_ =>
             {
@@ -230,10 +228,21 @@ namespace Paws_Parcels.NPCDialogs
                 _currentNpcDialog = "";
                 _isDialogRunning.Value = false;
                 
-                _messageSystem.SendCompositeMessage(this, "monologue_ended:" + dialogueReference.nodeName);
+                _messageSystem.SendCompositeMessage(this, "monologue_ended:" + nodeName);
             });
             
             return endOfDialog.Select(x => true);
+        }
+        
+        public async YarnTask<Observable<bool>> TryStartMonologue(DialogueReference dialogueReference)
+        {
+            if (dialogueReference == null)
+            {
+                Debug.LogWarning("Dialogue reference is null");
+                return Observable.Return(false);
+            }
+            
+            return await TryStartMonologue(dialogueReference.nodeName);
         }
         
 

@@ -19,7 +19,5031 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 12822695597678592
-    m_Localized: Its primer. Hello
+    m_Localized: "This is an example. Hello!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12832438861012998
+    m_Localized: "Capsley: Maybe you should be called Grumpy {0}."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12832438861012997
+    m_Localized: "Capsley: No need to be so rude..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12832438861012996
+    m_Localized: "Capsley: Nice to meet you {0}!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12832438861012995
+    m_Localized: "Pyramid. Why - who wants to know?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12832438861012994
+    m_Localized: "The name's Triquandle."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12832438861012993
+    m_Localized: "I'm Capsule, but my friends call me \"Tic Tac\". No idea why..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12832438861012992
+    m_Localized: "Capsley: Who are you then?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12832438827458560
+    m_Localized: "Capsley: Hello, I am Mr Capsley."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15954733523640320
+    m_Localized: "This is an example of a Yarn Spinner script. Write your dialogue here!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030282
+    m_Localized: "Ted: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030281
+    m_Localized: "Ted: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030280
+    m_Localized: "Player: Mmmmmmmm"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030279
+    m_Localized: "Player: This shawarma is delicious."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16414394739695616
+    m_Localized: "Ted: Hi. I'm Ted."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16414394739695617
+    m_Localized: "Ted: How are you?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16414394739695618
+    m_Localized: "Player: Nice"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16414394739695619
+    m_Localized: "Ted: Do you want some shawarma?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16414890133135360
+    m_Localized: "Sure (You have {0}/10 coins)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16414890133135361
+    m_Localized: "Nah, thanks"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16414890133135362
+    m_Localized: "Player: Mmmmmmmm"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16414890133135363
+    m_Localized: "Player: This shawarma is delicious."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16415127639793664
+    m_Localized: "Ted: Good luck then."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030274
+    m_Localized: "Ted: Do you want some shawarma?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030278
+    m_Localized: "Ted: This text is shown only if you have more than 6 coins."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030277
+    m_Localized: "Ted: Good luck then."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030276
+    m_Localized: "Player: Nah, thanks"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16693766491054080
+    m_Localized: "Player: This shawarma is delicious."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16749697983684608
+    m_Localized: "Player: Sure (You have {0}/10 coins)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16749698004656128
+    m_Localized: "Player: Nah, thanks"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16749739930918912
+    m_Localized: "Ted: Do you want some shawarma?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16749739930918913
+    m_Localized: "Player: Sure (You have 3/10 coins)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16749964334571520
+    m_Localized: "Player: Nah, thanks"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16750311845240832
+    m_Localized: "Player: gggggggg"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030275
+    m_Localized: "Player: Sure (You have {0}/10 coins)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16798496064118784
+    m_Localized: "Ted: Good luck then."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16798496064118785
+    m_Localized: "Ted: Good luck then."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16798496064118786
+    m_Localized: "Player: This shawarma is delicious."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16798496064118787
+    m_Localized: "Player: Mmmmmmmm"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17106316659630080
+    m_Localized: "Ted: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17106316688990208
+    m_Localized: "Ted: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030273
+    m_Localized: "Player: Nice"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719343030272
+    m_Localized: "Ted: How are you? [b]How do you feel?[/b]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18513719309475840
+    m_Localized: "Ted: Hi. [b]I'm Ted.[/b]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306305527808
+    m_Localized: "Ted: Hi. [b]I'm Ted.[/b]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887936
+    m_Localized: "Ted: How are you? [b]How do you feel?[/b]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887937
+    m_Localized: "Player: Nice"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887938
+    m_Localized: "Ted: Do you want some shawarma?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887939
+    m_Localized: "Player: Sure (You have {0}/10 coins)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887940
+    m_Localized: "Player: Nah, thanks"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887941
+    m_Localized: "Ted: Good luck then."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887942
+    m_Localized: "Ted: This text is shown only if you have more than 6 coins."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887943
+    m_Localized: "Player: This shawarma is delicious."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887944
+    m_Localized: "Player: Mmmmmmmm"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887945
+    m_Localized: "Ted: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17829306334887946
+    m_Localized: "Ted: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970028245172224
+    m_Localized: "Gas Station Attendant:  У нас на острове редко встретишь гостей. Какими судьбами?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970707525287936
+    m_Localized: "Gas Station Attendant: Hello. [b]I'm the Gas Station Attendant.[/b]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511488
+    m_Localized: "Gas Station Attendant: Hello. [b]I'm the Gas Station Attendant.[/b]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511489
+    m_Localized: "Gas Station Attendant: How are you? [b]How do you feel?[/b]"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511490
+    m_Localized: "Player: Nice"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511491
+    m_Localized: "Gas Station Attendant: Do you want some shawarma?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511492
+    m_Localized: "Player: Sure (You have {0}/10 coins)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511493
+    m_Localized: "Player: Nah, thanks"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511494
+    m_Localized: "Gas Station Attendant: Good luck then."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511495
+    m_Localized: "Gas Station Attendant: This text is shown only if you have more than 6 coins."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511496
+    m_Localized: "Player: This shawarma is delicious."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511497
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970802056511498
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18970938996342784
+    m_Localized: "Player: Mmmmmmmm"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19389512160370688
+    m_Localized: "Cat: Where am I?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19389916872957952
+    m_Localized: "Cat: Meow!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19390880128425984
+    m_Localized: "Cat: Fuck off."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19390880128425985
+    m_Localized: "Cat: Fuck off."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19752680034951168
+    m_Localized: "Cat: Where am I?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19752680060116992
+    m_Localized: "Player: How the fuck would I know?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19752680060116993
+    m_Localized: "Cat: Fuck off."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19752680060116994
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19756654167351296
+    m_Localized: "Cat: Where am I?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19756654188322816
+    m_Localized: "Player: How the fuck would I know?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19756654188322817
+    m_Localized: "Cat: Fuck off."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19756654188322818
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19952715076386816
+    m_Localized: "Cat: Where am I?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19952715101552640
+    m_Localized: "Cat: Where am I?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19952715101552641
+    m_Localized: "Cat: Fuck off."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19952715101552642
+    m_Localized: "Cat: Fuck off."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20135040686931968
+    m_Localized: "Teacher: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20137291920883712
+    m_Localized: "Teacher: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20137291920883713
+    m_Localized: "Teacher: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20137291920883714
+    m_Localized: "Teacher: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20147816130142208
+    m_Localized: "Teacher: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20147816159502336
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20147816159502337
+    m_Localized: "Teacher: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20147816159502338
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20416887278977024
+    m_Localized: "This is an example of a Yarn Spinner script. Write your dialogue here!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417055818694656
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417055818694657
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417055818694658
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417055818694659
+    m_Localized: "This is an example of a Yarn Spinner script. Write your dialogue here!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417088693649408
+    m_Localized: "This is an example of a Yarn Spinner script. Write your dialogue here!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811615498240
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811615498241
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811615498242
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811615498243
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811615498244
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811615498245
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811615498246
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811615498247
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811623886848
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811623886849
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811623886850
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811623886851
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811623886852
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811623886853
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20417811623886854
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398546067456
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204800
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204801
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204802
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204803
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204804
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204805
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204806
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204807
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204808
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204809
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454398592204810
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454621704011776
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454621704011777
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454621704011778
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20454621704011779
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463928046698496
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463928059281408
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463928059281409
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463928059281410
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196352
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196353
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196354
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196355
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196356
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196357
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196358
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196359
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196360
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196361
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196362
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196363
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196364
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196365
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196366
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20463975396196367
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840128
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840129
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840130
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840131
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840132
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840133
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840134
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840135
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840136
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840137
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840138
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840139
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840140
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840141
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840142
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840143
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840144
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840145
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840146
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840147
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840148
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840149
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840150
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840151
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840152
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840153
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840154
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840155
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840156
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840157
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840158
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471042353840159
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947584
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947585
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947586
+    m_Localized: "Player: How the fuck would I know?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947587
+    m_Localized: "Cat: Where am I?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947588
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947589
+    m_Localized: "Cat: Fuck off."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947590
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947591
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947592
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947593
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947594
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947595
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947596
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947597
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947598
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947599
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947600
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947601
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947602
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947603
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947604
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947605
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947606
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947607
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947608
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947609
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947610
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947611
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947612
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947613
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947614
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947615
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947616
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947617
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947618
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947619
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947620
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947621
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947622
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947623
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947624
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20471786586947625
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718690082816
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637248
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637249
+    m_Localized: "Cat: Where am I?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637250
+    m_Localized: "Player: How the fuck would I know?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637251
+    m_Localized: "Cat: Fuck off."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637252
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637253
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637254
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637255
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637256
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637257
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637258
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637259
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637260
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637261
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637262
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637263
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637264
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637265
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637266
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637267
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637268
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637269
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637270
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637271
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637272
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637273
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637274
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637275
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637276
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637277
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637278
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637279
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637280
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637281
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637282
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637283
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637284
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637285
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637286
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637287
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792718723637288
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736144944177152
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967680
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967681
+    m_Localized: "Cat: Where am I?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967682
+    m_Localized: "Player: How the fuck would I know?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967683
+    m_Localized: "Cat: Fuck off."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967684
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967685
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967686
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967687
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967688
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967689
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967690
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967691
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967692
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967693
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967694
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967695
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967696
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967697
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967698
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967699
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145392967700
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161984
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161985
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161986
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161987
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161988
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161989
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161990
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161991
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161992
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161993
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161994
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161995
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161996
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161997
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161998
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397161999
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397162000
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397162001
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397162002
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21736145397162003
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22111280838991872
+    m_Localized: "Player: I used to live here a long time ago..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22111280889323520
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22111280889323521
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22111280889323522
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22111280889323523
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22111280889323524
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22111280889323525
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671424
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671425
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671426
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671427
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671428
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671429
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671430
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671431
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671432
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671433
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671434
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671435
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671436
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22112102557671437
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118630501113856
+    m_Localized: "Player: I used to live here many years ago. Decided to come back."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118630505308160
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118630505308161
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118630505308162
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496832
+    m_Localized: "Gas Station Attendant: It's great that our town has a driver again! There used to be lots of cars here, and now we've got a gas station but no cars... Ah..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496833
+    m_Localized: "Gas Station Attendant: I can't even drive up to Grandma in the hills or over to the Baker's... But that's not what I meant to say!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496834
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496835
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496836
+    m_Localized: "Cat: Where am I?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496837
+    m_Localized: "Cat: Fuck off."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496838
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496839
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496840
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496841
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496842
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496843
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496844
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496845
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496846
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496847
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496848
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118723589496849
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665600
+    m_Localized: "Gas Station Attendant: Listen... this means you could really help us out! We got some parts for the school's radio tower, and they need to be delivered."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665601
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665602
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665603
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665604
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665605
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665606
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665607
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665608
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665609
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665610
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665611
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665612
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665613
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22118889440665614
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185664
+    m_Localized: "Gas Station Attendant: We won't forget the favor, so today's gas is on me!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185665
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185666
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185667
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185668
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185669
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185670
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185671
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185672
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185673
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016595185674
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379968
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379969
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379970
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379971
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379972
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379973
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379974
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379975
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379976
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379977
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119016599379978
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380864
+    m_Localized: "Player: Thanks. How do I get to the school?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380865
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380866
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380867
+    m_Localized: "Cat: Meow!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380868
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380869
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380870
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380871
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380872
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380873
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380874
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380875
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380876
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380877
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380878
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380879
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380880
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380881
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380882
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380883
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380884
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380885
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380886
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119061369380887
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434560
+    m_Localized: "Gas Station Attendant: Take this map... It will always show you your destination!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434561
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434562
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434563
+    m_Localized: "Cat: Meow!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434564
+    m_Localized: "Cat:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434565
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434566
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434567
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434568
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434569
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434570
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434571
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434572
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434573
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434574
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434575
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434576
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434577
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434578
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434579
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434580
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434581
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434582
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119085482434583
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119276226797568
+    m_Localized: "Gas Station Attendant: You've really got a lovely little car!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913984
+    m_Localized: "Cat: Meow!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913985
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913986
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913987
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913988
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913989
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913990
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913991
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913992
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913993
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913994
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913995
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913996
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913997
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913998
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583913999
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583914000
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583914001
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583914002
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583914003
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119419583914004
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821760
+    m_Localized: "Player: Who are you?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821761
+    m_Localized: "Cat: I... I don't know..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821762
+    m_Localized: "Cat:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821763
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821764
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821765
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821766
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821767
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821768
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821769
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821770
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821771
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821772
+    m_Localized: "Teacher: This is my first quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821773
+    m_Localized: "Player: Hello, are you the Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821774
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821775
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821776
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821777
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821778
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821779
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821780
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821781
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821782
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821783
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821784
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821785
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821786
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821787
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821788
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821789
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821790
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821791
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821792
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821793
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821794
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821795
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821796
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821797
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821798
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821799
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119501976821800
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495296
+    m_Localized: "Cat: Meow!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495297
+    m_Localized: "Cat: Meow!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495298
+    m_Localized: "Cat: I'm cold!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495299
+    m_Localized: "Cat: I'm cold!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495300
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495301
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495302
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495303
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495304
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495305
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495306
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495307
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495308
+    m_Localized: "Player: Hello, are you the Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495309
+    m_Localized: "Player: Hello, are you the Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495310
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495311
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495312
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495313
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495314
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495315
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495316
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495317
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495318
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495319
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495320
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495321
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495322
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495323
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495324
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495325
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495326
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495327
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495328
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495329
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495330
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495331
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495332
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495333
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495334
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495335
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119583069495336
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119730977431552
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570112
+    m_Localized: "Player: Hello, are you the Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570113
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570114
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570115
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570116
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570117
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570118
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570119
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570120
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570121
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570122
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570123
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570124
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570125
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119847956570126
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037312
+    m_Localized: "Teacher: Yes, and you, my good fellow, must be our new driver? Thank you for the equipment!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037313
+    m_Localized: "Teacher: If there's anything I can do for you, just say the word!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037314
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037315
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037316
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037317
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037318
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037319
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037320
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037321
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037322
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037323
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037324
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037325
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037326
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037327
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037328
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037329
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037330
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037331
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037332
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037333
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037334
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037335
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037336
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037337
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037338
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037339
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119889585037340
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405952
+    m_Localized: "Player: Hello, are you the Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405953
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405954
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405955
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405956
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405957
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405958
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405959
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405960
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405961
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405962
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405963
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405964
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405965
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22119987249405966
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563392
+    m_Localized: "Player: Hello, are you the Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563393
+    m_Localized: "Player: Hello, are you the Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563394
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563395
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563396
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563397
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563398
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563399
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563400
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563401
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563402
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563403
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563404
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563405
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563406
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563407
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563408
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563409
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563410
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563411
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563412
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563413
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563414
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563415
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563416
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563417
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563418
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563419
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120036469563420
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949184
+    m_Localized: "Teacher: Yes, and you, my good fellow, must be our new driver? Thank you for the equipment!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949185
+    m_Localized: "Teacher: If there's anything I can do for you, just say the word!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949186
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949187
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949188
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949189
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949190
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949191
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949192
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949193
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949194
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949195
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949196
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949197
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949198
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949199
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949200
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949201
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949202
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949203
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949204
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949205
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949206
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949207
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949208
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949209
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949210
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949211
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120148553949212
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303650922496
+    m_Localized: "Player: Thanks. I brought you the tires from the school bus."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116800
+    m_Localized: "Cat: Meow!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116801
+    m_Localized: "Player: I found a kitten who doesn't know where his home is. Do you know where I could place him?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116802
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116803
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116804
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116805
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116806
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116807
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116808
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116809
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116810
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116811
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116812
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116813
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116814
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120303655116815
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365568
+    m_Localized: "Gas Station Attendant: Awesome! Just a little more and I'll be able to build my very own car! Then I'll get to see the Baker every day... Oops!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365569
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365570
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365571
+    m_Localized: "Player: Who are you?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365572
+    m_Localized: "Cat: I'm cold!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365573
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365574
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365575
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365576
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365577
+    m_Localized: "Teacher: We have a boarding school for children. Unfortunately, tuition isn't free: the school has to pay for food, textbooks, and the teachers' work..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365578
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365579
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365580
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365581
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365582
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365583
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365584
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365585
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365586
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365587
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365588
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365589
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365590
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120356784365591
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369061093376
+    m_Localized: "Gas Station Attendant: If you happen to pass by, ask how the Baker is doing for me. Is everything all right with her?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369061093377
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369061093378
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287680
+    m_Localized: "Cat: I... I don't know..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287681
+    m_Localized: "Cat: I'm cold!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287682
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287683
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287684
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287685
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287686
+    m_Localized: "Player: And how much does tuition cost?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287687
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287688
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287689
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287690
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287691
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287692
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287693
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287694
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287695
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287696
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287697
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287698
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287699
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120369065287700
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118336
+    m_Localized: "Player: Is she your friend?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118337
+    m_Localized: "Gas Station Attendant: We barely know each other, to be honest... still, please ask..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118338
+    m_Localized: "Player:  Может быть ей привезти что нибудь от тебя?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118339
+    m_Localized: "Gas Station Attendant: Exactly, let's do that, but what should I give her... hmm..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118340
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118341
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118342
+    m_Localized: "Player: Easy, easy. Just tell me where your home is, and I'll take you there."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118343
+    m_Localized: "Cat: I don't know where my home is."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118344
+    m_Localized: "Player: How long have you been here?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118345
+    m_Localized: "Cat: It's cold and I'm hungry here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118346
+    m_Localized: "Cat: I'm cold!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118347
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118348
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118349
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118350
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118351
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118352
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118353
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118354
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118355
+    m_Localized: "Teacher: 5000"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118356
+    m_Localized: "Player: That much!? Where am I supposed to get that kind of money?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118357
+    m_Localized: "Teacher: On this island, there are always people who need something delivered..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118358
+    m_Localized: "Teacher: By the way, could you take these old books? They've been sitting uselessly in the library for years."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118359
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118360
+    m_Localized: "Teacher: Go on, I'll be waiting."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118361
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118362
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118363
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118364
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118365
+    m_Localized: "Player:  Вот Вы где!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118366
+    m_Localized: "Owl: A sound mind in a sound body! At my age, that becomes obvious. And you, young man, must be that new delivery driver I've heard so much about. Very pleased!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118367
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118368
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118369
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118370
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118371
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118372
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118373
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118374
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118375
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118376
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118377
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118378
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118379
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118380
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118381
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118382
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118383
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118384
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120427215118385
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007744
+    m_Localized: "Gas Station Attendant: bonjourrrrrrrrrrrrr"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007745
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007746
+    m_Localized: "Cat: I'm cold!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007747
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007748
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007749
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007750
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007751
+    m_Localized: "Teacher: After the quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007752
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007753
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007754
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007755
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007756
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007757
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007758
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007759
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007760
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007761
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007762
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007763
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120509327007764
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470272
+    m_Localized: "Gas Station Attendant: I've got it!!! Bring her this painting and ask if she'd mind meeting me by the Lake tomorrow..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470273
+    m_Localized: "Gas Station Attendant: Well? Did you see the Baker? What did she say?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470274
+    m_Localized: "Gas Station Attendant: okaaaaaa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470275
+    m_Localized: "Player: All right, get in the car and we'll figure out what to do with you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470276
+    m_Localized: "Cat: I'm cold!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470277
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470278
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470279
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470280
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470281
+    m_Localized: "Teacher: Could you deliver them to Grandma Owl? She absolutely loves detective stories."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470282
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470283
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470284
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470285
+    m_Localized: "Player: Likewise. The Principal asked me to deliver a package. Here you go."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470286
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470287
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470288
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470289
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470290
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470291
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470292
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470293
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470294
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120598380470295
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22120754664431616
+    m_Localized: "Gas Station Attendant: I've got it!!! Bring her this painting and ask if she'd mind meeting me by the Lake tomorrow..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164032
+    m_Localized: "Owl: Why, thank you! How is my grandson doing? Working hard? Dressing warmly? (laughs)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164033
+    m_Localized: "Owl: And when am I getting great-grandchildren? Oh, he'll leave his grandma without any! By any chance, do you know if he's found himself a bride yet? Maybe he likes someone?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164034
+    m_Localized: "Owl: Run along, dear."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164035
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164036
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164037
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164038
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164039
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164040
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164041
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164042
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121727445164043
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681920
+    m_Localized: "Player:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681921
+    m_Localized: "Owl: Run along, dear."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681922
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681923
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681924
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681925
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681926
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681927
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681928
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681929
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121848857681930
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133440
+    m_Localized: "Player:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133441
+    m_Localized: "Owl: Run along, dear."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133442
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133443
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133444
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133445
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133446
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133447
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133448
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133449
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22121958979133450
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22122642331918336
+    m_Localized: "Gas Station Attendant: Sorry, I don't have any more jobs right now."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22122642331918337
+    m_Localized: "Gas Station Attendant: You've really got a lovely little car!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22122642331918338
+    m_Localized: "Player: Thanks. I brought you the tires from the school bus."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22122642331918339
+    m_Localized: "Gas Station Attendant: Awesome! Just a little more and I'll be able to build my very own car! Then I'll get to see the Baker every day... Oops!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22122642331918340
+    m_Localized: "Gas Station Attendant: If you happen to pass by, ask how the Baker is doing for me. Is everything all right with her?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22122642331918341
+    m_Localized: "Player: Is she your friend?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22122642331918342
+    m_Localized: "Gas Station Attendant: We barely know each other, to be honest... still, please ask..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22122642331918343
+    m_Localized: "Player:  Может быть ей привезти что нибудь от тебя?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22122642331918344
+    m_Localized: "Gas Station Attendant: Exactly, let's do that, but what should I give her... hmm..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22122642331918345
+    m_Localized: "Gas Station Attendant: Go on, quick! I can't wait to hear how it goes!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614784
+    m_Localized: "Principal: Ah, it's you again. What do I owe the pleasure?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614785
+    m_Localized: "Player: I wanted to talk about the Cat."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614786
+    m_Localized: "Principal: About your little companion?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614787
+    m_Localized: "Player: Yes. I still want to enroll him in school, but I still haven't managed to gather the required amount."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614788
+    m_Localized: "Principal: I understand."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614789
+    m_Localized: "Player: But I was told that sometimes you do make exceptions."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614790
+    m_Localized: "Principal: Hm. Curious who told you that."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614791
+    m_Localized: "Player: That's not the important part. What matters is that the Cat needs a home, and the Elk needs a friend."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614792
+    m_Localized: "Principal: Is that so..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614793
+    m_Localized: "Player: Your son really wants someone to study with. He wanted to ask you himself to take the Cat in."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614794
+    m_Localized: "Principal: He wanted to ask me himself?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614795
+    m_Localized: "Principal: Ah, it's you again. What do I owe the pleasure?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614796
+    m_Localized: "Player: I wanted to talk about the Cat."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614797
+    m_Localized: "Principal: About your little companion?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614798
+    m_Localized: "Player: Yes. I still want to enroll him in school, but I still haven't managed to gather the required amount."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614799
+    m_Localized: "Principal: I understand."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614800
+    m_Localized: "Player: But I was told that sometimes you do make exceptions."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614801
+    m_Localized: "Principal: Hm. Curious who told you that."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614802
+    m_Localized: "Player: That's not the important part. What matters is that the Cat needs a home, and the Elk needs a friend."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614803
+    m_Localized: "Principal: The Cat can stay. There will always be a place for him at the school."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614804
+    m_Localized: "Player:  Вот Вы где!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614805
+    m_Localized: "Owl: A sound mind in a sound body! At my age, that becomes obvious. And you, young man, must be that new delivery driver I've heard so much about. Very pleased!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614806
+    m_Localized: "Player: Likewise. The Principal asked me to deliver a package. Here you go."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614807
+    m_Localized: "Owl: Why, thank you! How is my grandson doing? Working hard? Dressing warmly? (laughs)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614808
+    m_Localized: "Owl: And when am I getting great-grandchildren? Oh, he'll leave his grandma without any! By any chance, do you know if he's found himself a bride yet? Maybe he likes someone?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614809
+    m_Localized: "Player:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614810
+    m_Localized: "Owl: Run along, dear."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614811
+    m_Localized: "Owl: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614812
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614813
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614814
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614815
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614816
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614817
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614818
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614819
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614820
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614821
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614822
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614823
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614824
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614825
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614826
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123512490614827
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222006804480
+    m_Localized: "Player: I told her exactly that. She thanked you for the painting and agreed to meet you by the Lake."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496256
+    m_Localized: "Gas Station Attendant: Really!? Wow... Did she actually agree?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496257
+    m_Localized: "Player: Yes. Looks like she really liked the painting."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496258
+    m_Localized: "Gas Station Attendant: Well... there's no turning back now!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496259
+    m_Localized: "Player: Looks like it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496260
+    m_Localized: "Gas Station Attendant: You know... we already met up. And I think it went even better than I dreamed."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496261
+    m_Localized: "Player: Is that so? Congratulations."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496262
+    m_Localized: "Gas Station Attendant: Thanks. Who would've thought... I spent years trying to work up the courage, and in the end it was the new delivery driver who helped."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496263
+    m_Localized: "Gas Station Attendant: Now not only is my car almost assembled, but it feels like my whole life has finally started moving again."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496264
+    m_Localized: "Player: I'm happy for you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496265
+    m_Localized: "Gas Station Attendant: I'm happy for myself too! All right, I won't keep you. I hope things work out for you and the Cat too."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496266
+    m_Localized: "Gas Station Attendant: Thank you. Without you, I never would've dared to talk to the Baker."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496267
+    m_Localized: "Cat: Meow!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496268
+    m_Localized: "Player: Who are you?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496269
+    m_Localized: "Cat: I... I don't know..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496270
+    m_Localized: "Player: Easy, easy. Just tell me where your home is, and I'll take you there."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496271
+    m_Localized: "Cat: I don't know where my home is."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496272
+    m_Localized: "Player: How long have you been here?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496273
+    m_Localized: "Cat: It's cold and I'm hungry here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496274
+    m_Localized: "Player: All right, get in the car and we'll figure out what to do with you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496275
+    m_Localized: "Cat: I'm cold!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496276
+    m_Localized: "Elk: Hello, mister... Who are you?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496277
+    m_Localized: "Player: I'm a delivery driver. I was asked to bring two cartons of milk from the farm for the baker."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222086496278
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884864
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884865
+    m_Localized: "Elk: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884866
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884867
+    m_Localized: "Elk: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884868
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884869
+    m_Localized: "Player: Hello, are you the Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884870
+    m_Localized: "Teacher: Yes, and you, my good fellow, must be our new driver? Thank you for the equipment!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884871
+    m_Localized: "Teacher: If there's anything I can do for you, just say the word!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884872
+    m_Localized: "Player: I found a kitten who doesn't know where his home is. Do you know where I could place him?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884873
+    m_Localized: "Teacher: We have a boarding school for children. Unfortunately, tuition isn't free: the school has to pay for food, textbooks, and the teachers' work..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884874
+    m_Localized: "Player: And how much does tuition cost?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884875
+    m_Localized: "Teacher: 5000"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884876
+    m_Localized: "Player: That much!? Where am I supposed to get that kind of money?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884877
+    m_Localized: "Teacher: On this island, there are always people who need something delivered..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884878
+    m_Localized: "Teacher: By the way, could you take these old books? They've been sitting uselessly in the library for years."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884879
+    m_Localized: "Teacher: Could you deliver them to Grandma Owl? She absolutely loves detective stories."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884880
+    m_Localized: "Teacher: Go on, I'll be waiting."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884881
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884882
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884883
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884884
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884885
+    m_Localized: "Principal: Is that so..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884886
+    m_Localized: "Player: Your son really wants someone to study with. He wanted to ask you himself to take the Cat in."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884887
+    m_Localized: "Principal: He wanted to ask me himself?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884888
+    m_Localized: "Player: Yes. It matters to him."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884889
+    m_Localized: "Principal: You know... perhaps I really do spend too much time thinking about bills, firewood, textbooks, and forget who all this is for."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884890
+    m_Localized: "Principal: If my son wants the Cat to study with him, then so be it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884891
+    m_Localized: "Player: Really?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884892
+    m_Localized: "Principal: Yes. I'm admitting the Cat to the school."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884893
+    m_Localized: "Player: Thank you!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884894
+    m_Localized: "Principal: No need. Sometimes a school doesn't really need money - it just needs someone worth caring for."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884895
+    m_Localized: "Principal: Congratulations. It looks like this will be your Cat's new home."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884896
+    m_Localized: "Principal: The Cat can stay. There will always be a place for him at the school."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884897
+    m_Localized: "Player:  Вот Вы где!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884898
+    m_Localized: "Owl: A sound mind in a sound body! At my age, that becomes obvious. And you, young man, must be that new delivery driver I've heard so much about. Very pleased!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884899
+    m_Localized: "Player: Likewise. The Principal asked me to deliver a package. Here you go."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884900
+    m_Localized: "Owl: Why, thank you! How is my grandson doing? Working hard? Dressing warmly? (laughs)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884901
+    m_Localized: "Owl: And when am I getting great-grandchildren? Oh, he'll leave his grandma without any! By any chance, do you know if he's found himself a bride yet? Maybe he likes someone?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884902
+    m_Localized: "Player:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884903
+    m_Localized: "Owl: Run along, dear."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884904
+    m_Localized: "Grandma: These buns smell wonderful! Thank you for getting here so quickly!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884905
+    m_Localized: "Player: Always happy to help!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884906
+    m_Localized: "Owl: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884907
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884908
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884909
+    m_Localized: "Baker: Hey, what's up?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884910
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884911
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884912
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884913
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884914
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884915
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884916
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884917
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884918
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884919
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126222094884920
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536320
+    m_Localized: "Grandma: I heard you stopped by the farm. How is the little Elk doing?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536321
+    m_Localized: "Player: He's managing. But he said he's scared to go to school without friends."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536322
+    m_Localized: "Grandma: Hmmm... What about your Cat? Isn't he going to school too?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536323
+    m_Localized: "Player: I'd gladly send him there, but I don't have that much money.."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536324
+    m_Localized: "Grandma: I see... Back in my day, education was free! It's all gone..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536325
+    m_Localized: "Grandma: Actually, the Principal isn't nearly as strict as he likes to seem. If his son asks him to take in the Cat, I'm sure he will!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536326
+    m_Localized: "Grandma: Oh, I almost forgot, I promised to send the Elk some ice for the cellar. Just hurry before it all melts!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536327
+    m_Localized: "Grandma: If you hurry, the ice might still make it there in one piece."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536328
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536329
+    m_Localized: "Baker: Oh, you're here so early, I'm afraid I don't have anything to offer you yet! Unless you'd like some cocoa?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536330
+    m_Localized: "Player: No, thank you. Grandma asked me to bring her six buns..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536331
+    m_Localized: "Baker: Shlepa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536332
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536333
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536334
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536335
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536336
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536337
+    m_Localized: "Baker: This is my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536338
+    m_Localized: "Player: That was seriously cringe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536339
+    m_Localized: "Baker: This is after my second dialogue."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126370212536340
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019200
+    m_Localized: "Baker: What bad timing! We've just run out of milk. This morning it all went into the cherry pie... I can't bake your buns without it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019201
+    m_Localized: "Player: I can bring some. Just tell me where I need to go."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019202
+    m_Localized: "Baker: Usually the Elk brings it from his farm, but he didn't show up today for some reason. Ask him to find us two cartons of milk. Just be careful, he's a little scared of strangers."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019203
+    m_Localized: "Baker: Without milk, I can't bake buns no matter how hard I try."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019204
+    m_Localized: "Baker: You brought it? Oh, thank you so much! I'll put the buns in the oven right away."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019205
+    m_Localized: "Baker: But it'll take a little time. Could you take this cherry pie to the school in the meantime? You have to drive quickly, though, or it'll cool off and won't be nearly as magical!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019206
+    m_Localized: "Player: All right, should I pass anything else along?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019207
+    m_Localized: "Baker: Yes, it's the Principal's birthday today, so don't forget to congratulate him! Maybe he'll be just a little kinder..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019208
+    m_Localized: "Baker: Hurry, the pie is only good while it's warm!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019209
+    m_Localized: "Player: I have a gift for you from the Gas Station Attendant - this beautiful painting! And an equally beautiful invitation to meet by the Lake tomorrow."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019210
+    m_Localized: "Baker: How lovely! Give him my heartfelt thanks and be sure to tell him I'll come tomorrow!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019211
+    m_Localized: "Baker: I almost forgot - here are some cinnamon rolls for Grandma. Please take them to her quickly before they go bad!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019212
+    m_Localized: "Player: All right, I'll be there in no time!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126605492019213
+    m_Localized: "Baker: Be sure to tell him I'll come."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900544
+    m_Localized: "Elk: Aaaah, I see. All right, I'll bring everything right away. You'll have to drive fast, though, because the weather's been really hot lately!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900545
+    m_Localized: "Player: Thank you! You're so independent. But why are you here all alone?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900546
+    m_Localized: "Elk: Dad says the farm doesn't bring in much money, so he works at the school to earn extra. He says I need an education, so he wants to teach me himself..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900547
+    m_Localized: "Player: I see. So your dad is the School Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900548
+    m_Localized: "Elk: Yes, but honestly, I really don't want to go there."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900549
+    m_Localized: "Elk: I don't have any friends my age at all..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900550
+    m_Localized: "Player: Don't be afraid. I hope the Cat will go to school with you. I'll make sure to introduce you two later."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900551
+    m_Localized: "Elk: All right! If you happen to see Dad, please ask him to come by. We've been having some power issues, and I got scared there might be a fire, so I didn't bring the milk."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900552
+    m_Localized: "Elk: Just make sure to drive the milk over quickly, or it'll spoil."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900553
+    m_Localized: "Elk: Oh, it's you again! Dad still hasn't stopped by..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900554
+    m_Localized: "Player: I actually wanted to talk to you. I have an idea."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900555
+    m_Localized: "Elk: What kind?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900556
+    m_Localized: "Player: Remember the Cat I told you about? He's all alone too, and he's scared too."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900557
+    m_Localized: "Elk: Yeah... I feel bad for him."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900558
+    m_Localized: "Player: If you ask your dad yourself to let the Cat into the school, I think he'll listen to you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900559
+    m_Localized: "Elk: Really?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900560
+    m_Localized: "Player: Of course. You're his son, and you know better than anyone what it's like to be alone."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900561
+    m_Localized: "Elk: I've never asked Dad for anything like that before..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900562
+    m_Localized: "Player: Then this will be the first time. Sometimes you just have to say the important things out loud."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900563
+    m_Localized: "Elk: Do you think he won't be angry?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900564
+    m_Localized: "Player: I think he'll see how important this is to you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900565
+    m_Localized: "Elk: Then... I'll try. I'll tell him the Cat needs to study with me."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900566
+    m_Localized: "Player: That's the spirit."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900567
+    m_Localized: "Elk: Thank you, mister. It wouldn't be so scary with the Cat around."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900568
+    m_Localized: "Elk: I'll talk to Dad. I'm just really nervous..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900569
+    m_Localized: "Player: Hello, are you the Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900570
+    m_Localized: "Teacher: Yes, and you, my good fellow, must be our new driver? Thank you for the equipment!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900571
+    m_Localized: "Teacher: If there's anything I can do for you, just say the word!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900572
+    m_Localized: "Player: I found a kitten who doesn't know where his home is. Do you know where I could place him?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900573
+    m_Localized: "Teacher: We have a boarding school for children. Unfortunately, tuition isn't free: the school has to pay for food, textbooks, and the teachers' work..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900574
+    m_Localized: "Player: And how much does tuition cost?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900575
+    m_Localized: "Teacher: 5000"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900576
+    m_Localized: "Player: That much!? Where am I supposed to get that kind of money?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900577
+    m_Localized: "Teacher: On this island, there are always people who need something delivered..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900578
+    m_Localized: "Teacher: By the way, could you take these old books? They've been sitting uselessly in the library for years."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900579
+    m_Localized: "Teacher: Could you deliver them to Grandma Owl? She absolutely loves detective stories."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900580
+    m_Localized: "Teacher: Go on, I'll be waiting."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900581
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900582
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900583
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900584
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900585
+    m_Localized: "Principal: Ah, it's you again. What do I owe the pleasure?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900586
+    m_Localized: "Player: I wanted to talk about the Cat."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900587
+    m_Localized: "Principal: About your little companion?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900588
+    m_Localized: "Player: Yes. I still want to enroll him in school, but I still haven't managed to gather the required amount."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900589
+    m_Localized: "Principal: I understand."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900590
+    m_Localized: "Player: But I was told that sometimes you do make exceptions."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900591
+    m_Localized: "Principal: Hm. Curious who told you that."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900592
+    m_Localized: "Player: That's not the important part. What matters is that the Cat needs a home, and the Elk needs a friend."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900593
+    m_Localized: "Principal: Is that so..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900594
+    m_Localized: "Player: Your son really wants someone to study with. He wanted to ask you himself to take the Cat in."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900595
+    m_Localized: "Principal: He wanted to ask me himself?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900596
+    m_Localized: "Player: Yes. It matters to him."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900597
+    m_Localized: "Principal: You know... perhaps I really do spend too much time thinking about bills, firewood, textbooks, and forget who all this is for."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900598
+    m_Localized: "Principal: If my son wants the Cat to study with him, then so be it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900599
+    m_Localized: "Player: Really?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900600
+    m_Localized: "Principal: Yes. I'm admitting the Cat to the school."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900601
+    m_Localized: "Player: Thank you!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900602
+    m_Localized: "Principal: No need. Sometimes a school doesn't really need money - it just needs someone worth caring for."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900603
+    m_Localized: "Principal: Congratulations. It looks like this will be your Cat's new home."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900604
+    m_Localized: "Principal: The Cat can stay. There will always be a place for him at the school."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900605
+    m_Localized: "Player:  Вот Вы где!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900606
+    m_Localized: "Owl: A sound mind in a sound body! At my age, that becomes obvious. And you, young man, must be that new delivery driver I've heard so much about. Very pleased!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900607
+    m_Localized: "Player: Likewise. The Principal asked me to deliver a package. Here you go."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900608
+    m_Localized: "Owl: Why, thank you! How is my grandson doing? Working hard? Dressing warmly? (laughs)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900609
+    m_Localized: "Owl: And when am I getting great-grandchildren? Oh, he'll leave his grandma without any! By any chance, do you know if he's found himself a bride yet? Maybe he likes someone?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900610
+    m_Localized: "Player:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900611
+    m_Localized: "Owl: Run along, dear."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900612
+    m_Localized: "Grandma: These buns smell wonderful! Thank you for getting here so quickly!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900613
+    m_Localized: "Player: Always happy to help!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900614
+    m_Localized: "Grandma: I heard you stopped by the farm. How is the little Elk doing?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900615
+    m_Localized: "Player: He's managing. But he said he's scared to go to school without friends."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900616
+    m_Localized: "Grandma: Hmmm... What about your Cat? Isn't he going to school too?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900617
+    m_Localized: "Player: I'd gladly send him there, but I don't have that much money.."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900618
+    m_Localized: "Grandma: I see... Back in my day, education was free! It's all gone..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900619
+    m_Localized: "Grandma: Actually, the Principal isn't nearly as strict as he likes to seem. If his son asks him to take in the Cat, I'm sure he will!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900620
+    m_Localized: "Grandma: Oh, I almost forgot, I promised to send the Elk some ice for the cellar. Just hurry before it all melts!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900621
+    m_Localized: "Grandma: If you hurry, the ice might still make it there in one piece."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900622
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900623
+    m_Localized: "Baker: Oh, you're here so early, I'm afraid I don't have anything to offer you yet! Unless you'd like some cocoa?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900624
+    m_Localized: "Player: No, thank you. Grandma asked me to bring her six buns..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900625
+    m_Localized: "Baker: What bad timing! We've just run out of milk. This morning it all went into the cherry pie... I can't bake your buns without it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900626
+    m_Localized: "Player: I can bring some. Just tell me where I need to go."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900627
+    m_Localized: "Baker: Usually the Elk brings it from his farm, but he didn't show up today for some reason. Ask him to find us two cartons of milk. Just be careful, he's a little scared of strangers."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900628
+    m_Localized: "Baker: Without milk, I can't bake buns no matter how hard I try."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900629
+    m_Localized: "Baker: You brought it? Oh, thank you so much! I'll put the buns in the oven right away."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900630
+    m_Localized: "Baker: But it'll take a little time. Could you take this cherry pie to the school in the meantime? You have to drive quickly, though, or it'll cool off and won't be nearly as magical!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900631
+    m_Localized: "Player: All right, should I pass anything else along?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900632
+    m_Localized: "Baker: Yes, it's the Principal's birthday today, so don't forget to congratulate him! Maybe he'll be just a little kinder..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900633
+    m_Localized: "Baker: Hurry, the pie is only good while it's warm!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900634
+    m_Localized: "Player: I have a gift for you from the Gas Station Attendant - this beautiful painting! And an equally beautiful invitation to meet by the Lake tomorrow."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900635
+    m_Localized: "Baker: How lovely! Give him my heartfelt thanks and be sure to tell him I'll come tomorrow!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900636
+    m_Localized: "Baker: I almost forgot - here are some cinnamon rolls for Grandma. Please take them to her quickly before they go bad!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900637
+    m_Localized: "Player: All right, I'll be there in no time!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22126874497900638
+    m_Localized: "Baker: Be sure to tell him I'll come."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518933716992
+    m_Localized: "Gas Station Attendant:  У нас на острове редко встретишь гостей. Какими судьбами?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077120
+    m_Localized: "Player: I used to live here many years ago. Decided to come back."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077121
+    m_Localized: "Gas Station Attendant: It's great that our town has a driver again! There used to be lots of cars here, and now we've got a gas station but no cars... Ah..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077122
+    m_Localized: "Gas Station Attendant: I can't even drive up to Grandma in the hills or over to the Baker's... But that's not what I meant to say!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077123
+    m_Localized: "Gas Station Attendant: Listen... this means you could really help us out! We got some parts for the school's radio tower, and they need to be delivered."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077124
+    m_Localized: "Gas Station Attendant: We won't forget the favor, so today's gas is on me!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077125
+    m_Localized: "Player: Thanks. How do I get to the school?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077126
+    m_Localized: "Gas Station Attendant: Take this map... It will always show you your destination!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077127
+    m_Localized: "Gas Station Attendant: Sorry, I don't have any more jobs right now."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077128
+    m_Localized: "Gas Station Attendant: You've really got a lovely little car!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077129
+    m_Localized: "Player: Thanks. I brought you the tires from the school bus."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077130
+    m_Localized: "Gas Station Attendant: Awesome! Just a little more and I'll be able to build my very own car! Then I'll get to see the Baker every day... Oops!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077131
+    m_Localized: "Gas Station Attendant: If you happen to pass by, ask how the Baker is doing for me. Is everything all right with her?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077132
+    m_Localized: "Player: Is she your friend?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077133
+    m_Localized: "Gas Station Attendant: We barely know each other, to be honest... still, please ask..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077134
+    m_Localized: "Player:  Может быть ей привезти что нибудь от тебя?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077135
+    m_Localized: "Gas Station Attendant: Exactly, let's do that, but what should I give her... hmm..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077136
+    m_Localized: "Gas Station Attendant: I've got it!!! Bring her this painting and ask if she'd mind meeting me by the Lake tomorrow..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077137
+    m_Localized: "Gas Station Attendant: Go on, quick! I can't wait to hear how it goes!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077138
+    m_Localized: "Gas Station Attendant: Well? Did you see the Baker? What did she say?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077139
+    m_Localized: "Player: I told her exactly that. She thanked you for the painting and agreed to meet you by the Lake."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077140
+    m_Localized: "Gas Station Attendant: Really!? Wow... Did she actually agree?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077141
+    m_Localized: "Player: Yes. Looks like she really liked the painting."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077142
+    m_Localized: "Gas Station Attendant: Well... there's no turning back now!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077143
+    m_Localized: "Player: Looks like it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077144
+    m_Localized: "Gas Station Attendant: You know... we already met up. And I think it went even better than I dreamed."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077145
+    m_Localized: "Player: Is that so? Congratulations."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077146
+    m_Localized: "Gas Station Attendant: Thanks. Who would've thought... I spent years trying to work up the courage, and in the end it was the new delivery driver who helped."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077147
+    m_Localized: "Gas Station Attendant: Now not only is my car almost assembled, but it feels like my whole life has finally started moving again."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077148
+    m_Localized: "Player: I'm happy for you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077149
+    m_Localized: "Gas Station Attendant: I'm happy for myself too! All right, I won't keep you. I hope things work out for you and the Cat too."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077150
+    m_Localized: "Gas Station Attendant: Thank you. Without you, I never would've dared to talk to the Baker."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077151
+    m_Localized: "Cat: Meow!?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077152
+    m_Localized: "Player: Who are you?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077153
+    m_Localized: "Cat: I... I don't know..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077154
+    m_Localized: "Player: Easy, easy. Just tell me where your home is, and I'll take you there."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077155
+    m_Localized: "Cat: I don't know where my home is."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077156
+    m_Localized: "Player: How long have you been here?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077157
+    m_Localized: "Cat: It's cold and I'm hungry here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077158
+    m_Localized: "Player: All right, get in the car and we'll figure out what to do with you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077159
+    m_Localized: "Cat: I'm cold!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077160
+    m_Localized: "Elk: Hello, mister... Who are you?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077161
+    m_Localized: "Player: I'm a delivery driver. I was asked to bring two cartons of milk from the farm for the baker."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077162
+    m_Localized: "Elk: Aaaah, I see. All right, I'll bring everything right away. You'll have to drive fast, though, because the weather's been really hot lately!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077163
+    m_Localized: "Player: Thank you! You're so independent. But why are you here all alone?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077164
+    m_Localized: "Elk: Dad says the farm doesn't bring in much money, so he works at the school to earn extra. He says I need an education, so he wants to teach me himself..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077165
+    m_Localized: "Player: I see. So your dad is the School Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077166
+    m_Localized: "Elk: Yes, but honestly, I really don't want to go there."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077167
+    m_Localized: "Elk: I don't have any friends my age at all..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077168
+    m_Localized: "Player: Don't be afraid. I hope the Cat will go to school with you. I'll make sure to introduce you two later."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077169
+    m_Localized: "Elk: All right! If you happen to see Dad, please ask him to come by. We've been having some power issues, and I got scared there might be a fire, so I didn't bring the milk."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077170
+    m_Localized: "Elk: Just make sure to drive the milk over quickly, or it'll spoil."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077171
+    m_Localized: "Elk: Oh, it's you again! Dad still hasn't stopped by..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077172
+    m_Localized: "Player: I actually wanted to talk to you. I have an idea."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077173
+    m_Localized: "Elk: What kind?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077174
+    m_Localized: "Player: Remember the Cat I told you about? He's all alone too, and he's scared too."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077175
+    m_Localized: "Elk: Yeah... I feel bad for him."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077176
+    m_Localized: "Player: If you ask your dad yourself to let the Cat into the school, I think he'll listen to you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077177
+    m_Localized: "Elk: Really?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077178
+    m_Localized: "Player: Of course. You're his son, and you know better than anyone what it's like to be alone."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077179
+    m_Localized: "Elk: I've never asked Dad for anything like that before..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077180
+    m_Localized: "Player: Then this will be the first time. Sometimes you just have to say the important things out loud."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077181
+    m_Localized: "Elk: Do you think he won't be angry?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077182
+    m_Localized: "Player: I think he'll see how important this is to you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077183
+    m_Localized: "Elk: Then... I'll try. I'll tell him the Cat needs to study with me."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077184
+    m_Localized: "Player: That's the spirit."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077185
+    m_Localized: "Elk: Thank you, mister. It wouldn't be so scary with the Cat around."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077186
+    m_Localized: "Elk: I'll talk to Dad. I'm just really nervous..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077187
+    m_Localized: "Player: Hello, are you the Principal?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077188
+    m_Localized: "Teacher: Yes, and you, my good fellow, must be our new driver? Thank you for the equipment!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077189
+    m_Localized: "Teacher: If there's anything I can do for you, just say the word!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077190
+    m_Localized: "Player: I found a kitten who doesn't know where his home is. Do you know where I could place him?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077191
+    m_Localized: "Teacher: We have a boarding school for children. Unfortunately, tuition isn't free: the school has to pay for food, textbooks, and the teachers' work..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077192
+    m_Localized: "Player: And how much does tuition cost?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077193
+    m_Localized: "Teacher: 5000"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077194
+    m_Localized: "Player: That much!? Where am I supposed to get that kind of money?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077195
+    m_Localized: "Teacher: On this island, there are always people who need something delivered..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077196
+    m_Localized: "Teacher: By the way, could you take these old books? They've been sitting uselessly in the library for years."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077197
+    m_Localized: "Teacher: Could you deliver them to Grandma Owl? She absolutely loves detective stories."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077198
+    m_Localized: "Teacher: Go on, I'll be waiting."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077199
+    m_Localized: "Teacher: This is my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077200
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077201
+    m_Localized: "Teacher: This is after my second quest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077202
+    m_Localized: "Player: Ok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077203
+    m_Localized: "Principal: Ah, it's you again. What do I owe the pleasure?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077204
+    m_Localized: "Player: I wanted to talk about the Cat."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077205
+    m_Localized: "Principal: About your little companion?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077206
+    m_Localized: "Player: Yes. I still want to enroll him in school, but I still haven't managed to gather the required amount."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077207
+    m_Localized: "Principal: I understand."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077208
+    m_Localized: "Player: But I was told that sometimes you do make exceptions."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077209
+    m_Localized: "Principal: Hm. Curious who told you that."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077210
+    m_Localized: "Player: That's not the important part. What matters is that the Cat needs a home, and the Elk needs a friend."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077211
+    m_Localized: "Principal: Is that so..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077212
+    m_Localized: "Player: Your son really wants someone to study with. He wanted to ask you himself to take the Cat in."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077213
+    m_Localized: "Principal: He wanted to ask me himself?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077214
+    m_Localized: "Player: Yes. It matters to him."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077215
+    m_Localized: "Principal: You know... perhaps I really do spend too much time thinking about bills, firewood, textbooks, and forget who all this is for."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077216
+    m_Localized: "Principal: If my son wants the Cat to study with him, then so be it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077217
+    m_Localized: "Player: Really?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077218
+    m_Localized: "Principal: Yes. I'm admitting the Cat to the school."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077219
+    m_Localized: "Player: Thank you!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077220
+    m_Localized: "Principal: No need. Sometimes a school doesn't really need money - it just needs someone worth caring for."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077221
+    m_Localized: "Principal: Congratulations. It looks like this will be your Cat's new home."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518963077222
+    m_Localized: "Principal: The Cat can stay. There will always be a place for him at the school."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465728
+    m_Localized: "Player:  Вот Вы где!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465729
+    m_Localized: "Owl: A sound mind in a sound body! At my age, that becomes obvious. And you, young man, must be that new delivery driver I've heard so much about. Very pleased!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465730
+    m_Localized: "Player: Likewise. The Principal asked me to deliver a package. Here you go."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465731
+    m_Localized: "Owl: Why, thank you! How is my grandson doing? Working hard? Dressing warmly? (laughs)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465732
+    m_Localized: "Owl: And when am I getting great-grandchildren? Oh, he'll leave his grandma without any! By any chance, do you know if he's found himself a bride yet? Maybe he likes someone?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465733
+    m_Localized: "Player:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465734
+    m_Localized: "Owl: Run along, dear."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465735
+    m_Localized: "Grandma: These buns smell wonderful! Thank you for getting here so quickly!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465736
+    m_Localized: "Player: Always happy to help!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465737
+    m_Localized: "Grandma: I heard you stopped by the farm. How is the little Elk doing?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465738
+    m_Localized: "Player: He's managing. But he said he's scared to go to school without friends."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465739
+    m_Localized: "Grandma: Hmmm... What about your Cat? Isn't he going to school too?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465740
+    m_Localized: "Player: I'd gladly send him there, but I don't have that much money.."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465741
+    m_Localized: "Grandma: I see... Back in my day, education was free! It's all gone..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465742
+    m_Localized: "Grandma: Actually, the Principal isn't nearly as strict as he likes to seem. If his son asks him to take in the Cat, I'm sure he will!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465743
+    m_Localized: "Grandma: Oh, I almost forgot, I promised to send the Elk some ice for the cellar. Just hurry before it all melts!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465744
+    m_Localized: "Grandma: If you hurry, the ice might still make it there in one piece."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465745
+    m_Localized: "Player: I'm out of gas, I should go talk to the Gas Station Attendant..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465746
+    m_Localized: "Baker: Oh, you're here so early, I'm afraid I don't have anything to offer you yet! Unless you'd like some cocoa?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465747
+    m_Localized: "Player: No, thank you. Grandma asked me to bring her six buns..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465748
+    m_Localized: "Baker: What bad timing! We've just run out of milk. This morning it all went into the cherry pie... I can't bake your buns without it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465749
+    m_Localized: "Player: I can bring some. Just tell me where I need to go."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465750
+    m_Localized: "Baker: Usually the Elk brings it from his farm, but he didn't show up today for some reason. Ask him to find us two cartons of milk. Just be careful, he's a little scared of strangers."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465751
+    m_Localized: "Baker: Without milk, I can't bake buns no matter how hard I try."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465752
+    m_Localized: "Baker: You brought it? Oh, thank you so much! I'll put the buns in the oven right away."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465753
+    m_Localized: "Baker: But it'll take a little time. Could you take this cherry pie to the school in the meantime? You have to drive quickly, though, or it'll cool off and won't be nearly as magical!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465754
+    m_Localized: "Player: All right, should I pass anything else along?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465755
+    m_Localized: "Baker: Yes, it's the Principal's birthday today, so don't forget to congratulate him! Maybe he'll be just a little kinder..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465756
+    m_Localized: "Baker: Hurry, the pie is only good while it's warm!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465757
+    m_Localized: "Player: I have a gift for you from the Gas Station Attendant - this beautiful painting! And an equally beautiful invitation to meet by the Lake tomorrow."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465758
+    m_Localized: "Baker: How lovely! Give him my heartfelt thanks and be sure to tell him I'll come tomorrow!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465759
+    m_Localized: "Baker: I almost forgot - here are some cinnamon rolls for Grandma. Please take them to her quickly before they go bad!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465760
+    m_Localized: "Player: All right, I'll be there in no time!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22148518971465761
+    m_Localized: "Baker: Be sure to tell him I'll come."
     m_Metadata:
       m_Items: []
   references:
