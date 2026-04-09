@@ -132678,10 +132678,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0a0b53421d7de41a904d0abe30b8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Paws_Parcels.Scripts.Player.PlayerSkinsVisualizer
-  _objectsToShowWhenNoSkin:
-  - {fileID: 0}
+  _objectsToShowWhenNoSkin: []
   _skinsVisuals:
-  - _skinId: 
+  - _skinId: glasses
+    _objectsToSetActive:
+    - {fileID: 0}
+  - _skinId: hat
+    _objectsToSetActive:
+    - {fileID: 0}
+  - _skinId: red_cap
+    _objectsToSetActive:
+    - {fileID: 0}
+  - _skinId: the_cap
     _objectsToSetActive:
     - {fileID: 0}
 --- !u!1001 &2044013023
