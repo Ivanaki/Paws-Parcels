@@ -20,8 +20,7 @@ MonoBehaviour:
     ActiveQuests:
     - Id: learning
       CurrentMission: 0
-      ActiveDestinations:
-      - bear
+      ActiveDestinations: []
       MessageProgress: 0
       HasMissionTimer: 0
       MissionTimerSeconds: 0
@@ -33,7 +32,7 @@ MonoBehaviour:
     PurchasedSkins: []
     AppliedSkinName: 
     PlayerData:
-      Position: {x: 404.4, y: 5.038, z: 1021.6}
+      Position: {x: 289.59, y: 8.22, z: 888.43}
       Rotation: {x: -0, y: -0, z: -0, w: 1}
       Speed: 0
       Verticalvelocity: 0
@@ -42,7 +41,7 @@ MonoBehaviour:
       Pitch: 35
       AnimationBlend: 0
     CarData:
-      Position: {x: 401.59, y: 5.67, z: 1022.38}
+      Position: {x: 285.88, y: 5.67, z: 890.51}
       Rotation: {x: -0, y: -0.9997066, z: -0, w: -0.024221107}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}

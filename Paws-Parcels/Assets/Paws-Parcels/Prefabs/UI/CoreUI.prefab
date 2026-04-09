@@ -541,14 +541,14 @@ RectTransform:
   m_GameObject: {fileID: 3791469826667491536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.34622532, y: 0.34622532, z: 0.34622532}
+  m_LocalScale: {x: 0.5232439, y: 0.5232439, z: 0.5232439}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8579396772886696066}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1143.0007, y: 102}
+  m_AnchoredPosition: {x: -1143.0007, y: 33}
   m_SizeDelta: {x: 672.65, y: 875.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7559893567631177944
@@ -623,7 +623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -779, y: 102}
+  m_AnchoredPosition: {x: -779, y: 33}
   m_SizeDelta: {x: 672.65, y: 875.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &986884316397211852
@@ -907,7 +907,7 @@ MonoBehaviour:
   _diaryFoundHiddenLeftPositionRectTransform: {fileID: 6511991412172951687}
   _diaryFoundShownPositionRectTransform: {fileID: 1719767323859905243}
   _diaryFoundMoveDuration: 0.35
-  _diaryFoundDelay: 1.25
+  _diaryFoundDelay: 3
 --- !u!1 &5520403978533610232
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1152, y: 102}
+  m_AnchoredPosition: {x: -1152, y: 33}
   m_SizeDelta: {x: 672.65, y: 875.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6418879890306218360

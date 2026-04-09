@@ -88,7 +88,7 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<PlayerShowableService>().AsSingle();
             Container.Bind<ShowableInterfaceService>().AsSingle();
             Container.Bind<HUDService>().AsSingle();
-            Container.Bind<DialogueService>().AsSingle();
+            
             Container.Bind<ResourcesService>().AsSingle();
             Container.Bind<DialogueRegistrations>().AsSingle();
             Container.Bind<DialogueInQuestsService>().AsSingle();
@@ -111,6 +111,8 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<DestinationService>().AsSingle().NonLazy();
             Container.Bind<HintsService>().AsSingle().NonLazy();
             Container.Bind<CarStopper>().AsSingle().NonLazy();
+            Container.Bind<DialogueService>().AsSingle().NonLazy();
+            
 
 
 
