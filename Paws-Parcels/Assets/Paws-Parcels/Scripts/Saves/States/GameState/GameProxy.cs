@@ -31,6 +31,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public ObservableList<QuestDataProxy> ActiveQuests { get; } = new();
         public ObservableList<string> SucceedQuests { get; } = new();
         public ObservableList<string> CurrentActiveDestinations { get; } = new();
+        public ObservableList<string> DiaryPages { get; } = new();
+        public ObservableList<string> PurchasedSkins { get; } = new();
+        public ReactiveProperty<string> AppliedSkinName { get; }
 
         public PlayerSaveData PlayerData
         {
@@ -70,6 +73,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             TrackedMissionID = new ReactiveProperty<int>(origin.TrackedMissionID);
             IsCompassActive = new ReactiveProperty<bool>(origin.IsCompassActive);
             _selectedQuest = new ReactiveProperty<string>(origin.SelectedQuest);
+            AppliedSkinName = new ReactiveProperty<string>(origin.AppliedSkinName);
             _hasMissionTimer = new ReactiveProperty<bool>(false);
             _missionTimerSeconds = new ReactiveProperty<float>(0f);
             _missionTimerTotalSeconds = new ReactiveProperty<float>(0f);
@@ -77,6 +81,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             TrackedMissionID.Skip(1).Subscribe(v => origin.TrackedMissionID = v);
             IsCompassActive.Skip(1).Subscribe(v => origin.IsCompassActive = v);
             _selectedQuest.Skip(1).Subscribe(v => origin.SelectedQuest = v);
+            AppliedSkinName.Skip(1).Subscribe(v => origin.AppliedSkinName = v);
             
             InitQuests(origin);
             InitMissionTimerAggregation();
@@ -130,6 +135,13 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             
             CurrentActiveDestinations.Clear();
             origin.CurrentActiveDestinations.ForEach(questData => CurrentActiveDestinations.Add(questData));
+
+            DiaryPages.Clear();
+            origin.DiaryPages.ForEach(diaryPage => DiaryPages.Add(diaryPage));
+
+            PurchasedSkins.Clear();
+            origin.PurchasedSkins.ForEach(purchasedSkin => PurchasedSkins.Add(purchasedSkin));
+            AppliedSkinName.Value = origin.AppliedSkinName;
             
             PlayerData = origin.PlayerData;
             CarData = origin.CarData;
@@ -178,6 +190,43 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
 
             Debug.LogError($"Quest {questId} dont selected");
             return false;
+        }
+
+        public bool IsSkinPurchased(string skinId)
+        {
+            return string.IsNullOrWhiteSpace(skinId) == false && PurchasedSkins.Contains(skinId);
+        }
+
+        public bool IsSkinApplied(string skinId)
+        {
+            return string.IsNullOrWhiteSpace(skinId) == false && AppliedSkinName.Value == skinId;
+        }
+
+        public bool TryAddPurchasedSkin(string skinId)
+        {
+            if (string.IsNullOrWhiteSpace(skinId) || IsSkinPurchased(skinId))
+            {
+                return false;
+            }
+
+            PurchasedSkins.Add(skinId);
+            return true;
+        }
+
+        public bool TryApplySkin(string skinId)
+        {
+            if (IsSkinPurchased(skinId) == false)
+            {
+                return false;
+            }
+
+            AppliedSkinName.Value = skinId;
+            return true;
+        }
+
+        public void ClearAppliedSkin()
+        {
+            AppliedSkinName.Value = string.Empty;
         }
         
         public int GetNewSavableEntityID()
@@ -247,6 +296,44 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             CurrentActiveDestinations.ObserveClear().Subscribe(e =>
             {
                 origin.CurrentActiveDestinations.Clear();
+            });
+
+            origin.DiaryPages.ForEach(diaryPage => DiaryPages.Add(diaryPage));
+
+            DiaryPages.ObserveAdd().Subscribe(e =>
+            {
+                var addedDiaryPage = e.Value;
+                origin.DiaryPages.Add(addedDiaryPage);
+            });
+
+            DiaryPages.ObserveRemove().Subscribe(e =>
+            {
+                var removedDiaryPage = e.Value;
+                origin.DiaryPages.Remove(removedDiaryPage);
+            });
+
+            DiaryPages.ObserveClear().Subscribe(e =>
+            {
+                origin.DiaryPages.Clear();
+            });
+
+            origin.PurchasedSkins.ForEach(purchasedSkin => PurchasedSkins.Add(purchasedSkin));
+
+            PurchasedSkins.ObserveAdd().Subscribe(e =>
+            {
+                var addedPurchasedSkin = e.Value;
+                origin.PurchasedSkins.Add(addedPurchasedSkin);
+            });
+
+            PurchasedSkins.ObserveRemove().Subscribe(e =>
+            {
+                var removedPurchasedSkin = e.Value;
+                origin.PurchasedSkins.Remove(removedPurchasedSkin);
+            });
+
+            PurchasedSkins.ObserveClear().Subscribe(e =>
+            {
+                origin.PurchasedSkins.Clear();
             });
         }
 

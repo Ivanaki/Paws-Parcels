@@ -1,0 +1,131 @@
+digraph CarFixedUpdate {
+  graph [
+    rankdir=TB,
+    splines=ortho,
+    nodesep=0.45,
+    ranksep=0.6,
+    pad=0.25,
+    bgcolor="white",
+    labelloc="t",
+    label="Алгоритм расчета подвески и управления машиной\nCar.FixedUpdate()",
+    fontname="Arial",
+    fontsize=18
+  ];
+
+  node [
+    shape=box,
+    style="solid",
+    fontname="Arial",
+    fontsize=12,
+    margin="0.18,0.10"
+  ];
+
+  edge [
+    fontname="Arial",
+    fontsize=11,
+    arrowsize=0.8
+  ];
+
+  start [label="Начало", style="rounded"];
+  init_springs [label="i := 0"];
+  check_springs [label="i < WheelIndex.Count ?", shape=diamond];
+
+  spring_proc [shape=plain, label=<
+    <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="8">
+      <TR>
+        <TD WIDTH="10"></TD>
+        <TD>Внешняя процедура<BR/>Обновить пружину колеса i<BR/>(RaycastSpring.FixedUpdate)</TD>
+        <TD WIDTH="10"></TD>
+      </TR>
+    </TABLE>
+  >];
+
+  inc_springs [label="i := i + 1"];
+
+  steer_proc [shape=plain, label=<
+    <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="8">
+      <TR>
+        <TD WIDTH="10"></TD>
+        <TD>Внешняя процедура<BR/>UpdateSteerInput()</TD>
+        <TD WIDTH="10"></TD>
+      </TR>
+    </TABLE>
+  >];
+
+  throttle_proc [shape=plain, label=<
+    <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="8">
+      <TR>
+        <TD WIDTH="10"></TD>
+        <TD>Внешняя процедура<BR/>UpdateThrottleInput()</TD>
+        <TD WIDTH="10"></TD>
+      </TR>
+    </TABLE>
+  >];
+
+  brake_proc [shape=plain, label=<
+    <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="8">
+      <TR>
+        <TD WIDTH="10"></TD>
+        <TD>Внешняя процедура<BR/>UpdateBrakeInput()</TD>
+        <TD WIDTH="10"></TD>
+      </TR>
+    </TABLE>
+  >];
+
+  handbrake_proc [shape=plain, label=<
+    <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="8">
+      <TR>
+        <TD WIDTH="10"></TD>
+        <TD>Внешняя процедура<BR/>UpdateHandbrakeInput()</TD>
+        <TD WIDTH="10"></TD>
+      </TR>
+    </TABLE>
+  >];
+
+  init_wheels [label="i := 0"];
+  check_wheels [label="i < WheelIndex.Count ?", shape=diamond];
+
+  wheel_proc [shape=plain, label=<
+    <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="8">
+      <TR>
+        <TD WIDTH="10"></TD>
+        <TD>Внешняя процедура<BR/>Обновить колесо i<BR/>(Wheel.FixedUpdate)</TD>
+        <TD WIDTH="10"></TD>
+      </TR>
+    </TABLE>
+  >];
+
+  inc_wheels [label="i := i + 1"];
+
+  air_proc [shape=plain, label=<
+    <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="8">
+      <TR>
+        <TD WIDTH="10"></TD>
+        <TD>Внешняя процедура<BR/>UpdateAirControl()</TD>
+        <TD WIDTH="10"></TD>
+      </TR>
+    </TABLE>
+  >];
+
+  finish [label="Конец", style="rounded"];
+
+  start -> init_springs;
+  init_springs -> check_springs;
+  check_springs -> spring_proc [xlabel="да"];
+  spring_proc -> inc_springs;
+  inc_springs -> check_springs;
+  check_springs -> steer_proc [xlabel="нет"];
+
+  steer_proc -> throttle_proc;
+  throttle_proc -> brake_proc;
+  brake_proc -> handbrake_proc;
+  handbrake_proc -> init_wheels;
+
+  init_wheels -> check_wheels;
+  check_wheels -> wheel_proc [xlabel="да"];
+  wheel_proc -> inc_wheels;
+  inc_wheels -> check_wheels;
+  check_wheels -> air_proc [xlabel="нет"];
+
+  air_proc -> finish;
+}

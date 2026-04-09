@@ -21,6 +21,29 @@ namespace Paws_Parcels.Car.Logic
         private CarInput m_Input;
         private RaycastSpring[] m_Springs;
         private Wheel[] m_Wheels;
+
+        private void CacheComponentReferences()
+        {
+            if (!m_BoxCollider)
+            {
+                m_BoxCollider = GetComponent<BoxCollider>();
+            }
+
+            if (!m_Rigidbody)
+            {
+                m_Rigidbody = GetComponent<Rigidbody>();
+            }
+
+            if (!m_Settings)
+            {
+                m_Settings = GetComponent<CarSettings>();
+            }
+
+            if (!m_Input)
+            {
+                m_Input = GetComponent<CarInput>();
+            }
+        }
         
         private void Start()
         {
@@ -29,10 +52,8 @@ namespace Paws_Parcels.Car.Logic
                 Debug.LogError($"[{nameof(Car)}] Invalid scale!");
             }
 
-            m_Settings = GetComponent<CarSettings>();
-            
-            m_Input = GetComponent<CarInput>();
-            
+            CacheComponentReferences();
+
             InitializeCollider();
             
             InitializeRigidbody();
@@ -272,20 +293,7 @@ namespace Paws_Parcels.Car.Logic
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            if (!m_BoxCollider)
-            {
-                m_BoxCollider = GetComponent<BoxCollider>();
-            }
-            
-            if (!m_Rigidbody)
-            {
-                m_Rigidbody = GetComponent<Rigidbody>();
-            }
-
-            if (!m_Settings)
-            {
-                m_Settings = GetComponent<CarSettings>();
-            }
+            CacheComponentReferences();
         }
 
         [ContextMenu(nameof(GenerateCollidersMesh))]
@@ -314,6 +322,8 @@ namespace Paws_Parcels.Car.Logic
         {
             if (!m_DrawGizmos) return;
 
+            CacheComponentReferences();
+
             Gizmos.matrix = transform.localToWorldMatrix;
             Handles.matrix = transform.localToWorldMatrix;
 
@@ -324,6 +334,8 @@ namespace Paws_Parcels.Car.Logic
                 Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(m_Rigidbody.centerOfMass, 0.1f);
             }
+
+            if (!m_Settings) return;
             
             DrawSprings();
 
@@ -345,11 +357,17 @@ namespace Paws_Parcels.Car.Logic
         {
             float restLength = m_Settings.SpringRestLength;
             float maxLength = m_Settings.SpringMaxLength;
+            bool hasRuntimeSprings = Application.isPlaying && m_Springs != null && m_Springs.Length == WheelIndex.Count;
 
             for (int wheel = 0; wheel < WheelIndex.Count; wheel++)
             {
                 Vector3 origin = GetLocalSpringOrigin(wheel);
-                float length = Application.isPlaying ? m_Springs[wheel].CurrentLength : maxLength;
+                float length = maxLength;
+
+                if (hasRuntimeSprings && m_Springs[wheel] != null)
+                {
+                    length = m_Springs[wheel].CurrentLength;
+                }
 
                 Gizmos.color = length < restLength ? Color.green : length < maxLength ? Color.yellow : Color.red;
                 Gizmos.DrawLine(origin, origin + Vector3.down * length);
@@ -368,7 +386,12 @@ namespace Paws_Parcels.Car.Logic
 
             Vector3 ackTriangleOrigin = new(-trackWidth / 2.0f, 0.0f, -wheelbase / 2.0f);
 
-            float turnInput = Application.isPlaying ? m_Input.Steer : 1.0f;
+            float turnInput = 1.0f;
+
+            if (Application.isPlaying)
+            {
+                turnInput = m_Input ? m_Input.Steer : 0.0f;
+            }
 
             float ackAngleRight = Mathf.Rad2Deg * Mathf.Atan(wheelbase / (turnRadius - (trackWidth / 2.0f))) * turnInput;
             Vector3 ackRightPos = ackTriangleOrigin + new Vector3(trackWidth, 0.0f, wheelbase);

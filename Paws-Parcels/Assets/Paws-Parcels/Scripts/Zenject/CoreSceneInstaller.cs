@@ -4,6 +4,7 @@ using Items.MessageSpawnItems;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Player;
 using Services;
+using Services.Music;
 using UI.Core;
 using UI.HUD;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace MotorHome.Scripts.Installers
             //инпут с клавиатуры и мышки, можно считать это тоже ViewModelsContainer
             Container.BindInterfacesTo<CoreUIController>().AsSingle().NonLazy();
             Container.BindInterfacesTo<PlayerInputCore>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<GameplayMusicService>().AsSingle().NonLazy();
             
             Container.BindInterfacesAndSelfTo<InputsCoreService>().AsSingle().NonLazy();
             

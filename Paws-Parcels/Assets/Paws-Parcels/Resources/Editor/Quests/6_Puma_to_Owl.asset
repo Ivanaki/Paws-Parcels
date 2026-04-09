@@ -47,6 +47,8 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 2
     SendMessageOnStartMission: update_items_inside_message
     SendMessageOnEndMission: 
@@ -107,6 +109,8 @@ MonoBehaviour:
         item_down_roof:wheel_3'
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 3
     SendMessageOnStartMission: spawn_putter_deer
     SendMessageOnEndMission: activate_quest:7_Owl_to_Deer
@@ -169,6 +173,6 @@ MonoBehaviour:
         destination_putter_puma-taked:wheel_3'
     ManyMessages:
       Messages: []
-  MoneyReward: 0
-  Limit: 0
-  LimitTimeInSeconds: 60
+    Limit: 0
+    LimitTimeInSeconds: 60
+  MoneyReward: 100

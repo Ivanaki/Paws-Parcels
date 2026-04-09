@@ -80,6 +80,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public string SelectedQuest = "";
         public List<string> SucceedQuests = new();
         public List<string> CurrentActiveDestinations = new();
+        public List<string> DiaryPages = new();
+        public List<string> PurchasedSkins = new();
+        public string AppliedSkinName = "";
         
         //Player
         public PlayerSaveData PlayerData;

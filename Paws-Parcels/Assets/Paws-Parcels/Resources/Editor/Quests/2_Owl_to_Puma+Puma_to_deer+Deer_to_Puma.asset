@@ -47,6 +47,8 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 2
     SendMessageOnStartMission: 
     SendMessageOnEndMission: 
@@ -79,6 +81,8 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 3
     SendMessageOnStartMission: 
     SendMessageOnEndMission: spawn_pie
@@ -111,6 +115,8 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 4
     SendMessageOnStartMission: update_items_inside_message
     SendMessageOnEndMission: 
@@ -163,6 +169,8 @@ MonoBehaviour:
         take_inside_car:milk_2'
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 5
     SendMessageOnStartMission: 
     SendMessageOnEndMission: activate_quest:3_Puma_to_Elk
@@ -229,6 +237,6 @@ MonoBehaviour:
         destination_putter_puma-taked:milk_2'
     ManyMessages:
       Messages: []
-  MoneyReward: 0
-  Limit: 0
-  LimitTimeInSeconds: 60
+    Limit: 0
+    LimitTimeInSeconds: 60
+  MoneyReward: 100

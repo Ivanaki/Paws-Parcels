@@ -34,6 +34,7 @@ namespace UI.Core
         private readonly LocalizationService _localizationService;
         private readonly QuestsDatabase _questsDatabase;
         private readonly GameProxy _gameProxy;
+        private readonly ResourcesService _resourcesService;
 
         private bool _banOpen = false;
         
@@ -42,7 +43,7 @@ namespace UI.Core
             InputsCoreService inputsCoreService, EditorDataService editorDataService,
             DialogueService dialogueService,
             MessageSystem messageSystem, LocalizationService localizationService,
-            QuestsDatabase questsDatabase, GameProxy gameProxy)
+            QuestsDatabase questsDatabase, GameProxy gameProxy, ResourcesService resourcesService)
         {
             _coreRootViewModel = coreRootViewModel;
             _coreSignals = coreSignals;
@@ -56,6 +57,7 @@ namespace UI.Core
             _localizationService = localizationService;
             _questsDatabase = questsDatabase;
             _gameProxy = gameProxy;
+            _resourcesService = resourcesService;
         }
 
         public void OpenScreenDialog()
@@ -133,7 +135,7 @@ namespace UI.Core
         {
             if(_banOpen) return;
             
-            var viewModel = new ScreenQuestsViewModel(this, _localizationService, _questsDatabase, _gameProxy);
+            var viewModel = new ScreenQuestsViewModel(this, _localizationService, _questsDatabase, _gameProxy, _resourcesService);
             _coreRootViewModel.OpenScreen(viewModel);
             
             _cursorService.SetCursorStateLocked(false);

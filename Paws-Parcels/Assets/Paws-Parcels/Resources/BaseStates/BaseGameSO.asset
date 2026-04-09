@@ -27,8 +27,12 @@ MonoBehaviour:
       MissionTimerSeconds: 0
       MissionTimerTotalSeconds: 0
     SelectedQuest: learning
-    SucceedQuests: []
+    SucceedQuests:
+    - 1_elk_to_sova
     CurrentActiveDestinations: []
+    DiaryPages: []
+    PurchasedSkins: []
+    AppliedSkinName: 
     PlayerData:
       Position: {x: 404.4, y: 5.038, z: 1021.6}
       Rotation: {x: -0, y: -0, z: -0, w: 1}
@@ -39,8 +43,8 @@ MonoBehaviour:
       Pitch: 35
       AnimationBlend: 0
     CarData:
-      Position: {x: 400.53, y: 5.67, z: 1021.52}
-      Rotation: {x: -0, y: -0.99981403, z: -0, w: -0.019286158}
+      Position: {x: 474.68, y: 4.82, z: 1016.26}
+      Rotation: {x: -0, y: -0.49408066, z: -0, w: 0.8694161}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
     ItemsInWorld:
@@ -106,7 +110,7 @@ MonoBehaviour:
       AngularVelocity: {x: 0, y: 0, z: 0}
     - ItemTypeId: wheel
       DestinationId: 
-      Position: {x: 404.687, y: 5.582, z: 1017.131}
+      Position: {x: 403.5754, y: 5.582, z: 1018.523}
       Rotation: {x: -0, y: -0, z: -0, w: 1}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}
@@ -146,6 +150,8 @@ MonoBehaviour:
     ItemsInsideCar: []
     IsPlayerInCar: 0
     IsCarDoorOpen: 0
-    Resources: []
+    Resources:
+    - ResourcesType: 0
+      Amount: 900000
     IsCatInCar: 0
     StopCar: 0

@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Paws_Parcels.NPCDialogs;
+using Paws_Parcels.Scripts.Saves.States;
+using R3;
 using UnityEngine;
 using UnityEngine.UI;
 using Yarn.Unity;
 using TMPro;
+using Zenject;
 
 namespace UI.DialogueScreen
 {
@@ -38,6 +41,13 @@ namespace UI.DialogueScreen
         [SerializeField] private float mouthToggleInterval = 0.08f;
         [SerializeField] private float mouthInertiaTime = 0.3f;
 
+        [Header("Talk Audio")]
+        [SerializeField] private AudioClip sharedTalkClip;
+        [SerializeField] private AudioClip playerTalkClip;
+        [SerializeField] private AudioClip npcTalkClip;
+        [SerializeField, Range(0f, 1f)] private float talkVolume = 1f;
+        [SerializeField] private bool loopTalkAudio = true;
+
         [Header("Portrait Sway")]
         [SerializeField] private float swayAngle = 3f;
         [SerializeField] private float swaySpeed = 5f;
@@ -60,6 +70,10 @@ namespace UI.DialogueScreen
         private float _mouthTimer;
         private bool _mouthOpen;
         private bool _isVisible;
+        private AudioSource _playerTalkSource;
+        private AudioSource _npcTalkSource;
+        private AudioSource _currentTalkSource;
+        private ReadOnlyReactiveProperty<float> _masterVolume;
 
         private List<IActionMarkupHandler> ActionMarkupHandlers
         {
@@ -69,6 +83,16 @@ namespace UI.DialogueScreen
                 var handlers = new List<IActionMarkupHandler> { pauser };
                 handlers.AddRange(eventHandlers);
                 return handlers;
+            }
+        }
+
+        [Inject]
+        private void Construct([InjectOptional] SettingsStateProvider settingsStateProvider)
+        {
+            _masterVolume = settingsStateProvider?.SettingsProxy?.MasterVolume;
+            if (_masterVolume != null)
+            {
+                _masterVolume.Subscribe(_ => ApplyTalkAudioVolume()).AddTo(this);
             }
         }
 
@@ -83,6 +107,10 @@ namespace UI.DialogueScreen
                 ActionMarkupHandlers = ActionMarkupHandlers,
                 CharactersPerSecond = lettersPerSecond,
             };
+
+            _playerTalkSource = EnsureTalkAudioSource(playerPanel);
+            _npcTalkSource = EnsureTalkAudioSource(npcPanel);
+            ApplyTalkAudioVolume();
         }
 
         private void Update()
@@ -107,7 +135,7 @@ namespace UI.DialogueScreen
                 float z = Mathf.Sin(Time.time * swaySpeed) * swayAngle;
                 _activePanel.portrait.rectTransform.localRotation = Quaternion.Euler(0f, 0f, z);
 
-                float scale = 1f + (Mathf.Sin(Time.time * pulseSpeed) * 0.5f + 0.5f) * pulseAmount;
+                float scale = 1f + Mathf.Sin(Time.time * pulseSpeed) * pulseAmount;
                 _activePanel.portrait.rectTransform.localScale = new Vector3(scale, scale, 1f);
             }
             else
@@ -167,12 +195,14 @@ namespace UI.DialogueScreen
             _isTyping = true;
             _mouthTimer = 0f;
             _mouthOpen = false;
+            StartTalkingAudio();
             await Typewriter.RunTypewriter(text, token.HurryUpToken).SuppressCancellationThrow();
 
             if (mouthInertiaTime > 0f)
                 await YarnTask.Delay((int)(mouthInertiaTime * 1000), token.HurryUpToken).SuppressCancellationThrow();
 
             _isTyping = false;
+            StopTalkingAudio();
             SetMouthClosed();
 
             if (autoAdvance)
@@ -191,6 +221,7 @@ namespace UI.DialogueScreen
             npcPanel.root.SetActive(false);
             _currentEmotion = "idle";
             _isVisible = false;
+            StopTalkingAudio();
             return YarnTask.CompletedTask;
         }
 
@@ -206,6 +237,7 @@ namespace UI.DialogueScreen
             playerPanel.root.SetActive(false);
             npcPanel.root.SetActive(false);
             _isVisible = false;
+            StopTalkingAudio();
         }
 
         public void SetEmotion(string emotion)
@@ -229,6 +261,115 @@ namespace UI.DialogueScreen
         {
             if (_currentCharacter == null) return null;
             return _currentCharacter.emotions?.FirstOrDefault(e => e.emotionName == _currentEmotion);
+        }
+
+        private AudioSource EnsureTalkAudioSource(CharacterPanel panel)
+        {
+            if (panel?.root == null)
+            {
+                return null;
+            }
+
+            var audioSource = panel.root.GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = panel.root.AddComponent<AudioSource>();
+            }
+
+            audioSource.playOnAwake = false;
+            audioSource.loop = loopTalkAudio;
+            audioSource.spatialBlend = 0f;
+            ApplyTalkAudioVolume(audioSource);
+
+            return audioSource;
+        }
+
+        private void StartTalkingAudio()
+        {
+            if (_currentCharacter == null)
+            {
+                StopTalkingAudio();
+                return;
+            }
+
+            var audioSource = _currentCharacter != null && _currentCharacter.isPlayer
+                ? _playerTalkSource
+                : _npcTalkSource;
+
+            var talkClip = ResolveTalkClip();
+            if (audioSource == null || talkClip == null)
+            {
+                StopTalkingAudio();
+                return;
+            }
+
+            if (_currentTalkSource != null && _currentTalkSource != audioSource)
+            {
+                _currentTalkSource.Stop();
+                if (_currentTalkSource.clip != null)
+                {
+                    _currentTalkSource.time = 0f;
+                }
+            }
+
+            audioSource.loop = loopTalkAudio;
+            ApplyTalkAudioVolume(audioSource);
+            audioSource.clip = talkClip;
+            audioSource.Stop();
+            if (audioSource.clip != null)
+            {
+                audioSource.time = 0f;
+            }
+            audioSource.Play();
+
+            _currentTalkSource = audioSource;
+        }
+
+        private void StopTalkingAudio()
+        {
+            StopTalkSource(_playerTalkSource);
+            StopTalkSource(_npcTalkSource);
+            _currentTalkSource = null;
+        }
+
+        private AudioClip ResolveTalkClip()
+        {
+            if (_currentCharacter != null && _currentCharacter.isPlayer)
+            {
+                return playerTalkClip != null ? playerTalkClip : sharedTalkClip;
+            }
+
+            return npcTalkClip != null ? npcTalkClip : sharedTalkClip;
+        }
+
+        private static void StopTalkSource(AudioSource audioSource)
+        {
+            if (audioSource == null)
+            {
+                return;
+            }
+
+            audioSource.Stop();
+            if (audioSource.clip != null)
+            {
+                audioSource.time = 0f;
+            }
+        }
+
+        private void ApplyTalkAudioVolume()
+        {
+            ApplyTalkAudioVolume(_playerTalkSource);
+            ApplyTalkAudioVolume(_npcTalkSource);
+        }
+
+        private void ApplyTalkAudioVolume(AudioSource audioSource)
+        {
+            if (audioSource == null)
+            {
+                return;
+            }
+
+            audioSource.volume = talkVolume * (_masterVolume?.CurrentValue ?? 1f);
         }
     }
 }

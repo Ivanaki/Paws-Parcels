@@ -1,0 +1,59 @@
+digraph RaycastSpringFixedUpdate {
+  graph [
+    rankdir=TB,
+    splines=ortho,
+    nodesep=0.45,
+    ranksep=0.6,
+    pad=0.25,
+    bgcolor="white",
+    labelloc="t",
+    label="Внешняя процедура расчета силы пружины колеса\nRaycastSpring.FixedUpdate()",
+    fontname="Arial",
+    fontsize=18
+  ];
+
+  node [
+    shape=box,
+    style="solid",
+    fontname="Arial",
+    fontsize=12,
+    margin="0.18,0.10"
+  ];
+
+  edge [
+    fontname="Arial",
+    fontsize=11,
+    arrowsize=0.8
+  ];
+
+  start [label="Начало", style="rounded"];
+  init [label="origin := TransformPoint(localOrigin)\nrestLength := SpringRestLength\nmaxLength := SpringMaxLength\nlastLength := m_CurrentLength"];
+  raycast [label="Physics.Raycast(origin,\n-carTransform.up,\nout hitInfo,\nmaxLength) ?", shape=diamond];
+
+  set_length [label="m_CurrentLength := hitInfo.distance"];
+  set_material [label="m_GroundMaterial := материал коллайдера\nили материал по умолчанию"];
+  reset_force [label="netForce := 0"];
+  compression_check [label="m_CurrentLength <= restLength ?", shape=diamond];
+  compression_force [label="compression := 1 - m_CurrentLength / restLength\nnetForce := netForce + SpringConstant * compression"];
+  velocity_force [label="m_Velocity := (m_CurrentLength - lastLength) / Time.fixedDeltaTime\ndampingForce := -SpringDamperConstant * m_Velocity\nnetForce := netForce + dampingForce"];
+  apply_force [label="upVector := m_CarTransform.up\nAddForceAtPosition(upVector * netForce, origin)"];
+
+  no_hit [label="m_CurrentLength := maxLength\nm_Velocity := 0\nm_GroundMaterial := null"];
+  finish [label="Конец", style="rounded"];
+
+  start -> init;
+  init -> raycast;
+
+  raycast -> set_length [xlabel="да"];
+  set_length -> set_material;
+  set_material -> reset_force;
+  reset_force -> compression_check;
+  compression_check -> compression_force [xlabel="да"];
+  compression_force -> velocity_force;
+  compression_check -> velocity_force [xlabel="нет"];
+  velocity_force -> apply_force;
+  apply_force -> finish;
+
+  raycast -> no_hit [xlabel="нет"];
+  no_hit -> finish;
+}

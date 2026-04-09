@@ -5,9 +5,11 @@ using Items;
 using NaughtyAttributes;
 using Paws_Parcels.Scripts.Car_Player.Respawn;
 using Paws_Parcels.Scripts.Saves.States.EditorSettings;
+using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
 using Services;
 using UnityEngine;
+using Zenject;
 
 namespace Paws_Parcels.Scripts.Player
 {
@@ -84,12 +86,20 @@ namespace Paws_Parcels.Scripts.Player
         private bool _isItemInCarUp = false;
         private HashSet<object> _highlightInitiators = new();
         private ShowOnCanvasCircle _showOnCanvasCircle;
+        private ReadOnlyReactiveProperty<bool> _isPlayerInCar;
 
         private IDisposable _disposable;
+        private CompositeDisposable _uiStateDisposables;
 
         private RespawnService _respawnService;
         private float _minHeight;
         private float _respawnItemDropHeight;
+
+        [Inject]
+        private void Inject(GameStateProvider gameStateProvider)
+        {
+            _isPlayerInCar = gameStateProvider.GameProxy.IsPlayerInCar;
+        }
 
         public void ConstructItem(ApplyInFixUpdate applyInFixUpdate, ItemProxy itemProxy,
             ItemsInWorldVisualizer itemsInWorldVisualizer, CarUpService carUpService,
@@ -171,6 +181,35 @@ namespace Paws_Parcels.Scripts.Player
             _itemsInWorldVisualizer.RequestPickUp(_itemProxy);
         }
 
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            _uiStateDisposables = new CompositeDisposable();
+
+            if (_isPlayerInCar != null)
+            {
+                _uiStateDisposables.Add(_isPlayerInCar.Subscribe(_ =>
+                {
+                    UpdateDestinationMarker();
+                    UpdateHighlight();
+                }));
+            }
+
+            _uiStateDisposables.Add(IsDestinationShowInUi.Subscribe(_ => UpdateDestinationMarker()));
+
+            UpdateDestinationMarker();
+            UpdateHighlight();
+        }
+
+        protected override void OnDisable()
+        {
+            _uiStateDisposables?.Dispose();
+            _canvasUiVisualizer.HideOnCanvas(this);
+            _canvasUiVisualizer.HideOnCanvas(_showOnCanvasCircle);
+            base.OnDisable();
+        }
+
         public void HighlightItem(object scriptToHighlight)
         {
             _highlightInitiators.Add(scriptToHighlight);
@@ -182,10 +221,22 @@ namespace Paws_Parcels.Scripts.Player
             _highlightInitiators.Remove(scriptToUnhighlight);
             UpdateHighlight();
         }
+
+        private void UpdateDestinationMarker()
+        {
+            if (IsDestinationShowInUi.CurrentValue && (_isPlayerInCar?.CurrentValue ?? false) == false)
+            {
+                _canvasUiVisualizer.ShowOnCanvas(this);
+            }
+            else
+            {
+                _canvasUiVisualizer.HideOnCanvas(this);
+            }
+        }
         
         private void UpdateHighlight()
         {
-            if (_highlightInitiators.Count > 0)
+            if (_highlightInitiators.Count > 0 && (_isPlayerInCar?.CurrentValue ?? false) == false)
             {
                 _canvasUiVisualizer.ShowOnCanvas(_showOnCanvasCircle);
             }

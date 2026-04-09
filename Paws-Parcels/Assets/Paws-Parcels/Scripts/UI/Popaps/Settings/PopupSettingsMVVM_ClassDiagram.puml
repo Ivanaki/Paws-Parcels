@@ -1,0 +1,152 @@
+@startuml
+title Popup Settings MVVM - implementation class diagram
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam packageStyle rectangle
+hide empty members
+
+interface IWindowBinder {
+  + Bind(viewModel: WindowViewModel): void
+  + Close(): void
+}
+
+abstract class "WindowBinder<T>" as WindowBinderT {
+  # ViewModel: T
+  + Bind(viewModel: WindowViewModel): void
+  + Close(): void
+  # OnBind(viewModel: T): void
+}
+
+abstract class WindowViewModel {
+  + CloseRequested: Observable<WindowViewModel>
+  + Id: string
+  + CanClose: bool
+  - _closeRequested: Subject<WindowViewModel>
+  + RequestClose(): void
+  + Dispose(): void
+}
+
+class PopupSettingsBinder <<View>> {
+  - _colorStrangeWhenCanSave: byte
+  - _colorStrangeWhenCouldntSave: byte
+  - _exitButton: Button
+  - _exitButtonBackground: Button
+  - _resetButton: Button
+  - _masterVolumeSlider: Slider
+  - _masterVolumeInputField: TMP_InputField
+  - _musicVolumeSlider: Slider
+  - _musicVolumeInputField: TMP_InputField
+  - _sensivityPlayerSlider: Slider
+  - _sensivityPlayerInputField: TMP_InputField
+  - _sensivityCarSlider: Slider
+  - _sensivityCarInputField: TMP_InputField
+  - _languageDropdown: TMP_Dropdown
+  - _saveButton: Button
+  - _saveText: TMP_Text
+  - _disposables: CompositeDisposable
+  - _locales: List<SettingsService.LocaleData>
+  # OnBind(viewModel: PopupSettingsViewModel): void
+  - BindVolumeControl(volumeProperty: ReadOnlyReactiveProperty<float>, slider: Slider, inputField: TMP_InputField, onSliderChanged: Action<float>, onInputFieldChanged: Action<string>): void
+  - OnDestroy(): void
+}
+
+class PopupSettingsViewModel <<ViewModel>> {
+  + Id: string
+  + HasChanges: ReadOnlyReactiveProperty<bool>
+  + MasterVolume: ReadOnlyReactiveProperty<float>
+  + MusicVolume: ReadOnlyReactiveProperty<float>
+  + SensitivityPlayer: ReadOnlyReactiveProperty<float>
+  + SensitivityPlayer01: ReadOnlyReactiveProperty<float>
+  + SensitivityCar: ReadOnlyReactiveProperty<float>
+  + SensitivityCar01: ReadOnlyReactiveProperty<float>
+  + LanguageCode: ReadOnlyReactiveProperty<string>
+  + LanguageVariants: List<SettingsService.LocaleData>
+  - _hasChanges: ReactiveProperty<bool>
+  - _masterVolume: ReactiveProperty<float>
+  - _musicVolume: ReactiveProperty<float>
+  - _sensitivityPlayer: ReactiveProperty<float>
+  - _sensitivityPlayer01: ReactiveProperty<float>
+  - _sensitivityCar: ReactiveProperty<float>
+  - _sensitivityCar01: ReactiveProperty<float>
+  - _languageCode: ReactiveProperty<string>
+  - _settingsService: SettingsService
+  - _maxSensitivity: float
+  - _maxSensitivityOnSlider: float
+  + PopupSettingsViewModel(settingsService: SettingsService, maxSensitivity: float, maxSensitivityOnSlider: float)
+  + RequestSetMasterVolumeBySlider(volume: float): void
+  + RequestSetMasterVolumeByInputField(volume: string): void
+  + RequestSetMusicVolumeBySlider(volume: float): void
+  + RequestSetMusicVolumeByInputField(volume: string): void
+  + RequestSetSensitivityPlayerBySlider(value: float): void
+  + RequestSetSensitivityPlayerByInputField(value: string): void
+  + RequestSetSensitivityCarBySlider(value: float): void
+  + RequestSetSensitivityCarByInputField(value: string): void
+  + RequestSetLanguage(languageCode: string): void
+  + RequestSave(): void
+  + RequestReset(): void
+  + RequestCloseChecker(): void
+}
+
+class SettingsService <<ModelService>> {
+  - {static} LanguageNameKey: string = "LanguageName"
+  + MasterVolume: ReadOnlyReactiveProperty<float>
+  + MusicVolume: ReadOnlyReactiveProperty<float>
+  + SensitivityPlayer: ReadOnlyReactiveProperty<float>
+  + SensitivityCar: ReadOnlyReactiveProperty<float>
+  + LanguageCode: ReadOnlyReactiveProperty<string>
+  - _settingsStateProvider: SettingsStateProvider
+  - _localizationService: LocalizationService
+  + SettingsService(settingsStateProvider: SettingsStateProvider, localizationService: LocalizationService)
+  + SaveSettings(settingsState: SettingsState): void
+  + ResetSettings(): void
+  + GetLanguages(): List<SettingsService.LocaleData>
+}
+
+class "SettingsService.LocaleData" as SettingsServiceLocaleData <<ValueObject>> {
+  + Code: string
+  + Name: string
+}
+
+class SettingsState <<ModelDTO>> {
+  + MasterVolume: float
+  + MusicVolume: float = 1f
+  + PlayerSensitivity: float
+  + CarSensitivity: float
+  + LanguageCode: string
+}
+
+class CoreUIManager <<ApplicationService>> {
+  + OpenPopupSettings(): void
+}
+
+class MainMenuUIManager <<ApplicationService>> {
+  + OpenPopupSettings(): void
+}
+
+class SettingsStateProvider <<External>>
+class LocalizationService <<External>>
+
+IWindowBinder <|.. WindowBinderT
+WindowBinderT <|-- PopupSettingsBinder
+WindowViewModel <|-- PopupSettingsViewModel
+
+PopupSettingsBinder --> PopupSettingsViewModel : binds and subscribes
+PopupSettingsBinder ..> SettingsServiceLocaleData : uses locale list
+PopupSettingsViewModel --> SettingsService : stores reference
+PopupSettingsViewModel ..> SettingsState : creates in RequestSave()
+SettingsService --> SettingsServiceLocaleData : creates list
+SettingsService --> SettingsStateProvider : reads and writes state
+SettingsService --> LocalizationService : gets locales and applies language
+CoreUIManager ..> PopupSettingsViewModel : creates
+MainMenuUIManager ..> PopupSettingsViewModel : creates
+
+note right of PopupSettingsViewModel
+  MVVM in this feature is implemented in the
+  implementation perspective:
+  View = PopupSettingsBinder
+  ViewModel = PopupSettingsViewModel
+  Model = SettingsService + SettingsState
+end note
+
+@enduml

@@ -47,6 +47,8 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 2
     SendMessageOnStartMission: update_items_inside_message
     SendMessageOnEndMission: 
@@ -107,6 +109,8 @@ MonoBehaviour:
         take_inside_car:book_3'
     ManyMessages:
       Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   - MissionId: 3
     SendMessageOnStartMission: spawn_wheel
     SendMessageOnEndMission: activate_quest:4_Elk_to_Bear
@@ -169,6 +173,6 @@ MonoBehaviour:
         destination_putter_elk-taked:book_3'
     ManyMessages:
       Messages: []
-  MoneyReward: 0
-  Limit: 0
-  LimitTimeInSeconds: 60
+    Limit: 0
+    LimitTimeInSeconds: 60
+  MoneyReward: 100

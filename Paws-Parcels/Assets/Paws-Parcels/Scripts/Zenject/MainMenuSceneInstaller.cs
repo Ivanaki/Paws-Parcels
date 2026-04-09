@@ -1,5 +1,6 @@
 using Game.Root;
 using Services;
+using Services.Music;
 using UI.MainMenu;
 using Zenject;
 
@@ -20,6 +21,7 @@ namespace Paws_Parcels.Scripts.Installers
             
             //инпут с клавиатуры и мышки, можно считать это тоже ViewModelsContainer
             Container.BindInterfacesTo<MainMenuBackService>().AsSingle();
+            Container.BindInterfacesTo<MainMenuMusicService>().AsSingle().NonLazy();
             
             Container.BindInterfacesAndSelfTo<InputsMainMenuService>().AsSingle().NonLazy();
         }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 
@@ -33,10 +34,12 @@ namespace VFX
 
         void FixedUpdate()
         {
+#if UNITY_EDITOR
             if (Application.isPlaying)
             {
                 UpdateShader((float)EditorApplication.timeSinceStartup);
             }
+#endif
         }
 
 #if UNITY_EDITOR

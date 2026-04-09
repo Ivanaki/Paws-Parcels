@@ -1,0 +1,210 @@
+digraph PopupSettingsMVVM {
+  graph [
+    charset="UTF-8",
+    rankdir=TB,
+    bgcolor="white",
+    pad=0.3,
+    nodesep=0.5,
+    ranksep=0.9,
+    fontname="Arial"
+  ];
+
+  node [
+    shape=plain,
+    fontname="Arial",
+    margin=0
+  ];
+
+  edge [
+    fontname="Arial",
+    fontsize=10,
+    color="#3f3f46"
+  ];
+
+  IWindowBinder [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#f4f4f5"><B>&lt;&lt;interface&gt;&gt;</B><BR/>IWindowBinder</TD></TR>
+      <TR><TD ALIGN="LEFT">+ Bind(viewModel: WindowViewModel): void<BR ALIGN="LEFT"/>+ Close(): void</TD></TR>
+    </TABLE>
+  >];
+
+  WindowBinderT [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#f4f4f5"><B>&lt;&lt;abstract&gt;&gt;</B><BR/>WindowBinder&lt;T&gt;</TD></TR>
+      <TR><TD ALIGN="LEFT"># ViewModel: T</TD></TR>
+      <TR><TD ALIGN="LEFT">+ Bind(viewModel: WindowViewModel): void<BR ALIGN="LEFT"/>+ Close(): void<BR ALIGN="LEFT"/># OnBind(viewModel: T): void</TD></TR>
+    </TABLE>
+  >];
+
+  WindowViewModel [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#f4f4f5"><B>&lt;&lt;abstract&gt;&gt;</B><BR/>WindowViewModel</TD></TR>
+      <TR><TD ALIGN="LEFT">+ CloseRequested: Observable&lt;WindowViewModel&gt;<BR ALIGN="LEFT"/>+ Id: string<BR ALIGN="LEFT"/>+ CanClose: bool<BR ALIGN="LEFT"/>- _closeRequested: Subject&lt;WindowViewModel&gt;</TD></TR>
+      <TR><TD ALIGN="LEFT">+ RequestClose(): void<BR ALIGN="LEFT"/>+ Dispose(): void</TD></TR>
+    </TABLE>
+  >];
+
+  PopupSettingsBinder [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#dbeafe"><B>&lt;&lt;View&gt;&gt;</B><BR/>PopupSettingsBinder</TD></TR>
+      <TR><TD ALIGN="LEFT">
+        - _colorStrangeWhenCanSave: byte<BR ALIGN="LEFT"/>
+        - _colorStrangeWhenCouldntSave: byte<BR ALIGN="LEFT"/>
+        - _exitButton: Button<BR ALIGN="LEFT"/>
+        - _exitButtonBackground: Button<BR ALIGN="LEFT"/>
+        - _resetButton: Button<BR ALIGN="LEFT"/>
+        - _masterVolumeSlider: Slider<BR ALIGN="LEFT"/>
+        - _masterVolumeInputField: TMP_InputField<BR ALIGN="LEFT"/>
+        - _musicVolumeSlider: Slider<BR ALIGN="LEFT"/>
+        - _musicVolumeInputField: TMP_InputField<BR ALIGN="LEFT"/>
+        - _sensivityPlayerSlider: Slider<BR ALIGN="LEFT"/>
+        - _sensivityPlayerInputField: TMP_InputField<BR ALIGN="LEFT"/>
+        - _sensivityCarSlider: Slider<BR ALIGN="LEFT"/>
+        - _sensivityCarInputField: TMP_InputField<BR ALIGN="LEFT"/>
+        - _languageDropdown: TMP_Dropdown<BR ALIGN="LEFT"/>
+        - _saveButton: Button<BR ALIGN="LEFT"/>
+        - _saveText: TMP_Text<BR ALIGN="LEFT"/>
+        - _disposables: CompositeDisposable<BR ALIGN="LEFT"/>
+        - _locales: List&lt;SettingsService.LocaleData&gt;
+      </TD></TR>
+      <TR><TD ALIGN="LEFT">
+        # OnBind(viewModel: PopupSettingsViewModel): void<BR ALIGN="LEFT"/>
+        - BindVolumeControl(volumeProperty: ReadOnlyReactiveProperty&lt;float&gt;, slider: Slider, inputField: TMP_InputField, onSliderChanged: Action&lt;float&gt;, onInputFieldChanged: Action&lt;string&gt;): void<BR ALIGN="LEFT"/>
+        - OnDestroy(): void
+      </TD></TR>
+    </TABLE>
+  >];
+
+  PopupSettingsViewModel [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#dcfce7"><B>&lt;&lt;ViewModel&gt;&gt;</B><BR/>PopupSettingsViewModel</TD></TR>
+      <TR><TD ALIGN="LEFT">
+        + Id: string<BR ALIGN="LEFT"/>
+        + HasChanges: ReadOnlyReactiveProperty&lt;bool&gt;<BR ALIGN="LEFT"/>
+        + MasterVolume: ReadOnlyReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        + MusicVolume: ReadOnlyReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        + SensitivityPlayer: ReadOnlyReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        + SensitivityPlayer01: ReadOnlyReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        + SensitivityCar: ReadOnlyReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        + SensitivityCar01: ReadOnlyReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        + LanguageCode: ReadOnlyReactiveProperty&lt;string&gt;<BR ALIGN="LEFT"/>
+        + LanguageVariants: List&lt;SettingsService.LocaleData&gt;<BR ALIGN="LEFT"/>
+        - _hasChanges: ReactiveProperty&lt;bool&gt;<BR ALIGN="LEFT"/>
+        - _masterVolume: ReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        - _musicVolume: ReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        - _sensitivityPlayer: ReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        - _sensitivityPlayer01: ReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        - _sensitivityCar: ReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        - _sensitivityCar01: ReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        - _languageCode: ReactiveProperty&lt;string&gt;<BR ALIGN="LEFT"/>
+        - _settingsService: SettingsService<BR ALIGN="LEFT"/>
+        - _maxSensitivity: float<BR ALIGN="LEFT"/>
+        - _maxSensitivityOnSlider: float
+      </TD></TR>
+      <TR><TD ALIGN="LEFT">
+        + PopupSettingsViewModel(settingsService: SettingsService, maxSensitivity: float, maxSensitivityOnSlider: float)<BR ALIGN="LEFT"/>
+        + RequestSetMasterVolumeBySlider(volume: float): void<BR ALIGN="LEFT"/>
+        + RequestSetMasterVolumeByInputField(volume: string): void<BR ALIGN="LEFT"/>
+        + RequestSetMusicVolumeBySlider(volume: float): void<BR ALIGN="LEFT"/>
+        + RequestSetMusicVolumeByInputField(volume: string): void<BR ALIGN="LEFT"/>
+        + RequestSetSensitivityPlayerBySlider(value: float): void<BR ALIGN="LEFT"/>
+        + RequestSetSensitivityPlayerByInputField(value: string): void<BR ALIGN="LEFT"/>
+        + RequestSetSensitivityCarBySlider(value: float): void<BR ALIGN="LEFT"/>
+        + RequestSetSensitivityCarByInputField(value: string): void<BR ALIGN="LEFT"/>
+        + RequestSetLanguage(languageCode: string): void<BR ALIGN="LEFT"/>
+        + RequestSave(): void<BR ALIGN="LEFT"/>
+        + RequestReset(): void<BR ALIGN="LEFT"/>
+        + RequestCloseChecker(): void
+      </TD></TR>
+    </TABLE>
+  >];
+
+  SettingsService [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#fef3c7"><B>&lt;&lt;ModelService&gt;&gt;</B><BR/>SettingsService</TD></TR>
+      <TR><TD ALIGN="LEFT">
+        - {static} LanguageNameKey: string = "LanguageName"<BR ALIGN="LEFT"/>
+        + MasterVolume: ReadOnlyReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        + MusicVolume: ReadOnlyReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        + SensitivityPlayer: ReadOnlyReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        + SensitivityCar: ReadOnlyReactiveProperty&lt;float&gt;<BR ALIGN="LEFT"/>
+        + LanguageCode: ReadOnlyReactiveProperty&lt;string&gt;<BR ALIGN="LEFT"/>
+        - _settingsStateProvider: SettingsStateProvider<BR ALIGN="LEFT"/>
+        - _localizationService: LocalizationService
+      </TD></TR>
+      <TR><TD ALIGN="LEFT">
+        + SettingsService(settingsStateProvider: SettingsStateProvider, localizationService: LocalizationService)<BR ALIGN="LEFT"/>
+        + SaveSettings(settingsState: SettingsState): void<BR ALIGN="LEFT"/>
+        + ResetSettings(): void<BR ALIGN="LEFT"/>
+        + GetLanguages(): List&lt;SettingsService.LocaleData&gt;
+      </TD></TR>
+    </TABLE>
+  >];
+
+  SettingsServiceLocaleData [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#f5f3ff"><B>&lt;&lt;ValueObject&gt;&gt;</B><BR/>SettingsService.LocaleData</TD></TR>
+      <TR><TD ALIGN="LEFT">+ Code: string<BR ALIGN="LEFT"/>+ Name: string</TD></TR>
+    </TABLE>
+  >];
+
+  SettingsState [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#fde68a"><B>&lt;&lt;ModelDTO&gt;&gt;</B><BR/>SettingsState</TD></TR>
+      <TR><TD ALIGN="LEFT">
+        + MasterVolume: float<BR ALIGN="LEFT"/>
+        + MusicVolume: float = 1f<BR ALIGN="LEFT"/>
+        + PlayerSensitivity: float<BR ALIGN="LEFT"/>
+        + CarSensitivity: float<BR ALIGN="LEFT"/>
+        + LanguageCode: string
+      </TD></TR>
+    </TABLE>
+  >];
+
+  CoreUIManager [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#e5e7eb"><B>&lt;&lt;ApplicationService&gt;&gt;</B><BR/>CoreUIManager</TD></TR>
+      <TR><TD ALIGN="LEFT">+ OpenPopupSettings(): void</TD></TR>
+    </TABLE>
+  >];
+
+  MainMenuUIManager [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#e5e7eb"><B>&lt;&lt;ApplicationService&gt;&gt;</B><BR/>MainMenuUIManager</TD></TR>
+      <TR><TD ALIGN="LEFT">+ OpenPopupSettings(): void</TD></TR>
+    </TABLE>
+  >];
+
+  SettingsStateProvider [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#f3f4f6"><B>&lt;&lt;External&gt;&gt;</B><BR/>SettingsStateProvider</TD></TR>
+    </TABLE>
+  >];
+
+  LocalizationService [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6" COLOR="#27272a">
+      <TR><TD BGCOLOR="#f3f4f6"><B>&lt;&lt;External&gt;&gt;</B><BR/>LocalizationService</TD></TR>
+    </TABLE>
+  >];
+
+  MVVMNote [shape=note, label="Implementation perspective:\nView = PopupSettingsBinder\nViewModel = PopupSettingsViewModel\nModel = SettingsService + SettingsState"];
+
+  { rank=same; IWindowBinder; WindowBinderT; WindowViewModel; }
+  { rank=same; PopupSettingsBinder; PopupSettingsViewModel; SettingsService; }
+  { rank=same; CoreUIManager; MainMenuUIManager; SettingsServiceLocaleData; SettingsState; SettingsStateProvider; LocalizationService; }
+
+  WindowBinderT -> IWindowBinder [arrowhead="empty", style="dashed", label="realizes"];
+  PopupSettingsBinder -> WindowBinderT [arrowhead="empty", label="inherits"];
+  PopupSettingsViewModel -> WindowViewModel [arrowhead="empty", label="inherits"];
+
+  PopupSettingsBinder -> PopupSettingsViewModel [arrowhead="vee", label="binds / subscribes"];
+  PopupSettingsBinder -> SettingsServiceLocaleData [style="dashed", arrowhead="vee", label="uses locale list"];
+  PopupSettingsViewModel -> SettingsService [arrowhead="vee", label="stores reference"];
+  PopupSettingsViewModel -> SettingsState [style="dashed", arrowhead="vee", label="creates in RequestSave()"];
+  SettingsService -> SettingsServiceLocaleData [arrowhead="vee", label="creates list"];
+  SettingsService -> SettingsStateProvider [arrowhead="vee", label="reads / writes state"];
+  SettingsService -> LocalizationService [arrowhead="vee", label="gets locales / applies language"];
+  CoreUIManager -> PopupSettingsViewModel [style="dashed", arrowhead="vee", label="creates"];
+  MainMenuUIManager -> PopupSettingsViewModel [style="dashed", arrowhead="vee", label="creates"];
+  MVVMNote -> PopupSettingsViewModel [style="dashed", arrowhead="none"];
+}

@@ -21,6 +21,7 @@ namespace Services
         private const string BaseLocaleCode = "en";
 
         public ReadOnlyReactiveProperty<Locale> CurrentLocale => _currentLocale;
+        public Locale ActiveLocale => _currentLocale.CurrentValue ?? LocalizationSettings.SelectedLocale ?? BaseLocale;
         
         public Locale BaseLocale { get; }
 

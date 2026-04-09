@@ -109,7 +109,7 @@ namespace Game.Root
             //открыть HUD
             _mainMenuUIManager.OpenScreenMainMenu();
         }
-        
+
         private void ExitToDesktop()
         {
             #if UNITY_EDITOR

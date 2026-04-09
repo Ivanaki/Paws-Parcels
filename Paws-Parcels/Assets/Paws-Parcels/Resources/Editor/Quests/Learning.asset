@@ -87,7 +87,7 @@ MonoBehaviour:
       MinusMessage: 
     ManyMessages:
       Messages: []
-    Limit: 1
+    Limit: 0
     LimitTimeInSeconds: 5
   - MissionId: 2
     SendMessageOnStartMission: update_items_up_message
@@ -359,4 +359,4 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  MoneyReward: 0
+  MoneyReward: 50

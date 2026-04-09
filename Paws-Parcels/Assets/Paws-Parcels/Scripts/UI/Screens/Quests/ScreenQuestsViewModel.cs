@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using ObservableCollections;
 using Paws_Parcels.Scripts.Quests;
+using Paws_Parcels.Scripts.Saves.States.GameResources;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using Quests;
 using R3;
@@ -19,6 +20,7 @@ namespace UI.Screens.Quests
     {
         private readonly CoreUIManager _coreUIManager;
         private readonly GameProxy _gameProxy;
+        private readonly ResourcesService _resourcesService;
         public LocalizationService LocalizationService { get; }
 
         private const string NoneSimbol = "-";
@@ -37,6 +39,10 @@ namespace UI.Screens.Quests
         private IReadOnlyDictionary<string, Quest> QuestsDict { get; }
         private IReadOnlyObservableList<QuestDataProxy> ActiveQuests { get; }
         private IReadOnlyObservableList<string> SucceedQuests { get; }
+        public IReadOnlyObservableList<string> DiaryPages { get; }
+        public IReadOnlyObservableList<string> PurchasedSkins { get; }
+        public ReadOnlyReactiveProperty<string> AppliedSkinName { get; }
+        public ReadOnlyReactiveProperty<int> Money { get; }
         public ReadOnlyReactiveProperty<string> SelectedQuestInData { get; }
         
 
@@ -63,14 +69,19 @@ namespace UI.Screens.Quests
         private string _selectedQuestId = "";
         
         public ScreenQuestsViewModel(CoreUIManager coreUIManager ,LocalizationService localizationService, QuestsDatabase questsDatabase,
-            GameProxy gameProxy)
+            GameProxy gameProxy, ResourcesService resourcesService)
         {
             _coreUIManager = coreUIManager;
             _gameProxy = gameProxy;
+            _resourcesService = resourcesService;
             LocalizationService = localizationService;
             QuestsDict = questsDatabase.QuestsDict;
             ActiveQuests = gameProxy.ActiveQuests;
             SucceedQuests = gameProxy.SucceedQuests;
+            DiaryPages = gameProxy.DiaryPages;
+            PurchasedSkins = gameProxy.PurchasedSkins;
+            AppliedSkinName = gameProxy.AppliedSkinName;
+            Money = resourcesService.ObserveResource(ResourcesType.Money);
             SelectedQuestInData = gameProxy.SelectedQuest;
             
             _disposables.Add(_currentQuestTitleCode.Skip(1).Subscribe(questCode =>
@@ -289,6 +300,54 @@ namespace UI.Screens.Quests
             
             var quest = QuestsDict[questId];
             ShowSaveUI(quest);
+        }
+
+        public bool IsSkinPurchased(string skinId)
+        {
+            return _gameProxy.IsSkinPurchased(skinId);
+        }
+
+        public bool IsSkinApplied(string skinId)
+        {
+            return _gameProxy.IsSkinApplied(skinId);
+        }
+
+        public bool CanBuySkin(string skinId, int purchaseCost)
+        {
+            if (string.IsNullOrWhiteSpace(skinId) || _gameProxy.IsSkinPurchased(skinId))
+            {
+                return false;
+            }
+
+            return purchaseCost <= 0 || Money.CurrentValue >= purchaseCost;
+        }
+
+        public void RequestBuySkin(string skinId, int purchaseCost)
+        {
+            if (CanBuySkin(skinId, purchaseCost) == false)
+            {
+                return;
+            }
+
+            if (purchaseCost > 0)
+            {
+                if (_resourcesService.TrySpendResource(ResourcesType.Money, purchaseCost) == false)
+                {
+                    return;
+                }
+            }
+
+            _gameProxy.TryAddPurchasedSkin(skinId);
+        }
+
+        public void RequestApplySkin(string skinId)
+        {
+            _gameProxy.TryApplySkin(skinId);
+        }
+
+        public void RequestCancelSkin()
+        {
+            _gameProxy.ClearAppliedSkin();
         }
         
         #endregion
