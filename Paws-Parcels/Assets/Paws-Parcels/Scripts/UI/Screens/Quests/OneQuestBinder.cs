@@ -11,9 +11,9 @@ namespace UI.Screens.Quests
         [SerializeField] private Button _button;
         [SerializeField] private TMP_Text _nameText;
         [SerializeField] private Image _image;
-        [SerializeField] private GameObject _selectedInDataGameObject;
-        
         [SerializeField] private MouseEnterUtil _mouseEnterUtil;
+        [SerializeField] private Sprite _baseSprite;
+        [SerializeField] private Sprite _selectedSprite;
         
         private readonly CompositeDisposable _disposables = new();
         
@@ -36,7 +36,7 @@ namespace UI.Screens.Quests
             
             _disposables.Add(viewModel.IsSelectedIdData.Subscribe(v =>
             {
-                _selectedInDataGameObject.SetActive(v);
+                _image.sprite = v ? _selectedSprite : _baseSprite;
             }));
             _disposables.Add(_button.OnClickAsObservable().Subscribe(_ => viewModel.RequestClicked()));
             _disposables.Add(viewModel.TextToShow.Subscribe(v =>

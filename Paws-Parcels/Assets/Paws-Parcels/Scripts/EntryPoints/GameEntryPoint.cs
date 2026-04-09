@@ -102,6 +102,7 @@ namespace Game.Root
             
             yield return LoadScene(Scenes.BOOT);
             yield return LoadScene(Scenes.MAINMENU);
+            yield return new WaitForSeconds(0.3f);
             Debug.Log($"Scene {_currentLoadingScene} is loaded");
         }
         
@@ -112,6 +113,7 @@ namespace Game.Root
             
             yield return LoadScene(Scenes.BOOT);
             yield return LoadScene(Scenes.CORE);
+            yield return new WaitForSeconds(0.3f);
             //Debug.Log($"Scene {_currentLoadingScene} is loaded");
         }
         
