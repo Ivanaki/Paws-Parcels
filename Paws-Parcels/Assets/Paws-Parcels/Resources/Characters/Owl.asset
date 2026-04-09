@@ -15,6 +15,9 @@ MonoBehaviour:
   localizedNames:
   - "\u0411\u0430\u0431\u0443\u0448\u043A\u0430 \u0421\u043E\u0432\u0430"
   - Owl
+  - "\u0411\u0430\u0431\u0443\u0448\u043A\u0430"
+  - Grandma
+  - "\u0421\u043E\u0432\u0430"
   isPlayer: 0
   emotions:
   - emotionName: idle

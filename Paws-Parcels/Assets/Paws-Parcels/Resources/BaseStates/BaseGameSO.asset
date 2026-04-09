@@ -32,7 +32,7 @@ MonoBehaviour:
     PurchasedSkins: []
     AppliedSkinName: 
     PlayerData:
-      Position: {x: 289.59, y: 8.22, z: 888.43}
+      Position: {x: 403.81, y: 4.85, z: 1022.99}
       Rotation: {x: -0, y: -0, z: -0, w: 1}
       Speed: 0
       Verticalvelocity: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
       Pitch: 35
       AnimationBlend: 0
     CarData:
-      Position: {x: 285.88, y: 5.67, z: 890.51}
+      Position: {x: 400.34, y: 5.94, z: 1022.72}
       Rotation: {x: -0, y: -0.9997066, z: -0, w: -0.024221107}
       LinearVelocity: {x: 0, y: 0, z: 0}
       AngularVelocity: {x: 0, y: 0, z: 0}

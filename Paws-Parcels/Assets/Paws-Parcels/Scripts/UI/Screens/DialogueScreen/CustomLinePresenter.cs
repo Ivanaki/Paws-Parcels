@@ -149,6 +149,14 @@ namespace UI.DialogueScreen
 
         public override async YarnTask RunLineAsync(LocalizedLine line, LineCancellationToken token)
         {
+            var text = line.TextWithoutCharacterName;
+
+            if (string.IsNullOrWhiteSpace(text.Text))
+            {
+                await YarnTask.Yield();
+                return;
+            }
+
             string charName = line.CharacterName;
             _currentCharacter = characters.FirstOrDefault(c =>
                 c.localizedNames != null && c.localizedNames.Contains(charName));
@@ -172,8 +180,6 @@ namespace UI.DialogueScreen
             }
 
             SetMouthClosed();
-
-            var text = line.TextWithoutCharacterName;
 
             Typewriter ??= new LetterTypewriter
             {

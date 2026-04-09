@@ -10,6 +10,7 @@ TagManager:
   - PlayerOutCarPosition
   - CarUp
   - PutObjectPlayerTeleportPoint
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - CarUp
   - PlayerTrigger
   - 
-  - 
+  - Ball
   - 
   - 
   - 
