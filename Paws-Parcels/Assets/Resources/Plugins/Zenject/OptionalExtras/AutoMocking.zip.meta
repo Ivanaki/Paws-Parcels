@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Paws-Parcels/Assets/Resources/Plugins/Zenject/OptionalExtras/AutoMocking.zip.meta
 guid: 0aeabfd115c8a4b0ea6377d7970134a2
 DefaultImporter:
+========
+guid: c16e14a91ceec32468841d65ea83e20b
+PrefabImporter:
+>>>>>>>> Arcadiy_new:Paws-Parcels/Assets/tables.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
