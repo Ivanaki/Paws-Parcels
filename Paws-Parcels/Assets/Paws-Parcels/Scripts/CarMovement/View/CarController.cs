@@ -1,6 +1,7 @@
 ﻿
 using System;
 using MotorHome.Scripts;
+using Paws_Parcels.Car;
 using Paws_Parcels.Car.Logic;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
@@ -15,6 +16,7 @@ namespace Paws_Parcels.Car.View
     public class CarController : MonoBehaviour
     {
         private CarInput m_CurrentCarInput;
+        private CarGasoline _carGasoline;
         
         private InputAction m_SteerAction;
         private InputAction m_ThrottleAction;
@@ -34,19 +36,30 @@ namespace Paws_Parcels.Car.View
         private void Awake()
         {
             m_CurrentCarInput = GetComponent<CarInput>();
+            _carGasoline = GetComponent<CarGasoline>();
         }
         
         private void Update()
         {
-            if (m_CurrentCarInput == null) return;
-            if (_gameProxy.StopCar.Value) return;
-            //if (_gasSystem.GasValue == 0) return;
+            if (m_CurrentCarInput == null || _gameProxy == null) return;
+            if (_gameProxy.StopCar.Value || (_carGasoline != null && _carGasoline.HasGas == false))
+            {
+                ResetInput();
+                return;
+            }
             
             //print(m_SteerAction?.ReadValue<float>() ?? 0.0f);
             
             m_CurrentCarInput.Steer = m_SteerAction?.ReadValue<float>() ?? 0.0f;
             m_CurrentCarInput.Throttle = m_ThrottleAction?.ReadValue<float>() ?? 0.0f;
             m_CurrentCarInput.Handbrake = m_HandbrakeAction?.ReadValue<float>() > 0.0f;
+        }
+
+        private void ResetInput()
+        {
+            m_CurrentCarInput.Steer = 0f;
+            m_CurrentCarInput.Throttle = 0f;
+            m_CurrentCarInput.Handbrake = false;
         }
     }
 }

@@ -202,6 +202,18 @@ MonoBehaviour:
     m_Localized: Home of owl
     m_Metadata:
       m_Items: []
+  - m_Id: 30834920000000000
+    m_Localized: End game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30834920000001024
+    m_Localized: Continue driving
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30834920000002048
+    m_Localized: Exit to main menu
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

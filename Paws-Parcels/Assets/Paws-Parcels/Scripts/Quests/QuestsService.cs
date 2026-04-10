@@ -6,7 +6,6 @@ using Game.Root;
 using Dialogue;
 using Messages;
 using ObservableCollections;
-using Paws_Parcels.Scripts.Metrics;
 using Paws_Parcels.Scripts.Saves.States.GameResources;
 using Paws_Parcels.Scripts.Saves.States.GameState;
 using Quests;
@@ -36,7 +35,6 @@ namespace Paws_Parcels.Scripts.Quests
 
         private readonly DialogueInQuestsService _dialogueInQuestsService;
         private readonly Coroutines _coroutines;
-        private readonly SessionMetricsService _sessionMetricsService;
         private readonly ResourcesService _resourcesService;
 
         private readonly GameProxy _gameProxy;
@@ -64,7 +62,7 @@ namespace Paws_Parcels.Scripts.Quests
         
         public QuestsService(RewardService rewardService, MessageSystem messageSystem, GameStateProvider gameStateProvider,
             QuestsDatabase questsDatabase, DialogueInQuestsService dialogueInQuestsService, GameProxy gameProxy,
-            Coroutines coroutines, SessionMetricsService sessionMetricsService, ResourcesService resourcesService)
+            Coroutines coroutines, ResourcesService resourcesService)
         {
             _questsDict = questsDatabase.QuestsDict;
             ActiveQuests = gameStateProvider.GameProxy.ActiveQuests;
@@ -77,7 +75,6 @@ namespace Paws_Parcels.Scripts.Quests
             _dialogueInQuestsService = dialogueInQuestsService;
             _gameProxy = gameProxy;
             _coroutines = coroutines;
-            _sessionMetricsService = sessionMetricsService;
             _resourcesService = resourcesService;
 
             ActiveQuests.ForEach(NewQuestAdded);
@@ -401,7 +398,6 @@ namespace Paws_Parcels.Scripts.Quests
 
                 ActiveQuests.Remove(remove);
                 SucceedQuests.Add(questId);
-                _sessionMetricsService.RegisterCompletedQuest(questId);
             }
             else
             {

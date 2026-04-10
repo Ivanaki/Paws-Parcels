@@ -116,6 +116,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         
         //stopCar
         public bool StopCar;
+
+        //car gasoline
+        public bool HasGas = true;
         
         public int GetNewSavableEntityID()
         {

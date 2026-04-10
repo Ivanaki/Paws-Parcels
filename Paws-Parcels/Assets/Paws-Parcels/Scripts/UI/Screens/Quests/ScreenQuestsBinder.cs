@@ -6,9 +6,11 @@ using ObservableCollections;
 using R3;
 using TMPro;
 using UI.MVVM;
+using UI.Screens.Settings;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UI.Screens.Quests
 {
@@ -438,6 +440,11 @@ namespace UI.Screens.Quests
         [Header("Book Animation")]
         [SerializeField] private BookFlipbookAnimation _bookAnimation = new();
 
+        [Header("Journal Audio")]
+        [SerializeField] private AudioSource _pageFlipAudioSource;
+        [SerializeField] private List<AudioClip> _pageFlipSounds = new();
+        [SerializeField] [Range(0f, 1f)] private float _pageFlipVolume = 1f;
+
         private readonly Dictionary<OneQuestViewModel, OneQuestBinder> _instantiatedOneQuestBindersMap = new();
         private readonly Dictionary<JournalTabId, JournalTabSetup> _journalTabs = new();
         private readonly List<SkinSetup> _resolvedSkins = new();
@@ -450,6 +457,13 @@ namespace UI.Screens.Quests
         private bool _isTransitioning;
         private bool _isClosing;
         private SkinSetup _selectedSkin;
+        private SettingsService _settingsService;
+
+        [Inject]
+        private void Construct([InjectOptional] SettingsService settingsService)
+        {
+            _settingsService = settingsService;
+        }
 
         protected override void OnBind(ScreenQuestsViewModel viewModel)
         {
@@ -534,6 +548,7 @@ namespace UI.Screens.Quests
         private void InitializeJournalUi()
         {
             EnsureCanvasGroup();
+            EnsurePageFlipAudioSource();
             EnsureJournalTabsMap();
             EnsureQuestTabContentRoot();
             EnsureDefaultContentRoots();
@@ -556,6 +571,23 @@ namespace UI.Screens.Quests
             {
                 _canvasGroup = gameObject.AddComponent<CanvasGroup>();
             }
+        }
+
+        private void EnsurePageFlipAudioSource()
+        {
+            if (_pageFlipAudioSource == null)
+            {
+                _pageFlipAudioSource = GetComponent<AudioSource>();
+            }
+
+            if (_pageFlipAudioSource == null)
+            {
+                _pageFlipAudioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            _pageFlipAudioSource.playOnAwake = false;
+            _pageFlipAudioSource.loop = false;
+            _pageFlipAudioSource.spatialBlend = 0f;
         }
 
         private void EnsureJournalTabsMap()
@@ -863,9 +895,9 @@ namespace UI.Screens.Quests
                 }
             }
 
-            _diaryPagesTab.SetPages(availableDiaryPageObjects);
+            //_diaryPagesTab.SetPages(availableDiaryPageObjects);
 
-            if (_journalTabs.Count == 0)
+            /*if (_journalTabs.Count == 0)
             {
                 return;
             }
@@ -877,7 +909,7 @@ namespace UI.Screens.Quests
                 _diaryPagesTab.SetContentVisible(true, SupportsPaging(JournalTabId.DiaryPages));
                 _diaryPagesTab.UpdatePageButtons(_isClosing == false && _isTransitioning == false,
                     SupportsPaging(JournalTabId.DiaryPages));
-            }
+            }*/
         }
 
         private void ResolveAllTabPages()
@@ -970,6 +1002,7 @@ namespace UI.Screens.Quests
         {
             _isTransitioning = true;
             UpdateTabButtonsVisuals();
+            PlayRandomPageFlipSound();
 
             yield return PlayOpeningAnimation(false);
 
@@ -986,6 +1019,7 @@ namespace UI.Screens.Quests
             SetInputEnabled(false);
             HideAllTabContent();
             UpdateTabButtonsVisuals();
+            PlayRandomPageFlipSound();
 
             yield return PlayClosingAnimation(true);
 
@@ -1008,6 +1042,7 @@ namespace UI.Screens.Quests
             SetInputEnabled(false);
             HideAllTabContent();
             UpdateTabButtonsVisuals();
+            PlayRandomPageFlipSound();
 
             yield return PlayClosingAnimation(false);
 
@@ -1128,6 +1163,65 @@ namespace UI.Screens.Quests
             {
                 _exitButton.gameObject.SetActive(_isTransitioning == false && _isClosing == false);
             }
+        }
+
+        private void PlayRandomPageFlipSound()
+        {
+            var clip = GetRandomPageFlipClip();
+
+            if (_pageFlipAudioSource == null || clip == null)
+            {
+                return;
+            }
+
+            _pageFlipAudioSource.PlayOneShot(clip, _pageFlipVolume * ResolveMasterVolume());
+        }
+
+        private AudioClip GetRandomPageFlipClip()
+        {
+            if (_pageFlipSounds == null || _pageFlipSounds.Count == 0)
+            {
+                return null;
+            }
+
+            var validClipsCount = 0;
+
+            foreach (var clip in _pageFlipSounds)
+            {
+                if (clip != null)
+                {
+                    validClipsCount++;
+                }
+            }
+
+            if (validClipsCount == 0)
+            {
+                return null;
+            }
+
+            var clipIndex = UnityEngine.Random.Range(0, validClipsCount);
+
+            foreach (var clip in _pageFlipSounds)
+            {
+                if (clip == null)
+                {
+                    continue;
+                }
+
+                if (clipIndex == 0)
+                {
+                    return clip;
+                }
+
+                clipIndex--;
+            }
+
+            return null;
+        }
+
+        private float ResolveMasterVolume()
+        {
+            return _settingsService?.MasterVolume?.CurrentValue ?? 1f;
         }
 
         private void SetInputEnabled(bool enabled)

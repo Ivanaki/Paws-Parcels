@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Paws_Parcels.NPCDialogs;
 using Paws_Parcels.Scripts.Saves.States;
 using R3;
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn.Markup;
 using Yarn.Unity;
 using TMPro;
 using Zenject;
@@ -23,6 +25,8 @@ namespace UI.DialogueScreen
 
     public class CustomLinePresenter : DialoguePresenterBase
     {
+        private const string DefaultEmotion = "idle";
+
         [Header("Panels")]
         [SerializeField] private CharacterPanel playerPanel;
         [SerializeField] private CharacterPanel npcPanel;
@@ -65,7 +69,9 @@ namespace UI.DialogueScreen
 
         private CharacterPortraitData _currentCharacter;
         private CharacterPanel _activePanel;
-        private string _currentEmotion = "idle";
+        private string _playerEmotion = DefaultEmotion;
+        private string _npcEmotion = DefaultEmotion;
+        private string _pendingEmotionForNextLine;
         private bool _isTyping;
         private float _mouthTimer;
         private bool _mouthOpen;
@@ -149,13 +155,7 @@ namespace UI.DialogueScreen
 
         public override async YarnTask RunLineAsync(LocalizedLine line, LineCancellationToken token)
         {
-            var text = line.TextWithoutCharacterName;
-
-            if (string.IsNullOrWhiteSpace(text.Text))
-            {
-                await YarnTask.Yield();
-                return;
-            }
+            var text = ResolveLineText(line);
 
             string charName = line.CharacterName;
             _currentCharacter = characters.FirstOrDefault(c =>
@@ -173,6 +173,8 @@ namespace UI.DialogueScreen
                 npcPanel.root.SetActive(true);
                 playerPanel.root.SetActive(false);
             }
+
+            ApplyPendingEmotionForCurrentCharacter();
 
             if (_activePanel.characterNameText != null)
             {
@@ -202,7 +204,7 @@ namespace UI.DialogueScreen
             _mouthTimer = 0f;
             _mouthOpen = false;
             StartTalkingAudio();
-            await Typewriter.RunTypewriter(text, token.HurryUpToken).SuppressCancellationThrow();
+            await RunTypewriterSafely(line.TextID, text, token.HurryUpToken);
 
             if (mouthInertiaTime > 0f)
                 await YarnTask.Delay((int)(mouthInertiaTime * 1000), token.HurryUpToken).SuppressCancellationThrow();
@@ -225,7 +227,7 @@ namespace UI.DialogueScreen
             if (canvasGroup != null) canvasGroup.alpha = 0;
             playerPanel.root.SetActive(false);
             npcPanel.root.SetActive(false);
-            _currentEmotion = "idle";
+            ResetEmotions();
             _isVisible = false;
             StopTalkingAudio();
             return YarnTask.CompletedTask;
@@ -243,13 +245,34 @@ namespace UI.DialogueScreen
             playerPanel.root.SetActive(false);
             npcPanel.root.SetActive(false);
             _isVisible = false;
+            ResetEmotions();
             StopTalkingAudio();
         }
 
         public void SetEmotion(string emotion)
         {
-            _currentEmotion = emotion;
-            SetMouthClosed();
+            _pendingEmotionForNextLine = NormalizeEmotion(emotion);
+        }
+
+        public void SetEmotion(string target, string emotion)
+        {
+            if (TryParseEmotionTarget(target, out var emotionTarget) == false)
+            {
+                Debug.LogWarning($"Unknown emotion target '{target}'. Use player, npc or current.");
+                emotionTarget = EmotionTarget.Current;
+            }
+
+            SetEmotion(emotionTarget, emotion);
+        }
+
+        public void SetPlayerEmotion(string emotion)
+        {
+            SetEmotion(EmotionTarget.Player, emotion);
+        }
+
+        public void SetNpcEmotion(string emotion)
+        {
+            SetEmotion(EmotionTarget.Npc, emotion);
         }
 
         private void SetMouthClosed()
@@ -266,7 +289,10 @@ namespace UI.DialogueScreen
         private EmotionSprites GetCurrentEmotion()
         {
             if (_currentCharacter == null) return null;
-            return _currentCharacter.emotions?.FirstOrDefault(e => e.emotionName == _currentEmotion);
+
+            var emotionName = GetEmotionForCurrentCharacter();
+            return _currentCharacter.emotions?.FirstOrDefault(e => e.emotionName == emotionName)
+                ?? _currentCharacter.emotions?.FirstOrDefault(e => e.emotionName == DefaultEmotion);
         }
 
         private AudioSource EnsureTalkAudioSource(CharacterPanel panel)
@@ -376,6 +402,262 @@ namespace UI.DialogueScreen
             }
 
             audioSource.volume = talkVolume * (_masterVolume?.CurrentValue ?? 1f);
+        }
+
+        private async YarnTask RunTypewriterSafely(string lineId, MarkupParseResult text, CancellationToken cancellationToken)
+        {
+            if (_activePanel?.lineText == null)
+            {
+                return;
+            }
+
+            var textElement = _activePanel.lineText;
+            var handlers = Typewriter?.ActionMarkupHandlers ?? ActionMarkupHandlers;
+
+            textElement.maxVisibleCharacters = 0;
+            textElement.text = text.Text;
+
+            foreach (var handler in handlers)
+            {
+                handler.OnLineDisplayBegin(text, textElement);
+            }
+
+            textElement.ForceMeshUpdate();
+
+            var visibleCharacterCount = textElement.textInfo.characterCount;
+            if (visibleCharacterCount < 0)
+            {
+                visibleCharacterCount = 0;
+            }
+
+            if (visibleCharacterCount == 0 && string.IsNullOrWhiteSpace(text.Text) == false)
+            {
+                Debug.LogWarning(
+                    $"TMP returned zero visible characters for line {lineId}. Showing the full text immediately.");
+                textElement.maxVisibleCharacters = int.MaxValue;
+
+                foreach (var handler in handlers)
+                {
+                    handler.OnLineDisplayComplete();
+                }
+
+                return;
+            }
+
+            var secondsPerCharacter = lettersPerSecond > 0
+                ? 1d / lettersPerSecond
+                : 0d;
+            var accumulatedDelay = secondsPerCharacter;
+
+            for (var i = 0; i < visibleCharacterCount; i++)
+            {
+                while (!cancellationToken.IsCancellationRequested &&
+                       accumulatedDelay < secondsPerCharacter)
+                {
+                    var timeBeforeYield = Time.timeAsDouble;
+                    await YarnTask.Yield();
+                    var timeAfterYield = Time.timeAsDouble;
+                    accumulatedDelay += timeAfterYield - timeBeforeYield;
+                }
+
+                foreach (var handler in handlers)
+                {
+                    await handler.OnCharacterWillAppear(i, text, cancellationToken)
+                        .SuppressCancellationThrow();
+                }
+
+                textElement.maxVisibleCharacters = i + 1;
+                accumulatedDelay -= secondsPerCharacter;
+            }
+
+            textElement.maxVisibleCharacters = visibleCharacterCount;
+
+            foreach (var handler in handlers)
+            {
+                handler.OnLineDisplayComplete();
+            }
+        }
+
+        private static MarkupParseResult ResolveLineText(LocalizedLine line)
+        {
+            var textWithoutCharacterName = line.TextWithoutCharacterName;
+            if (string.IsNullOrWhiteSpace(textWithoutCharacterName.Text) == false)
+            {
+                return textWithoutCharacterName;
+            }
+
+            var fallbackText = ExtractFallbackText(line);
+            if (string.IsNullOrWhiteSpace(fallbackText) == false)
+            {
+                Debug.LogWarning(
+                    $"Line {line.TextID} produced an empty TextWithoutCharacterName. Falling back to raw localized text.");
+                return new MarkupParseResult(fallbackText, new List<MarkupAttribute>());
+            }
+
+            return line.Text;
+        }
+
+        private static string ExtractFallbackText(LocalizedLine line)
+        {
+            if (string.IsNullOrWhiteSpace(line.RawText))
+            {
+                return line.Text.Text;
+            }
+
+            var rawText = line.RawText.Trim();
+            var characterName = line.CharacterName?.Trim();
+
+            if (string.IsNullOrWhiteSpace(characterName) == false &&
+                rawText.StartsWith(characterName, StringComparison.Ordinal))
+            {
+                var contentStartIndex = characterName.Length;
+
+                while (contentStartIndex < rawText.Length &&
+                       (rawText[contentStartIndex] == ':' || char.IsWhiteSpace(rawText[contentStartIndex])))
+                {
+                    contentStartIndex++;
+                }
+
+                if (contentStartIndex < rawText.Length)
+                {
+                    return rawText.Substring(contentStartIndex);
+                }
+            }
+
+            var separatorIndex = rawText.IndexOf(':');
+            if (separatorIndex >= 0 && separatorIndex < rawText.Length - 1)
+            {
+                return rawText.Substring(separatorIndex + 1).TrimStart();
+            }
+
+            return rawText;
+        }
+
+        private void ApplyPendingEmotionForCurrentCharacter()
+        {
+            if (string.IsNullOrWhiteSpace(_pendingEmotionForNextLine) || _currentCharacter == null)
+            {
+                return;
+            }
+
+            SetEmotion(_currentCharacter.isPlayer ? EmotionTarget.Player : EmotionTarget.Npc, _pendingEmotionForNextLine);
+            _pendingEmotionForNextLine = null;
+        }
+
+        private void SetEmotion(EmotionTarget target, string emotion)
+        {
+            var resolvedTarget = ResolveEmotionTarget(target);
+            if (resolvedTarget == EmotionTarget.Unknown)
+            {
+                Debug.LogWarning("Cannot set emotion because the current dialogue speaker is unknown.");
+                return;
+            }
+
+            var normalizedEmotion = NormalizeEmotion(emotion);
+            switch (resolvedTarget)
+            {
+                case EmotionTarget.Player:
+                    _playerEmotion = normalizedEmotion;
+                    break;
+                case EmotionTarget.Npc:
+                    _npcEmotion = normalizedEmotion;
+                    break;
+            }
+
+            if (IsCurrentCharacterTarget(resolvedTarget))
+            {
+                SetMouthClosed();
+            }
+        }
+
+        private string GetEmotionForCurrentCharacter()
+        {
+            if (_currentCharacter == null)
+            {
+                return DefaultEmotion;
+            }
+
+            return _currentCharacter.isPlayer ? _playerEmotion : _npcEmotion;
+        }
+
+        private EmotionTarget ResolveEmotionTarget(EmotionTarget target)
+        {
+            if (target != EmotionTarget.Current)
+            {
+                return target;
+            }
+
+            if (_currentCharacter != null)
+            {
+                return _currentCharacter.isPlayer ? EmotionTarget.Player : EmotionTarget.Npc;
+            }
+
+            if (_activePanel == playerPanel)
+            {
+                return EmotionTarget.Player;
+            }
+
+            if (_activePanel == npcPanel)
+            {
+                return EmotionTarget.Npc;
+            }
+
+            return EmotionTarget.Unknown;
+        }
+
+        private bool IsCurrentCharacterTarget(EmotionTarget target)
+        {
+            if (_currentCharacter == null)
+            {
+                return false;
+            }
+
+            return target == EmotionTarget.Player
+                ? _currentCharacter.isPlayer
+                : !_currentCharacter.isPlayer;
+        }
+
+        private void ResetEmotions()
+        {
+            _playerEmotion = DefaultEmotion;
+            _npcEmotion = DefaultEmotion;
+            _pendingEmotionForNextLine = null;
+        }
+
+        private static string NormalizeEmotion(string emotion)
+        {
+            return string.IsNullOrWhiteSpace(emotion) ? DefaultEmotion : emotion.Trim();
+        }
+
+        private static bool TryParseEmotionTarget(string target, out EmotionTarget emotionTarget)
+        {
+            switch (target?.Trim().ToLowerInvariant())
+            {
+                case "player":
+                case "игрок":
+                    emotionTarget = EmotionTarget.Player;
+                    return true;
+                case "npc":
+                case "нпс":
+                    emotionTarget = EmotionTarget.Npc;
+                    return true;
+                case "current":
+                case "speaker":
+                case "текущий":
+                    emotionTarget = EmotionTarget.Current;
+                    return true;
+                default:
+                    emotionTarget = EmotionTarget.Unknown;
+                    return false;
+            }
+        }
+
+        private enum EmotionTarget
+        {
+            Unknown,
+            Current,
+            Player,
+            Npc,
         }
     }
 }

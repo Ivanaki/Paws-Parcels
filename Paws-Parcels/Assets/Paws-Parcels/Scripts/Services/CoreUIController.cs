@@ -46,6 +46,10 @@ namespace Services
             {
                 _coreUIManager.OpenScreenLoose();
             }));
+            _disposables.Add(messageSystem.AddListenerWithManyMessages("game_ended").Subscribe(_ =>
+            {
+                _coreUIManager.OpenScreenEndGame();
+            }));
         }
         
         private void BackUI(InputAction.CallbackContext obj = new())

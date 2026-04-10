@@ -99,7 +99,7 @@ MonoBehaviour:
     LimitTimeInSeconds: 60
   - MissionId: 2
     SendMessageOnStartMission: 
-    SendMessageOnEndMission: start_car
+    SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: bear
@@ -260,8 +260,10 @@ MonoBehaviour:
     Limit: 0
     LimitTimeInSeconds: 60
   - MissionId: 6
-    SendMessageOnStartMission: spawn_cat
-    SendMessageOnEndMission: 
+    SendMessageOnStartMission: 'spawn_cat/
+
+      show_hint:open_door'
+    SendMessageOnEndMission: hide_hint
     IsThisMissionDialogue: 0
     DialogueParent:
       NpcName: 
@@ -308,7 +310,7 @@ MonoBehaviour:
     Limit: 0
     LimitTimeInSeconds: 60
   - MissionId: 7
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: start_gas
     SendMessageOnEndMission: on_open_map
     IsThisMissionDialogue: 0
     DialogueParent:
@@ -403,4 +405,4 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
-  MoneyReward: 50
+  MoneyReward: 0

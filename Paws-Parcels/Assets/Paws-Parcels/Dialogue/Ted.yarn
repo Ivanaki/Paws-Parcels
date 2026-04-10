@@ -1,16 +1,22 @@
 ﻿title: TedNone
 ---
+<<set_emotion "smile">>
 Тед: Привет. [b]Я Тед.[/b] #line:00892de 
+<<set_emotion "smile">>
 Тед: Как твои дела? [b]Как себя чувствуешь, ощушаешь?[/b] #line:0e01304 
+<<set_emotion "smile">>
 Игрок: Найс #line:0f5afe2 
 <<add_money 5>>
+<<set_emotion "smile">>
 Тед: Хочешь шаурму? #line:0332606 
 -> Игрок: Давай (У тебя {get_money()}/10 монет) <<if get_money() >= 10>> #line:035b300 
     <<spend_money 10>>
     <<detour Eat>>
 -> Игрок: Не, пасиб #line:0114a81 
+<<set_emotion "idle">>
 Тед: Удачи тогда #line:0e49a6b 
 <<if get_money() > 6>>
+<<set_emotion "idle">>
 Тед: Этот текст показывается только если больше 6 монет #line:0b8c734 
 <<endif>>
 ===
@@ -18,17 +24,21 @@
 
 title: Eat
 ---
+<<set_emotion "smile">>
 Игрок: Какая вкусная шавуха #line:0493d64 
+<<set_emotion "smile">>
 Игрок: мммммммм #line:0398803 
 ===
 
 title: Ted2
 ---
+<<set_emotion "surprise">>
 Тед: божурвввввввввввввввввв #line:026c296 
 ===
 
 
 title: Ted2End
 ---
+<<set_emotion "smile">>
 Тед: окааааааааааааааааааааа #line:07865b6 
 ===

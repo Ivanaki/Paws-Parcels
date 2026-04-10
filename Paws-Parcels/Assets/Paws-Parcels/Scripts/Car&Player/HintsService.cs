@@ -82,7 +82,7 @@ namespace Car_Player
             messageSystem.AddListenerWithManyMessages("cutscene_ended").Subscribe(_ => _isCutsceneActive.Value = false);
 
             messageSystem.AddListenerWithManyMessages(
-                "open_screen_dialog/open_screen_map/open_screen_pause/open_screen_loose/open_screen_quests/open_popup_load_menu/open_popup_settings"
+                "open_screen_dialog/open_screen_map/open_screen_pause/open_screen_loose/open_screen_end_game/open_screen_quests/open_popup_load_menu/open_popup_settings"
             ).Subscribe(_ => _isUIOpen.Value = true);
             messageSystem.AddListenerWithManyMessages("close_screen").Subscribe(_ => _isUIOpen.Value = false);
 

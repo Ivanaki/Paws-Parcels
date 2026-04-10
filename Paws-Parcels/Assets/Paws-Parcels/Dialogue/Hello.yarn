@@ -5,7 +5,9 @@
 /// The player's name. The player chooses this. It starts empty.
 <<declare $player_name = "" as string>>
 
+<<set_emotion "smile">>
 Capsley: Hello, I am Mr Capsley. #line:0d5449e 
+<<set_emotion "idle">>
 Capsley: Who are you then? #line:01a2cdf 
 
 -> I'm Capsule, but my friends call me "Tic Tac". No idea why... #line:087d94c 
@@ -17,9 +19,12 @@ Capsley: Who are you then? #line:01a2cdf
     <<set $capsley_likes_you to false>>
 
 <<if $capsley_likes_you>>
+    <<set_emotion "smile">>
     Capsley: Nice to meet you {$player_name}! #line:086a8aa 
 <<else>>
+    <<set_emotion "sad">>
     Capsley: No need to be so rude... #line:0e18a0e 
+    <<set_emotion "sad">>
     Capsley: Maybe you should be called Grumpy {$player_name}. #line:001950a 
 <<endif>>
 ===

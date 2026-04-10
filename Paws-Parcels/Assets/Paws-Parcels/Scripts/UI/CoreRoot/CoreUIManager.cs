@@ -8,6 +8,7 @@ using Paws_Parcels.Scripts.Saves.States.GameState;
 using Quests;
 using Services;
 using UI.DialogueScreen;
+using UI.Screens.EndGame;
 using UI.Screens.LoadMenu;
 using UI.Screens.Loose;
 using UI.Screens.Map;
@@ -130,6 +131,26 @@ namespace UI.Core
 
             _messageSystem.SendCompositeMessage(this, "open_screen_loose");
         }
+
+        public void OpenScreenEndGame()
+        {
+            if (_coreRootViewModel.OpenedScreen.CurrentValue is ScreenEndGameViewModel)
+            {
+                return;
+            }
+            
+
+            _coreRootViewModel.CloseAllPopups();
+            _coreRootViewModel.OpenScreen(new ScreenEndGameViewModel(this, _coreSignals.MainMenuSignal));
+
+            _cursorService.SetCursorStateLocked(false);
+            _inputsCoreService.StopAllUiOpened();
+            _inputsCoreService.NotDisableMovementUiClosed();
+            Time.timeScale = 0f;
+            _banOpen = true;
+
+            _messageSystem.SendCompositeMessage(this, "open_screen_end_game");
+        }
         
         public void OpenScreenQuests()
         {
@@ -159,6 +180,27 @@ namespace UI.Core
             Time.timeScale = 1f;
             _messageSystem.SendCompositeMessage(this, "close_screen");
             return true;
+        }
+
+        public void CloseEndGameScreenAndContinue()
+        {
+            if (_coreRootViewModel.OpenedScreen.CurrentValue is not ScreenEndGameViewModel)
+            {
+                return;
+            }
+            
+            var closeResult = _coreRootViewModel.TryCloseScreen();
+            if (closeResult == false)
+            {
+                return;
+            }
+
+            _banOpen = false;
+            _cursorService.SetCursorStateLocked(true);
+            _inputsCoreService.StopAllUiClosed();
+            _inputsCoreService.NotDisableMovementUiClosed();
+            Time.timeScale = 1f;
+            _messageSystem.SendCompositeMessage(this, "close_screen");
         }
         
 

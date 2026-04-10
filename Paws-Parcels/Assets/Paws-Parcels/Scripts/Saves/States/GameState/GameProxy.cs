@@ -64,6 +64,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
         public ReactiveProperty<bool> IsCatInCar { get; }
         
         public ReactiveProperty<bool> StopCar { get; }
+        public ReactiveProperty<bool> HasGas { get; }
 
         public GameProxy(GameState origin)
         {
@@ -105,6 +106,9 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
 
             StopCar = new ReactiveProperty<bool>(origin.StopCar);
             StopCar.Skip(1).Subscribe(v => origin.StopCar = v);
+
+            HasGas = new ReactiveProperty<bool>(origin.HasGas);
+            HasGas.Skip(1).Subscribe(v => origin.HasGas = v);
 
             InitResources(origin);
             InitItemsDestinations(origin);
@@ -160,6 +164,7 @@ namespace Paws_Parcels.Scripts.Saves.States.GameState
             IsCarDoorOpen.Value = origin.IsCarDoorOpen;
             IsCatInCar.Value = origin.IsCatInCar;
             StopCar.Value = origin.StopCar;
+            HasGas.Value = origin.HasGas;
             
             Resources.Clear();
             origin.Resources.ForEach(questData => Resources.Add(new ResourceProxy(questData)));

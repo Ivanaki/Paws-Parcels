@@ -10,7 +10,6 @@ using Paws_Parcels.NPCDialogs;
 using Paws_Parcels.Scripts;
 using Paws_Parcels.Scripts.Car_Player;
 using Paws_Parcels.Scripts.Car_Player.Respawn;
-using Paws_Parcels.Scripts.Metrics;
 using Paws_Parcels.Scripts.Player;
 using Paws_Parcels.Scripts.Quests;
 using Paws_Parcels.Scripts.Saves.States;
@@ -64,7 +63,6 @@ namespace MotorHome.Scripts.Installers
             
             
             Container.Bind<JsonFileSerializer>().AsSingle();
-            Container.BindInterfacesAndSelfTo<SessionMetricsService>().AsSingle().NonLazy();
             Container.Bind<ScreenshotSaver>().AsSingle();
             Container.Bind<LoadService>().AsSingle();
             Container.Bind<SettingsService>().AsSingle();
@@ -111,6 +109,7 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<DestinationService>().AsSingle().NonLazy();
             Container.Bind<HintsService>().AsSingle().NonLazy();
             Container.Bind<CarStopper>().AsSingle().NonLazy();
+            Container.Bind<CarGasStateListener>().AsSingle().NonLazy();
             Container.Bind<DialogueService>().AsSingle().NonLazy();
             
 

@@ -20,7 +20,7 @@ MonoBehaviour:
   <FadeDuration>k__BackingField: 0.4
   <RespawnItemDropHeight>k__BackingField: 2
   <ItemMinHeight>k__BackingField: 0.4
-  <ButtonHoverSound>k__BackingField: {fileID: 0}
+  <ButtonHoverSound>k__BackingField: {fileID: 8300000, guid: 261c79822266d5644b19b645f41a3515, type: 3}
   <ButtonClickSound>k__BackingField: {fileID: 8300000, guid: 105acd1ce5f62ad4bb9748a596205d1e, type: 3}
   <GameplayMusicTracks>k__BackingField:
   - {fileID: 8300000, guid: d3aece84805916e409f7d84a00be7ef2, type: 3}
@@ -35,5 +35,5 @@ MonoBehaviour:
     Prefab: {fileID: 7577921397173675123, guid: 73ef96ee258ab8d4d8cfbf6d269efcb7, type: 3}
   - Name: drift
     Prefab: {fileID: 7577921397173675123, guid: 837ccc800def57f4c8cb684c38227f52, type: 3}
-  - Name: open door
+  - Name: open_door
     Prefab: {fileID: 7577921397173675123, guid: 45df6739bc2482543bd02725fee14d41, type: 3}

@@ -12,6 +12,7 @@ namespace UI.Screens.Pause
         [SerializeField] private Button _buttonOpenLoadMenu;
         [SerializeField] private Button _buttonOpenSettings;
         [SerializeField] private Button _buttonReturnToMainMenu;
+        [SerializeField] private string _surveyUrl = "https://forms.gle/7hC7C166Y6qKhNMq5";
 
         private void OnEnable()
         {
@@ -60,7 +61,19 @@ namespace UI.Screens.Pause
 
         private void OnButtonReturnToMainMenuClicked()
         {
+            OpenSurveyUrl();
             ViewModel.RequestGoToMainMenu();
+        }
+        
+        private void OpenSurveyUrl()
+        {
+            if (string.IsNullOrWhiteSpace(_surveyUrl))
+            {
+                Debug.LogWarning("End game survey URL is not configured.");
+                return;
+            }
+
+            Application.OpenURL(_surveyUrl);
         }
     }
 }

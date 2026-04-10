@@ -141,4 +141,52 @@ MonoBehaviour:
       Messages: []
     Limit: 0
     LimitTimeInSeconds: 60
+  - MissionId: 3
+    SendMessageOnStartMission: 
+    SendMessageOnEndMission: game_ended
+    IsThisMissionDialogue: 1
+    DialogueParent:
+      NpcName: elk
+      MainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Elk_3
+      AfterMainDialogue:
+        project: {fileID: 7545569452688597077, guid: 777eca8aba5c54e459813d5174acc964, type: 3}
+        nodeName: Elk_3_a
+    HasBuildingDestination: 0
+    BuildingDestinationId: school
+    HasDestination: 1
+    DestinationParent:
+      IsMany: 0
+      Destination:
+        Id: elk
+        NotHighlightOnAwake: 0
+        OffHighlightMessage: 
+        OnHighlightMessage: 
+      ManyDestinations:
+        Destinations:
+        - Id: fence_1
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: pickup
+          OnHighlightMessage: drop
+        - Id: destination_putter_fence
+          NotHighlightOnAwake: 0
+          OffHighlightMessage: 'drop/
+
+            destination_putter_fence-put'
+          OnHighlightMessage: 'pickup/
+
+            destination_putter_fence-take'
+    IsMany: 0
+    Message:
+      Message: dialogue_ended:Elk_3
+      HasCount: 0
+      MessageCount: 2
+      MinusMessage: 'destination_putter_bear-taked:fence_1/
+
+        destination_putter_bear-taked:ball_1'
+    ManyMessages:
+      Messages: []
+    Limit: 0
+    LimitTimeInSeconds: 60
   MoneyReward: 150

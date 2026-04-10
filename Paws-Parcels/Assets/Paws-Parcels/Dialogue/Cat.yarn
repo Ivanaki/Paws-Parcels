@@ -1,16 +1,25 @@
 ﻿title: Cat
 ---
+<<set_emotion "surprise">>
 Котик: Мяу!? #line:007f6ba 
+<<set_emotion "idle">>
 Игрок: Кто ты? #line:0e11aca 
+<<set_emotion "sad">>
 Котик: Я... Я не знаю... #line:00c6460 
+<<set_emotion "smile">>
 Игрок: Тише, тише. Лучше скажи, где твой дом, и я тебя туда отвезу. #line:0caff64 
+<<set_emotion "sad">>
 Котик: Я не знаю, где мой дом. #line:0e5285b 
+<<set_emotion "idle">>
 Игрок: Как давно ты тут? #line:04a45c7 
+<<set_emotion "sad">>
 Котик: Тут холодно и голодно #line:007f1de 
+<<set_emotion "smile">>
 Игрок: Ладно, садись в машину, придумаем, что с тобой делать #line:00b139c 
 ===
 
 title: Cat_0_a
 ---
+<<set_emotion "sad">>
 Котик: Мне холодно! #line:0877da1 
 ===

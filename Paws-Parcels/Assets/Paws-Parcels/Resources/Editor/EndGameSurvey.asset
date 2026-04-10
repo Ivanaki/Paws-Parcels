@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a84d6a20d5b4eb0bb7db6c52172b01a, type: 3}
+  m_Name: EndGameSurvey
+  m_EditorClassIdentifier: Assembly-CSharp::UI.Screens.EndGame.EndGameSurveySO
+  ExternalSurveyUrl: 
+  Questions:
+  - QuestionId: ending_emotions
+    Text:
+      Russian: "\u041A\u0430\u043A\u0438\u0435 \u0443 \u0432\u0430\u0441 \u043E\u0441\u0442\u0430\u043B\u0438\u0441\u044C \u044D\u043C\u043E\u0446\u0438\u0438 \u043F\u043E\u0441\u043B\u0435 \u0444\u0438\u043D\u0430\u043B\u0430?"
+      English: What emotions did the ending leave you with?
+    Answers:
+    - AnswerId: very_positive
+      Text:
+        Russian: "\u041E\u0447\u0435\u043D\u044C \u043F\u043E\u043B\u043E\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435"
+        English: Very positive
+    - AnswerId: neutral
+      Text:
+        Russian: "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u044C\u043D\u044B\u0435"
+        English: Neutral
+    - AnswerId: negative
+      Text:
+        Russian: "\u0421\u043A\u043E\u0440\u0435\u0435 \u043D\u0435\u0433\u0430\u0442\u0438\u0432\u043D\u044B\u0435"
+        English: Mostly negative
+  - QuestionId: ending_clarity
+    Text:
+      Russian: "\u041D\u0430\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0432\u0430\u043C \u0431\u044B\u043B\u043E \u043F\u043E\u043D\u044F\u0442\u043D\u043E, \u0447\u0442\u043E \u0438\u043C\u0435\u043D\u043D\u043E \u043F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u043E \u0432 \u0444\u0438\u043D\u0430\u043B\u0435?"
+      English: How clear was it to you what happened in the ending?
+    Answers:
+    - AnswerId: completely_clear
+      Text:
+        Russian: "\u0412\u0441\u0435 \u0431\u044B\u043B\u043E \u043F\u043E\u043D\u044F\u0442\u043D\u043E"
+        English: Everything was clear
+    - AnswerId: partly_clear
+      Text:
+        Russian: "\u041F\u043E\u043D\u044F\u043B(\u0430) \u043D\u0435 \u0432\u0441\u0435"
+        English: I understood only part of it
+    - AnswerId: unclear
+      Text:
+        Russian: "\u0424\u0438\u043D\u0430\u043B \u043E\u0441\u0442\u0430\u043B\u0441\u044F \u043D\u0435\u043F\u043E\u043D\u044F\u0442\u043D\u044B\u043C"
+        English: The ending felt unclear
+  - QuestionId: ending_satisfaction
+    Text:
+      Russian: "\u041D\u0430\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0432\u0430\u0441 \u0443\u0441\u0442\u0440\u043E\u0438\u043B \u0442\u0430\u043A\u043E\u0439 \u0444\u0438\u043D\u0430\u043B?"
+      English: How satisfied were you with this ending?
+    Answers:
+    - AnswerId: fully_satisfied
+      Text:
+        Russian: "\u041F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E \u0443\u0441\u0442\u0440\u043E\u0438\u043B"
+        English: Fully satisfied
+    - AnswerId: okay_but_could_be_better
+      Text:
+        Russian: "\u041D\u043E\u0440\u043C\u0430\u043B\u044C\u043D\u043E, \u043D\u043E \u043C\u043E\u0436\u043D\u043E \u043B\u0443\u0447\u0448\u0435"
+        English: It was okay, but it could be better
+    - AnswerId: not_satisfied
+      Text:
+        Russian: "\u041D\u0435 \u0443\u0441\u0442\u0440\u043E\u0438\u043B"
+        English: Not satisfied

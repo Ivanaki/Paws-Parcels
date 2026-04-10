@@ -82,8 +82,7 @@ MonoBehaviour:
     ItemsInsideCar: []
     IsPlayerInCar: 0
     IsCarDoorOpen: 0
-    Resources:
-    - ResourcesType: 0
-      Amount: 900000
+    Resources: []
     IsCatInCar: 0
     StopCar: 0
+    HasGas: 0

@@ -65,11 +65,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
-    m_OverrideState: 1
-    m_Value: {x: 1, y: 0.93453914, z: 0.8123459, w: 0}
+    m_OverrideState: 0
+    m_Value: {x: 0.97483826, y: 1, z: 0.9873868, w: 0}
   gain:
-    m_OverrideState: 1
-    m_Value: {x: 0.96595705, y: 0.8176692, z: 1, w: 0.10845004}
+    m_OverrideState: 0
+    m_Value: {x: 0.9826661, y: 1, z: 0.98307174, w: 0.10845004}
 --- !u!114 &-5660547592714063222
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -352,13 +352,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29fa0085f50d5e54f8144f766051a691, type: 3}
   m_Name: FilmGrain
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.FilmGrain
-  active: 1
+  active: 0
   type:
     m_OverrideState: 1
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.167
   response:
     m_OverrideState: 1
     m_Value: 0.59
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.LensDistortion
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
     m_Value: 0.3
@@ -736,13 +736,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.7718343, z: 0.99838644, w: 0.010306092}
+    m_Value: {x: 0.84139603, y: 0.8113155, z: 1, w: 0.010306092}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.8222962, y: 1, z: 0.87592965, w: 0}
+    m_Value: {x: 0.86694527, y: 1, z: 0.9396583, w: 0}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8092297, z: 0.6242657, w: 0.081337534}
+    m_Value: {x: 1, y: 0.8916062, z: 0.72898316, w: 0.081337534}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0

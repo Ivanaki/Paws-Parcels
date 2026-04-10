@@ -816,6 +816,7 @@ MonoBehaviour:
   _buttonOpenLoadMenu: {fileID: 4570335433797918790}
   _buttonOpenSettings: {fileID: 3950184270005643248}
   _buttonReturnToMainMenu: {fileID: 668394641420501619}
+  _surveyUrl: https://forms.gle/7hC7C166Y6qKhNMq5
 --- !u!1 &3223880557619035805
 GameObject:
   m_ObjectHideFlags: 0
