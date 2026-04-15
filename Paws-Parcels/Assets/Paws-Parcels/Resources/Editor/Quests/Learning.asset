@@ -98,7 +98,7 @@ MonoBehaviour:
     Limit: 0
     LimitTimeInSeconds: 60
   - MissionId: 2
-    SendMessageOnStartMission: 
+    SendMessageOnStartMission: on_open_quests
     SendMessageOnEndMission: 
     IsThisMissionDialogue: 1
     DialogueParent:

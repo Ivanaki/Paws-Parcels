@@ -110510,6 +110510,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.1650162
       objectReference: {fileID: 0}
+    - target: {fileID: 3432206816689420586, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432206816689420586, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3582412472463973297, guid: a2917ec6579897d47975508de0954229, type: 3}
       propertyPath: m_Name
       value: MyCar
@@ -110582,6 +110590,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.00000002701301
       objectReference: {fileID: 0}
+    - target: {fileID: 7114584781598570084, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8231022058776070445, guid: a2917ec6579897d47975508de0954229, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.722
@@ -110593,6 +110605,14 @@ PrefabInstance:
     - target: {fileID: 8231022058776070445, guid: a2917ec6579897d47975508de0954229, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597635918676341626, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9455999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597635918676341626, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2558
       objectReference: {fileID: 0}
     - target: {fileID: 8670370649087439267, guid: a2917ec6579897d47975508de0954229, type: 3}
       propertyPath: m_Height

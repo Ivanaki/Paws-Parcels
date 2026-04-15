@@ -107,7 +107,7 @@ namespace MotorHome.Scripts.Installers
             Container.Bind<QuestsService>().AsSingle().NonLazy();
             Container.Bind<SettingsStateProvider>().AsSingle().NonLazy();
             Container.Bind<DestinationService>().AsSingle().NonLazy();
-            Container.Bind<HintsService>().AsSingle().NonLazy();
+            
             Container.Bind<CarStopper>().AsSingle().NonLazy();
             Container.Bind<CarGasStateListener>().AsSingle().NonLazy();
             Container.Bind<DialogueService>().AsSingle().NonLazy();

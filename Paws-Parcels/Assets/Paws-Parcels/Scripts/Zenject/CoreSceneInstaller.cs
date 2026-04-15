@@ -1,3 +1,4 @@
+using Car_Player;
 using Game.Root;
 using Items;
 using Items.MessageSpawnItems;
@@ -33,6 +34,7 @@ namespace MotorHome.Scripts.Installers
             Container.BindInterfacesTo<GameplayMusicService>().AsSingle().NonLazy();
             
             Container.BindInterfacesAndSelfTo<InputsCoreService>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<HintsService>().AsSingle().NonLazy();
             
             //визуализация предметов в мире
             Container.BindInterfacesAndSelfTo<ItemsInWorldVisualizer>().AsSingle().NonLazy();
