@@ -102,6 +102,7 @@ namespace Destinations
         {
             base.OnDisable();
             _subscription?.Dispose();
+            _disposables?.Dispose();
         }
 
         public override void Interact()

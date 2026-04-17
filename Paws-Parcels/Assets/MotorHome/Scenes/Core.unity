@@ -38922,7 +38922,7 @@ Transform:
   - {fileID: 209435855}
   - {fileID: 1431853126}
   - {fileID: 4861106154631368428}
-  - {fileID: 912246299649461257}
+  - {fileID: 1495356451}
   - {fileID: 2728018021443166939}
   - {fileID: 188569935}
   - {fileID: 206478044}
@@ -79917,7 +79917,7 @@ GameObject:
   - component: {fileID: 1185044601}
   - component: {fileID: 1185044600}
   - component: {fileID: 1185044599}
-  m_Layer: 7
+  m_Layer: 16
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86660,7 +86660,7 @@ GameObject:
   - component: {fileID: 1321610285}
   - component: {fileID: 1321610286}
   - component: {fileID: 1321610287}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Donaut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101655,6 +101655,38 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9145160378802305644, guid: 92ba8f1692a15834ea54b902dc0d0ffa, type: 3}
   m_PrefabInstance: {fileID: 1491784965}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1495356450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1495356451}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1495356451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495356450}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 912246299649461257}
+  m_Father: {fileID: 467497303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498262657
 GameObject:
   m_ObjectHideFlags: 0
@@ -110454,6 +110486,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 192671752293563475, guid: a2917ec6579897d47975508de0954229, type: 3}
+      propertyPath: _yOffsetWhenDrop
+      value: 1.85
+      objectReference: {fileID: 0}
     - target: {fileID: 1346246749493358439, guid: a2917ec6579897d47975508de0954229, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -146045,7 +146081,7 @@ GameObject:
   - component: {fileID: 8116006085089670489}
   - component: {fileID: 3573082296786541191}
   - component: {fileID: 2382280817459814691}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Torus.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160077,7 +160113,7 @@ Transform:
   m_GameObject: {fileID: 568337017167222451}
   serializedVersion: 2
   m_LocalRotation: {x: 0.017696002, y: -0.70883584, z: -0.015226062, w: 0.7049871}
-  m_LocalPosition: {x: -174.37366, y: -0.437, z: 9.189}
+  m_LocalPosition: {x: -174.37366, y: -0.43700027, z: 9.189087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -160088,7 +160124,7 @@ Transform:
   - {fileID: 1302102693}
   - {fileID: 274262347}
   - {fileID: 1159248037}
-  m_Father: {fileID: 467497303}
+  m_Father: {fileID: 1495356451}
   m_LocalEulerAnglesHint: {x: 0.193, y: -90.316, z: -2.668}
 --- !u!65 &912246299649461258
 BoxCollider:
@@ -160150,7 +160186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fe0c080af44e14abec13618a0e5a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.NpcHeadLookAt
-  targetOffset: {x: 0, y: 1.45, z: 0}
+  targetOffset: {x: 0, y: 1.08, z: 0}
   detectionRadius: 5.37
   loseRadius: 6.05
   maxViewAngle: 75
@@ -160271,8 +160307,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450652314303940}
-  - component: {fileID: 919132148392634240}
-  - component: {fileID: 919132148392634239}
   - component: {fileID: 919132148392634241}
   m_Layer: 7
   m_Name: gates
@@ -160281,55 +160315,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &919132148392634239
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148392634238}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.114218, y: 2.4630175, z: 1.7}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &919132148392634240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148392634238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea94ddab61a4c558167696cbc0e224b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Destinations.ItemDestinationPutter
-  _destinationShowUiPosition: {fileID: 0}
-  _uiShowTypeId: interact
-  _mapShowTypeId: dot
-  _uiShowTextCodeWithItem: put_item
-  _uiShowTextCodeWithoutItem: take_item
-  _destinationId: destination_putter_fence
-  _activeLocations:
-  - None
-  _dontShowWithItemInHands: 0
-  _selectedActivationDistance: 20
-  _itemDestinationPutterId: destination_putter_fence
-  _itemsPositions:
-  - {fileID: 16921288}
-  _avalibleItemsTypes:
-  - fence
-  _itemsClearDatas: []
 --- !u!114 &919132148392634241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180826,7 +180811,7 @@ GameObject:
   - component: {fileID: 1099324139368084049}
   - component: {fileID: 6913429570031169531}
   - component: {fileID: 6913429570031169532}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}

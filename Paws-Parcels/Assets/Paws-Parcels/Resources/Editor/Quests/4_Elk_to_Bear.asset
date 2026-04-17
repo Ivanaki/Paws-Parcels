@@ -19,7 +19,9 @@ MonoBehaviour:
     SendMessageOnStartMission: remove_milk
     SendMessageOnEndMission: 'spawn_podholst/
 
-      spawn_holst'
+      spawn_holst/
+
+      game_ended'
     IsThisMissionDialogue: 1
     DialogueParent:
       NpcName: elk

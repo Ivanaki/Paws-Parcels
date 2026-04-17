@@ -7,7 +7,6 @@ using Paws_Parcels.Scripts.Saves.States.GameState;
 using R3;
 using Services;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 using Object = UnityEngine.Object;
 
@@ -48,6 +47,7 @@ namespace Car_Player
         private readonly DialogueService _dialogueService;
         private PlayerHint _playerHint;
         private CarHint _carHint;
+        private Hint _hint;
 
         private readonly BehaviorSubject<GameObject> _prefabImage = new(null);
         private readonly ReactiveProperty<Transform> _currentHintPosition = new(null);
@@ -57,50 +57,55 @@ namespace Car_Player
         private readonly ReactiveProperty<bool> _isUIOpen = new(false);
 
         private GameObject _pendingPrefab;
+        private bool _isDisposed;
 
-        private CompositeDisposable _disposables;
+        private CompositeDisposable _disposables = new();
 
         public void Initialize()
         {
-            _disposables = new CompositeDisposable();
-            
-            _gameProxy.IsPlayerInCar.Subscribe(_ => UpdateHint());
+            _disposables.Add(_gameProxy.IsPlayerInCar.Subscribe(_ => UpdateHint()));
 
-            var t = new GameObject("Hint").AddComponent<Hint>();
-            t.SetReactive(_prefabImage);
+            _hint = new GameObject("Hint").AddComponent<Hint>();
+            _hint.SetReactive(_prefabImage);
 
-            _currentHintPosition.Subscribe(hintTransform =>
+            _disposables.Add(_currentHintPosition.Subscribe(hintTransform =>
             {
-                if (t == null) return;
-                t.transform.SetParent(hintTransform);
-                t.transform.localPosition = Vector3.zero;
-                t.transform.localRotation = Quaternion.identity;
-            });
+                if (_hint == null) return;
+                _hint.transform.SetParent(hintTransform);
+                _hint.transform.localPosition = Vector3.zero;
+                _hint.transform.localRotation = Quaternion.identity;
+            }));
 
-            _prefabImage.Subscribe(image =>
+            _disposables.Add(_prefabImage.Subscribe(image =>
             {
-                if (image == null) _canvasUiVisualizer.HideOnCanvas(t);
-                else _canvasUiVisualizer.ShowOnCanvas(t);
-            });
+                if (_hint == null) return;
+
+                if (image == null) _canvasUiVisualizer.HideOnCanvas(_hint);
+                else _canvasUiVisualizer.ShowOnCanvas(_hint);
+            }));
 
             // --- Блокировка хинтов ---
 
-            _dialogueService.IsDialogRunning.Subscribe(val => _isDialogActive.Value = val);
+            _disposables.Add(_dialogueService.IsDialogRunning.Subscribe(val => _isDialogActive.Value = val));
 
-            _messageSystem.AddListenerWithManyMessages("cutscene_started").Subscribe(_ => _isCutsceneActive.Value = true);
-            _messageSystem.AddListenerWithManyMessages("cutscene_ended").Subscribe(_ => _isCutsceneActive.Value = false);
+            _disposables.Add(_messageSystem.AddListenerWithManyMessages("cutscene_started")
+                .Subscribe(_ => _isCutsceneActive.Value = true));
+            _disposables.Add(_messageSystem.AddListenerWithManyMessages("cutscene_ended")
+                .Subscribe(_ => _isCutsceneActive.Value = false));
 
-            _messageSystem.AddListenerWithManyMessages(
+            _disposables.Add(_messageSystem.AddListenerWithManyMessages(
                 "open_screen_dialog/open_screen_map/open_screen_pause/open_screen_loose/open_screen_end_game/open_screen_quests/open_popup_load_menu/open_popup_settings"
-            ).Subscribe(_ => _isUIOpen.Value = true);
-            _messageSystem.AddListenerWithManyMessages("close_screen").Subscribe(_ => _isUIOpen.Value = false);
+            ).Subscribe(_ => _isUIOpen.Value = true));
+            _disposables.Add(_messageSystem.AddListenerWithManyMessages("close_screen")
+                .Subscribe(_ => _isUIOpen.Value = false));
 
             var isBlocked = Observable.CombineLatest(
                 _isDialogActive, _isCutsceneActive, _isUIOpen,
                 (dialog, cutscene, ui) => dialog || cutscene || ui
             ).ToReadOnlyReactiveProperty();
+            _disposables.Add(isBlocked);
 
-            isBlocked.Subscribe(blocked =>
+            _disposables.Add(isBlocked.Subscribe(blocked =>
             {
                 if (blocked)
                 {
@@ -110,29 +115,22 @@ namespace Car_Player
                 {
                     _prefabImage.OnNext(_pendingPrefab);
                 }
-            });
+            }));
 
             // --- Показ/скрытие хинтов ---
 
-            _messageSystem.AddListenerWithManyMessages("show_hint").Subscribe(mes =>
+            _disposables.Add(_messageSystem.AddListenerWithManyMessages("show_hint").Subscribe(mes =>
             {
-                //var prefab = editor.EditorSettings.Hints.FirstOrDefault(x => x.Name == mes.parameter)?.Prefab;
                 var prefab = HintsData.instance?.Hints?.FirstOrDefault(x => x.Name == mes.parameter)?.Prefab;
                 _pendingPrefab = prefab;
-                //if (!isBlocked.CurrentValue)
-                if (_prefabImage.Value == prefab)
-                {
-                    
-                }
-
                 _prefabImage.OnNext(prefab);
-            });
+            }));
 
-            _messageSystem.AddListenerWithManyMessages("hide_hint").Subscribe(_ =>
+            _disposables.Add(_messageSystem.AddListenerWithManyMessages("hide_hint").Subscribe(_ =>
             {
                 _pendingPrefab = null;
                 _prefabImage.OnNext(null);
-            });
+            }));
         }
         
         public HintsService(GameProxy gameProxy, MessageSystem messageSystem, EditorDataService editor,
@@ -146,6 +144,8 @@ namespace Car_Player
 
         private void UpdateHint()
         {
+            if (_isDisposed) return;
+
             _currentHintPosition.Value = _gameProxy.IsPlayerInCar.Value
                 ? (_carHint != null ? _carHint.transform : null)
                 : (_playerHint != null ? _playerHint.transform : null);
@@ -153,6 +153,8 @@ namespace Car_Player
         
         public void SetPlayerHint(PlayerHint playerHint)
         {
+            if (_isDisposed) return;
+
             _playerHint = playerHint;
             UpdateHint();
             if (_currentHintPosition.Value == null && _playerHint != null)
@@ -161,6 +163,8 @@ namespace Car_Player
 
         public void SetCarHint(CarHint carHint)
         {
+            if (_isDisposed) return;
+
             _carHint = carHint;
             UpdateHint();
             if (_currentHintPosition.Value == null && _carHint != null)
@@ -169,12 +173,23 @@ namespace Car_Player
 
         public void Dispose()
         {
+            if (_isDisposed) return;
+            _isDisposed = true;
+
+            _disposables?.Dispose();
+
+            if (_hint != null)
+            {
+                _canvasUiVisualizer.HideOnCanvas(_hint);
+                Object.Destroy(_hint.gameObject);
+                _hint = null;
+            }
+
             _prefabImage?.Dispose();
             _currentHintPosition?.Dispose();
             _isDialogActive?.Dispose();
             _isCutsceneActive?.Dispose();
             _isUIOpen?.Dispose();
-            _disposables?.Dispose();
         }
 
        
