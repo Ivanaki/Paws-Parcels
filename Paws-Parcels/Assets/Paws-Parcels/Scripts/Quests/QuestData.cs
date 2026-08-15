@@ -14,5 +14,18 @@ namespace Paws_Parcels.Scripts.Quests
         public float MissionTimerSeconds;
         public float MissionTimerTotalSeconds;
         //public List<string> MessagesProgres = new();
+
+        public QuestData() { }
+
+        public QuestData(QuestData source)
+        {
+            Id = source.Id;
+            CurrentMission = source.CurrentMission;
+            ActiveDestinations = new List<string>(source.ActiveDestinations);
+            MessageProgress = source.MessageProgress;
+            HasMissionTimer = source.HasMissionTimer;
+            MissionTimerSeconds = source.MissionTimerSeconds;
+            MissionTimerTotalSeconds = source.MissionTimerTotalSeconds;
+        }
     }
 }
